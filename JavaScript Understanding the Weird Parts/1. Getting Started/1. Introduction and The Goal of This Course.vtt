@@ -1,0 +1,374 @@
+WEBVTT
+
+1
+00:00:00.930 --> 00:00:01.500
+JavaScript.
+
+2
+00:00:02.540 --> 00:00:06.090
+It's one of the most popular
+programming languages today.
+
+3
+00:00:07.680 --> 00:00:09.330
+Maybe you're new to it.
+
+4
+00:00:09.330 --> 00:00:11.170
+Maybe you've been using it for years.
+
+5
+00:00:12.330 --> 00:00:15.930
+But you can't deny that
+some of the most important,
+
+6
+00:00:15.930 --> 00:00:21.060
+some of the most widely used software
+in the world is written in it.
+
+7
+00:00:21.060 --> 00:00:28.230
+But the question is, how well do you
+really know this surprisingly powerful,
+
+8
+00:00:28.230 --> 00:00:32.496
+sometimes odd, and
+often beautiful programming language?
+
+9
+00:00:32.496 --> 00:00:36.140
+Welcome to JavaScript.
+
+10
+00:00:36.140 --> 00:00:39.119
+Understanding the weird parts.
+
+11
+00:00:41.140 --> 00:00:42.820
+Hi, I'm Tony Alisea.
+
+12
+00:00:42.820 --> 00:00:47.620
+I'm a 15 year veteran of web application
+development and user experience design and
+
+13
+00:00:47.620 --> 00:00:49.290
+welcome to this course.
+
+14
+00:00:49.290 --> 00:00:50.590
+This course is on JavaScript.
+
+15
+00:00:51.650 --> 00:00:54.840
+Let's be clear, right from the start,
+
+16
+00:00:54.840 --> 00:00:59.900
+this course is not about making
+a web page interactive in jQuery.
+
+17
+00:00:59.900 --> 00:01:02.480
+Were the in and outs of Node.js.
+
+18
+00:01:02.480 --> 00:01:07.600
+This course is focused on JavaScript,
+the programming language.
+
+19
+00:01:07.600 --> 00:01:12.720
+In this course, you're going to learn
+how JavaScript works under the hood.
+
+20
+00:01:12.720 --> 00:01:15.740
+We'll delve into advanced concepts.
+
+21
+00:01:15.740 --> 00:01:20.920
+You'll come to understand things that
+the people that built jQuery understand.
+
+22
+00:01:20.920 --> 00:01:26.400
+And that will make you a better web
+programmer, a better Node.js programmer,
+
+23
+00:01:26.400 --> 00:01:29.920
+or however else you'll be using
+your JavaScript knowledge.
+
+24
+00:01:29.920 --> 00:01:35.320
+Perhaps you're coming from being
+a newer JavaScript programmer or
+
+25
+00:01:35.320 --> 00:01:38.220
+perhaps you've been using JavaScript for
+years.
+
+26
+00:01:38.220 --> 00:01:42.040
+Or maybe you've been involved in
+some other programming language and
+
+27
+00:01:42.040 --> 00:01:43.170
+are coming to JavaScript.
+
+28
+00:01:44.400 --> 00:01:49.128
+Other way, this course will
+help you to understand that
+
+29
+00:01:49.128 --> 00:01:55.430
+JavaScript falsely looks like
+other programming languages.
+
+30
+00:01:55.430 --> 00:01:58.940
+Languages like Java or C++ or C#.
+
+31
+00:01:58.940 --> 00:02:02.140
+Java Script is nothing
+like those languages.
+
+32
+00:02:02.140 --> 00:02:07.150
+It's a different concept,
+a different mindset, a different paradigm.
+
+33
+00:02:08.310 --> 00:02:10.650
+This course will help
+you to understand that.
+
+34
+00:02:10.650 --> 00:02:14.860
+And while many programmers learning
+JavaScript or using JavaScript,
+
+35
+00:02:14.860 --> 00:02:19.030
+find some of its elements as they dig
+into the more advanced features, odd or
+
+36
+00:02:19.030 --> 00:02:21.390
+difficult to learn, or weird.
+
+37
+00:02:22.660 --> 00:02:26.380
+You're going to find that
+when you truly understand it,
+
+38
+00:02:26.380 --> 00:02:30.100
+understand how JavaScript works and
+why it works the way it does.
+
+39
+00:02:31.300 --> 00:02:35.830
+You'll discover that JavaScript
+is a deceptively powerful and
+
+40
+00:02:35.830 --> 00:02:40.620
+beautiful programming language and it's
+one of the reasons why it's so popular.
+
+41
+00:02:41.960 --> 00:02:45.110
+Now, that actually leads to my philosophy,
+
+42
+00:02:45.110 --> 00:02:49.548
+when it comes to learning
+code my philosophy is this.
+
+43
+00:02:49.548 --> 00:02:54.690
+Don't imitate, understand.
+
+44
+00:02:54.690 --> 00:02:58.676
+The biggest mistake I think
+people make in designing
+
+45
+00:02:58.676 --> 00:03:03.370
+programming courses and in looking for
+programming courses and
+
+46
+00:03:03.370 --> 00:03:08.810
+books and materials is looking for
+or providing just code to imitate.
+
+47
+00:03:08.810 --> 00:03:12.830
+Now don't get me wrong,
+examples are very important but
+
+48
+00:03:12.830 --> 00:03:17.490
+examples parroting writing down
+the code that someone else wrote for
+
+49
+00:03:17.490 --> 00:03:19.600
+you on a screen or on a piece of paper.
+
+50
+00:03:19.600 --> 00:03:21.360
+Only takes you so far.
+
+51
+00:03:21.360 --> 00:03:25.660
+As soon as you're in the real world and
+you have to debug a difficult problem or
+
+52
+00:03:25.660 --> 00:03:28.120
+you have to start some
+code from scratch that
+
+53
+00:03:28.120 --> 00:03:30.630
+isn't anything like what
+you've seen in your examples.
+
+54
+00:03:31.760 --> 00:03:32.520
+You're gonna fall down.
+
+55
+00:03:32.520 --> 00:03:33.640
+You're gonna have problems.
+
+56
+00:03:33.640 --> 00:03:36.230
+You won't be able to move forward.
+
+57
+00:03:36.230 --> 00:03:40.900
+However, if you deeply understand
+what the tool is doing for
+
+58
+00:03:40.900 --> 00:03:43.450
+you and
+the programming language is just a tool.
+
+59
+00:03:44.510 --> 00:03:47.650
+Then you'll be able to
+debug those hard problems.
+
+60
+00:03:47.650 --> 00:03:51.210
+Come up with innovative and
+interesting solutions.
+
+61
+00:03:51.210 --> 00:03:53.970
+Be able to look at other
+people's really good code and
+
+62
+00:03:53.970 --> 00:03:57.000
+understand it, borrow from it,
+or enhance it.
+
+63
+00:03:58.120 --> 00:04:02.140
+So in this course,
+we'll look at plenty of coding examples.
+
+64
+00:04:02.140 --> 00:04:04.640
+But we'll focus first
+on the understanding.
+
+65
+00:04:05.660 --> 00:04:09.020
+The deep understanding of
+the programming language.
+
+66
+00:04:09.020 --> 00:04:11.740
+So that then the examples make sense, and
+
+67
+00:04:11.740 --> 00:04:17.420
+then you can use your knowledge in
+the real world, in brand new situations.
+
+68
+00:04:17.420 --> 00:04:20.550
+That said,
+it is expected that you have very,
+
+69
+00:04:20.550 --> 00:04:24.800
+very basic JavaScript knowledge
+as you come into this course.
+
+70
+00:04:24.800 --> 00:04:30.170
+So you understand what a JavaScript
+file is, variables, functions.
+
+71
+00:04:30.170 --> 00:04:31.630
+Basic understanding of functions,
+
+72
+00:04:31.630 --> 00:04:35.090
+we're gonna dive much deeper into
+functions through this course.
+
+73
+00:04:35.090 --> 00:04:36.460
+And loops.
+
+74
+00:04:36.460 --> 00:04:39.070
+Just a very basic knowledge
+a beginning programmer might have.
+
+75
+00:04:39.070 --> 00:04:41.530
+If you have that, you're good to go.
+
+76
+00:04:42.880 --> 00:04:44.400
+So let's get started.
+
+77
+00:04:44.400 --> 00:04:47.410
+We'll dive in and
+I think you'll come to appreciate
+
+78
+00:04:47.410 --> 00:04:50.550
+this beautiful programming
+language JavaScript all the more.
+
+79
+00:04:51.780 --> 00:04:53.910
+Let's understand JavaScript.
+
+80
+00:04:54.980 --> 00:04:55.640
+Let's get started.
+
