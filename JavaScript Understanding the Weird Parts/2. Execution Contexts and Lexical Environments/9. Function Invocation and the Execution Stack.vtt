@@ -1,0 +1,524 @@
+WEBVTT
+
+1
+00:00:02.690 --> 00:00:08.040
+All this time we've been talking about
+the global execution context and
+
+2
+00:00:08.040 --> 00:00:10.430
+how it's created and executed.
+
+3
+00:00:11.660 --> 00:00:15.690
+But we also mentioned that functions
+are special in regards to this.
+
+4
+00:00:16.690 --> 00:00:20.570
+Here we'll talk about function
+indication and the execution stack.
+
+5
+00:00:20.570 --> 00:00:25.470
+And we're going to introduce this
+concept that will be fundamental to
+
+6
+00:00:25.470 --> 00:00:30.620
+understanding some very important
+advanced concepts in JavaScript.
+
+7
+00:00:31.750 --> 00:00:36.662
+Before we do that, though,
+we've rather casually used a word here,
+
+8
+00:00:36.662 --> 00:00:40.511
+a word that sounds a lot more
+complex than it really is.
+
+9
+00:00:40.511 --> 00:00:45.480
+Big word alert- invocation.
+
+10
+00:00:45.480 --> 00:00:52.950
+That just means running a function or
+calling a function.
+
+11
+00:00:52.950 --> 00:00:55.320
+So when we say we invoke the function or
+
+12
+00:00:55.320 --> 00:01:00.270
+function invocation,
+we just mean hey, run the function.
+
+13
+00:01:00.270 --> 00:01:03.560
+In JavaScript,
+we do that by using parenthesis.
+
+14
+00:01:03.560 --> 00:01:06.610
+Put the name of the function,
+and then put parenthesis.
+
+15
+00:01:06.610 --> 00:01:09.930
+When you did that,
+you invoked the function.
+
+16
+00:01:09.930 --> 00:01:11.910
+You told the JavaScript engine to run it.
+
+17
+00:01:12.930 --> 00:01:18.260
+So now let's talk about what happens when
+you invoke a function in JavaScript.
+
+18
+00:01:19.270 --> 00:01:21.669
+To do that,
+let's look at a simple example.
+
+19
+00:01:25.246 --> 00:01:30.490
+So I have a function b that I've created,
+it does nothing.
+
+20
+00:01:31.680 --> 00:01:35.740
+A function a that calls,
+or invokes function b.
+
+21
+00:01:37.160 --> 00:01:40.010
+And then I'm invoking function a.
+
+22
+00:01:41.530 --> 00:01:43.990
+This is a very simply example but
+
+23
+00:01:43.990 --> 00:01:47.140
+it helps us to understand what's
+happening under the hood.
+
+24
+00:01:48.250 --> 00:01:51.240
+Now here comes this fundamental
+very important concept.
+
+25
+00:01:53.930 --> 00:01:57.830
+Let's step through what we
+know is going to happen first
+
+26
+00:01:58.980 --> 00:02:02.500
+If I put this code in
+a JavaScript file and ran it.
+
+27
+00:02:03.930 --> 00:02:06.020
+First of all, what's going to be created?
+
+28
+00:02:08.410 --> 00:02:11.100
+That's right- a Global Execution Context.
+
+29
+00:02:12.380 --> 00:02:16.509
+The parser will parse the code and
+then the compiler,
+
+30
+00:02:16.509 --> 00:02:21.739
+the program that's going to interpret
+your code, will start up and
+
+31
+00:02:21.739 --> 00:02:26.070
+say, well I need to create
+a Global Execution Context.
+
+32
+00:02:26.070 --> 00:02:29.980
+It'll create the variable this,
+it'll create a global object,
+
+33
+00:02:29.980 --> 00:02:33.860
+if you're in the browser it will
+create a window object, and
+
+34
+00:02:33.860 --> 00:02:37.172
+then it will attach these functions to it.
+
+35
+00:02:37.172 --> 00:02:38.890
+It will set up the memory space for
+
+36
+00:02:38.890 --> 00:02:44.590
+them in the creation phase of
+the execution context, that first phase.
+
+37
+00:02:44.590 --> 00:02:49.090
+So b and a will be in memory, and then
+the code will be executed line by line.
+
+38
+00:02:50.260 --> 00:02:53.060
+Now, it won't execute anything
+in those functions because
+
+39
+00:02:53.060 --> 00:02:54.790
+they haven't been invoked.
+
+40
+00:02:54.790 --> 00:03:00.670
+But when it hits a at the bottom and
+it says I'm supposed to invoke or
+
+41
+00:03:00.670 --> 00:03:05.020
+call or run that function a.
+
+42
+00:03:05.020 --> 00:03:07.110
+Here's the thing that actually happens.
+
+43
+00:03:09.370 --> 00:03:14.210
+A new execution context is created and
+
+44
+00:03:14.210 --> 00:03:17.390
+placed on what's called
+the execution stack.
+
+45
+00:03:18.830 --> 00:03:22.860
+And a stack is just what it sounds like,
+
+46
+00:03:22.860 --> 00:03:26.290
+one on top of the other
+on top of the other.
+
+47
+00:03:26.290 --> 00:03:30.530
+And whichever one is on top is
+the one that's currently running.
+
+48
+00:03:31.850 --> 00:03:37.690
+So anytime you execute or
+invoke a function in JavaScript,
+
+49
+00:03:37.690 --> 00:03:43.120
+a new execution context is created and
+put on the execution stack.
+
+50
+00:03:44.570 --> 00:03:49.240
+So the execution context is created,
+just like the global one.
+
+51
+00:03:49.240 --> 00:03:54.570
+It will have it's own space for
+variables and functions.
+
+52
+00:03:54.570 --> 00:03:57.190
+It will go through that create phase, and
+
+53
+00:03:57.190 --> 00:04:01.110
+then it will execute line by line
+the code within the function.
+
+54
+00:04:02.960 --> 00:04:06.940
+However, if I have another
+function invocation,
+
+55
+00:04:08.100 --> 00:04:10.600
+it's going to stop at
+that line of code and
+
+56
+00:04:10.600 --> 00:04:15.620
+create another execution context and
+run that code.
+
+57
+00:04:16.830 --> 00:04:18.970
+Now in the case of b,
+there is no code to run,
+
+58
+00:04:18.970 --> 00:04:24.660
+but this is how function
+invocation happens in JavaScript.
+
+59
+00:04:24.660 --> 00:04:29.560
+Every function creates a new
+execution context which runs through
+
+60
+00:04:29.560 --> 00:04:33.640
+the create phase then executes the code
+line by line within the function.
+
+61
+00:04:34.960 --> 00:04:38.040
+When b finishes,
+because it's at the top of the stack,
+
+62
+00:04:39.140 --> 00:04:43.640
+it will get popped off the stack,
+then a, then back down to Global.
+
+63
+00:04:45.680 --> 00:04:47.850
+Notice that this doesn't matter.
+
+64
+00:04:47.850 --> 00:04:50.940
+The order lexically doesn't matter.
+
+65
+00:04:51.940 --> 00:04:59.080
+Nor does the rest of the code that happens
+to be surrounding those function calls.
+
+66
+00:04:59.080 --> 00:05:05.030
+For example,
+let's suppose we put a above b and
+
+67
+00:05:05.030 --> 00:05:07.860
+we had some other code
+surrounding these function calls.
+
+68
+00:05:08.960 --> 00:05:09.690
+That doesn't matter.
+
+69
+00:05:10.760 --> 00:05:16.450
+Because even though lexically a is
+above b, remember what's happening.
+
+70
+00:05:16.450 --> 00:05:21.190
+Both of those functions are already
+in memory during the create phase
+
+71
+00:05:21.190 --> 00:05:24.030
+of the initial global execution context.
+
+72
+00:05:25.810 --> 00:05:31.790
+Those "var c," "var d" that you see
+down below each of those function calls,
+
+73
+00:05:31.790 --> 00:05:33.010
+let's talk about what's gonna happen.
+
+74
+00:05:34.450 --> 00:05:41.040
+First of all,
+a at the bottom will invoke function a.
+
+75
+00:05:41.040 --> 00:05:45.530
+So, that will be the next
+put on the execution stack.
+
+76
+00:05:45.530 --> 00:05:49.140
+The execution context for the function a.
+
+77
+00:05:50.850 --> 00:05:55.640
+Then, that becomes the currently
+running code which means that very last
+
+78
+00:05:55.640 --> 00:06:00.922
+line at the bottom, var d below the a,
+that's not going to be run yet.
+
+79
+00:06:00.922 --> 00:06:04.970
+Because JavaScript is synchronous,
+one line at at time.
+
+80
+00:06:04.970 --> 00:06:10.380
+And what's running is the current code
+within the current execution context.
+
+81
+00:06:10.380 --> 00:06:12.480
+Which is the one at the top of the stack.
+
+82
+00:06:12.480 --> 00:06:16.390
+So when a is at the top of the stack,
+it will start to run line by line.
+
+83
+00:06:16.390 --> 00:06:19.170
+It hits that line where it invokes b.
+
+84
+00:06:19.170 --> 00:06:23.910
+B creates a new execution context, so
+that becomes the top of the stack, and
+
+85
+00:06:23.910 --> 00:06:25.820
+so it is running line by line.
+
+86
+00:06:27.000 --> 00:06:30.090
+And it runs its single line of code there,
+and
+
+87
+00:06:30.090 --> 00:06:36.270
+only when it finishes will
+we go back to finishing a.
+
+88
+00:06:36.270 --> 00:06:40.060
+Why?
+Because when the function finishes,
+
+89
+00:06:40.060 --> 00:06:44.750
+the execution context is what's
+called popped off of the stack.
+
+90
+00:06:45.890 --> 00:06:50.090
+So now, what's the current
+execution context again?
+
+91
+00:06:50.090 --> 00:06:50.730
+a.
+
+92
+00:06:50.730 --> 00:06:54.120
+So it runs the next line
+of code that hadn't yet
+
+93
+00:06:54.120 --> 00:06:57.530
+been run inside that execution context.
+
+94
+00:06:57.530 --> 00:06:59.200
+Meaning that var c line.
+
+95
+00:07:00.360 --> 00:07:04.610
+And then, when a is finished,
+it's popped off the stack.
+
+96
+00:07:04.610 --> 00:07:06.430
+And the next line of code that hasn't yet
+
+97
+00:07:06.430 --> 00:07:11.680
+been run in the global execution context
+is run, which is that very last var d.
+
+98
+00:07:13.190 --> 00:07:14.020
+See how that works?
+
+99
+00:07:15.230 --> 00:07:17.100
+Every time a function is called,
+
+100
+00:07:17.100 --> 00:07:21.220
+a new execution context is created for
+that function.
+
+101
+00:07:21.220 --> 00:07:24.350
+The this variable is created for
+that function.
+
+102
+00:07:25.400 --> 00:07:30.430
+The variables within it are set
+up during the creation phase.
+
+103
+00:07:32.180 --> 00:07:34.420
+And the code is executed line by line.
+
+104
+00:07:34.420 --> 00:07:39.340
+But every time a function is invoked,
+even if it's invoking itself,
+
+105
+00:07:39.340 --> 00:07:43.930
+a new execution context is created,
+put on top of the stack, and
+
+106
+00:07:43.930 --> 00:07:46.630
+then when the function finishes,
+it's popped off.
+
+107
+00:07:46.630 --> 00:07:49.990
+And whatever's at the top is
+what's currently running.
+
+108
+00:07:49.990 --> 00:07:52.550
+Line by line, synchronously.
+
+109
+00:07:54.450 --> 00:07:58.860
+This concept is very important to have
+in your mind as your mental model for
+
+110
+00:07:58.860 --> 00:08:01.800
+what's happening as you're
+invoking functions.
+
+111
+00:08:01.800 --> 00:08:05.150
+Because it has to do with the rest
+of what we're going to discuss.
+

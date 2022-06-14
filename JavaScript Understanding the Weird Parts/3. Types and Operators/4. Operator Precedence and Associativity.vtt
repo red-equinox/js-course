@@ -1,0 +1,975 @@
+WEBVTT
+
+1
+00:00:02.263 --> 00:00:06.710
+Operator Precedence and Associativity.
+
+2
+00:00:06.710 --> 00:00:12.170
+We'll extend our discussion of operators
+to discuss these two very important terms.
+
+3
+00:00:12.170 --> 00:00:17.030
+But precedence and associativity,
+those again are some of those big
+
+4
+00:00:17.030 --> 00:00:21.520
+words that describe things that are a lot
+simpler then what they sound like.
+
+5
+00:00:24.090 --> 00:00:25.440
+Big word alert.
+
+6
+00:00:25.440 --> 00:00:27.910
+First of all, operator precedence.
+
+7
+00:00:30.210 --> 00:00:36.980
+Operator precedence just means which
+operator function gets called first.
+
+8
+00:00:36.980 --> 00:00:41.650
+And there's more then one on
+the same line of executable code.
+
+9
+00:00:43.480 --> 00:00:47.690
+And functions then are called
+an order of precedence.
+
+10
+00:00:47.690 --> 00:00:53.280
+The higher precedence wins so
+if I have more then one operator,
+
+11
+00:00:54.580 --> 00:00:59.570
+the JavaScript engine will call or
+invoke the operator with the higher
+
+12
+00:00:59.570 --> 00:01:04.400
+precedence first, or the highest,
+and then down the line from there.
+
+13
+00:01:04.400 --> 00:01:06.790
+We'll see an example in just a bit.
+
+14
+00:01:06.790 --> 00:01:08.000
+But before we do that,
+
+15
+00:01:08.000 --> 00:01:11.920
+we need to add on one more concept
+that goes along with this.
+
+16
+00:01:11.920 --> 00:01:14.840
+We mentioned it operator associativity.
+
+17
+00:01:16.980 --> 00:01:18.510
+Yeah, another big word alert.
+
+18
+00:01:19.640 --> 00:01:22.290
+It's not as complex as it sounds either.
+
+19
+00:01:22.290 --> 00:01:24.050
+Associativity.
+
+20
+00:01:24.050 --> 00:01:29.130
+That's what order
+an operator gets called in.
+
+21
+00:01:29.130 --> 00:01:33.600
+So again we're talking about which
+operator function in what order.
+
+22
+00:01:33.600 --> 00:01:38.230
+In this case, either left to right
+associativity, or call left associativity.
+
+23
+00:01:38.230 --> 00:01:39.900
+Or right to left.
+
+24
+00:01:39.900 --> 00:01:41.350
+Which is called right associativity.
+
+25
+00:01:42.600 --> 00:01:46.440
+And this means when the operator
+functions have the same precedence.
+
+26
+00:01:46.440 --> 00:01:51.330
+So if I have a bunch of
+operators on a line of code,
+
+27
+00:01:52.630 --> 00:01:55.350
+the precedence tells me which
+ones gets called first.
+
+28
+00:01:55.350 --> 00:01:59.920
+But if I have some of them, they all have
+the same precedence, then what do I do?
+
+29
+00:02:00.960 --> 00:02:05.300
+Well, depending on the associativity of
+that operator, we're either going to call
+
+30
+00:02:05.300 --> 00:02:09.600
+the functions left to right, or
+we'll call the functions right to left.
+
+31
+00:02:10.670 --> 00:02:12.086
+Alright, let's look at some examples.
+
+32
+00:02:12.086 --> 00:02:17.450
+Alright, so let's say I'm going
+
+33
+00:02:17.450 --> 00:02:23.501
+to have another calculation here.
+
+34
+00:02:25.300 --> 00:02:30.420
+And I'm going to say three plus
+four times five and output this.
+
+35
+00:02:31.530 --> 00:02:33.450
+Now what do you think
+the answer is going to be?
+
+36
+00:02:35.620 --> 00:02:40.420
+Well if you remember from mathematics
+class, there is an order,
+
+37
+00:02:40.420 --> 00:02:44.780
+a precedence in mathematics in
+general to these operators.
+
+38
+00:02:44.780 --> 00:02:49.770
+And JavaScript does the same thing,
+because there's one of two options.
+
+39
+00:02:49.770 --> 00:02:55.610
+These are two function calls, and
+remember JavaScript it synchronous,
+
+40
+00:02:55.610 --> 00:02:58.440
+so it's not going to try
+to do this simultaneously.
+
+41
+00:02:58.440 --> 00:03:01.220
+It's gonna call one, and
+then call the other.
+
+42
+00:03:01.220 --> 00:03:05.355
+But which one gets called first.
+
+43
+00:03:05.355 --> 00:03:09.140
+Well first of all,
+we'll start with operator precedence.
+
+44
+00:03:11.250 --> 00:03:13.420
+And in order to answer this question,
+
+45
+00:03:13.420 --> 00:03:17.700
+we need to know what the operator
+precedence is in JavaScript.
+
+46
+00:03:17.700 --> 00:03:20.570
+There's a terrific link which
+I'll provide in the next lecture.
+
+47
+00:03:22.340 --> 00:03:26.205
+On the Mozilla Developer Network or
+MDN That's
+
+48
+00:03:26.205 --> 00:03:31.810
+developer.mozilla.org, called
+operator precedence for JavaScript.
+
+49
+00:03:31.810 --> 00:03:36.480
+And it actually has a table
+of operator precedence.
+
+50
+00:03:36.480 --> 00:03:40.420
+What I've done is taken this table and
+provided you a PDF.
+
+51
+00:03:40.420 --> 00:03:43.980
+Which you can download, it's attached
+to this lecture for download, and
+
+52
+00:03:43.980 --> 00:03:46.610
+we'll use this PDF to discuss this.
+
+53
+00:03:46.610 --> 00:03:50.290
+So again remember that
+what's happening is,
+
+54
+00:03:50.290 --> 00:03:55.020
+these are two functions,
+operators are special types of functions.
+
+55
+00:03:55.020 --> 00:04:00.420
+And so the one with the higher
+precedence gets called first.
+
+56
+00:04:00.420 --> 00:04:06.160
+So, the bigger the number on this table,
+that means the one with the biggest number
+
+57
+00:04:06.160 --> 00:04:09.185
+will get called first and the second
+biggest number will get called second.
+
+58
+00:04:09.185 --> 00:04:09.740
+Etcetera.
+
+59
+00:04:09.740 --> 00:04:13.130
+Until all of the operators are done.
+
+60
+00:04:13.130 --> 00:04:16.030
+So, if I go done to
+this section of the PDF
+
+61
+00:04:16.030 --> 00:04:20.600
+to explain what these little symbols
+here mean, this is the operator.
+
+62
+00:04:21.790 --> 00:04:24.640
+There are a large number
+of operators in JavaScript,
+
+63
+00:04:24.640 --> 00:04:27.150
+you can see them all in this PDF.
+
+64
+00:04:27.150 --> 00:04:30.800
+These three dots just mean
+other code around it.
+
+65
+00:04:30.800 --> 00:04:34.600
+So in this case multiplication
+is an asterisk,
+
+66
+00:04:34.600 --> 00:04:38.220
+division, addition,
+subtraction, remainder.
+
+67
+00:04:38.220 --> 00:04:40.390
+And then there's this code around it.
+
+68
+00:04:40.390 --> 00:04:42.490
+So a left parameter and
+a right parameters.
+
+69
+00:04:42.490 --> 00:04:45.900
+So these are the parameters
+being passed to that function.
+
+70
+00:04:47.230 --> 00:04:51.470
+So in my sample I have multiplication and
+addition.
+
+71
+00:04:53.030 --> 00:04:55.430
+Notice that multiplication
+has a precedence of 14,
+
+72
+00:04:55.430 --> 00:05:00.170
+and addition has a precedence of 13.
+
+73
+00:05:00.170 --> 00:05:04.160
+And with operator precedence
+the higher one gets called first.
+
+74
+00:05:05.230 --> 00:05:08.900
+So multiplication is higher,
+has a higher precedence than addition.
+
+75
+00:05:10.370 --> 00:05:15.910
+That means that what's going to
+happen is this will get called first.
+
+76
+00:05:15.910 --> 00:05:17.840
+And remember that this returns a value.
+
+77
+00:05:18.880 --> 00:05:22.990
+So, what's really happening
+is four times five is run.
+
+78
+00:05:22.990 --> 00:05:26.855
+This operator function is invoked and
+returns 20.
+
+79
+00:05:26.855 --> 00:05:29.145
+Four times five.
+
+80
+00:05:29.145 --> 00:05:32.620
+And then,
+because this has the lower precedence,
+
+81
+00:05:32.620 --> 00:05:38.400
+this is called using that returned
+value as the second parameter.
+
+82
+00:05:38.400 --> 00:05:41.830
+And so that's called, and it's 23.
+
+83
+00:05:41.830 --> 00:05:46.000
+Equals is also an operator.
+
+84
+00:05:46.000 --> 00:05:50.860
+And, essentially, what we're doing,
+is setting a equal to 23.
+
+85
+00:05:50.860 --> 00:05:56.745
+If the precedence was difference,
+then it would do three plus four.
+
+86
+00:05:56.745 --> 00:06:00.170
+If that was first, that would be seven.
+
+87
+00:06:00.170 --> 00:06:03.260
+And seven times five is 35.
+
+88
+00:06:03.260 --> 00:06:07.220
+So we end up with as35.
+
+89
+00:06:07.220 --> 00:06:12.210
+So the precedence makes a big
+difference in the value we get.
+
+90
+00:06:12.210 --> 00:06:16.820
+23, if times or
+multiplication has the higher precedence.
+
+91
+00:06:16.820 --> 00:06:17.950
+And 35.
+
+92
+00:06:17.950 --> 00:06:21.390
+If addition has the higher precedence, but
+
+93
+00:06:21.390 --> 00:06:27.120
+we've already seen that multiplication has
+the higher precedence in JavaScript so
+
+94
+00:06:27.120 --> 00:06:30.360
+when I run this I get 23.
+
+95
+00:06:30.360 --> 00:06:36.960
+I get 23 because this function
+is called first and I get a 20.
+
+96
+00:06:36.960 --> 00:06:41.900
+And then this function is called and
+I get a 23.
+
+97
+00:06:41.900 --> 00:06:43.110
+Make sense?
+
+98
+00:06:44.430 --> 00:06:47.940
+That's a very important
+concept to understand.
+
+99
+00:06:47.940 --> 00:06:50.780
+Some of the strange bugs or
+things that look weird,
+
+100
+00:06:50.780 --> 00:06:55.530
+anyway, that can happen to people
+when writing JavaScript code.
+
+101
+00:06:57.200 --> 00:07:00.370
+Now what if more than one operator, and
+
+102
+00:07:00.370 --> 00:07:06.510
+I could have many in a row,
+has the same associativity?
+
+103
+00:07:06.510 --> 00:07:08.370
+Let's go back to our table.
+
+104
+00:07:08.370 --> 00:07:11.330
+Notice that in some cases, for
+example, multiplication, division, and
+
+105
+00:07:11.330 --> 00:07:15.310
+remainder, All have
+the same associativity, or
+
+106
+00:07:15.310 --> 00:07:19.430
+I could have the same
+operator on one line of code.
+
+107
+00:07:20.490 --> 00:07:25.590
+Well let's take a moment and look at this.
+
+108
+00:07:25.590 --> 00:07:27.510
+I'm gonna change what I'm doing here.
+
+109
+00:07:27.510 --> 00:07:31.777
+I'm gonna say var a = 2, and
+
+110
+00:07:31.777 --> 00:07:36.356
+var b = 3, and c = 4.
+
+111
+00:07:36.356 --> 00:07:40.040
+So I now have three variables,
+with three different values.
+
+112
+00:07:41.050 --> 00:07:43.935
+And then, I'm going to run a statement.
+
+113
+00:07:43.935 --> 00:07:49.420
+a = b = c.
+
+114
+00:07:49.420 --> 00:07:56.880
+And then I'll console.log all
+of these three variables.
+
+115
+00:07:56.880 --> 00:07:59.900
+All right, let's look at this.
+
+116
+00:07:59.900 --> 00:08:04.570
+I have three different values, and
+
+117
+00:08:04.570 --> 00:08:07.962
+then I'm setting a = b = c.
+
+118
+00:08:09.750 --> 00:08:12.820
+So in the end they should all be equal but
+the question is,
+
+119
+00:08:12.820 --> 00:08:17.250
+what value will they all have
+when I have console.log this?
+
+120
+00:08:18.560 --> 00:08:23.249
+Will they all be two, will they all
+be three, or will they all be four?
+
+121
+00:08:24.590 --> 00:08:25.180
+What do you think?
+
+122
+00:08:26.956 --> 00:08:32.280
+Take a look at the results when I refresh.
+
+123
+00:08:33.990 --> 00:08:35.430
+They're all equal to four.
+
+124
+00:08:36.490 --> 00:08:36.990
+Why?
+
+125
+00:08:38.700 --> 00:08:41.030
+Because of associativity.
+
+126
+00:08:42.150 --> 00:08:43.566
+That's this column here.
+
+127
+00:08:43.566 --> 00:08:46.630
+And the table.
+
+128
+00:08:49.393 --> 00:08:54.370
+Associativity is either left associativity
+meaning the furthest one to the left,
+
+129
+00:08:54.370 --> 00:08:58.630
+the furthest operator to
+the left will be called first.
+
+130
+00:08:58.630 --> 00:09:02.330
+Or right to left or right associativity.
+
+131
+00:09:02.330 --> 00:09:05.650
+Meaning the operator furthest to
+the right will be called first, and
+
+132
+00:09:05.650 --> 00:09:07.000
+that's really it.
+
+133
+00:09:07.000 --> 00:09:08.540
+Pretty simple.
+
+134
+00:09:08.540 --> 00:09:12.610
+All right, so the operator I'm
+using is the equals operator or
+
+135
+00:09:12.610 --> 00:09:17.930
+the assignment of equal,
+it's one of the assignment operators.
+
+136
+00:09:19.630 --> 00:09:22.140
+Notice that it's associativity.
+
+137
+00:09:22.140 --> 00:09:23.510
+Is right to left.
+
+138
+00:09:24.740 --> 00:09:30.590
+So, the equals operator
+is right associative.
+
+139
+00:09:30.590 --> 00:09:33.280
+It has right to left associativity.
+
+140
+00:09:33.280 --> 00:09:36.710
+Meaning that,
+when I have it on a single line,
+
+141
+00:09:36.710 --> 00:09:43.380
+since it's the same precedence, it then
+looks at the associativity to decide.
+
+142
+00:09:43.380 --> 00:09:45.250
+Which one should be called first?
+
+143
+00:09:45.250 --> 00:09:47.110
+So it goes to the furthest
+one to the right,
+
+144
+00:09:47.110 --> 00:09:50.050
+because it's right to left associativity.
+
+145
+00:09:50.050 --> 00:09:52.230
+So it'll call this one first.
+
+146
+00:09:52.230 --> 00:09:53.960
+If it was left to right associativity,
+
+147
+00:09:53.960 --> 00:09:56.360
+we'd call this one first,
+cuz that's farthest to the left.
+
+148
+00:09:56.360 --> 00:09:58.520
+But no, it's right to left.
+
+149
+00:09:58.520 --> 00:10:00.770
+So this is furthest to
+the right on this line.
+
+150
+00:10:01.820 --> 00:10:03.780
+And so it caused this.
+
+151
+00:10:03.780 --> 00:10:06.620
+So it will set b equal to c and what is c?
+
+152
+00:10:06.620 --> 00:10:07.120
+Four.
+
+153
+00:10:08.710 --> 00:10:10.180
+Now here's the interesting thing.
+
+154
+00:10:11.510 --> 00:10:17.150
+We said that operators generally take
+two parameters and return a value.
+
+155
+00:10:18.780 --> 00:10:23.630
+So, the plus operator returned the value
+of the addition of the two parameters.
+
+156
+00:10:23.630 --> 00:10:25.270
+But, what does equals return?
+
+157
+00:10:25.270 --> 00:10:28.370
+All right,
+let's go back to our console window.
+
+158
+00:10:29.720 --> 00:10:32.910
+I'm gonna set b equal to c.
+
+159
+00:10:32.910 --> 00:10:34.440
+So, it will run this operator,
+
+160
+00:10:34.440 --> 00:10:37.170
+and the console window will
+show me the return value.
+
+161
+00:10:39.810 --> 00:10:44.670
+See the method or
+the function call that was invoked.
+
+162
+00:10:44.670 --> 00:10:48.840
+It did the work of setting the value and
+memory of b equal to the value and
+
+163
+00:10:48.840 --> 00:10:49.460
+memory of c.
+
+164
+00:10:50.870 --> 00:10:56.840
+And then returned the value of
+the parameter on the right,
+
+165
+00:10:56.840 --> 00:10:59.250
+the parameter that we're setting equal to.
+
+166
+00:10:59.250 --> 00:11:01.140
+So it gave me back a four.
+
+167
+00:11:01.140 --> 00:11:03.710
+So this statement
+actually returns a value.
+
+168
+00:11:03.710 --> 00:11:06.270
+It's a function that returns a value.
+
+169
+00:11:06.270 --> 00:11:09.060
+So that means I can call it in order.
+
+170
+00:11:09.060 --> 00:11:12.850
+So since this is right
+to left associativity,
+
+171
+00:11:12.850 --> 00:11:15.630
+this is furthest to the left,
+this is furthest to the right.
+
+172
+00:11:15.630 --> 00:11:17.120
+This is called first.
+
+173
+00:11:17.120 --> 00:11:22.210
+It sets B equal to four because C is four,
+and returns a four.
+
+174
+00:11:22.210 --> 00:11:25.140
+And then this will be called.
+
+175
+00:11:25.140 --> 00:11:30.690
+So A will simply be set equal to four
+because that's what this returned.
+
+176
+00:11:32.230 --> 00:11:33.060
+A is 4.
+
+177
+00:11:33.060 --> 00:11:39.460
+So, when this is done calling,
+first This operator then this operator,
+
+178
+00:11:39.460 --> 00:11:43.430
+against the returned value A, B and
+
+179
+00:11:43.430 --> 00:11:48.758
+C are all equal to four.
+
+180
+00:11:48.758 --> 00:11:52.290
+Makes sense?
+
+181
+00:11:52.290 --> 00:11:57.126
+That's operator precedence and
+associativity precedence helps us
+
+182
+00:11:57.126 --> 00:12:02.290
+determine which functions run first and
+so does associativity.
+
+183
+00:12:02.290 --> 00:12:08.110
+Associativity comes into play when two or
+more operators have the same precedence.
+
+184
+00:12:08.110 --> 00:12:13.010
+So, if an operator has precedence 14 and
+another one 13, 14 gets run first.
+
+185
+00:12:13.010 --> 00:12:17.560
+But if they both have 13 or some other
+value, then it's either left to right or
+
+186
+00:12:17.560 --> 00:12:18.230
+right to left.
+
+187
+00:12:19.440 --> 00:12:26.120
+And we can see this in action if we
+go back to our original example where
+
+188
+00:12:28.300 --> 00:12:34.050
+we said a was equal to
+three plus four times five.
+
+189
+00:12:34.050 --> 00:12:35.380
+Like that, something like that.
+
+190
+00:12:38.050 --> 00:12:43.501
+So this ended up being 23 because
+precedent said four times five,
+
+191
+00:12:43.501 --> 00:12:45.271
+20 plus three.
+
+192
+00:12:45.271 --> 00:12:49.980
+But notice in our operator precedence
+table what's at the very top
+
+193
+00:12:49.980 --> 00:12:51.020
+of the precedence table.
+
+194
+00:12:51.020 --> 00:12:55.870
+It's called grouping and that means I
+can put something inside parentheses.
+
+195
+00:12:55.870 --> 00:12:59.920
+That's our special operator in this case
+and unlike some of these other operators
+
+196
+00:12:59.920 --> 00:13:04.170
+it simply takes whatever
+is inside of it and says.
+
+197
+00:13:04.170 --> 00:13:05.520
+Run this first.
+
+198
+00:13:05.520 --> 00:13:08.960
+So, whatever's in the parens
+always gets executed first.
+
+199
+00:13:08.960 --> 00:13:11.460
+Those functions get called first.
+
+200
+00:13:11.460 --> 00:13:18.860
+So if I put three plus four in
+parentheses, now, what's going to happen?
+
+201
+00:13:18.860 --> 00:13:22.800
+Well, JavaScript looks, and
+sees that parentheses have.
+
+202
+00:13:22.800 --> 00:13:25.760
+A level 19, highest possible precedence.
+
+203
+00:13:25.760 --> 00:13:29.150
+And so runs this function
+that's inside of it first.
+
+204
+00:13:29.150 --> 00:13:36.510
+A plus, and then three plus four is seven,
+and we'll then multiply that times five.
+
+205
+00:13:36.510 --> 00:13:40.679
+So if I run this I get 35.
+
+206
+00:13:41.980 --> 00:13:46.090
+Without the parentheses
+the precedence rule says, well,
+
+207
+00:13:46.090 --> 00:13:51.180
+this has a higher precedence than plus,
+and so I get 23.
+
+208
+00:13:51.180 --> 00:13:57.230
+With the parens it changes the order
+that the functions are executed and
+
+209
+00:13:57.230 --> 00:13:58.440
+that's all it's really doing.
+
+210
+00:13:59.650 --> 00:14:04.100
+So, operator precedence and associativity.
+
+211
+00:14:05.880 --> 00:14:06.380
+Got that?
+
+212
+00:14:07.520 --> 00:14:09.170
+This is important again,
+
+213
+00:14:09.170 --> 00:14:14.300
+because JavaScript is dynamically
+typed and we'll see that very soon.
+

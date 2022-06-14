@@ -1,0 +1,294 @@
+WEBVTT
+
+1
+00:00:01.770 --> 00:00:05.286
+So we've talked about execution context,
+execution environment,
+
+2
+00:00:05.286 --> 00:00:10.400
+variable environment, lexical environment.
+
+3
+00:00:10.400 --> 00:00:15.110
+And all of these things ultimately
+are defining what's called scope.
+
+4
+00:00:16.850 --> 00:00:18.710
+Especially when we talked
+about the scope chain,
+
+5
+00:00:20.080 --> 00:00:24.480
+that outer reference that
+any running function has.
+
+6
+00:00:25.890 --> 00:00:28.110
+So big word alert.
+
+7
+00:00:29.580 --> 00:00:33.630
+Scope is where a variable
+is available in your code.
+
+8
+00:00:34.880 --> 00:00:38.350
+And sometimes it has to do with it's
+really even the same variable or
+
+9
+00:00:38.350 --> 00:00:41.840
+a new copy,
+like if you called the same function twice
+
+10
+00:00:41.840 --> 00:00:45.840
+it each gets its own execution context and
+though it looks like the same variable,
+
+11
+00:00:45.840 --> 00:00:48.300
+it's actually two different
+variables in memory.
+
+12
+00:00:49.570 --> 00:00:54.070
+But in the end, we're understanding that
+all these things we've been talking about
+
+13
+00:00:54.070 --> 00:00:58.680
+have helped us to understand something
+that a lot of developers find confusing.
+
+14
+00:00:58.680 --> 00:01:03.000
+But because of diving under
+the hood of JavaScript and
+
+15
+00:01:03.000 --> 00:01:07.660
+seeing how it deals with variables and
+functions.
+
+16
+00:01:07.660 --> 00:01:14.280
+I hope you see how this helps us
+understand scope on a deeper level and
+
+17
+00:01:14.280 --> 00:01:19.310
+in a way that it doesn't seem so odd, or
+so strange, or so difficult to anticipate.
+
+18
+00:01:20.900 --> 00:01:23.470
+This again goes to my
+philosophy about learning code.
+
+19
+00:01:24.570 --> 00:01:28.340
+Some people say that they
+learn code better by example.
+
+20
+00:01:28.340 --> 00:01:32.090
+And again, examples are important and
+we've looked at some already.
+
+21
+00:01:32.090 --> 00:01:37.210
+But understanding how things really
+work makes you a better developer.
+
+22
+00:01:37.210 --> 00:01:39.540
+It makes you a better coder.
+
+23
+00:01:39.540 --> 00:01:43.500
+I stand by that philosophy
+because I've seen it work.
+
+24
+00:01:43.500 --> 00:01:48.960
+I seen it in production environments
+with large teams of coders.
+
+25
+00:01:48.960 --> 00:01:53.590
+Those that learn how things
+really work under the hood,
+
+26
+00:01:53.590 --> 00:01:57.720
+solve problems better and
+are better coders overall in the end.
+
+27
+00:01:57.720 --> 00:02:01.520
+All right, so we've talked about scope.
+
+28
+00:02:01.520 --> 00:02:03.180
+I just want to mention one more thing.
+
+29
+00:02:03.180 --> 00:02:08.010
+The next version of JavaScript
+which is called ECMAScript 6 or
+
+30
+00:02:08.010 --> 00:02:12.010
+sometimes ECMAScript 2015, or just ES6.
+
+31
+00:02:12.010 --> 00:02:15.460
+Is introducing a new way
+of declaring variables.
+
+32
+00:02:16.730 --> 00:02:18.470
+It's called let.
+
+33
+00:02:18.470 --> 00:02:22.380
+This is used or
+can be used instead of var.
+
+34
+00:02:22.380 --> 00:02:23.890
+Although, it's not replacing it.
+
+35
+00:02:23.890 --> 00:02:25.100
+Var will still be around.
+
+36
+00:02:26.190 --> 00:02:32.810
+But let allows the JavaScript engine
+to use what's called block scoping.
+
+37
+00:02:32.810 --> 00:02:38.230
+So you can declare a variable,
+just like you would with var and
+
+38
+00:02:38.230 --> 00:02:41.530
+during the execution
+phase where it's created,
+
+39
+00:02:41.530 --> 00:02:44.950
+the variable is still placed into
+memory and set to undefined.
+
+40
+00:02:46.070 --> 00:02:51.900
+However, you're not allowed to use
+let until the line of code is run
+
+41
+00:02:51.900 --> 00:02:56.110
+during the execution phase that
+actually declares the variable.
+
+42
+00:02:56.110 --> 00:03:01.370
+So if you tried to use c in this
+example before the let c = true,
+
+43
+00:03:01.370 --> 00:03:03.050
+you'd get an error.
+
+44
+00:03:03.050 --> 00:03:05.570
+Now it's still in memory but
+the engine just won't allow it.
+
+45
+00:03:06.760 --> 00:03:11.420
+The other important thing is that
+it's declared inside a block.
+
+46
+00:03:13.110 --> 00:03:17.350
+A block's in general
+defined by curly braces, so
+
+47
+00:03:17.350 --> 00:03:20.310
+inside an if statement or a for
+loop or something like that.
+
+48
+00:03:21.440 --> 00:03:26.460
+When that variable is declared inside
+that block, it's only available
+
+49
+00:03:26.460 --> 00:03:30.980
+inside that block at that period
+of time for the running code.
+
+50
+00:03:32.250 --> 00:03:34.880
+This is true even for four loops.
+
+51
+00:03:34.880 --> 00:03:39.850
+So if you have a loop and are running
+the same code over and over but
+
+52
+00:03:39.850 --> 00:03:42.980
+you have a let statement,
+you'll actually get
+
+53
+00:03:42.980 --> 00:03:47.170
+a different variable in memory
+each time the loop is running.
+
+54
+00:03:48.710 --> 00:03:53.390
+So this allows for what's called
+block scoping as we mentioned,
+
+55
+00:03:53.390 --> 00:03:59.120
+which others who are use to other
+programing languages may be familiar with.
+
+56
+00:03:59.120 --> 00:04:02.150
+But again you can use both let and
+var in ES6.
+
+57
+00:04:03.510 --> 00:04:05.790
+And it's good to know and
+understand how both work.
+
+58
+00:04:06.960 --> 00:04:09.670
+We'll talk about this more
+later in the course but
+
+59
+00:04:09.670 --> 00:04:10.890
+I just wanted to mention it now.
+
+60
+00:04:11.930 --> 00:04:16.370
+That there are more options available
+in the next version of JavaScript for
+
+61
+00:04:16.370 --> 00:04:17.460
+how you scope a variable.
+

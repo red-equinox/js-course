@@ -1,0 +1,297 @@
+WEBVTT
+
+1
+00:00:01.740 --> 00:00:03.750
+It's time for another Framework Aside.
+
+2
+00:00:04.780 --> 00:00:09.504
+Let's talk a bit about Whitespace.
+
+3
+00:00:09.504 --> 00:00:11.140
+Okay, Big Word Alert.
+
+4
+00:00:14.735 --> 00:00:20.090
+Whitespace, invisible characters
+that create literal space
+
+5
+00:00:20.090 --> 00:00:26.430
+in your written code,
+like carriage returns, tabs, or spaces.
+
+6
+00:00:26.430 --> 00:00:28.000
+They make your code more readable.
+
+7
+00:00:29.640 --> 00:00:35.760
+But of course that's not what's really
+being executed on the computer system.
+
+8
+00:00:37.240 --> 00:00:41.818
+But we can use whitespace to help
+ourselves, and JavaScript, its syntax
+
+9
+00:00:41.818 --> 00:00:49.000
+parser, is very liberal about what it
+allows when it comes to whitespace.
+
+10
+00:00:49.000 --> 00:00:54.110
+And we can take advantage of it to help
+ourselves out in our written code.
+
+11
+00:00:54.110 --> 00:00:59.386
+For example, let's say I have a few
+variables that I'm declaring in my code.
+
+12
+00:00:59.386 --> 00:01:03.196
+And maybe I
+
+13
+00:01:03.196 --> 00:01:09.130
+have another one that's an object literal.
+
+14
+00:01:09.130 --> 00:01:16.901
+[SOUND] Then I'll just output this person,
+for example.
+
+15
+00:01:16.901 --> 00:01:22.640
+So when I run this code here's my object
+and I've declared some variables.
+
+16
+00:01:22.640 --> 00:01:24.040
+That's nice.
+
+17
+00:01:24.040 --> 00:01:25.880
+If I come back to this
+a long time later or
+
+18
+00:01:25.880 --> 00:01:30.720
+some other developer is working on it,
+It's good for me to put in comments, so
+
+19
+00:01:30.720 --> 00:01:35.910
+that others can understand more easily
+what the code is that I've written, or
+
+20
+00:01:35.910 --> 00:01:37.760
+I myself can figure it
+out if it's been a while.
+
+21
+00:01:39.560 --> 00:01:44.530
+JavaScript is very liberal about
+whitespace, so I could put comments for
+
+22
+00:01:44.530 --> 00:01:52.360
+example, between the var and the firstname
+by just putting some carriage returns.
+
+23
+00:01:52.360 --> 00:01:56.400
+The syntax parser sees
+these double slashes and
+
+24
+00:01:56.400 --> 00:02:00.550
+ignores everything until
+it hits the next line.
+
+25
+00:02:00.550 --> 00:02:04.630
+The rest of this is just completely
+ignored by the JavaScript engine.
+
+26
+00:02:05.680 --> 00:02:07.640
+So I could put extra space there.
+
+27
+00:02:09.490 --> 00:02:12.250
+I'm just gonna, some sample comments.
+
+28
+00:02:12.250 --> 00:02:14.650
+I could have a couple of comments here.
+
+29
+00:02:14.650 --> 00:02:21.276
+[SOUND] And so I can use whitespace
+
+30
+00:02:21.276 --> 00:02:28.648
+very liberally to clarify my code.
+
+31
+00:02:28.648 --> 00:02:34.280
+I can even do it inside
+an object literal syntax.
+
+32
+00:02:36.290 --> 00:02:38.330
+So I might do this.
+
+33
+00:02:38.330 --> 00:02:40.280
+And maybe I just want to make a note.
+
+34
+00:02:43.110 --> 00:02:43.889
+Let's run this.
+
+35
+00:02:45.920 --> 00:02:47.420
+Still runs the same.
+
+36
+00:02:47.420 --> 00:02:50.860
+Because the code that's executed
+is exactly the same as the code
+
+37
+00:02:50.860 --> 00:02:52.820
+that was executed the first time.
+
+38
+00:02:52.820 --> 00:02:55.490
+The syntax parser just
+ignored all this whitespace.
+
+39
+00:02:56.610 --> 00:03:00.900
+When you crack open the source
+code of some famous libraries and
+
+40
+00:03:00.900 --> 00:03:05.190
+framework, you'll see a lot
+of usage of white space.
+
+41
+00:03:05.190 --> 00:03:07.400
+And a lot of usage of comments.
+
+42
+00:03:07.400 --> 00:03:09.490
+And it can be a little off-putting.
+
+43
+00:03:09.490 --> 00:03:10.890
+It can throw you off a bit at first.
+
+44
+00:03:10.890 --> 00:03:14.580
+When you see just this line
+hanging out there with a comma and
+
+45
+00:03:14.580 --> 00:03:16.940
+another line a ways later.
+
+46
+00:03:16.940 --> 00:03:18.520
+Maybe there's a lot of
+comments explaining.
+
+47
+00:03:18.520 --> 00:03:23.880
+And then a big bunch of comments again and
+just another line hanging out by itself.
+
+48
+00:03:23.880 --> 00:03:25.120
+But don't be intimidated by that.
+
+49
+00:03:25.120 --> 00:03:26.780
+Don't be thrown off.
+
+50
+00:03:26.780 --> 00:03:31.290
+>> Just realize that if you back up and
+take a good look at the characters that
+
+51
+00:03:32.530 --> 00:03:37.490
+the JavaScript engine will actually
+care about, in the end this is just
+
+52
+00:03:37.490 --> 00:03:43.750
+a simple list of variables being declared,
+and this is just a simple object literal.
+
+53
+00:03:43.750 --> 00:03:48.302
+But the programmer is taking advantage of
+how liberal JavaScript is with accepting
+
+54
+00:03:48.302 --> 00:03:52.240
+whitespace to teach us something.
+
+55
+00:03:53.740 --> 00:03:56.760
+So again when you see this kind of thing
+
+56
+00:03:56.760 --> 00:04:01.290
+when you look at the source code of
+some complex JavaScript, be thankful.
+
+57
+00:04:01.290 --> 00:04:04.670
+That means you have a lot of comments
+that can help you understand it.
+
+58
+00:04:04.670 --> 00:04:07.630
+And don't get bogged down
+by the whitespace itself.
+
+59
+00:04:08.980 --> 00:04:10.330
+All right.
+
+60
+00:04:10.330 --> 00:04:11.810
+One other thing.
+
+61
+00:04:11.810 --> 00:04:13.790
+You should do this.
+
+62
+00:04:13.790 --> 00:04:16.330
+As much as you can, comment up your code,
+make your code readable.
+
+63
+00:04:16.330 --> 00:04:20.670
+Make your code understandable.
+
+64
+00:04:20.670 --> 00:04:22.260
+You won't regret it in the future.
+
+65
+00:04:23.580 --> 00:04:24.220
+All right.
+Let's move on.
+

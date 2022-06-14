@@ -1,0 +1,806 @@
+WEBVTT
+
+1
+00:00:01.620 --> 00:00:06.240
+There are lots of ways in which
+closures are useful in JavaScript.
+
+2
+00:00:07.450 --> 00:00:12.600
+In this Framework Aside, let's talk for
+a moment about how we can use closures
+
+3
+00:00:12.600 --> 00:00:16.750
+to our advantage for making patterns
+that would be otherwise impossible.
+
+4
+00:00:17.810 --> 00:00:24.903
+In this case,
+let's look at Function Factories.
+
+5
+00:00:24.903 --> 00:00:29.469
+We've already seen how we can use some of
+the language features of JavaScript to
+
+6
+00:00:29.469 --> 00:00:33.834
+allow a function to be called under
+different circumstances with different
+
+7
+00:00:33.834 --> 00:00:35.141
+default parameters.
+
+8
+00:00:35.141 --> 00:00:39.080
+We did that in our function
+overloading lesson.
+
+9
+00:00:40.250 --> 00:00:44.190
+But here, we're going to show how
+we can do even more powerful and
+
+10
+00:00:44.190 --> 00:00:50.575
+flexible patterns using the fact
+that closures exist in JavaScript.
+
+11
+00:00:52.055 --> 00:00:57.425
+So, instead of creating a greet function,
+I'm gonna create a factory.
+
+12
+00:00:57.425 --> 00:01:04.275
+A factory just means a function that
+returns or makes other things for me.
+
+13
+00:01:04.275 --> 00:01:08.330
+So, this makeGreeting() is
+going to return a function.
+
+14
+00:01:09.370 --> 00:01:10.790
+And I'm going to accept
+a parameter language.
+
+15
+00:01:13.053 --> 00:01:16.350
+And then, I'm going to return a function.
+
+16
+00:01:17.800 --> 00:01:19.940
+I'll actually return.
+
+17
+00:01:19.940 --> 00:01:21.430
+I could name it greet if I want.
+
+18
+00:01:21.430 --> 00:01:22.480
+It doesn't really matter.
+
+19
+00:01:22.480 --> 00:01:25.050
+But I'll just return a function
+that will be like our greet
+
+20
+00:01:27.050 --> 00:01:28.380
+function that we've been using.
+
+21
+00:01:29.440 --> 00:01:32.265
+And let me just copy and
+paste in what I typed before.
+
+22
+00:01:32.265 --> 00:01:37.405
+So, this function that's returned
+
+23
+00:01:37.405 --> 00:01:42.150
+is the same logic we had before.
+
+24
+00:01:42.150 --> 00:01:46.655
+The language is English and it'll
+console.log hello and then my first name,
+
+25
+00:01:46.655 --> 00:01:48.370
+last name that I pass into it.
+
+26
+00:01:49.450 --> 00:01:52.936
+And if language is Spanish,
+this is for [FOREIGN] and
+
+27
+00:01:52.936 --> 00:01:57.165
+it's console.log Hola,
+then first name, then last name.
+
+28
+00:01:58.525 --> 00:02:03.025
+But the difference is that instead of
+passing language to this function,
+
+29
+00:02:04.105 --> 00:02:06.605
+I'm passing it to the outer function.
+
+30
+00:02:07.795 --> 00:02:10.032
+And then, returning that inner function.
+
+31
+00:02:11.522 --> 00:02:16.172
+So, the language will be trapped,
+or collected in the closure.
+
+32
+00:02:16.172 --> 00:02:20.842
+That is, when I try to reference it here
+when I execute this function object,
+
+33
+00:02:21.992 --> 00:02:23.332
+it will look up the scope chain.
+
+34
+00:02:23.332 --> 00:02:27.162
+And even though makeGreeting()
+will have been done executing and
+
+35
+00:02:27.162 --> 00:02:32.230
+it's execution context is gone,
+I'll still have access to language.
+
+36
+00:02:32.230 --> 00:02:34.060
+That lets me do something neat like this.
+
+37
+00:02:35.420 --> 00:02:39.490
+I can say, let's call it greetEnglish, and
+
+38
+00:02:39.490 --> 00:02:43.839
+I can execute makeGreeting() and
+pass it a language.
+
+39
+00:02:45.300 --> 00:02:48.811
+And then, I could do greetSpanish and
+
+40
+00:02:48.811 --> 00:02:54.530
+execute makeGreeting() and
+pass it a different language.
+
+41
+00:02:56.340 --> 00:02:57.860
+Now, what will I have at this point.
+
+42
+00:02:59.110 --> 00:02:59.970
+Stop and think about it.
+
+43
+00:02:59.970 --> 00:03:02.998
+What will be inside of greetEnglish and
+what will read Spanish point two.
+
+44
+00:03:05.720 --> 00:03:11.674
+Well, makeGreeting() executes English
+as the language in the first case,
+
+45
+00:03:11.674 --> 00:03:14.030
+and it will return a function.
+
+46
+00:03:15.550 --> 00:03:19.625
+That function's outer
+reference will point to what
+
+47
+00:03:19.625 --> 00:03:24.360
+the language was when
+makeGreeting() was executed here.
+
+48
+00:03:25.570 --> 00:03:26.400
+Then, it ends.
+
+49
+00:03:27.820 --> 00:03:31.432
+And so, the function that was
+returned will still point to
+
+50
+00:03:34.335 --> 00:03:39.096
+The language variable en,
+because I executed makeGreeting(), and
+
+51
+00:03:39.096 --> 00:03:41.410
+it was its own execution context.
+
+52
+00:03:43.000 --> 00:03:47.000
+Then, in the second case,
+I execute my greeting again, so
+
+53
+00:03:47.000 --> 00:03:52.600
+it gets its own execution context
+where language will be es.
+
+54
+00:03:52.600 --> 00:03:53.840
+So, a different spot in memory.
+
+55
+00:03:55.530 --> 00:04:00.090
+And the function that's returned
+from there, it will point
+
+56
+00:04:00.090 --> 00:04:04.930
+at that execution context, spot in memory.
+
+57
+00:04:04.930 --> 00:04:06.250
+See that?
+
+58
+00:04:06.250 --> 00:04:11.230
+So, even though these two
+functions lexically sit
+
+59
+00:04:11.230 --> 00:04:15.180
+inside the same makeGreeting(), they're
+going to point at two different spots in
+
+60
+00:04:15.180 --> 00:04:20.900
+memory because they were created during
+two different execution contexts.
+
+61
+00:04:20.900 --> 00:04:22.300
+Imagine that in your head, think about it.
+
+62
+00:04:23.310 --> 00:04:27.520
+One execution context here,
+another execution context here.
+
+63
+00:04:29.140 --> 00:04:35.290
+And so, if I had executed
+the function at this point,
+
+64
+00:04:35.290 --> 00:04:39.510
+if I had executed this inner one,
+it would have pointed to en, English.
+
+65
+00:04:39.510 --> 00:04:44.500
+And if I had executed the inner function
+in this case it would have pointed
+
+66
+00:04:44.500 --> 00:04:46.685
+to a memory space that said es.
+
+67
+00:04:46.685 --> 00:04:47.575
+And those are wrapped up.
+
+68
+00:04:47.575 --> 00:04:48.705
+Those are closed up.
+
+69
+00:04:48.705 --> 00:04:54.105
+I have a closure inside the result of this
+and a closure inside the result of that.
+
+70
+00:04:54.105 --> 00:04:58.965
+So, greetEnglish is a function object
+
+71
+00:04:58.965 --> 00:05:03.480
+whose closure points to
+language being English.
+
+72
+00:05:05.170 --> 00:05:09.940
+And greetSpanish is a function object
+whose closure points to a different
+
+73
+00:05:09.940 --> 00:05:17.163
+execution context for the same function or
+languages, es, Spanish.
+
+74
+00:05:18.230 --> 00:05:22.110
+It's important to remember that
+even though it's the same function
+
+75
+00:05:22.110 --> 00:05:26.450
+every time I execute it,
+it creates a new execution context.
+
+76
+00:05:26.450 --> 00:05:30.860
+It's a new memory space,
+no matter how many times I call it.
+
+77
+00:05:30.860 --> 00:05:35.600
+So, now that I've done that,
+I can call greetEnglish and
+
+78
+00:05:35.600 --> 00:05:37.650
+expects first name and last name.
+
+79
+00:05:37.650 --> 00:05:40.760
+So, I could say John and Doe.
+
+80
+00:05:40.760 --> 00:05:44.110
+And I can call greetSpanish this
+function that was returned.
+
+81
+00:05:44.110 --> 00:05:46.470
+It expects a first name and a last name.
+
+82
+00:05:46.470 --> 00:05:47.372
+I'll say John Doe.
+
+83
+00:05:50.355 --> 00:05:54.182
+And now I'm executing them, and
+it will execute Execute, look for
+
+84
+00:05:54.182 --> 00:05:55.870
+language in the scope chain.
+
+85
+00:05:55.870 --> 00:05:59.620
+In the first case, it will find en,
+and in the second case,
+
+86
+00:05:59.620 --> 00:06:01.450
+it's going to find es in the scope chain.
+
+87
+00:06:02.670 --> 00:06:07.800
+So, when I run this, I get
+Hello John Doe and [FOREIGN] John Doe.
+
+88
+00:06:09.810 --> 00:06:14.090
+So, my makeGreeting() function
+has acted as a factory function.
+
+89
+00:06:15.500 --> 00:06:19.540
+And I'm taking advantage of
+closures to essentially set
+
+90
+00:06:20.630 --> 00:06:26.190
+the parameter value that's then used
+inside the function that's returned.
+
+91
+00:06:27.350 --> 00:06:33.830
+So, I've created a function that
+is using this value always.
+
+92
+00:06:33.830 --> 00:06:36.110
+It always has access to
+that initial parameter and
+
+93
+00:06:36.110 --> 00:06:37.450
+I could have other parameters in here.
+
+94
+00:06:39.200 --> 00:06:42.330
+And yet at the same time, my greetEnglish,
+
+95
+00:06:42.330 --> 00:06:47.200
+I can't really directly
+access that value anymore.
+
+96
+00:06:47.200 --> 00:06:54.890
+This is hidden from my being able to
+use it down here in the global context.
+
+97
+00:06:54.890 --> 00:06:57.970
+But the function itself when
+it runs has access to it.
+
+98
+00:07:00.290 --> 00:07:03.850
+If you're confused a little, that's okay.
+
+99
+00:07:03.850 --> 00:07:05.350
+But let's walk it through either way.
+
+100
+00:07:07.370 --> 00:07:09.560
+Here's all my code for this.
+
+101
+00:07:09.560 --> 00:07:10.460
+Function factory.
+
+102
+00:07:12.150 --> 00:07:17.710
+So, when it starts, I have my
+global execution context, which has
+
+103
+00:07:17.710 --> 00:07:21.160
+the greetEnglish, greetSpanish variables,
+and the makeGreeting() function.
+
+104
+00:07:22.760 --> 00:07:28.890
+When I hit this line, it calls or
+executes makeGreeting().
+
+105
+00:07:28.890 --> 00:07:32.340
+And so,
+that gets it's own execution context.
+
+106
+00:07:32.340 --> 00:07:33.990
+And I pass language.
+
+107
+00:07:33.990 --> 00:07:39.770
+So, when that execution context variable
+environment, language is en for English.
+
+108
+00:07:41.430 --> 00:07:46.710
+Then, it returns a function which
+you store it in greetEnglish,
+
+109
+00:07:46.710 --> 00:07:51.390
+it's pointing to that function,
+and makeGreeting() that time ends.
+
+110
+00:07:53.010 --> 00:07:57.870
+And that memory space for that execution
+context is still hanging around.
+
+111
+00:07:59.340 --> 00:08:02.860
+Then, on my second line,
+I call makeGreeting() again.
+
+112
+00:08:03.940 --> 00:08:05.370
+And this is the important distinction.
+
+113
+00:08:05.370 --> 00:08:10.870
+In the previous example we looked at
+when we filled an array with functions,
+
+114
+00:08:10.870 --> 00:08:15.560
+we only called that outer function once,
+so
+
+115
+00:08:15.560 --> 00:08:20.920
+all those functions inside that array
+pointed to the same memory space.
+
+116
+00:08:20.920 --> 00:08:23.199
+But in this case,
+we're calling the function twice.
+
+117
+00:08:24.540 --> 00:08:29.020
+When I call the second time,
+I get a new execution context.
+
+118
+00:08:29.020 --> 00:08:32.780
+Every time you call a function,
+you get a new execution context.
+
+119
+00:08:32.780 --> 00:08:35.010
+It doesn't matter how
+many times you call it.
+
+120
+00:08:36.570 --> 00:08:41.840
+And so, that new execution context
+has its own variable environment
+
+121
+00:08:43.820 --> 00:08:46.670
+and the language is Spanish in this case.
+
+122
+00:08:48.280 --> 00:08:51.760
+And that returns a function object,
+and finishes.
+
+123
+00:08:53.640 --> 00:08:56.570
+So, now, I have two spots in
+memory that are hanging out,
+
+124
+00:08:56.570 --> 00:09:01.140
+with those two separate execution
+contacts, once contained.
+
+125
+00:09:02.620 --> 00:09:04.385
+Then, when I get to the greetEnglish,
+
+126
+00:09:04.385 --> 00:09:07.410
+I'm actually calling
+the function that was returned.
+
+127
+00:09:09.520 --> 00:09:15.040
+That creates a new execution context
+with first name John and last name Doe.
+
+128
+00:09:15.040 --> 00:09:18.370
+The outer environment reference, well,
+
+129
+00:09:18.370 --> 00:09:22.569
+we know it needs to point to
+one of the execution contexts
+
+130
+00:09:24.060 --> 00:09:26.990
+created by makeGreeting,
+cuz that's where it sits lexically.
+
+131
+00:09:28.480 --> 00:09:33.030
+And the JavaScript engine knows
+that this first one was created
+
+132
+00:09:35.040 --> 00:09:38.850
+during that first execution context,
+so it points to that one.
+
+133
+00:09:38.850 --> 00:09:40.370
+The one it was created inside of.
+
+134
+00:09:41.820 --> 00:09:43.530
+The execution context that returned it.
+
+135
+00:09:45.200 --> 00:09:47.140
+And so, that's where my closure is.
+
+136
+00:09:48.910 --> 00:09:51.930
+So, greetEnglish gives
+me my English greeting.
+
+137
+00:09:54.120 --> 00:09:56.000
+When I hit the second line, greetSpanish,
+
+138
+00:09:56.000 --> 00:10:00.310
+that's pointing at a very
+similar function object.
+
+139
+00:10:02.040 --> 00:10:07.660
+And so, that generates its
+own execution context, but
+
+140
+00:10:07.660 --> 00:10:11.910
+that function object was created in
+the second call to make greeting.
+
+141
+00:10:13.290 --> 00:10:15.990
+So, its outer reference points
+
+142
+00:10:15.990 --> 00:10:20.010
+to that second execution context that
+was created for that second call.
+
+143
+00:10:21.080 --> 00:10:23.340
+And so, it has it's own closure.
+
+144
+00:10:23.340 --> 00:10:25.270
+It forms its own closure.
+
+145
+00:10:27.180 --> 00:10:30.770
+So, in greetSpanish executes,
+
+146
+00:10:30.770 --> 00:10:34.790
+it sees that language is es and
+I get my Spanish greeting.
+
+147
+00:10:36.690 --> 00:10:37.300
+Make sense?
+
+148
+00:10:39.280 --> 00:10:42.080
+Again, the key is realizing that
+every time you call a function,
+
+149
+00:10:42.080 --> 00:10:44.700
+it gets its own execution context, and
+
+150
+00:10:44.700 --> 00:10:49.890
+any functions created inside of it
+will point to that execution context.
+
+151
+00:10:51.480 --> 00:10:53.150
+This is doing exactly what it should.
+
+152
+00:10:54.690 --> 00:10:57.220
+It's pointing to the memory space
+
+153
+00:10:57.220 --> 00:11:00.900
+as if those other execution
+contexts hadn't disappeared.
+
+154
+00:11:00.900 --> 00:11:04.280
+It knows which ones to point to properly
+
+155
+00:11:04.280 --> 00:11:07.310
+where these inner functions
+were created and when.
+
+156
+00:11:08.970 --> 00:11:10.648
+This is, again, a language feature.
+
+157
+00:11:10.648 --> 00:11:12.632
+And pretty cool.
+
+158
+00:11:14.943 --> 00:11:18.200
+To take a good look at this code,
+try it out for yourself.
+
+159
+00:11:18.200 --> 00:11:18.730
+Think about it.
+
+160
+00:11:20.630 --> 00:11:23.410
+You'll see that this is extremely useful.
+
+161
+00:11:24.450 --> 00:11:29.150
+Because we can have a core set of logic,
+but
+
+162
+00:11:29.150 --> 00:11:32.320
+then make ourselves functions
+that are then easier to use.
+
+163
+00:11:32.320 --> 00:11:35.130
+I don't have to always
+pass the same parameters.
+
+164
+00:11:35.130 --> 00:11:40.820
+I could just create some new
+functions that have some parameters,
+
+165
+00:11:40.820 --> 00:11:43.570
+by default, by using closures.
+
+166
+00:11:45.310 --> 00:11:47.080
+So, again, take a good look at this.
+
+167
+00:11:48.550 --> 00:11:55.510
+Remember that this is returning a function
+that has access to what this variable was,
+
+168
+00:11:55.510 --> 00:11:59.669
+at the time that it was created,
+by pointing to that memory space.
+
+169
+00:12:01.710 --> 00:12:06.690
+And that lets me create
+functions from other functions.
+
+170
+00:12:07.810 --> 00:12:10.700
+That's one of those things
+that you can do in JavaScript
+
+171
+00:12:10.700 --> 00:12:12.050
+because functions are objects.
+
+172
+00:12:13.500 --> 00:12:18.515
+So, you've seen some
+great examples of first
+
+173
+00:12:18.515 --> 00:12:23.550
+class functions and
+closures in JavaScript.
+
+174
+00:12:23.550 --> 00:12:24.050
+Let's move on.
+

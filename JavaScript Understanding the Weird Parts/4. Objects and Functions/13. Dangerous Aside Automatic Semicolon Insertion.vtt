@@ -1,0 +1,397 @@
+WEBVTT
+
+1
+00:00:02.389 --> 00:00:05.130
+It's time for our first Dangerous Aside.
+
+2
+00:00:06.130 --> 00:00:10.740
+This is when we stop to warn you about
+a real danger in the programming language.
+
+3
+00:00:11.970 --> 00:00:15.110
+We've already said that no
+programming language is perfect.
+
+4
+00:00:15.110 --> 00:00:17.610
+And we've seen some caveats
+in the JavaScript language.
+
+5
+00:00:18.780 --> 00:00:24.330
+But a Dangerous Aside is where we're
+touching a subject that's so dangerous.
+
+6
+00:00:24.330 --> 00:00:28.790
+It's so easy to make a mistake and
+it's so hard to track down.
+
+7
+00:00:29.910 --> 00:00:31.970
+That you need to always avoid it.
+
+8
+00:00:33.280 --> 00:00:37.240
+This Dangerous Aside has to do
+with syntax parsers in JavaScript.
+
+9
+00:00:38.560 --> 00:00:42.830
+And its automatic semicolon insertion.
+
+10
+00:00:42.830 --> 00:00:48.120
+The syntax parser in JavaScript does
+something that tries to be helpful.
+
+11
+00:00:49.200 --> 00:00:54.210
+You may have noticed that semicolons
+are optional in core JavaScript.
+
+12
+00:00:55.240 --> 00:00:56.860
+You don't have to put a semicolon.
+
+13
+00:00:58.280 --> 00:01:00.160
+So why is this?
+
+14
+00:01:00.160 --> 00:01:02.940
+Because the JavaScript engine
+does something for you.
+
+15
+00:01:04.180 --> 00:01:07.120
+If it sees one character at a time,
+
+16
+00:01:08.310 --> 00:01:13.270
+a certain statement,
+it knows what the language expects.
+
+17
+00:01:13.270 --> 00:01:16.770
+It knows what the syntax should look like.
+
+18
+00:01:16.770 --> 00:01:21.880
+So if it sees that you're finishing
+a line, that is, a carriage return.
+
+19
+00:01:23.170 --> 00:01:26.460
+Now a carriage return, that is when
+you hit Enter on the keyboard.
+
+20
+00:01:27.650 --> 00:01:31.610
+It's an invisible character,
+but it is a character.
+
+21
+00:01:31.610 --> 00:01:35.760
+So the syntax parser sees it,
+knows what it is, and it says,
+
+22
+00:01:35.760 --> 00:01:39.560
+hey you're not allowed
+to go to the next line
+
+23
+00:01:39.560 --> 00:01:43.730
+with this particular type of syntax,
+with this particular statement.
+
+24
+00:01:44.780 --> 00:01:49.666
+So I'm going to go ahead and insert,
+
+25
+00:01:49.666 --> 00:01:53.710
+inject automatically a semicolon for you.
+
+26
+00:01:55.020 --> 00:01:59.870
+So anywhere where the syntax parser
+expects that a semicolon would be,
+
+27
+00:01:59.870 --> 00:02:02.060
+it will put one for you.
+
+28
+00:02:03.350 --> 00:02:06.480
+That's why it's optional
+when you're typing it.
+
+29
+00:02:06.480 --> 00:02:10.400
+Not because it's truly optional,
+but because the JavaScript engine
+
+30
+00:02:10.400 --> 00:02:14.900
+is putting them where it thinks
+they should be, if they're missing.
+
+31
+00:02:16.440 --> 00:02:18.610
+And that's all well and good, so rule one,
+
+32
+00:02:18.610 --> 00:02:22.640
+with this Dangerous Aside,
+you should always put your own semicolons.
+
+33
+00:02:23.640 --> 00:02:27.610
+Because you don't want the JavaScript
+engine to make that decision for you.
+
+34
+00:02:27.610 --> 00:02:31.470
+You want to be certain that you
+are writing the code as it should be.
+
+35
+00:02:32.920 --> 00:02:37.090
+But more than that,
+especially in the case of return,
+
+36
+00:02:37.090 --> 00:02:42.610
+automatic semicolon insertion can
+cause a big problem in your code.
+
+37
+00:02:43.840 --> 00:02:48.180
+So I'm gonna create a simple
+function called getPerson.
+
+38
+00:02:48.180 --> 00:02:51.500
+And it's just going to give
+me back a simple object.
+
+39
+00:02:51.500 --> 00:02:55.620
+So I'm going to return, and
+I'll use object literal syntax
+
+40
+00:02:57.020 --> 00:03:00.330
+to give me back an object.
+
+41
+00:03:00.330 --> 00:03:02.280
+Maybe firstname.
+
+42
+00:03:02.280 --> 00:03:04.470
+And it gives me back that person.
+
+43
+00:03:06.120 --> 00:03:07.630
+That's simple enough.
+
+44
+00:03:07.630 --> 00:03:09.920
+Then I'll call getPerson.
+
+45
+00:03:09.920 --> 00:03:11.490
+I wanna see what that value is.
+
+46
+00:03:11.490 --> 00:03:14.417
+So, I'll console.log it.
+
+47
+00:03:14.417 --> 00:03:15.780
+Got that?
+
+48
+00:03:15.780 --> 00:03:19.510
+So, I run the function, and
+I output what it returns.
+
+49
+00:03:19.510 --> 00:03:24.440
+Which using object literal syntax,
+should be a person with that first name.
+
+50
+00:03:24.440 --> 00:03:28.300
+This object containing a first name,
+name value pair.
+
+51
+00:03:29.850 --> 00:03:30.350
+Let's run it.
+
+52
+00:03:33.660 --> 00:03:34.420
+Undefined.
+
+53
+00:03:35.900 --> 00:03:36.400
+Why?
+
+54
+00:03:38.760 --> 00:03:41.240
+Because of automatic semicolon insertion.
+
+55
+00:03:42.430 --> 00:03:48.830
+The JavaScript engine, if it sees a
+carriage return after the keyword return,
+
+56
+00:03:48.830 --> 00:03:52.910
+it will automatically insert a semicolon.
+
+57
+00:03:52.910 --> 00:03:56.110
+So it essentially ran this code.
+
+58
+00:03:56.110 --> 00:04:01.280
+Even though you wrote something else, the
+syntax parser chose to change your code.
+
+59
+00:04:02.610 --> 00:04:08.120
+And so by putting this object
+literal syntax on a new line,
+
+60
+00:04:09.850 --> 00:04:14.635
+it caused the JavaScript engine to
+decide to put in a semicolon, so
+
+61
+00:04:14.635 --> 00:04:16.155
+it simply returned.
+
+62
+00:04:16.155 --> 00:04:17.445
+It quit out of the function.
+
+63
+00:04:18.575 --> 00:04:20.575
+And all that you got was
+an undefined result.
+
+64
+00:04:21.805 --> 00:04:26.165
+To fix this, we have to tell
+the syntax parser what we're doing.
+
+65
+00:04:26.165 --> 00:04:30.155
+We have to prevent it from doing
+automatic semicolon insertion.
+
+66
+00:04:30.155 --> 00:04:32.455
+Because as it goes character by character.
+
+67
+00:04:32.455 --> 00:04:36.520
+Instead of seeing the carriage
+return after this phrase.
+
+68
+00:04:36.520 --> 00:04:39.620
+Let's use a space and
+then a curly brace and
+
+69
+00:04:39.620 --> 00:04:43.170
+it knows that we've started
+an object literal syntax.
+
+70
+00:04:43.170 --> 00:04:46.020
+And then it sees a carriage return and
+that's okay.
+
+71
+00:04:46.020 --> 00:04:49.639
+It doesn't automatically insert
+a semicolon in this case.
+
+72
+00:04:51.360 --> 00:04:54.700
+So, you may have noticed that I always put
+
+73
+00:04:54.700 --> 00:04:59.960
+my curly braces on the same line as my
+functions and for loops and if statements.
+
+74
+00:04:59.960 --> 00:05:02.190
+That's not always necessary.
+
+75
+00:05:02.190 --> 00:05:06.500
+This is perfectly valid but
+I do it so I never make this mistake.
+
+76
+00:05:07.660 --> 00:05:13.600
+So that my muscle memory, the way I
+always write just avoids this problem.
+
+77
+00:05:15.070 --> 00:05:16.080
+So remember this.
+
+78
+00:05:17.180 --> 00:05:17.880
+This is how,
+
+79
+00:05:17.880 --> 00:05:22.350
+if you're going to return an object
+from a function, you need to type it.
+
+80
+00:05:22.350 --> 00:05:24.870
+Otherwise it won't work because
+
+81
+00:05:24.870 --> 00:05:28.710
+the syntax parser doing
+automatic semicolon insertion.
+
+82
+00:05:30.010 --> 00:05:34.940
+And everywhere where you would
+expect to have a semicolon,
+
+83
+00:05:34.940 --> 00:05:40.020
+you should put one to avoid this
+problem as much as possible.
+
+84
+00:05:40.020 --> 00:05:43.170
+It's very dangerous and
+can be hard to track down.
+
+85
+00:05:44.650 --> 00:05:45.580
+All right.
+
+86
+00:05:45.580 --> 00:05:46.080
+Let's move on.
+

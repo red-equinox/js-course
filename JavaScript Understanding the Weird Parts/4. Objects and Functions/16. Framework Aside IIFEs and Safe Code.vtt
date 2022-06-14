@@ -1,0 +1,520 @@
+WEBVTT
+
+1
+00:00:02.350 --> 00:00:04.608
+It's time for another Framework Aside.
+
+2
+00:00:04.608 --> 00:00:09.365
+We've already said that we see immediately
+invoked function expressions in a lot of
+
+3
+00:00:09.365 --> 00:00:15.850
+well-used libraries and frameworks in the
+JavaScript framework and library space.
+
+4
+00:00:16.870 --> 00:00:22.510
+So let's talk about IIFES and
+safe code and why they're so useful.
+
+5
+00:00:22.510 --> 00:00:26.070
+So here's basically the IIFE
+that I created before.
+
+6
+00:00:26.070 --> 00:00:31.680
+I create a function expression, tricked
+the syntax parser with parenthesis.
+
+7
+00:00:31.680 --> 00:00:34.770
+Then invoke it, passing a name and
+
+8
+00:00:34.770 --> 00:00:38.220
+the code inside that code
+property gets executed.
+
+9
+00:00:38.220 --> 00:00:42.480
+And then we can run this and
+in the console we see that it runs.
+
+10
+00:00:43.570 --> 00:00:47.780
+So let's take a look at what's
+happening behind the scenes.
+
+11
+00:00:47.780 --> 00:00:50.670
+Let's think about our execution stack.
+
+12
+00:00:51.870 --> 00:00:53.170
+Here's the code that I'm running.
+
+13
+00:00:54.490 --> 00:00:57.760
+My immediately invoked function expression
+
+14
+00:00:57.760 --> 00:01:01.770
+that's creating this function on the fly
+and then executing it, invoking it.
+
+15
+00:01:03.420 --> 00:01:08.550
+When this code is first loaded,
+I have my Global Execution Context.
+
+16
+00:01:08.550 --> 00:01:11.390
+And nothing's in it because
+I have no variables,
+
+17
+00:01:11.390 --> 00:01:15.230
+no function statements to be hoisted,
+or anything like that.
+
+18
+00:01:15.230 --> 00:01:16.030
+At first anyway.
+
+19
+00:01:17.300 --> 00:01:23.680
+Then it hits this line, this whole
+immediately invoked function expression.
+
+20
+00:01:24.800 --> 00:01:27.990
+So when it gets to just
+the function expression part,
+
+21
+00:01:29.330 --> 00:01:33.840
+it now creates that
+function objected memory.
+
+22
+00:01:33.840 --> 00:01:34.720
+And it's anonymous.
+
+23
+00:01:34.720 --> 00:01:36.410
+There's no name.
+
+24
+00:01:36.410 --> 00:01:39.490
+So it's just this object
+that has this code in it.
+
+25
+00:01:40.800 --> 00:01:45.700
+And then it sees those parentheses
+that's actually invoking the function.
+
+26
+00:01:45.700 --> 00:01:52.250
+And so, as we've already learned,
+a new execution context is created for
+
+27
+00:01:52.250 --> 00:01:55.470
+that anonymous function that I've
+just created here on the fly.
+
+28
+00:01:55.470 --> 00:01:59.530
+And then the code is run line
+by line inside that function.
+
+29
+00:01:59.530 --> 00:02:01.875
+And we've talked about that
+after the creation and
+
+30
+00:02:01.875 --> 00:02:05.035
+then the execution phase
+of each execution context.
+
+31
+00:02:06.305 --> 00:02:10.264
+So we see var greeting equals hello and so
+
+32
+00:02:10.264 --> 00:02:18.662
+that variable goes into that function's
+execution context variable environment.
+
+33
+00:02:19.690 --> 00:02:20.210
+Right here.
+
+34
+00:02:21.320 --> 00:02:26.670
+Not into the global but
+because we're executing a function,
+
+35
+00:02:26.670 --> 00:02:29.910
+we have our own execution
+context that's running.
+
+36
+00:02:29.910 --> 00:02:32.030
+So, any variable I declare,
+
+37
+00:02:32.030 --> 00:02:38.040
+I create inside that function is not
+touching the global environment.
+
+38
+00:02:38.040 --> 00:02:44.188
+It's sitting all by itself,
+inside that execution context.
+
+39
+00:02:44.188 --> 00:02:51.790
+And that is what makes this such
+a useful approach to writing your code.
+
+40
+00:02:51.790 --> 00:02:56.890
+For example, let's say I create
+a new file called greet.js.
+
+41
+00:02:56.890 --> 00:02:59.120
+And it just has a greeting variable in it.
+
+42
+00:02:59.120 --> 00:03:02.280
+This is some other code
+sitting somewhere else.
+
+43
+00:03:02.280 --> 00:03:07.230
+And I happen to also be referencing it,
+above my app.js file.
+
+44
+00:03:08.450 --> 00:03:12.360
+So, as we've learned, this doesn't
+really create anything new or special.
+
+45
+00:03:12.360 --> 00:03:14.180
+They're just stacked on top of each other.
+
+46
+00:03:15.390 --> 00:03:17.350
+So, I have greeting as Hola.
+
+47
+00:03:17.350 --> 00:03:21.140
+And in here I'm also
+creating a greeting Hello.
+
+48
+00:03:22.400 --> 00:03:24.080
+Before this caused a problem.
+
+49
+00:03:25.090 --> 00:03:26.210
+It caused a collision.
+
+50
+00:03:27.520 --> 00:03:29.100
+But notice we still say hello.
+
+51
+00:03:31.030 --> 00:03:38.560
+And there is no problems with
+this colliding with that.
+
+52
+00:03:38.560 --> 00:03:45.150
+Because if I was to
+console.log greeting outside
+
+53
+00:03:45.150 --> 00:03:50.540
+this immediately invoked function,
+the Hola is still there.
+
+54
+00:03:51.860 --> 00:03:53.640
+This line of code didn't crash into it.
+
+55
+00:03:54.960 --> 00:03:55.460
+Why?
+
+56
+00:03:56.500 --> 00:03:58.228
+Let's take a look at the execution stack.
+
+57
+00:03:58.228 --> 00:04:04.720
+Remember the greet.js just
+stacks on top of the app.js.
+
+58
+00:04:04.720 --> 00:04:06.250
+So this is essentially what's run.
+
+59
+00:04:08.090 --> 00:04:13.945
+When it's run, my global execution context
+after this first line is executed,
+
+60
+00:04:13.945 --> 00:04:19.556
+I have in its memory
+a greeting variable Hola.
+
+61
+00:04:19.556 --> 00:04:26.940
+And then the entire immediately
+invoked function is seen.
+
+62
+00:04:26.940 --> 00:04:29.860
+That function expression
+causes it to be created.
+
+63
+00:04:31.260 --> 00:04:36.420
+The parenthesis cause it to be invoked
+which causes a new execution context.
+
+64
+00:04:37.650 --> 00:04:40.620
+Then when we reach the execution
+
+65
+00:04:40.620 --> 00:04:45.620
+of that var greeting inside that function,
+it's placed there.
+
+66
+00:04:46.750 --> 00:04:48.710
+So both of those exist.
+
+67
+00:04:49.860 --> 00:04:51.760
+But in separate execution context,
+
+68
+00:04:51.760 --> 00:04:55.430
+in separate areas of memory
+at separate addresses.
+
+69
+00:04:56.830 --> 00:05:02.670
+So, I've insured that my code, by wrapping
+it in an immediately invoked function,
+
+70
+00:05:03.770 --> 00:05:10.160
+does not interfere with,
+crash into, or be interfered by
+
+71
+00:05:10.160 --> 00:05:14.750
+any other code that might be
+included in my application.
+
+72
+00:05:16.420 --> 00:05:17.420
+My code is safe.
+
+73
+00:05:19.180 --> 00:05:24.360
+And so, in a great deal of libraries and
+functions, if you open their source code,
+
+74
+00:05:24.360 --> 00:05:29.160
+the very first thing you'll see at
+the top is a parentheses and a function.
+
+75
+00:05:30.550 --> 00:05:33.390
+And at the very bottom, the end of it.
+
+76
+00:05:33.390 --> 00:05:41.066
+Because it wraps all its code in
+an immediately invoked function.
+
+77
+00:05:41.066 --> 00:05:44.720
+Makes sense?
+
+78
+00:05:44.720 --> 00:05:48.580
+That means that we understand what we're
+seeing and why when we see this pattern.
+
+79
+00:05:50.000 --> 00:05:54.890
+And it's something that you can imitate
+in your own code to make sure you aren't
+
+80
+00:05:54.890 --> 00:05:59.460
+colliding with other code when
+you're creating something reusable.
+
+81
+00:06:01.060 --> 00:06:04.520
+We're not accidentally putting
+something into the global object.
+
+82
+00:06:04.520 --> 00:06:06.370
+But what if we wanted to?
+
+83
+00:06:07.720 --> 00:06:13.420
+Well, we can handle that by
+simply passing around parameters.
+
+84
+00:06:13.420 --> 00:06:17.040
+Remember that objects pass by reference.
+
+85
+00:06:17.040 --> 00:06:21.180
+So, if I want access to the global object,
+I just pass it into my function.
+
+86
+00:06:23.160 --> 00:06:24.250
+I'll call this global.
+
+87
+00:06:26.490 --> 00:06:28.140
+And what's the global
+object in the browser?
+
+88
+00:06:29.630 --> 00:06:30.130
+Window.
+
+89
+00:06:31.990 --> 00:06:36.422
+So I just pass the reference
+to my global object into my
+
+90
+00:06:36.422 --> 00:06:39.188
+immediately invoked function.
+
+91
+00:06:39.188 --> 00:06:45.375
+So, in this case I could go ahead and
+
+92
+00:06:45.375 --> 00:06:53.224
+crash against the global
+object on purpose.
+
+93
+00:06:53.224 --> 00:06:57.037
+I call it global here because maybe
+you want this code to be reusable on
+
+94
+00:06:57.037 --> 00:07:00.590
+the server where window object
+wouldn't be the global object,
+
+95
+00:07:00.590 --> 00:07:03.220
+some other object will
+be the global object.
+
+96
+00:07:03.220 --> 00:07:04.020
+But here.
+
+97
+00:07:04.020 --> 00:07:05.550
+I'm just calling it global, so
+
+98
+00:07:05.550 --> 00:07:08.430
+I'm not worrying about what is
+the global object in this case.
+
+99
+00:07:09.470 --> 00:07:13.710
+I just know I haven't referenced to it and
+I can crash into it.
+
+100
+00:07:13.710 --> 00:07:16.030
+So now this should overwrite that Hola.
+
+101
+00:07:17.860 --> 00:07:18.360
+Let's see.
+
+102
+00:07:19.490 --> 00:07:19.990
+And it did.
+
+103
+00:07:21.390 --> 00:07:23.890
+I intentionally affected
+the global object.
+
+104
+00:07:25.390 --> 00:07:28.590
+So it may be that you're
+creating some object
+
+105
+00:07:28.590 --> 00:07:33.420
+in your function that you want to be
+available everywhere else in your code.
+
+106
+00:07:34.730 --> 00:07:36.230
+So you can stick it on the global object.
+
+107
+00:07:37.530 --> 00:07:40.190
+But you're doing it intentionally.
+
+108
+00:07:41.340 --> 00:07:44.730
+Not by accident,
+not because of some code error.
+
+109
+00:07:45.890 --> 00:07:47.320
+Or because you're not paying attention.
+
+110
+00:07:48.950 --> 00:07:55.020
+This pattern makes it difficult, makes it
+intentional, to affect the global object.
+
+111
+00:07:56.680 --> 00:07:58.390
+Again, your code is safe.
+
+112
+00:07:59.720 --> 00:08:04.550
+All right, so that's immediately invoked
+function expressions and safe code.
+

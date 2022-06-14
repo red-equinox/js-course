@@ -1,0 +1,358 @@
+WEBVTT
+
+1
+00:00:00.012 --> 00:00:05.840
+We've seen one of our requirements then
+is now that we have a greeting object
+
+2
+00:00:05.840 --> 00:00:11.010
+that I can output a greeting based on
+a language and whether it's formal or not.
+
+3
+00:00:11.010 --> 00:00:13.560
+I'd like to actually be able to use it.
+
+4
+00:00:13.560 --> 00:00:18.600
+One way would be to simply use
+the greeting or formal greeting
+
+5
+00:00:18.600 --> 00:00:24.160
+methods on the object and manually
+update my web application, for example.
+
+6
+00:00:24.160 --> 00:00:27.110
+But I'd like to add a bit of jQuery
+support to make it easier for
+
+7
+00:00:27.110 --> 00:00:28.840
+any developers using this.
+
+8
+00:00:28.840 --> 00:00:33.990
+They could just give it a selector and
+the selector would then be used
+
+9
+00:00:33.990 --> 00:00:38.465
+to create a jQuery object and
+then we fill the text of that element.
+
+10
+00:00:39.515 --> 00:00:40.025
+Now, let's try it.
+
+11
+00:00:41.345 --> 00:00:45.445
+I've added a bit of HTML
+to our index.html, just so
+
+12
+00:00:45.445 --> 00:00:48.095
+that we can use jQuery.
+
+13
+00:00:48.095 --> 00:00:55.762
+I have this logindiv and inside of it I
+have a select with the id of language.
+
+14
+00:00:55.762 --> 00:01:00.962
+And it's English and Spanish options,
+where the values is those en and
+
+15
+00:01:00.962 --> 00:01:05.622
+es that are standard, and
+we're using inside our greeter object.
+
+16
+00:01:05.622 --> 00:01:08.192
+Then I have a button, called Login.
+
+17
+00:01:08.192 --> 00:01:11.680
+We're imagining that this
+is some kind of login page.
+
+18
+00:01:11.680 --> 00:01:16.080
+And a spot where I'd like to drop
+my greeting after the login, and
+
+19
+00:01:16.080 --> 00:01:20.980
+I gave it an ID so I could find it
+with jQuery, called a Greeting.
+
+20
+00:01:20.980 --> 00:01:25.170
+So when I update this, I just have
+a little drop down and a login button.
+
+21
+00:01:26.780 --> 00:01:31.660
+And I still have my app.js code,
+where I have my chainable methods.
+
+22
+00:01:31.660 --> 00:01:35.980
+I greeted and I changed the language and
+I greeted again, but formal.
+
+23
+00:01:35.980 --> 00:01:42.310
+I can even set the log,
+if I want to log this, use that.
+
+24
+00:01:43.570 --> 00:01:45.440
+So all of that is working.
+
+25
+00:01:45.440 --> 00:01:52.828
+Now I'd like to add a method
+that accepts a jQuery selector.
+
+26
+00:01:52.828 --> 00:02:02.120
+And then updates whatever the selector is.
+
+27
+00:02:02.120 --> 00:02:05.470
+So I challenge you to try doing that
+if you're familiar with jQuery.
+
+28
+00:02:05.470 --> 00:02:07.710
+If you're not you just come along for
+the ride.
+
+29
+00:02:07.710 --> 00:02:11.330
+But if you're familiar with jQuery,
+I challenge you to make
+
+30
+00:02:11.330 --> 00:02:16.960
+a method on the prototype
+that accepts a selector.
+
+31
+00:02:16.960 --> 00:02:24.190
+And whether or not it's a formal greeting,
+and then uses jQuery to update the value.
+
+32
+00:02:24.190 --> 00:02:27.638
+And the selector will
+probably be #greeting,
+
+33
+00:02:27.638 --> 00:02:30.490
+because that's what I'm gonna pass.
+
+34
+00:02:30.490 --> 00:02:35.130
+But it should accept any selector, any
+string, create a jQuery object form it and
+
+35
+00:02:35.130 --> 00:02:40.350
+update the text inside this here,
+update the HTML.
+
+36
+00:02:40.350 --> 00:02:43.970
+You can go ahead and give that a try.
+
+37
+00:02:43.970 --> 00:02:51.192
+As a clue your gonna need to put it inside
+this prototype object literal declaration.
+
+38
+00:02:53.633 --> 00:02:55.960
+All right, here we go.
+
+39
+00:02:55.960 --> 00:02:58.170
+I'm gonna do HTMLGreeting,
+that's what I call it,
+
+40
+00:02:58.170 --> 00:02:59.820
+you can call it whatever you want.
+
+41
+00:02:59.820 --> 00:03:04.440
+It's a function that takes a selector for
+jQuery and whether or not it's formal.
+
+42
+00:03:06.230 --> 00:03:08.150
+I'm gonna make sure that I have jQuery.
+
+43
+00:03:08.150 --> 00:03:14.980
+So if jQuery isn't around then maybe I'll
+throw and error something like that.
+
+44
+00:03:14.980 --> 00:03:16.130
+jQuery not loaded.
+
+45
+00:03:18.030 --> 00:03:21.810
+And there might be other errors that
+would happen if jQuery wasn't loaded, but
+
+46
+00:03:21.810 --> 00:03:23.290
+just to be sure.
+
+47
+00:03:23.290 --> 00:03:27.310
+And if I don't have a selector
+I'm gonna throw my own error.
+
+48
+00:03:28.320 --> 00:03:33.220
+Missing jQuery selector,
+or something like that.
+
+49
+00:03:34.690 --> 00:03:37.546
+And then I'm gonna do
+a same little bit of code.
+
+50
+00:03:42.666 --> 00:03:47.426
+I could refactor this
+into a separate function,
+
+51
+00:03:47.426 --> 00:03:51.730
+but we'll just show it here so it's clear.
+
+52
+00:03:52.860 --> 00:03:56.690
+So I'm just saying depending on whether
+you give me a formal parameter or not.
+
+53
+00:03:56.690 --> 00:03:58.260
+That's the string that I'll use.
+
+54
+00:03:59.450 --> 00:04:01.380
+Now I'm gonna use jQuery.
+
+55
+00:04:01.380 --> 00:04:05.460
+Cuz remember I passed jQuery
+down into the function.
+
+56
+00:04:05.460 --> 00:04:07.705
+Although it is available globally,
+so I didn't have to.
+
+57
+00:04:07.705 --> 00:04:12.880
+But I'm encapsulating this just in case
+someday someone decides to use something
+
+58
+00:04:12.880 --> 00:04:14.980
+that's an alternative to jQuery.
+
+59
+00:04:14.980 --> 00:04:17.600
+They wanna pass a different variable here.
+
+60
+00:04:17.600 --> 00:04:20.110
+I don't care,
+as long as it works the same as jQuery.
+
+61
+00:04:21.330 --> 00:04:23.310
+So I can use my dollar sign.
+
+62
+00:04:23.310 --> 00:04:28.250
+That's whatever was passed to me that
+represents jQuery or something like it.
+
+63
+00:04:28.250 --> 00:04:29.640
+And I'll just pass the selector.
+
+64
+00:04:29.640 --> 00:04:32.050
+Because this function takes a string.
+
+65
+00:04:32.050 --> 00:04:36.940
+So I'm just gonna pass it down
+into my jQuery object and
+
+66
+00:04:36.940 --> 00:04:40.010
+I'll set the HTML to the screening.
+
+67
+00:04:41.570 --> 00:04:42.640
+And let's make this chainable.
+
+68
+00:04:44.530 --> 00:04:45.370
+All right.
+
+69
+00:04:45.370 --> 00:04:49.516
+So I have a jQuery
+
+70
+00:04:49.516 --> 00:04:54.870
+method that accepts a selector,
+a jQuery selector and
+
+71
+00:04:54.870 --> 00:05:00.010
+whether or not it's a formal greeting and
+sets up the greeting itself.
+
+72
+00:05:01.510 --> 00:05:03.990
+And then updates whatever value is there.
+
+73
+00:05:03.990 --> 00:05:06.570
+Now I need to do a little
+bit more validation of
+
+74
+00:05:06.570 --> 00:05:09.865
+what the results of the selector are but
+that could be for another day.
+
+75
+00:05:09.865 --> 00:05:12.805
+And then I'm making it chainable.
+
+76
+00:05:13.875 --> 00:05:19.955
+All right, so we have a complete
+little mini framework/library.
+
+77
+00:05:21.405 --> 00:05:21.905
+Let's use it.
+

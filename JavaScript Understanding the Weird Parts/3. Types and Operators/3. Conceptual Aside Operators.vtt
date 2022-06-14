@@ -1,0 +1,441 @@
+WEBVTT
+
+1
+00:00:02.061 --> 00:00:04.150
+It's time for another Conceptual Aside.
+
+2
+00:00:04.150 --> 00:00:06.910
+We've already talked about types.
+
+3
+00:00:06.910 --> 00:00:11.240
+Now, it's time to talk in
+depth about another concept
+
+4
+00:00:11.240 --> 00:00:16.020
+which will help us to debug and
+understand some other
+
+5
+00:00:16.020 --> 00:00:20.860
+kinds of problems people have in
+JavaScript because of its dynamic typing.
+
+6
+00:00:21.940 --> 00:00:24.580
+Let's talk about operators.
+
+7
+00:00:24.580 --> 00:00:27.370
+If you don't come from
+a computer science background,
+
+8
+00:00:27.370 --> 00:00:30.110
+what we're about to
+discuss may surprise you.
+
+9
+00:00:30.110 --> 00:00:30.940
+Well, either way.
+
+10
+00:00:33.120 --> 00:00:36.280
+Big word alert, operators.
+
+11
+00:00:36.280 --> 00:00:36.780
+What do we mean?
+
+12
+00:00:39.120 --> 00:00:44.495
+An operator is actually a special
+function that is syntactically, or
+
+13
+00:00:44.495 --> 00:00:51.630
+that is written, differently than regular
+functions are written in your code.
+
+14
+00:00:51.630 --> 00:00:56.070
+Generally, operators take two
+parameters and return one result.
+
+15
+00:00:57.440 --> 00:00:58.440
+Let's look at an example.
+
+16
+00:00:59.700 --> 00:01:03.980
+I'm back to my index.html and
+my app.js file.
+
+17
+00:01:03.980 --> 00:01:08.140
+And I'm going to increase my
+font size here in side brackets,
+
+18
+00:01:08.140 --> 00:01:11.340
+just because what we're about
+to discuss involve operators,
+
+19
+00:01:11.340 --> 00:01:14.910
+which are generally one or
+two characters long.
+
+20
+00:01:14.910 --> 00:01:17.345
+So, I wanna make sure that this
+is seen clearly in the video.
+
+21
+00:01:17.345 --> 00:01:23.070
+So, let's say that I
+declare the variable a,
+
+22
+00:01:23.070 --> 00:01:26.738
+and I'm gonna set it equal
+to three plus four, and
+
+23
+00:01:26.738 --> 00:01:30.830
+then console.log(a).
+
+24
+00:01:30.830 --> 00:01:32.850
+So, let me run this.
+
+25
+00:01:32.850 --> 00:01:36.097
+I bet you can guess what I'm
+going to see on the screen.
+
+26
+00:01:39.358 --> 00:01:40.195
+That's right.
+
+27
+00:01:40.195 --> 00:01:41.378
+Seven.
+
+28
+00:01:41.378 --> 00:01:43.140
+Three plus four is seven.
+
+29
+00:01:43.140 --> 00:01:43.640
+Obvious.
+
+30
+00:01:45.120 --> 00:01:47.310
+But here's a question you
+may not have asked yourself.
+
+31
+00:01:48.840 --> 00:01:50.970
+How did the JavaScript engine do that?
+
+32
+00:01:53.000 --> 00:02:00.090
+How did it know that this was
+my intent to add three and four?
+
+33
+00:02:01.590 --> 00:02:06.290
+Well, the syntax parser and the rest of
+the aspects of the engine looked at this
+
+34
+00:02:06.290 --> 00:02:11.390
+code, saw the plus sign and
+added these two numbers.
+
+35
+00:02:12.520 --> 00:02:15.330
+This plus sign is an operator.
+
+36
+00:02:16.370 --> 00:02:20.010
+It's the addition operator and
+it's actually a function.
+
+37
+00:02:20.010 --> 00:02:22.820
+It would be kind of like this.
+
+38
+00:02:23.920 --> 00:02:30.570
+It would be as if I declared a function
+and instead of giving it the name add and
+
+39
+00:02:30.570 --> 00:02:36.630
+then maybe two numbers, I, instead,
+simply gave it the name plus.
+
+40
+00:02:37.940 --> 00:02:39.970
+Gave it two number and then returned.
+
+41
+00:02:39.970 --> 00:02:45.457
+And then, somewhere in there,
+add the two numbers [SOUND].
+
+42
+00:02:45.457 --> 00:02:53.010
+That was, essentially, what happened
+when JavaScript saw this line of code.
+
+43
+00:02:54.110 --> 00:02:59.080
+The difference is that instead of calling
+the function as you normally would.
+
+44
+00:02:59.080 --> 00:03:02.860
+If this was a function name, I would
+then put parentheses and pass three and
+
+45
+00:03:02.860 --> 00:03:06.630
+four to it, and that would have
+been a normal function call.
+
+46
+00:03:06.630 --> 00:03:10.930
+But that would be a really annoying
+way to have to type your functions for
+
+47
+00:03:10.930 --> 00:03:13.950
+common operators like plus.
+
+48
+00:03:13.950 --> 00:03:16.620
+So, instead,
+the JavaScript engine provides,
+
+49
+00:03:16.620 --> 00:03:20.200
+along with many programming languages,
+the option for
+
+50
+00:03:20.200 --> 00:03:24.948
+the ability to write in
+what's called infix notation.
+
+51
+00:03:24.948 --> 00:03:32.120
+Infix means that the function name, the
+operator, sits between the two parameters.
+
+52
+00:03:32.120 --> 00:03:36.840
+So, instead of plus three, four,
+calling the function this way.
+
+53
+00:03:38.180 --> 00:03:43.621
+Imagine that instead,
+we remove the parentheses, and the comma.
+
+54
+00:03:43.621 --> 00:03:48.520
+That's called prefix notation.
+
+55
+00:03:48.520 --> 00:03:50.700
+I could put the plus sign at the end.
+
+56
+00:03:50.700 --> 00:03:53.280
+That would be called postfix notation.
+
+57
+00:03:53.280 --> 00:03:58.620
+A lot of old school accounting calculators
+work this way where you put the operator
+
+58
+00:03:58.620 --> 00:04:04.680
+at the end but for our purposes in
+JavaScript, this is infix notation.
+
+59
+00:04:04.680 --> 00:04:07.400
+It's very human readable, but
+
+60
+00:04:07.400 --> 00:04:11.890
+this is essentially a function
+call passing two parameters.
+
+61
+00:04:11.890 --> 00:04:14.430
+And this function returns a value.
+
+62
+00:04:14.430 --> 00:04:18.230
+The value that it returns,
+in the case of the addition operator,
+
+63
+00:04:18.230 --> 00:04:22.460
+is these two parameters added together.
+
+64
+00:04:22.460 --> 00:04:24.390
+So, plus is an operator.
+
+65
+00:04:24.390 --> 00:04:26.020
+There are other operators.
+
+66
+00:04:26.020 --> 00:04:31.309
+Common ones that you've used, most likely,
+like if swap this and do minus and
+
+67
+00:04:31.309 --> 00:04:36.140
+console.log this value.
+
+68
+00:04:36.140 --> 00:04:37.100
+What am I going to get?
+
+69
+00:04:38.830 --> 00:04:39.880
+Obviously, a one.
+
+70
+00:04:40.910 --> 00:04:45.300
+Because this is an operator,
+the minus sign.
+
+71
+00:04:46.780 --> 00:04:48.720
+Or if I asked a question,
+
+72
+00:04:50.520 --> 00:04:54.860
+four greater than three,
+this is a function, a special one,
+
+73
+00:04:54.860 --> 00:04:58.570
+an operator, the greater than function,
+or the greater than operator.
+
+74
+00:05:00.060 --> 00:05:05.260
+This is different because it accepts
+two numbers and returns a Boolean.
+
+75
+00:05:05.260 --> 00:05:07.870
+Remember those primitives
+that we talked about.
+
+76
+00:05:07.870 --> 00:05:12.360
+So, this will be true
+if the left parameter
+
+77
+00:05:12.360 --> 00:05:14.310
+is greater than the right parameter.
+
+78
+00:05:14.310 --> 00:05:18.550
+It will be false otherwise.
+
+79
+00:05:18.550 --> 00:05:22.080
+So, if I refresh this, then yes,
+four is greater than three.
+
+80
+00:05:22.080 --> 00:05:27.070
+So, this function accepted two numbers,
+and returned a Boolean.
+
+81
+00:05:27.070 --> 00:05:30.270
+So, this is the concept to keep in mind.
+
+82
+00:05:31.300 --> 00:05:35.603
+That when we type these operators,
+plus, minus, less than,
+
+83
+00:05:35.603 --> 00:05:40.798
+greater than, and a bunch of others
+that we'll talk about in just a moment,
+
+84
+00:05:40.798 --> 00:05:44.470
+that these are actually
+special types of functions.
+
+85
+00:05:44.470 --> 00:05:48.045
+That these parameters are being
+passed to those functions and
+
+86
+00:05:48.045 --> 00:05:50.260
+a value is being returned.
+
+87
+00:05:50.260 --> 00:05:55.570
+And inside those functions, there is
+pre-written code, essentially, for
+
+88
+00:05:55.570 --> 00:06:00.675
+you that the JavaScript language,
+the engine provides to do,
+
+89
+00:06:00.675 --> 00:06:03.520
+or run, or to invoke these functions.
+
+90
+00:06:04.530 --> 00:06:10.000
+And what's happening inside those
+functions is important to understand,
+
+91
+00:06:10.000 --> 00:06:15.550
+especially when dealing with a dynamically
+typed language like JavaScript,
+
+92
+00:06:15.550 --> 00:06:21.110
+where you don't necessarily
+know ahead of time,
+
+93
+00:06:21.110 --> 00:06:23.540
+what type the variable is.
+
+94
+00:06:23.540 --> 00:06:27.120
+The JavaScript engine will behave
+in special ways because of that.
+
+95
+00:06:27.120 --> 00:06:31.836
+But for now, here, let's just keep in
+mind that operators are functions.
+

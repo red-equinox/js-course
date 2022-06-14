@@ -1,0 +1,408 @@
+WEBVTT
+
+1
+00:00:02.280 --> 00:00:08.180
+The next version of JavaScript,
+EcmaScript 2015, or EcmaScript 6 or
+
+2
+00:00:08.180 --> 00:00:12.910
+ES6, whatever you want to call it,
+has a new concept coming.
+
+3
+00:00:14.260 --> 00:00:19.525
+And yet, it's just another way to create
+objects, and to set the prototype.
+
+4
+00:00:19.525 --> 00:00:24.205
+Let's look at classes.
+
+5
+00:00:24.205 --> 00:00:30.190
+Classes in other programming languages
+are extraordinarily popular.
+
+6
+00:00:30.190 --> 00:00:34.260
+They're a way of defining an object,
+defining what its methods and
+
+7
+00:00:34.260 --> 00:00:35.230
+properties should be.
+
+8
+00:00:36.760 --> 00:00:40.200
+JavaScript doesn't have classes.
+
+9
+00:00:40.200 --> 00:00:44.910
+However, in the next version it will,
+but in a different way.
+
+10
+00:00:46.320 --> 00:00:48.230
+So, what will a class look like?
+
+11
+00:00:50.730 --> 00:00:54.210
+A JavaScript class defines an object.
+
+12
+00:00:54.210 --> 00:00:56.190
+Just like we have done all along.
+
+13
+00:00:57.480 --> 00:01:01.480
+We have an constructor that acts
+somewhat like the constructor
+
+14
+00:01:01.480 --> 00:01:06.550
+functions that we've seen in
+that you can preset its values.
+
+15
+00:01:06.550 --> 00:01:10.410
+So when I create a new
+person in this instance, for
+
+16
+00:01:10.410 --> 00:01:13.910
+example, and
+I use the new key word to do this.
+
+17
+00:01:15.120 --> 00:01:20.710
+I can pass first name and last name,
+and then this key word will be set
+
+18
+00:01:20.710 --> 00:01:24.580
+to that new instant that's being created,
+that new object that's being created.
+
+19
+00:01:26.150 --> 00:01:30.740
+I can also have methods like
+greet sitting inside the class.
+
+20
+00:01:30.740 --> 00:01:32.030
+And it's just available.
+
+21
+00:01:33.770 --> 00:01:38.710
+But here's the problem, people coming
+from other programming languages,
+
+22
+00:01:38.710 --> 00:01:42.120
+when they see this class they think oh,
+great.
+
+23
+00:01:42.120 --> 00:01:43.780
+This is just like what I'm use to.
+
+24
+00:01:45.320 --> 00:01:48.070
+The difference is that in
+other programming languages,
+
+25
+00:01:48.070 --> 00:01:53.240
+class is not an object, it's just
+a definition, it's like a template.
+
+26
+00:01:53.240 --> 00:01:55.415
+It tells you what objects
+should look like.
+
+27
+00:01:55.415 --> 00:01:59.112
+But you don't actually get an object
+until you use that new key word.
+
+28
+00:02:00.375 --> 00:02:03.775
+But JavaScript even though it's
+adding the class key word,
+
+29
+00:02:03.775 --> 00:02:07.075
+still doesn't have classes in that sense.
+
+30
+00:02:07.075 --> 00:02:10.375
+Because this is an object in JavaScript.
+
+31
+00:02:11.915 --> 00:02:15.235
+This class person actually
+is an object that's created.
+
+32
+00:02:16.640 --> 00:02:24.080
+And then you're creating new objects
+from that object, and that's okay.
+
+33
+00:02:24.080 --> 00:02:29.840
+My fear though is that rather than
+appreciating the differences and
+
+34
+00:02:29.840 --> 00:02:34.090
+the beauty of prototypal inheritance,
+those who are coming from other
+
+35
+00:02:34.090 --> 00:02:38.840
+programming languages will simply see the
+class key word and immediately begin to
+
+36
+00:02:38.840 --> 00:02:44.207
+design object structures the way
+they do in C# or Java or C++.
+
+37
+00:02:44.207 --> 00:02:46.600
+I think that's a huge mistake.
+
+38
+00:02:48.120 --> 00:02:51.807
+And I also am weary about still
+having to use the new key word.
+
+39
+00:02:53.480 --> 00:02:59.700
+It's still an attempt to appease
+those coming form other languages.
+
+40
+00:02:59.700 --> 00:03:01.770
+And I personally aren't crazy about it.
+
+41
+00:03:02.980 --> 00:03:06.850
+However, it's one of those things.
+
+42
+00:03:06.850 --> 00:03:08.200
+It's in the language.
+
+43
+00:03:08.200 --> 00:03:11.680
+It's definitely better than
+function constructors because
+
+44
+00:03:11.680 --> 00:03:14.210
+at least the language will be
+able to say this is a class.
+
+45
+00:03:14.210 --> 00:03:16.140
+You have to use the new keyword so
+
+46
+00:03:16.140 --> 00:03:18.860
+the engine can stop you from
+doing something really silly.
+
+47
+00:03:20.160 --> 00:03:25.000
+My hope is that if you are learning
+JavaScript, if you're using JavaScript,
+
+48
+00:03:25.000 --> 00:03:29.140
+you'll stop just like this class
+is trying to help you do, and
+
+49
+00:03:29.140 --> 00:03:34.890
+understand what's happening under the hood
+and appreciate prototypal inheritance.
+
+50
+00:03:34.890 --> 00:03:39.209
+The simplicity of it as opposed to trying
+to mimic some other programming language.
+
+51
+00:03:41.020 --> 00:03:44.730
+Oh, by the way,
+how do you set the prototype, then?
+
+52
+00:03:44.730 --> 00:03:46.070
+Well, that's another new key word.
+
+53
+00:03:47.170 --> 00:03:52.810
+Let's say that I was creating an informal
+person, or a person is my prototype,
+
+54
+00:03:53.810 --> 00:03:57.340
+I simply use the key word extends.
+
+55
+00:03:57.340 --> 00:04:03.030
+And that sets the prototype for
+any of my objects created with this
+
+56
+00:04:04.110 --> 00:04:08.810
+class, essentially that __proto__
+property at least in Chrome.
+
+57
+00:04:09.840 --> 00:04:14.010
+And in my constructor,
+I can call the key word super.
+
+58
+00:04:14.010 --> 00:04:20.370
+Which simply we'll call the constructor
+of the object that is my prototype.
+
+59
+00:04:20.370 --> 00:04:24.540
+So I can pass my initial
+values down the chain.
+
+60
+00:04:26.280 --> 00:04:29.036
+And then I can override or
+hide, just like I did.
+
+61
+00:04:29.036 --> 00:04:32.087
+With object.create.
+
+62
+00:04:32.087 --> 00:04:33.620
+Make sense?
+
+63
+00:04:33.620 --> 00:04:35.290
+This isn't completely ready yet.
+
+64
+00:04:35.290 --> 00:04:40.660
+The point of the recording
+of this particular course.
+
+65
+00:04:40.660 --> 00:04:46.120
+But we will talk in a bit about how
+you can use these features right now.
+
+66
+00:04:47.140 --> 00:04:52.430
+Even if your users
+are using older browsers,
+
+67
+00:04:52.430 --> 00:04:55.950
+or that these concepts aren't even
+ready at all in the current browsers.
+
+68
+00:04:57.330 --> 00:05:01.141
+But, for now, this is what's coming for
+creating objects,
+
+69
+00:05:01.141 --> 00:05:06.960
+creating methods and properties on
+objects, and setting their prototype.
+
+70
+00:05:06.960 --> 00:05:12.820
+It's just another syntactical way,
+another way to type this.
+
+71
+00:05:12.820 --> 00:05:17.300
+Another approach but under the hood,
+it's all still working the same.
+
+72
+00:05:17.300 --> 00:05:21.590
+In fact, if you read on the Internet
+about classes, you'll often see for
+
+73
+00:05:21.590 --> 00:05:27.150
+classes in JavaScript a phrase
+that it's just syntactic sugar.
+
+74
+00:05:29.310 --> 00:05:35.360
+Well Big Word Alert, syntactic
+
+75
+00:05:35.360 --> 00:05:41.550
+sugar is just when you have a different
+way to type something into your code.
+
+76
+00:05:41.550 --> 00:05:44.120
+It doesn't change how it
+actually works under the hood.
+
+77
+00:05:46.010 --> 00:05:49.435
+We've already seen that
+function constructors,
+
+78
+00:05:49.435 --> 00:05:53.460
+object.create, are doing
+the same thing ultimately.
+
+79
+00:05:53.460 --> 00:05:59.410
+Essentially class in
+JavaScript is doing just that.
+
+80
+00:05:59.410 --> 00:06:04.000
+It's not changing anything about how
+the JavaScript engine does things,
+
+81
+00:06:04.000 --> 00:06:08.690
+about how objects and
+prototypes work under the hood.
+
+82
+00:06:08.690 --> 00:06:11.780
+It's just syntactic sugar.
+
+83
+00:06:11.780 --> 00:06:16.030
+Just giving you a different
+way to type it in your code.
+
+84
+00:06:16.030 --> 00:06:17.840
+But when that code is executed,
+
+85
+00:06:17.840 --> 00:06:22.550
+what's generated by the JavaScript engine,
+is still the same old thing.
+
+86
+00:06:23.740 --> 00:06:26.240
+It's still prototypal inheritance.
+

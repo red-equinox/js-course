@@ -1,0 +1,246 @@
+WEBVTT
+
+1
+00:00:01.950 --> 00:00:06.010
+There are many aspects to improving
+as a programmer, as a developer.
+
+2
+00:00:07.430 --> 00:00:12.390
+One of the most powerful is
+learning from others' good code.
+
+3
+00:00:12.390 --> 00:00:18.260
+And what's really terrific about working
+inside of the JavaScript architecture
+
+4
+00:00:18.260 --> 00:00:22.780
+and the JavaScript community
+is that there's a fantastic
+
+5
+00:00:22.780 --> 00:00:27.200
+treasure trove of good code out there for
+you to learn from.
+
+6
+00:00:28.700 --> 00:00:31.280
+I like to call it an open
+source education.
+
+7
+00:00:31.280 --> 00:00:35.230
+There are so many frameworks and libraries
+
+8
+00:00:36.300 --> 00:00:40.820
+that many thousands of people
+use every day, even millions.
+
+9
+00:00:41.930 --> 00:00:43.950
+And it's open source software.
+
+10
+00:00:43.950 --> 00:00:46.500
+Meaning that you can just
+open the source code.
+
+11
+00:00:46.500 --> 00:00:49.770
+The code of those frameworks and
+libraries and read them.
+
+12
+00:00:51.030 --> 00:00:55.760
+One of the goals of this course thus, was
+to give you an understanding of the more
+
+13
+00:00:55.760 --> 00:01:00.820
+advanced concepts in JavaScript so
+that you can go off and read interesting
+
+14
+00:01:00.820 --> 00:01:05.370
+source code and learn from it, and not be
+confused by what your seeing inside of it.
+
+15
+00:01:06.970 --> 00:01:11.090
+But this is one of those
+things that you should do.
+
+16
+00:01:11.090 --> 00:01:17.570
+Don't be afraid to open what at first
+could feel like intimidating source code.
+
+17
+00:01:17.570 --> 00:01:21.740
+You can learn from these
+famous frameworks and
+
+18
+00:01:21.740 --> 00:01:25.469
+libraries like AngularJS,
+jQuery, and others.
+
+19
+00:01:27.200 --> 00:01:31.030
+So, where can you find all this goodness?
+
+20
+00:01:31.030 --> 00:01:33.228
+Well, on the internet of course.
+
+21
+00:01:33.228 --> 00:01:38.909
+GitHub, GitHub.com is not only
+a great place to store your code,
+
+22
+00:01:38.909 --> 00:01:43.110
+but it's also a great place to learn.
+
+23
+00:01:43.110 --> 00:01:44.120
+To read source code.
+
+24
+00:01:45.670 --> 00:01:47.181
+For example I can go to Explore.
+
+25
+00:01:49.607 --> 00:01:51.269
+And then See all.
+
+26
+00:01:54.462 --> 00:01:57.271
+And I can go to
+Front-end JavaScript frameworks.
+
+27
+00:01:59.788 --> 00:02:05.580
+And explore things like angular,
+backbone, ember, knockout, react.
+
+28
+00:02:06.910 --> 00:02:09.240
+Famous libraries that people are using.
+
+29
+00:02:10.290 --> 00:02:13.690
+And I can go right into them and
+read their code,
+
+30
+00:02:13.690 --> 00:02:16.560
+usually in an src folder, for source.
+
+31
+00:02:18.680 --> 00:02:24.004
+Or I can to the website for that
+library or framework, like jQuery.com.
+
+32
+00:02:25.060 --> 00:02:29.570
+And when I go to Download jQuery,
+it will usually give me a option for
+
+33
+00:02:29.570 --> 00:02:35.020
+either the compressed production version
+or the uncompressed development version.
+
+34
+00:02:36.020 --> 00:02:40.560
+The uncompressed development version is
+the one that has all the comments and
+
+35
+00:02:40.560 --> 00:02:43.590
+you can read the code cleanly and easily.
+
+36
+00:02:43.590 --> 00:02:46.020
+So you can download that one and
+look at it.
+
+37
+00:02:46.020 --> 00:02:51.400
+Or often time there's a link
+to the source code on GitHub.
+
+38
+00:02:51.400 --> 00:02:56.270
+jQuery has one and
+again there's an src folder.
+
+39
+00:02:56.270 --> 00:02:59.950
+And I can go in and
+read some of their code.
+
+40
+00:02:59.950 --> 00:03:04.070
+I don't know what you might be
+thinking but it sounds about as fun as
+
+41
+00:03:04.070 --> 00:03:09.420
+reading the encyclopedia,
+but it is a good education.
+
+42
+00:03:09.420 --> 00:03:10.680
+You don't have to do it for hours and
+
+43
+00:03:10.680 --> 00:03:16.170
+hours, but find an element of the library
+or framework that you find interesting.
+
+44
+00:03:16.170 --> 00:03:19.560
+Find something down in
+its core that's useful.
+
+45
+00:03:19.560 --> 00:03:21.480
+Look at its structure.
+
+46
+00:03:21.480 --> 00:03:23.070
+And see what you can learn and imitate.
+
+47
+00:03:24.090 --> 00:03:27.980
+This is a really good way to
+learn advanced patterns and
+
+48
+00:03:27.980 --> 00:03:29.250
+concepts in JavaScript.
+
+49
+00:03:30.430 --> 00:03:35.050
+So I encourage you to make
+a practice of occasionally taking
+
+50
+00:03:35.050 --> 00:03:39.580
+a quick look at the source code of the
+framework or library that you're using.
+
+51
+00:03:41.500 --> 00:03:47.360
+We're going to practice this
+right now by taking a deep dive
+
+52
+00:03:47.360 --> 00:03:50.680
+into the source code of jQuery.
+

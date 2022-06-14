@@ -1,0 +1,357 @@
+WEBVTT
+
+1
+00:00:02.130 --> 00:00:06.352
+Before we can dive further into
+how dynamic typing works and
+
+2
+00:00:06.352 --> 00:00:08.041
+both its advantages and
+
+3
+00:00:08.041 --> 00:00:13.793
+its disadvantages we need to talk a bit
+about the types that exist in JavaScript.
+
+4
+00:00:13.793 --> 00:00:16.854
+The types of data that you
+can store in a variable.
+
+5
+00:00:16.854 --> 00:00:22.593
+Again you don't say this directly
+through the variable declaration,
+
+6
+00:00:22.593 --> 00:00:26.620
+but there are six primitive
+types in JavaScript.
+
+7
+00:00:26.620 --> 00:00:28.600
+All right now, one second.
+
+8
+00:00:30.860 --> 00:00:32.380
+Big Word Alert.
+
+9
+00:00:32.380 --> 00:00:34.690
+What do we mean by primitive type?
+
+10
+00:00:37.090 --> 00:00:41.930
+A primitive type is a type of data
+that represents a single value.
+
+11
+00:00:43.100 --> 00:00:46.860
+In other words,
+something that isn't an object.
+
+12
+00:00:46.860 --> 00:00:51.400
+Because remember, an object is
+a collection of name value pairs.
+
+13
+00:00:51.400 --> 00:00:55.070
+A primitive type, on the other hand,
+is just a single value.
+
+14
+00:00:56.180 --> 00:00:59.510
+And again,
+there are six types in JavaScript.
+
+15
+00:00:59.510 --> 00:01:02.446
+So let's talk about each
+of the primitive types.
+
+16
+00:01:02.446 --> 00:01:07.670
+First, we have undefined.
+
+17
+00:01:07.670 --> 00:01:09.470
+We've already talked about
+this at some length.
+
+18
+00:01:10.850 --> 00:01:14.380
+Undefined represents a lack of existence.
+
+19
+00:01:14.380 --> 00:01:19.160
+And it's what the JavaScript engine
+sets variables to initially and
+
+20
+00:01:19.160 --> 00:01:23.970
+it will stay undefined unless you
+set the variable to have a value.
+
+21
+00:01:23.970 --> 00:01:27.960
+So you really shouldn't use
+this as far as setting a value.
+
+22
+00:01:27.960 --> 00:01:30.860
+You shouldn't say a variable
+equals undefined.
+
+23
+00:01:30.860 --> 00:01:35.230
+Just let that be the thing that means
+the code has never set the value.
+
+24
+00:01:36.420 --> 00:01:37.700
+But you can certainly test for it.
+
+25
+00:01:39.910 --> 00:01:41.850
+The second primitive type is null.
+
+26
+00:01:43.030 --> 00:01:45.710
+Null also represents lack of existence.
+
+27
+00:01:46.730 --> 00:01:52.120
+This one is better for you to use when you
+want to say that something doesn't exist,
+
+28
+00:01:52.120 --> 00:01:54.400
+that the variable has no value.
+
+29
+00:01:54.400 --> 00:01:59.034
+So, leave undefined for the engine,
+and you can use null, the keyword
+
+30
+00:01:59.034 --> 00:02:04.208
+N-U-L-L lowercase, for your variables when
+you want to set them equal to nothing.
+
+31
+00:02:04.208 --> 00:02:07.400
+Next is Boolean.
+
+32
+00:02:07.400 --> 00:02:09.720
+This is familiar to most programmers.
+
+33
+00:02:09.720 --> 00:02:13.780
+This is either true or false,
+just one of two values.
+
+34
+00:02:13.780 --> 00:02:17.979
+And in JavaScript it's literally the word
+true or the word false, lowercase.
+
+35
+00:02:19.970 --> 00:02:25.080
+Next, comes number,
+another primitive or simple type.
+
+36
+00:02:25.080 --> 00:02:30.000
+In JavaScript, actually, there's only one
+numeric type, and it's called number.
+
+37
+00:02:31.200 --> 00:02:34.920
+It's a floating point number,
+meaning that essentially,
+
+38
+00:02:34.920 --> 00:02:37.620
+there's always some
+decimals attached to it.
+
+39
+00:02:39.240 --> 00:02:44.780
+Unlike other programming languages,
+others might have integer and decimal,
+
+40
+00:02:44.780 --> 00:02:48.910
+and other specific numeric types,
+JavaScript only has one.
+
+41
+00:02:49.950 --> 00:02:53.587
+And while you can fake it
+as far as integers and
+
+42
+00:02:53.587 --> 00:02:57.898
+other types of mathematical
+numbers are concerned,
+
+43
+00:02:57.898 --> 00:03:02.898
+there really is under the hood,
+only one type called number.
+
+44
+00:03:02.898 --> 00:03:04.590
+And it's a floating point number.
+
+45
+00:03:04.590 --> 00:03:05.780
+And it can make math a little weird.
+
+46
+00:03:06.990 --> 00:03:10.150
+Another familiar one is string,
+
+47
+00:03:10.150 --> 00:03:16.220
+this is another base
+primitive type in JavaScript.
+
+48
+00:03:16.220 --> 00:03:19.300
+It's a sequence of characters and
+both single quotes and
+
+49
+00:03:19.300 --> 00:03:25.320
+double quotes can be used to specify
+that we're dealing with a string.
+
+50
+00:03:25.320 --> 00:03:28.930
+In some programming languages,
+a string is more complex and
+
+51
+00:03:28.930 --> 00:03:31.690
+treated as a sequence of characters.
+
+52
+00:03:31.690 --> 00:03:36.605
+But in JavaScript,
+a string is considered a primitive type.
+
+53
+00:03:36.605 --> 00:03:43.519
+And finally the sixth one,
+this one is new and it's called symbol.
+
+54
+00:03:43.519 --> 00:03:50.590
+It's used in ES6 or ECMAScript 6,
+which is the next version of JavaScript.
+
+55
+00:03:50.590 --> 00:03:56.070
+It's being constructed and
+not fully supported by all browsers.
+
+56
+00:03:56.070 --> 00:04:00.250
+So we're not gonna talk about this here
+but as time goes on in this course I'll
+
+57
+00:04:00.250 --> 00:04:04.770
+occasionally post bonus lectures,
+especially throughout this year as
+
+58
+00:04:04.770 --> 00:04:07.880
+more and
+more is talked about with ECMAScript 6.
+
+59
+00:04:07.880 --> 00:04:12.010
+But for our purposes we're just
+going to ignore the symbol
+
+60
+00:04:12.010 --> 00:04:14.860
+as a primitive type in this course.
+
+61
+00:04:14.860 --> 00:04:18.370
+However it's just good that
+you know that it's coming.
+
+62
+00:04:18.370 --> 00:04:23.773
+So that said,
+the six primitive types in JavaScript,
+
+63
+00:04:23.773 --> 00:04:30.010
+undefined, null, Boolean,
+number, string, and symbol.
+
+64
+00:04:30.010 --> 00:04:30.878
+Are you bored yet?
+
+65
+00:04:30.878 --> 00:04:32.753
+I know.
+
+66
+00:04:32.753 --> 00:04:38.208
+Well, we just needed to establish this
+because understanding the primitive types,
+
+67
+00:04:38.208 --> 00:04:41.705
+and the fact that we're
+dealing with dynamic typing.
+
+68
+00:04:41.705 --> 00:04:48.050
+That is, that the engine is figuring out
+what type of variable is on the fly,
+
+69
+00:04:48.050 --> 00:04:52.821
+is key to understanding
+certain aspects of JavaScript.
+
+70
+00:04:52.821 --> 00:04:55.360
+And really weird, funky problems and
+
+71
+00:04:55.360 --> 00:05:00.370
+bugs that you can come up with that can
+be difficult to debug or understand.
+
+72
+00:05:01.418 --> 00:05:06.850
+So, we needed to first establish types and
+we'll focus on primitive types here.
+
+73
+00:05:06.850 --> 00:05:09.830
+And then,
+we're going to move on to another topic.
+
+74
+00:05:09.830 --> 00:05:13.270
+Then combine these two
+topics to fully understand
+
+75
+00:05:13.270 --> 00:05:16.475
+some things that people normally
+have problems with in JavaScript.
+

@@ -1,0 +1,194 @@
+WEBVTT
+
+1
+00:00:02.649 --> 00:00:04.908
+It's time for another Conceptual Aside.
+
+2
+00:00:04.908 --> 00:00:10.200
+Types and JavaScript.
+
+3
+00:00:10.200 --> 00:00:12.890
+Javascript is special, different
+
+4
+00:00:12.890 --> 00:00:16.640
+than what you might be used to if you're
+coming from another programming language.
+
+5
+00:00:16.640 --> 00:00:21.350
+When it comes to the types
+of data that variables hold.
+
+6
+00:00:21.350 --> 00:00:23.630
+And how JavaScript deals with them.
+
+7
+00:00:23.630 --> 00:00:27.920
+So before we start with
+that Big Word Alert.
+
+8
+00:00:29.150 --> 00:00:35.240
+I'm going to discuss a term that describes
+how JavaScript deals with types.
+
+9
+00:00:36.890 --> 00:00:39.210
+It's called Dynamic Typing.
+
+10
+00:00:40.430 --> 00:00:43.630
+That means that you don't
+tell the JavaScript engine
+
+11
+00:00:43.630 --> 00:00:46.080
+what type of data a variable holds.
+
+12
+00:00:46.080 --> 00:00:49.250
+You don't put that into
+the code that you're writing.
+
+13
+00:00:49.250 --> 00:00:53.760
+Instead, the engine figures it
+out while your code is running,
+
+14
+00:00:53.760 --> 00:00:56.110
+while it's executing.
+
+15
+00:00:56.110 --> 00:01:03.010
+And so a single variable can, at different
+times during the execution of your code.
+
+16
+00:01:03.010 --> 00:01:07.940
+Hold different types of values, because
+it's all figured out during execution.
+
+17
+00:01:07.940 --> 00:01:13.030
+All right, for example,
+when you're dealing with other programming
+
+18
+00:01:13.030 --> 00:01:19.195
+languages like Java or C#,
+they use something called Static Typing.
+
+19
+00:01:19.195 --> 00:01:23.675
+That means you tell the engine
+ahead of time, the compiler,
+
+20
+00:01:23.675 --> 00:01:29.405
+ahead of time what kind of data you
+intend to hold inside a variable.
+
+21
+00:01:29.405 --> 00:01:32.305
+So you might have
+a keyword like bool to say
+
+22
+00:01:32.305 --> 00:01:36.830
+this variable should hold a Boolean value,
+either true or false.
+
+23
+00:01:36.830 --> 00:01:42.760
+And then if you try to put a value that is
+other than a Boolean into that variable,
+
+24
+00:01:42.760 --> 00:01:44.480
+you get an error.
+
+25
+00:01:44.480 --> 00:01:45.680
+But JavaScript isn't like that.
+
+26
+00:01:47.130 --> 00:01:49.290
+JavaScript is dynamically typed.
+
+27
+00:01:50.550 --> 00:01:55.540
+Meaning that there is no
+keyword to tell the engine what
+
+28
+00:01:55.540 --> 00:02:00.560
+kind of data you intend to
+put inside the variable.
+
+29
+00:02:00.560 --> 00:02:04.550
+We just say var, for example, and
+then while the code is running,
+
+30
+00:02:05.660 --> 00:02:11.180
+the JavaScript engine will determine
+what type you're giving that variable.
+
+31
+00:02:11.180 --> 00:02:12.470
+And you could change it.
+
+32
+00:02:12.470 --> 00:02:15.260
+I could put those three lines in order,
+make it true.
+
+33
+00:02:15.260 --> 00:02:17.190
+And at that moment the engine will say,
+
+34
+00:02:17.190 --> 00:02:22.350
+you must mean this to be a Boolean type,
+and I can give it a string yep,
+
+35
+00:02:22.350 --> 00:02:25.906
+and it'll say yep you must
+have intended a string type.
+
+36
+00:02:25.906 --> 00:02:28.540
+And I could give it 1
+not inside quotes and
+
+37
+00:02:28.540 --> 00:02:31.380
+it will say,
+this is supposed to be a numeric type.
+
+38
+00:02:32.520 --> 00:02:36.870
+So JavaScript is dynamically typed,
+it figures it out on the fly.
+
+39
+00:02:38.170 --> 00:02:41.620
+This turns out to be quite powerful, and
+
+40
+00:02:41.620 --> 00:02:46.540
+can also cause you some problems if
+you don't understand how JavaScript
+
+41
+00:02:46.540 --> 00:02:50.030
+is going to make decisions as
+a result of dynamic typing.
+

@@ -1,0 +1,1454 @@
+WEBVTT
+
+1
+00:00:02.060 --> 00:00:06.470
+So now that we've seen that
+functions are objects in JavaScript.
+
+2
+00:00:06.470 --> 00:00:10.900
+We're going to see how the JavaScript
+programming language lets us do some
+
+3
+00:00:10.900 --> 00:00:15.790
+really interesting and
+powerful things with this concept.
+
+4
+00:00:15.790 --> 00:00:18.310
+The concept of first class functions.
+
+5
+00:00:19.460 --> 00:00:22.250
+To start we need to
+understand the difference and
+
+6
+00:00:22.250 --> 00:00:27.570
+the usage of function statements and
+function expressions.
+
+7
+00:00:27.570 --> 00:00:29.750
+Well, that sounds complicated.
+
+8
+00:00:29.750 --> 00:00:30.250
+It isn't.
+
+9
+00:00:31.730 --> 00:00:32.230
+Big word alert.
+
+10
+00:00:35.097 --> 00:00:37.370
+An expression.
+
+11
+00:00:37.370 --> 00:00:41.880
+An expression is a unit of
+code that results in a value.
+
+12
+00:00:43.660 --> 00:00:44.190
+And that's it.
+
+13
+00:00:45.200 --> 00:00:50.000
+So when we say a function statement,
+statements just do work.
+
+14
+00:00:50.000 --> 00:00:52.500
+But a function expression or
+
+15
+00:00:52.500 --> 00:00:58.150
+any expression in JavaScript
+ends up creating a value and
+
+16
+00:00:58.150 --> 00:01:02.790
+that value doesn't necessarily
+have to save inside a variable.
+
+17
+00:01:03.920 --> 00:01:05.100
+All right, let's look at an example.
+
+18
+00:01:06.130 --> 00:01:09.210
+So I have my empty app,js file and
+
+19
+00:01:09.210 --> 00:01:14.080
+I'm just going to declare a variable,
+let's just say a.
+
+20
+00:01:15.480 --> 00:01:23.100
+Now I'm going to run this, and
+I'll open a console here in Google Chrome.
+
+21
+00:01:23.100 --> 00:01:25.120
+Now I have a sitting there in memory, and
+
+22
+00:01:25.120 --> 00:01:28.010
+I can write some code on
+the fly here in the console.
+
+23
+00:01:29.290 --> 00:01:31.810
+So, what is an expression?
+
+24
+00:01:31.810 --> 00:01:34.660
+We said an expression returns a value.
+
+25
+00:01:35.750 --> 00:01:38.636
+So I have a unit of codes,
+code that I've written.
+
+26
+00:01:38.636 --> 00:01:43.390
+And that unit,
+
+27
+00:01:43.390 --> 00:01:47.870
+essentially a line of code, although it
+can be split into multiple physical lines,
+
+28
+00:01:47.870 --> 00:01:49.790
+sometimes it's run as a unit.
+
+29
+00:01:51.090 --> 00:01:54.477
+I have a unit of code,
+I'm setting a equal three.
+
+30
+00:01:54.477 --> 00:01:58.760
+Remember that equals is an operator,
+
+31
+00:01:58.760 --> 00:02:04.180
+a function that takes these two values,
+does some work and then returns a value.
+
+32
+00:02:04.180 --> 00:02:10.030
+So this will return three because I passed
+a on the left side and three on the other.
+
+33
+00:02:10.030 --> 00:02:12.210
+And it returns whatever
+is on the right side.
+
+34
+00:02:12.210 --> 00:02:13.210
+The second parameter.
+
+35
+00:02:14.230 --> 00:02:17.890
+So, I run that, and I get a value back.
+
+36
+00:02:17.890 --> 00:02:18.980
+Three.
+
+37
+00:02:18.980 --> 00:02:21.240
+Because the equals
+operator returns a value.
+
+38
+00:02:22.500 --> 00:02:26.300
+This happens to set some values in memory,
+but
+
+39
+00:02:26.300 --> 00:02:28.940
+I can run a different
+expression like one plus two.
+
+40
+00:02:31.280 --> 00:02:32.870
+This is a valid expression.
+
+41
+00:02:33.950 --> 00:02:38.790
+And the plus sign as an operator,
+takes these two values, and adds them, and
+
+42
+00:02:38.790 --> 00:02:40.510
+returns the result.
+
+43
+00:02:40.510 --> 00:02:45.860
+And I can run it, and it just happens
+to return three in this case,
+
+44
+00:02:45.860 --> 00:02:50.220
+but notice that I didn't set it
+equal to anything in memory.
+
+45
+00:02:50.220 --> 00:02:52.790
+So the expression evaluated.
+
+46
+00:02:52.790 --> 00:02:59.270
+That is to say it ran and
+returned this value, this result here.
+
+47
+00:02:59.270 --> 00:03:01.940
+But I didn't do anything with that value.
+
+48
+00:03:01.940 --> 00:03:04.000
+But in both cases this is an expression.
+
+49
+00:03:05.280 --> 00:03:07.610
+Because it returned a value.
+
+50
+00:03:08.670 --> 00:03:09.530
+Get that?
+
+51
+00:03:09.530 --> 00:03:11.400
+That line of code results in a value.
+
+52
+00:03:13.000 --> 00:03:18.810
+Now that value could be a number or
+a string or an object, whatever the case.
+
+53
+00:03:18.810 --> 00:03:21.090
+But it's still ends up being a value.
+
+54
+00:03:21.090 --> 00:03:25.760
+So I could go a equals, and I'll use
+an object literal greeting hi, and
+
+55
+00:03:25.760 --> 00:03:27.890
+it still works the same way.
+
+56
+00:03:27.890 --> 00:03:32.296
+It puts it into memory and
+the equals operator returns a value.
+
+57
+00:03:32.296 --> 00:03:34.387
+Got that?
+
+58
+00:03:34.387 --> 00:03:38.440
+So when we're talking about a statement,
+on the other hand,
+
+59
+00:03:39.970 --> 00:03:46.540
+let's say I do an if statement,
+If a equals three and then do something.
+
+60
+00:03:47.820 --> 00:03:50.580
+Inside the parentheses of an if statement,
+
+61
+00:03:50.580 --> 00:03:55.200
+you put an expression because
+that results in a value.
+
+62
+00:03:56.250 --> 00:03:59.530
+But the if statement itself
+is just a statement.
+
+63
+00:04:00.580 --> 00:04:04.470
+It's called an if statement
+because it doesn't return a value.
+
+64
+00:04:04.470 --> 00:04:10.420
+I can't say variable b equals and
+then if, because this just does work.
+
+65
+00:04:10.420 --> 00:04:11.630
+No value is returned.
+
+66
+00:04:13.370 --> 00:04:17.880
+The if is a statement, and inside the if
+statement you have an expression,
+
+67
+00:04:17.880 --> 00:04:23.740
+because the expression this triple equals
+returns a value ultimately true or false.
+
+68
+00:04:25.400 --> 00:04:26.610
+Get that.
+
+69
+00:04:26.610 --> 00:04:31.240
+So statement just does work and
+an expression results in a value.
+
+70
+00:04:32.708 --> 00:04:40.140
+In JavaScript, because functions are
+objects, I have both function statements
+
+71
+00:04:40.140 --> 00:04:44.680
+and function expressions,
+which are extraordinarily powerful.
+
+72
+00:04:46.500 --> 00:04:48.090
+Let's show the difference.
+
+73
+00:04:48.090 --> 00:04:48.790
+I'll clear this out.
+
+74
+00:04:50.960 --> 00:04:52.870
+I'm going to do a function statement.
+
+75
+00:04:54.450 --> 00:05:00.697
+I'll make a function called greet and
+I'll console.log('hi').
+
+76
+00:05:00.697 --> 00:05:02.730
+This is a function statement.
+
+77
+00:05:04.410 --> 00:05:12.980
+When it's run, when it's evaluated,
+it doesn't result in a value.
+
+78
+00:05:12.980 --> 00:05:17.430
+The function is placed into memory,
+but it's just a statement.
+
+79
+00:05:17.430 --> 00:05:21.520
+It doesn't return a value until
+the function is executed.
+
+80
+00:05:22.740 --> 00:05:27.680
+So when I see this, it does say okay,
+I'm putting the function in memory.
+
+81
+00:05:27.680 --> 00:05:32.270
+But this unit of code
+doesn't result in a value.
+
+82
+00:05:32.270 --> 00:05:34.250
+But it does do some special things.
+
+83
+00:05:34.250 --> 00:05:36.590
+We've already seen that it gets hoisted.
+
+84
+00:05:36.590 --> 00:05:41.230
+That is, during the creation
+phase of the execution context,
+
+85
+00:05:41.230 --> 00:05:45.910
+the global execution context,
+in this case, it's put into memory.
+
+86
+00:05:45.910 --> 00:05:47.420
+And so it's available ahead of time.
+
+87
+00:05:48.770 --> 00:05:55.590
+I can call greet before I declare it,
+before I make that function's statement.
+
+88
+00:05:55.590 --> 00:05:57.090
+So it's available to me in memory.
+
+89
+00:05:58.250 --> 00:05:59.350
+That's fine.
+
+90
+00:05:59.350 --> 00:06:00.880
+It's still an object.
+
+91
+00:06:00.880 --> 00:06:06.000
+It's name is greet and its code property
+contains the code you wrote inside of it.
+
+92
+00:06:06.000 --> 00:06:11.040
+Now I'm going to use
+a function expression, watch.
+
+93
+00:06:12.340 --> 00:06:16.320
+I'll type a variable name,
+let's call this anonymousGreet.
+
+94
+00:06:17.800 --> 00:06:19.300
+I use the equals operator.
+
+95
+00:06:20.470 --> 00:06:24.660
+And here I could put a number or
+a string or an object,
+
+96
+00:06:24.660 --> 00:06:26.920
+maybe using the object literal syntax.
+
+97
+00:06:28.180 --> 00:06:30.560
+Instead I'll use a function expression.
+
+98
+00:06:31.590 --> 00:06:34.600
+I'll say function and
+
+99
+00:06:34.600 --> 00:06:37.200
+then I'll give myself some
+whitespace just to make it clear.
+
+100
+00:06:39.530 --> 00:06:40.880
+I'll make the same function.
+
+101
+00:06:42.580 --> 00:06:44.150
+Now wait a minute, does that look strange?
+
+102
+00:06:45.160 --> 00:06:45.970
+What are we doing?
+
+103
+00:06:47.590 --> 00:06:51.440
+Well remember functions in
+JavaScript are objects.
+
+104
+00:06:51.440 --> 00:06:59.250
+So I'm creating an object on the fly and
+setting it equal to this variable.
+
+105
+00:06:59.250 --> 00:07:03.580
+That is this variable,
+it's spot in memory that it points to.
+
+106
+00:07:03.580 --> 00:07:08.600
+It's address in memory that it points
+to will contain a function object.
+
+107
+00:07:10.480 --> 00:07:11.080
+Make sense?
+
+108
+00:07:12.310 --> 00:07:13.590
+So what's really going on here?
+
+109
+00:07:14.700 --> 00:07:16.650
+Well, remember what happened.
+
+110
+00:07:16.650 --> 00:07:21.660
+Let's look at our function declaration
+again, our function statement.
+
+111
+00:07:22.690 --> 00:07:25.560
+This is the one that gets
+pulled up into memory
+
+112
+00:07:25.560 --> 00:07:27.530
+when the execution context is created.
+
+113
+00:07:28.810 --> 00:07:34.330
+And it has this name property, and
+this code property, that get set.
+
+114
+00:07:34.330 --> 00:07:39.330
+So I have an object in memory,
+the name is greet, because that's where I
+
+115
+00:07:39.330 --> 00:07:43.810
+put before before those parentheses,
+and it has a line of code.
+
+116
+00:07:44.950 --> 00:07:47.239
+And when I call it.
+
+117
+00:07:47.239 --> 00:07:53.473
+It's connected to that spot in memory
+where this function object lives,
+
+118
+00:07:53.473 --> 00:07:58.509
+and those parens then invoke
+the code part of the function.
+
+119
+00:07:58.509 --> 00:08:01.360
+Now what about my function expression?
+
+120
+00:08:02.850 --> 00:08:09.890
+In this case, I have an equals operator
+that's putting this object into memory.
+
+121
+00:08:09.890 --> 00:08:13.440
+And pointing that anonymous
+greet variable at that address.
+
+122
+00:08:13.440 --> 00:08:17.180
+Remember, it's not really looking
+at the name of the function or
+
+123
+00:08:17.180 --> 00:08:18.580
+anything like that.
+
+124
+00:08:18.580 --> 00:08:23.180
+It knows the address in memory just like
+you have an address for where you live.
+
+125
+00:08:24.730 --> 00:08:27.980
+So we still get a function object.
+
+126
+00:08:27.980 --> 00:08:30.260
+The JavaScript engine creates one.
+
+127
+00:08:31.630 --> 00:08:34.560
+And in this case I didn't have a name.
+
+128
+00:08:35.860 --> 00:08:41.190
+Because, I didn't put anything before
+the parenthesis, and I don't have to.
+
+129
+00:08:41.190 --> 00:08:45.190
+Because, I have a variable that
+already knows where that object lives.
+
+130
+00:08:45.190 --> 00:08:47.490
+So, I don't need a name
+to reference it by.
+
+131
+00:08:48.640 --> 00:08:51.390
+So this is an anonymous function.
+
+132
+00:08:51.390 --> 00:08:54.260
+You may have heard that phrase.
+
+133
+00:08:54.260 --> 00:08:56.320
+That's all this really means.
+
+134
+00:08:56.320 --> 00:09:00.720
+An anonymous function is a function that
+doesn't have a name in it's name property.
+
+135
+00:09:00.720 --> 00:09:04.770
+But that's okay,
+because you can reference it with
+
+136
+00:09:04.770 --> 00:09:08.560
+variable names that are pointing to
+the address where that object lives.
+
+137
+00:09:10.060 --> 00:09:14.140
+And we have the same code property,
+the same line of code is inside of there.
+
+138
+00:09:15.580 --> 00:09:18.635
+So how do we invoke this function?
+
+139
+00:09:19.875 --> 00:09:21.845
+We need to point at the object.
+
+140
+00:09:21.845 --> 00:09:23.425
+And then tell it to run its code.
+
+141
+00:09:24.865 --> 00:09:25.545
+Can you guess?
+
+142
+00:09:27.645 --> 00:09:29.005
+That's right.
+
+143
+00:09:29.005 --> 00:09:32.325
+The variable is already
+pointing to where it lives.
+
+144
+00:09:32.325 --> 00:09:35.485
+And then I put parentheses,
+which invokes the code.
+
+145
+00:09:37.450 --> 00:09:44.380
+So if I do that here, anonymousGreet and
+then parentheses, and run this.
+
+146
+00:09:45.860 --> 00:09:47.680
+That runs the same code as well.
+
+147
+00:09:49.980 --> 00:09:52.560
+So I use an anonymous
+function in this case.
+
+148
+00:09:52.560 --> 00:09:54.389
+And this right here by itself.
+
+149
+00:09:55.400 --> 00:09:57.000
+In this case, is an expression.
+
+150
+00:09:58.080 --> 00:10:00.250
+Because it results in a value.
+
+151
+00:10:00.250 --> 00:10:04.620
+I end up with the function object when
+this part of the code is evaluated,
+
+152
+00:10:04.620 --> 00:10:06.710
+or considered, or executed.
+
+153
+00:10:08.330 --> 00:10:10.710
+This is just a function statement.
+
+154
+00:10:11.870 --> 00:10:14.050
+Because when the code is executing,
+
+155
+00:10:14.050 --> 00:10:16.810
+even though this function
+has been placed into memory.
+
+156
+00:10:16.810 --> 00:10:22.080
+When this part is actually run
+through in the execution phase,
+
+157
+00:10:22.080 --> 00:10:23.320
+it doesn't really do anything.
+
+158
+00:10:23.320 --> 00:10:25.010
+It just says, oh yeah,
+there's a function there.
+
+159
+00:10:25.010 --> 00:10:25.580
+It keeps going.
+
+160
+00:10:26.590 --> 00:10:28.580
+When this line is executed.
+
+161
+00:10:30.180 --> 00:10:34.620
+This statement results in
+an object being created.
+
+162
+00:10:34.620 --> 00:10:38.810
+It returns an object essentially.
+
+163
+00:10:38.810 --> 00:10:40.320
+So it's an expression.
+
+164
+00:10:40.320 --> 00:10:41.730
+It results in a value.
+
+165
+00:10:41.730 --> 00:10:43.890
+The value being a new function object.
+
+166
+00:10:44.900 --> 00:10:46.060
+And I can make this anonymous.
+
+167
+00:10:46.060 --> 00:10:49.175
+You might think well why
+shouldn't I have a name there?
+
+168
+00:10:49.175 --> 00:10:53.015
+Well, that's a lot to type, why bother?
+
+169
+00:10:54.505 --> 00:10:58.555
+Good code is about being clear and
+understandable,
+
+170
+00:10:58.555 --> 00:11:02.975
+while at the same time minimizing
+the amount of code that we need to write.
+
+171
+00:11:02.975 --> 00:11:05.995
+So, the anonymous function is great for
+this.
+
+172
+00:11:07.035 --> 00:11:10.030
+It's very clear that I'm
+creating a function object.
+
+173
+00:11:10.030 --> 00:11:14.770
+And it's not difficult to understand
+how to invoke, how to call it.
+
+174
+00:11:14.770 --> 00:11:15.650
+How to run the function.
+
+175
+00:11:17.720 --> 00:11:20.500
+Now, that said, let me ask you a question.
+
+176
+00:11:22.330 --> 00:11:28.190
+If I move this line above this line.
+
+177
+00:11:28.190 --> 00:11:32.390
+Just like I did for
+calling greet before it was
+
+178
+00:11:33.670 --> 00:11:36.760
+created here in the statement,
+in the code.
+
+179
+00:11:36.760 --> 00:11:37.390
+This worked.
+
+180
+00:11:38.670 --> 00:11:43.880
+What do you think will happen here and
+why?
+
+181
+00:11:43.880 --> 00:11:48.780
+Think about what you know about
+the execution context being created,
+
+182
+00:11:50.560 --> 00:11:52.330
+and then execute it.
+
+183
+00:11:52.330 --> 00:11:54.990
+Executing code line by line.
+
+184
+00:11:54.990 --> 00:12:01.690
+Knowing that it puts function statements,
+and variables into memory first.
+
+185
+00:12:03.000 --> 00:12:07.250
+And what it does with variables
+when it puts them into memory And
+
+186
+00:12:07.250 --> 00:12:10.010
+the how it runs line by
+line through the code.
+
+187
+00:12:11.200 --> 00:12:12.320
+What do you expect to see?
+
+188
+00:12:12.320 --> 00:12:13.500
+We already know that this will say hi.
+
+189
+00:12:13.500 --> 00:12:16.460
+Because it will call this function,
+it's in memory.
+
+190
+00:12:16.460 --> 00:12:17.840
+What do you think you'll see here?
+
+191
+00:12:22.280 --> 00:12:25.490
+Uncaught TypeError:
+undefined is not a function.
+
+192
+00:12:26.930 --> 00:12:27.800
+Did that surprise you?
+
+193
+00:12:29.280 --> 00:12:29.930
+Well it shouldn't.
+
+194
+00:12:31.570 --> 00:12:33.340
+Remember that this is hoisted.
+
+195
+00:12:33.340 --> 00:12:38.910
+Meaning when the JavaScript engine sees
+the word function on a new line by itself,
+
+196
+00:12:38.910 --> 00:12:41.880
+it says oh,
+you're creating a function here.
+
+197
+00:12:41.880 --> 00:12:42.830
+And I'll put it in memory.
+
+198
+00:12:44.090 --> 00:12:46.220
+But here it sees a variable.
+
+199
+00:12:46.220 --> 00:12:47.420
+It puts it into memory and
+
+200
+00:12:47.420 --> 00:12:51.950
+what does it set the variable equal to
+before it starts executing the code?
+
+201
+00:12:51.950 --> 00:12:52.810
+All variables.
+
+202
+00:12:53.810 --> 00:12:54.600
+That's right.
+
+203
+00:12:54.600 --> 00:12:57.220
+The special primitive called undefined.
+
+204
+00:12:58.220 --> 00:13:00.110
+And then it begins to run the code.
+
+205
+00:13:00.110 --> 00:13:03.410
+So it runs greet, and it says,
+oh yes, I have that in memory.
+
+206
+00:13:03.410 --> 00:13:06.850
+Then it sees the function statement,
+nothing to do there really.
+
+207
+00:13:06.850 --> 00:13:13.670
+And then it sees this, and it says, oh,
+I see that in memory, it's undefined.
+
+208
+00:13:13.670 --> 00:13:16.820
+Because we haven't hit the line where
+it's set equal to anything yet.
+
+209
+00:13:16.820 --> 00:13:21.240
+And then we just tried to invoke
+it as if it was a function.
+
+210
+00:13:21.240 --> 00:13:23.470
+And JavaScript said nope.
+
+211
+00:13:23.470 --> 00:13:26.800
+The undefined primitive is not a function.
+
+212
+00:13:28.470 --> 00:13:31.690
+It isn't until this line of
+code where it's set equal
+
+213
+00:13:31.690 --> 00:13:35.380
+to this new function object that's
+created when it sees this code.
+
+214
+00:13:36.700 --> 00:13:39.410
+So function expressions aren't hoisted.
+
+215
+00:13:39.410 --> 00:13:41.880
+And that can confuse people.
+
+216
+00:13:41.880 --> 00:13:45.930
+But if we think about it from the
+perspective of how JavaScript does this
+
+217
+00:13:45.930 --> 00:13:48.080
+under the hood,
+it's not really surprising.
+
+218
+00:13:49.230 --> 00:13:52.660
+It just only hoisted the variable.
+
+219
+00:13:52.660 --> 00:13:58.010
+And so the variable doesn't contain an
+object until this line of code is run in
+
+220
+00:13:58.010 --> 00:13:59.420
+the execution phase.
+
+221
+00:13:59.420 --> 00:14:04.137
+So, I have to then have
+it first set equal.
+
+222
+00:14:04.137 --> 00:14:07.537
+So that it's sitting in memory.
+
+223
+00:14:07.537 --> 00:14:11.492
+And then I can invoke it, like this.
+
+224
+00:14:11.492 --> 00:14:13.860
+Make sense?
+
+225
+00:14:13.860 --> 00:14:18.420
+All right, I'll put this above as well so
+we can see the difference.
+
+226
+00:14:20.400 --> 00:14:21.660
+Undefined is not a function.
+
+227
+00:14:23.170 --> 00:14:26.070
+Now when I remove it one more time.
+
+228
+00:14:27.660 --> 00:14:29.560
+It runs just fine.
+
+229
+00:14:29.560 --> 00:14:33.840
+Because at this point,
+this equals operator has been run.
+
+230
+00:14:33.840 --> 00:14:40.160
+And it's put the result of this statement,
+a new function object, into this variable.
+
+231
+00:14:40.160 --> 00:14:42.700
+That is this variable
+points to a spot in memory.
+
+232
+00:14:42.700 --> 00:14:47.360
+And inside that spot in your computer's
+memory, is sitting this function object.
+
+233
+00:14:48.530 --> 00:14:51.570
+All right, so
+let's do one more cool thing.
+
+234
+00:14:51.570 --> 00:14:55.880
+I'm gonna create a new function using
+a function statement called log.
+
+235
+00:14:56.920 --> 00:14:58.550
+It'll just take a variable.
+
+236
+00:14:59.590 --> 00:15:00.660
+Let's say variable a.
+
+237
+00:15:02.410 --> 00:15:08.840
+And I'm going to console.log,
+whatever is passed into the function.
+
+238
+00:15:11.000 --> 00:15:12.850
+Now I'm going to then call this function.
+
+239
+00:15:14.300 --> 00:15:17.970
+If I pass a number,
+what's going to happen?
+
+240
+00:15:18.980 --> 00:15:22.190
+Well it'll get that number and output it.
+
+241
+00:15:22.190 --> 00:15:24.280
+And I'm just creating this on the fly.
+
+242
+00:15:24.280 --> 00:15:25.670
+I didn't create a variable.
+
+243
+00:15:25.670 --> 00:15:28.940
+And then pass the variable,
+although I could.
+
+244
+00:15:30.710 --> 00:15:33.630
+I'm just creating that value on the fly.
+
+245
+00:15:35.480 --> 00:15:37.660
+So when I run this I see three.
+
+246
+00:15:38.880 --> 00:15:39.690
+That makes sense.
+
+247
+00:15:40.710 --> 00:15:41.420
+What about a string?
+
+248
+00:15:43.240 --> 00:15:43.740
+Hello.
+
+249
+00:15:45.360 --> 00:15:47.810
+I'm just creating this string on the fly.
+
+250
+00:15:47.810 --> 00:15:49.363
+I could set a variable.
+
+251
+00:15:51.580 --> 00:15:56.573
+And then pass that variable,
+but I don't have to.
+
+252
+00:15:56.573 --> 00:15:59.121
+I can just create the string on the fly.
+
+253
+00:15:59.121 --> 00:16:01.455
+This is a string literal.
+
+254
+00:16:01.455 --> 00:16:02.454
+I use quotes.
+
+255
+00:16:02.454 --> 00:16:05.293
+I could use single quotes if I wanted, and
+
+256
+00:16:05.293 --> 00:16:09.200
+that string is created, and
+the function outputs it.
+
+257
+00:16:09.200 --> 00:16:11.660
+The function got it as a parameter.
+
+258
+00:16:13.700 --> 00:16:15.450
+What about an object?
+
+259
+00:16:15.450 --> 00:16:20.850
+Well, we've already seen that I can use
+curly braces, and create myself an object.
+
+260
+00:16:20.850 --> 00:16:23.392
+So I might go, greeting: hi, and
+
+261
+00:16:23.392 --> 00:16:28.934
+it just has single name value pair in
+this case, but the object is created.
+
+262
+00:16:28.934 --> 00:16:33.940
+I could, set it equal to a variable,
+and pass that variable,
+
+263
+00:16:33.940 --> 00:16:37.418
+but I can just create
+the object on the fly.
+
+264
+00:16:37.418 --> 00:16:44.130
+So, greeting: hi, but
+it's inside that object.
+
+265
+00:16:44.130 --> 00:16:45.300
+The object was created.
+
+266
+00:16:46.510 --> 00:16:47.230
+Name value pair.
+
+267
+00:16:47.230 --> 00:16:48.680
+All right.
+
+268
+00:16:48.680 --> 00:16:49.270
+So that's great.
+
+269
+00:16:50.565 --> 00:16:53.610
+But, remember what we just learned.
+
+270
+00:16:53.610 --> 00:16:55.980
+A function is an object.
+
+271
+00:16:55.980 --> 00:17:01.650
+And a function expression creates
+an object, a function object on the fly.
+
+272
+00:17:01.650 --> 00:17:04.810
+So, I can do something
+that looks really strange.
+
+273
+00:17:04.810 --> 00:17:11.280
+I can say function, and
+create a function on the fly.
+
+274
+00:17:13.130 --> 00:17:13.670
+See what I did?
+
+275
+00:17:15.430 --> 00:17:18.750
+This works an awful lot
+like an object literal.
+
+276
+00:17:20.100 --> 00:17:24.760
+I'm creating a function on the fly,
+putting some code, it creates that object.
+
+277
+00:17:24.760 --> 00:17:29.370
+Puts that code into that code
+property of that function object.
+
+278
+00:17:30.380 --> 00:17:33.060
+It's just like a string,
+or a number, an object.
+
+279
+00:17:33.060 --> 00:17:36.240
+I'm just creating a function on the fly,
+because functions are objects.
+
+280
+00:17:37.340 --> 00:17:40.590
+And so
+that will get passed to the function.
+
+281
+00:17:40.590 --> 00:17:43.390
+And look, it has the function.
+
+282
+00:17:43.390 --> 00:17:48.340
+It's anonymous, but
+it's referenced with that a parameter.
+
+283
+00:17:48.340 --> 00:17:50.110
+See how that works?
+
+284
+00:17:50.110 --> 00:17:53.660
+First class functions,
+functions that can be passed around,
+
+285
+00:17:53.660 --> 00:17:57.620
+created on the fly, used, and
+variables can be set equal to them.
+
+286
+00:17:58.720 --> 00:18:00.370
+That's pretty neat.
+
+287
+00:18:00.370 --> 00:18:05.130
+So, if I want to then invoke this
+function, the a parameter now points at
+
+288
+00:18:05.130 --> 00:18:10.260
+a spot in memory, where this has been
+created, when I called the log function.
+
+289
+00:18:11.410 --> 00:18:16.380
+It passed a function to a function, which
+is something you can do in JavaScript, and
+
+290
+00:18:16.380 --> 00:18:20.640
+other languages that work like JavaScript,
+when it comes to functions.
+
+291
+00:18:20.640 --> 00:18:24.140
+So I passed a function to a function, so
+
+292
+00:18:24.140 --> 00:18:28.600
+now I have this a property, and
+it's pointing at a function object.
+
+293
+00:18:28.600 --> 00:18:30.381
+So how do I get it to run?
+
+294
+00:18:30.381 --> 00:18:36.823
+How can I run this function that
+I created, and gave to log?
+
+295
+00:18:36.823 --> 00:18:41.383
+Well I just go parentheses, right?
+
+296
+00:18:41.383 --> 00:18:45.720
+That tells the JavaScript engine
+to invoke, or run the function.
+
+297
+00:18:46.740 --> 00:18:48.430
+Take a really good look at this.
+
+298
+00:18:50.180 --> 00:18:56.020
+I'm calling log, and passing a function,
+using a function expression,
+
+299
+00:18:56.020 --> 00:19:00.980
+creating the function right there,
+inside the parentheses where I'm
+
+300
+00:19:00.980 --> 00:19:06.080
+passing it to here, and so
+a now is this function.
+
+301
+00:19:06.080 --> 00:19:09.570
+It points to a spot in memory that
+contains this function object, and
+
+302
+00:19:09.570 --> 00:19:13.330
+I can just tell it,
+okay now invoke your code, run your code.
+
+303
+00:19:13.330 --> 00:19:14.270
+So what am I going to see?
+
+304
+00:19:17.420 --> 00:19:18.210
+There's that third hi.
+
+305
+00:19:20.170 --> 00:19:20.670
+Get it?
+
+306
+00:19:21.900 --> 00:19:26.100
+So, I have a function statement,
+hoisted into memory,
+
+307
+00:19:26.100 --> 00:19:29.380
+during the creation phase
+of the execution context.
+
+308
+00:19:30.420 --> 00:19:33.100
+I have a function expression here,
+
+309
+00:19:33.100 --> 00:19:38.590
+that's used as part of the equals
+operator, to set it equal to a variable.
+
+310
+00:19:38.590 --> 00:19:40.660
+Then I can use that variable to invoke it.
+
+311
+00:19:41.960 --> 00:19:45.630
+And I have a function expression,
+that I'm passing a function,
+
+312
+00:19:45.630 --> 00:19:49.340
+as a parameter to another function.
+
+313
+00:19:49.340 --> 00:19:51.433
+And then I can use it.
+
+314
+00:19:51.433 --> 00:19:57.873
+This concept of first class functions
+then, where you can pass functions around,
+
+315
+00:19:57.873 --> 00:20:03.209
+give functions to other functions,
+use them like you do variables,
+
+316
+00:20:03.209 --> 00:20:07.165
+introduces an entirely
+new class of programming,
+
+317
+00:20:07.165 --> 00:20:09.851
+called functional programming.
+
+318
+00:20:09.851 --> 00:20:11.380
+And we'll talk about that in a bit.
+
+319
+00:20:12.540 --> 00:20:16.280
+But just for now, realize that,
+when you see this style
+
+320
+00:20:17.670 --> 00:20:21.062
+of syntax, it's a function expression, and
+
+321
+00:20:21.062 --> 00:20:26.864
+it's available because of
+first class functions.
+
+322
+00:20:26.864 --> 00:20:32.330
+Because functions in
+JavaScript are objects.
+

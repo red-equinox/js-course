@@ -1,0 +1,1080 @@
+WEBVTT
+
+1
+00:00:01.755 --> 00:00:04.240
+It's time for
+a very important conceptual aside.
+
+2
+00:00:05.780 --> 00:00:10.230
+This is, by value versus by reference, and
+
+3
+00:00:10.230 --> 00:00:13.490
+understanding this concept
+will be important.
+
+4
+00:00:13.490 --> 00:00:19.170
+Not only for your Java script development
+skills, and debugging skills,
+
+5
+00:00:19.170 --> 00:00:23.290
+but also for some important things we're
+going to talk about in just a bit.
+
+6
+00:00:23.290 --> 00:00:29.280
+So let's explain what we mean when
+we say by value and by reference.
+
+7
+00:00:29.280 --> 00:00:32.640
+In both cases,
+we're talking about variables.
+
+8
+00:00:34.900 --> 00:00:37.710
+So let's say I have a primitive value.
+
+9
+00:00:37.710 --> 00:00:41.680
+One of those primitive types,
+a number, or a bullion, or a string.
+
+10
+00:00:42.950 --> 00:00:46.790
+And, I've set a variable equal to it.
+
+11
+00:00:46.790 --> 00:00:51.580
+So, now that variable, let's say a,
+has an address location,
+
+12
+00:00:51.580 --> 00:00:55.990
+where it knows where that
+primitive value sits, in memory.
+
+13
+00:00:57.160 --> 00:01:02.540
+Remember, we said that the reference
+is really to a location in memory.
+
+14
+00:01:03.950 --> 00:01:07.485
+And let's suppose then I run b = a.
+
+15
+00:01:07.485 --> 00:01:12.030
+I set up a new variable,
+and it's equal to a.
+
+16
+00:01:12.030 --> 00:01:17.390
+Or maybe I pass a to a function, and
+the parameter name, and the function is b.
+
+17
+00:01:18.970 --> 00:01:23.716
+If it's a primitive value in JavaScript,
+this is what happens.
+
+18
+00:01:23.716 --> 00:01:30.550
+B, the new variable,
+points to a new address.
+
+19
+00:01:30.550 --> 00:01:32.270
+A new location in memory.
+
+20
+00:01:33.640 --> 00:01:39.170
+And a copy of the primitive value
+is placed into that spot in memory.
+
+21
+00:01:40.610 --> 00:01:44.440
+So if a is 3, it sits in one address.
+
+22
+00:01:44.440 --> 00:01:45.650
+One location in memory.
+
+23
+00:01:46.730 --> 00:01:52.404
+B then also, will point to 3 for
+the copy, a separate location,
+
+24
+00:01:52.404 --> 00:01:57.160
+in memory,
+that has been filled with that same value.
+
+25
+00:01:58.750 --> 00:02:01.620
+This approach is called by value.
+
+26
+00:02:02.680 --> 00:02:04.850
+I'm passing, or referencing, or
+
+27
+00:02:04.850 --> 00:02:09.900
+setting equal one value to another,
+by copying the value.
+
+28
+00:02:09.900 --> 00:02:12.660
+These two variables become the same,
+
+29
+00:02:12.660 --> 00:02:16.508
+by copying the value into two
+separate spots in memory.
+
+30
+00:02:16.508 --> 00:02:17.893
+Make sense?
+
+31
+00:02:20.452 --> 00:02:25.921
+Now, if i have an object in JavaScript,
+and this goes for all objects,
+
+32
+00:02:25.921 --> 00:02:31.500
+that includes functions which
+are special types of objects and others.
+
+33
+00:02:32.540 --> 00:02:38.000
+When I set a variable equal to an object,
+I still get a location,
+
+34
+00:02:38.000 --> 00:02:42.370
+an address in memory that it
+knows where that object lives.
+
+35
+00:02:42.370 --> 00:02:43.440
+And that's how I reference it.
+
+36
+00:02:45.300 --> 00:02:50.390
+But when b is set equal to a,
+when I'm essentially
+
+37
+00:02:50.390 --> 00:02:55.350
+trying to get those two to be the same
+value, or I pass a to a function,
+
+38
+00:02:56.990 --> 00:03:02.380
+that new variable b, instead of
+getting a new location in memory,
+
+39
+00:03:03.920 --> 00:03:08.600
+simply points to the same
+location in memory that a does.
+
+40
+00:03:09.750 --> 00:03:12.080
+No new object is created.
+
+41
+00:03:12.080 --> 00:03:14.050
+No copy of the object is created.
+
+42
+00:03:15.170 --> 00:03:19.490
+Instead, two names point
+to the same address.
+
+43
+00:03:19.490 --> 00:03:23.810
+This would like if you had two names,
+an alias.
+
+44
+00:03:23.810 --> 00:03:25.620
+And yet, both of those names,
+
+45
+00:03:25.620 --> 00:03:28.880
+it doesn't matter because you
+still live in the same place.
+
+46
+00:03:30.480 --> 00:03:34.160
+In this way, both a and
+b, have the same value,
+
+47
+00:03:34.160 --> 00:03:39.750
+because when you ask them what their value
+is, they look at the same place in memory.
+
+48
+00:03:41.450 --> 00:03:43.100
+This is called by reference.
+
+49
+00:03:44.320 --> 00:03:48.480
+And by reference behaves quite
+differently from by value.
+
+50
+00:03:49.480 --> 00:03:54.380
+It's important to understand that
+all objects interact by reference,
+
+51
+00:03:54.380 --> 00:03:57.080
+when sending them equal to each other,
+or passing to a function.
+
+52
+00:03:58.250 --> 00:04:01.830
+And this can cause problems
+if you don't understand this,
+
+53
+00:04:01.830 --> 00:04:04.320
+weird problems that can be hard to debug.
+
+54
+00:04:04.320 --> 00:04:07.190
+But once you do understand it,
+it becomes quite clear.
+
+55
+00:04:07.190 --> 00:04:08.350
+All right.
+
+56
+00:04:08.350 --> 00:04:10.049
+Let's look at some examples.
+
+57
+00:04:11.180 --> 00:04:13.530
+All right,
+first let's talk about by value.
+
+58
+00:04:13.530 --> 00:04:16.940
+And we're talking about primitive
+types in JavaScript, so
+
+59
+00:04:16.940 --> 00:04:18.790
+I'll just put a comment here.
+
+60
+00:04:18.790 --> 00:04:21.710
+And let's create two variables.
+
+61
+00:04:21.710 --> 00:04:26.920
+I'll create a variable a, which I'll
+set equal to 3, and a variable b,
+
+62
+00:04:26.920 --> 00:04:32.178
+which I won't set equal to anything,
+and then I'll set b equal to a.
+
+63
+00:04:33.520 --> 00:04:37.080
+So, at this point, what should happen?
+
+64
+00:04:37.080 --> 00:04:40.860
+Well, you can guess, that a will be 3,
+and b will be 3 as well.
+
+65
+00:04:42.010 --> 00:04:47.440
+But remember, this is by value,
+because 3 is a primitive type, a number.
+
+66
+00:04:47.440 --> 00:04:50.730
+The same would be true with any of the
+other primitive types that we discussed.
+
+67
+00:04:52.110 --> 00:04:56.730
+So when b is set equal to a,
+the equal's operator,
+
+68
+00:04:56.730 --> 00:05:03.160
+seeing that these are primitive types,
+creates a new spot in memory for b,
+
+69
+00:05:04.180 --> 00:05:09.430
+copies that value from a, and sets it
+to that value that b is looking at.
+
+70
+00:05:09.430 --> 00:05:14.030
+So b will be 3, and a will be 3, but
+
+71
+00:05:14.030 --> 00:05:17.910
+they will be copies of each other,
+sitting in two spots in memory.
+
+72
+00:05:19.010 --> 00:05:24.480
+That means that, after the fact,
+I can change a, and it doesn't affect b.
+
+73
+00:05:25.490 --> 00:05:29.340
+Because they're two
+different spots in memory.
+
+74
+00:05:29.340 --> 00:05:32.860
+This line copied them, but
+after that they're on their own.
+
+75
+00:05:32.860 --> 00:05:33.780
+So let's run this.
+
+76
+00:05:35.740 --> 00:05:39.560
+And what I should see, is what?
+
+77
+00:05:39.560 --> 00:05:41.320
+What do you think I should see here?
+
+78
+00:05:41.320 --> 00:05:45.180
+Knowing that these are two
+separate copies in memory.
+
+79
+00:05:46.360 --> 00:05:50.063
+Well a is equal to 2, what will b be?
+
+80
+00:05:50.063 --> 00:05:55.625
+B, its value is 3.
+
+81
+00:05:55.625 --> 00:06:00.680
+And that makes sense,
+because b was just a copy of a.
+
+82
+00:06:00.680 --> 00:06:02.200
+It has its own space in memory.
+
+83
+00:06:02.200 --> 00:06:05.840
+So when I changed a,
+it didn't have any impact on b at all.
+
+84
+00:06:06.920 --> 00:06:08.620
+That's by value.
+
+85
+00:06:10.130 --> 00:06:12.860
+Next is by reference.
+
+86
+00:06:12.860 --> 00:06:17.450
+So, I'll put a comma in here, so we can
+separate these, and that's all objects.
+
+87
+00:06:17.450 --> 00:06:18.710
+That includes functions.
+
+88
+00:06:20.190 --> 00:06:25.850
+So, this is the behavior in Java
+script for any type of object.
+
+89
+00:06:25.850 --> 00:06:28.120
+So, I'll do a new variable c,
+
+90
+00:06:28.120 --> 00:06:32.440
+I'll use object literal syntax to
+create a name, and value pair.
+
+91
+00:06:33.980 --> 00:06:37.870
+And then a second variable,
+and I'll do the same thing.
+
+92
+00:06:37.870 --> 00:06:39.210
+I'll set d equal to c.
+
+93
+00:06:41.180 --> 00:06:44.460
+Now, what's happened at this point,
+at this line of code?
+
+94
+00:06:45.600 --> 00:06:49.900
+The equals operator sees
+that these are objects.
+
+95
+00:06:49.900 --> 00:06:54.520
+And so, rather than setting
+up d with a new memory space.
+
+96
+00:06:54.520 --> 00:06:57.720
+It simply points d at the same address,
+
+97
+00:06:57.720 --> 00:07:01.060
+at the same location in memory,
+that c points to.
+
+98
+00:07:02.170 --> 00:07:05.990
+So if I was to output these two,
+you'd see the same value, but
+
+99
+00:07:05.990 --> 00:07:08.240
+they aren't copies of each other.
+
+100
+00:07:08.240 --> 00:07:11.620
+They're simply pointing to
+the same spot in memory.
+
+101
+00:07:12.840 --> 00:07:16.130
+That means, if I mutate C,
+
+102
+00:07:17.860 --> 00:07:23.350
+lets say I change its dot
+greeting equal to hello,
+
+103
+00:07:23.350 --> 00:07:28.510
+because now that I've got my object
+setup I can use the dot operator, and
+
+104
+00:07:28.510 --> 00:07:31.820
+say hello, and I'll mutate it, oh.
+
+105
+00:07:31.820 --> 00:07:33.220
+Oh yeah, wait a second.
+
+106
+00:07:35.520 --> 00:07:36.860
+Big word alert.
+
+107
+00:07:36.860 --> 00:07:41.110
+Yeah, this is another one of those
+words that computer scientists decide
+
+108
+00:07:41.110 --> 00:07:44.878
+to use that's way more complicated
+sounding then it really is.
+
+109
+00:07:44.878 --> 00:07:47.230
+All right.
+
+110
+00:07:47.230 --> 00:07:48.990
+Mutate.
+
+111
+00:07:48.990 --> 00:07:49.900
+To change something.
+
+112
+00:07:49.900 --> 00:07:52.830
+I know, right?
+
+113
+00:07:52.830 --> 00:07:54.870
+That's all it means.
+
+114
+00:07:54.870 --> 00:07:58.620
+And if you read up on any
+deep Java Strip subjects,
+
+115
+00:07:58.620 --> 00:08:02.040
+you'll probably hear this word,
+mutate an object.
+
+116
+00:08:02.040 --> 00:08:03.180
+Mutate a value.
+
+117
+00:08:03.180 --> 00:08:06.380
+It just means change it.
+
+118
+00:08:06.380 --> 00:08:08.300
+That's literally all it means.
+
+119
+00:08:08.300 --> 00:08:11.320
+And you'll also see the phrase immutable,
+
+120
+00:08:11.320 --> 00:08:14.410
+which simply means that
+it can't be changed.
+
+121
+00:08:14.410 --> 00:08:17.544
+But that's a subject for another course.
+
+122
+00:08:17.544 --> 00:08:21.418
+Mutate means to change something.
+
+123
+00:08:21.418 --> 00:08:24.810
+So when I say, I mutate my object,
+that really means I'm changing it.
+
+124
+00:08:24.810 --> 00:08:27.210
+Maybe adding a property,
+removing a property,
+
+125
+00:08:27.210 --> 00:08:31.340
+changing a value of a property,
+and mutate it.
+
+126
+00:08:31.340 --> 00:08:32.540
+All right.
+
+127
+00:08:32.540 --> 00:08:34.890
+So, here I've mutated my object.
+
+128
+00:08:34.890 --> 00:08:39.390
+That is, I have an object in memory,
+with a property called greeting,
+
+129
+00:08:39.390 --> 00:08:45.190
+whose value is hi, and
+I change that properties value to hello.
+
+130
+00:08:45.190 --> 00:08:45.710
+I mutate it.
+
+131
+00:08:46.770 --> 00:08:52.310
+So now, I'm going to console dot log d or
+c, and then d.
+
+132
+00:08:52.310 --> 00:08:52.830
+Let's do that.
+
+133
+00:08:55.120 --> 00:08:56.990
+What do you expect to see here?
+
+134
+00:08:58.210 --> 00:09:04.530
+Remember that when you set values equal
+to each other, when it comes to objects,
+
+135
+00:09:05.860 --> 00:09:10.580
+you're simply pointing the two variable
+names at the same location in memory.
+
+136
+00:09:11.980 --> 00:09:17.160
+I have an object with a name value
+pair greeting, initially hi,
+
+137
+00:09:17.160 --> 00:09:20.740
+and that's what it is
+when d is set equal to c.
+
+138
+00:09:20.740 --> 00:09:25.250
+And then I use c to change
+the value of that property.
+
+139
+00:09:26.640 --> 00:09:28.860
+So what am I going to see
+when I output these two?
+
+140
+00:09:30.430 --> 00:09:35.340
+Well, I see hello for
+
+141
+00:09:35.340 --> 00:09:38.070
+c, and hello for d.
+
+142
+00:09:39.620 --> 00:09:40.340
+Does that surprise you?
+
+143
+00:09:41.850 --> 00:09:46.030
+Well it shouldn't,
+understanding how this works.
+
+144
+00:09:46.030 --> 00:09:50.540
+They're simply both pointing to
+the same location in memory.
+
+145
+00:09:51.620 --> 00:09:56.390
+So if I change the value of that object,
+if I change,
+
+146
+00:09:56.390 --> 00:10:01.150
+if I mutate that object, it doesn't
+matter which variable name I use,
+
+147
+00:10:01.150 --> 00:10:04.690
+these are just aliases, for
+all intents and purposes.
+
+148
+00:10:04.690 --> 00:10:08.130
+I'm saying,
+at this memory location that C points to,
+
+149
+00:10:08.130 --> 00:10:13.700
+change the greeting property
+of that object to hello.
+
+150
+00:10:13.700 --> 00:10:18.600
+And then, when I go ask to look at d, d is
+pointing at that same location in memory.
+
+151
+00:10:18.600 --> 00:10:20.230
+And it's been changed.
+
+152
+00:10:20.230 --> 00:10:21.040
+So these are the same.
+
+153
+00:10:22.410 --> 00:10:27.660
+So, with by reference, objects,
+since they're set equal to
+
+154
+00:10:27.660 --> 00:10:33.710
+each other by reference, once you change
+one, you change the other, or all of them.
+
+155
+00:10:33.710 --> 00:10:39.260
+If I had more variables set equal to c or
+d, they would all change,
+
+156
+00:10:39.260 --> 00:10:42.990
+no matter which one I used to change it.
+
+157
+00:10:42.990 --> 00:10:46.320
+Because they all would be pointing,
+at the same location and memory.
+
+158
+00:10:47.760 --> 00:10:53.970
+The same thing happens when I
+do parameters to functions.
+
+159
+00:10:53.970 --> 00:10:59.450
+So, even as parameters,
+objects are passed by reference,
+
+160
+00:10:59.450 --> 00:11:03.710
+primitives by value but
+objects by reference.
+
+161
+00:11:03.710 --> 00:11:09.340
+So, let's say, I write a new
+function called changeGreeting.
+
+162
+00:11:09.340 --> 00:11:12.020
+I'll just call it, obj for object.
+
+163
+00:11:12.020 --> 00:11:14.820
+And I'll expect that it
+has a greeting property.
+
+164
+00:11:14.820 --> 00:11:17.400
+And I'll set it equal to Hola.
+
+165
+00:11:17.400 --> 00:11:21.160
+So here again, I'm mutating that object.
+
+166
+00:11:21.160 --> 00:11:23.250
+So I have this d variable.
+
+167
+00:11:24.480 --> 00:11:28.860
+It's pointing at the same
+memory space as c.
+
+168
+00:11:28.860 --> 00:11:31.070
+Now it's set equal to hello.
+
+169
+00:11:31.070 --> 00:11:35.929
+So, this time I'll call changeGreeting,
+and
+
+170
+00:11:35.929 --> 00:11:39.100
+I'll pass d to this function.
+
+171
+00:11:39.100 --> 00:11:43.570
+So d will be passed to here,
+that will be what obj is.
+
+172
+00:11:43.570 --> 00:11:45.770
+And then I mutate it.
+
+173
+00:11:45.770 --> 00:11:51.810
+So let's output c and d.
+
+174
+00:11:51.810 --> 00:11:52.860
+What do you expect to see?
+
+175
+00:11:55.120 --> 00:12:01.060
+We understand that just like equals,
+passing an object to
+
+176
+00:12:01.060 --> 00:12:06.610
+a function means they're being
+passed by reference, not by value.
+
+177
+00:12:06.610 --> 00:12:11.140
+So, obj will simply point to
+the same memory location as d, and
+
+178
+00:12:11.140 --> 00:12:14.650
+d already points to the same
+memory location as c.
+
+179
+00:12:14.650 --> 00:12:19.710
+So when this is mutated, meaning go
+update that object sitting there in that
+
+180
+00:12:19.710 --> 00:12:25.970
+memory location, and
+I go output these, there we go.
+
+181
+00:12:25.970 --> 00:12:27.880
+Hola for both c and d.
+
+182
+00:12:29.010 --> 00:12:34.240
+Because I've mutated the value
+in that particular memory space.
+
+183
+00:12:34.240 --> 00:12:35.940
+Again, by reference.
+
+184
+00:12:37.310 --> 00:12:44.820
+Now, one other thing to note, the equals
+operator sets up new memory space.
+
+185
+00:12:44.820 --> 00:12:47.190
+That is a new address in memory.
+
+186
+00:12:47.190 --> 00:12:53.100
+So, if I set c equal to
+an equivalent object, but
+
+187
+00:12:53.100 --> 00:12:58.960
+I give it a different value, say howdy,
+and then I'll just copy, paste these.
+
+188
+00:12:58.960 --> 00:13:00.380
+I copy and paste c and d.
+
+189
+00:13:02.280 --> 00:13:08.500
+This equals, in this case,
+I'm setting c equal to a new value.
+
+190
+00:13:09.680 --> 00:13:14.550
+And so, the equals operator is going to,
+in this case,
+
+191
+00:13:14.550 --> 00:13:21.430
+set up a brand new memory space for
+c, and put this value in it.
+
+192
+00:13:21.430 --> 00:13:27.390
+So, d and c, will no longer be pointing,
+to the same location and memory.
+
+193
+00:13:27.390 --> 00:13:32.940
+So, I get howdy, and d is still
+pointing at the spot that said hola.
+
+194
+00:13:34.790 --> 00:13:40.310
+So, this is a special case,
+where my reference doesn't really apply,
+
+195
+00:13:40.310 --> 00:13:47.170
+because the equals operator saw that these
+aren't a preexisting location in memory.
+
+196
+00:13:47.170 --> 00:13:53.570
+This is a brand new object being created
+on the fly, by this object literal syntax.
+
+197
+00:13:53.570 --> 00:13:58.200
+So, since it saw that its second parameter
+wasn't an object that already existed
+
+198
+00:13:58.200 --> 00:14:02.520
+in memory, it had to set up a spot
+in memory for this to live.
+
+199
+00:14:03.840 --> 00:14:07.350
+So, it set up that spot in memory for
+this to live, and then pointed c at it.
+
+200
+00:14:07.350 --> 00:14:15.280
+In the earlier case, where I set
+d equal to c, c already existed.
+
+201
+00:14:16.500 --> 00:14:19.640
+So the equals operator said, oh,
+this already exists in memory.
+
+202
+00:14:19.640 --> 00:14:22.940
+It's an object, so
+I'll just point d to that same location.
+
+203
+00:14:24.480 --> 00:14:28.060
+But again, here,
+this didn't exist in memory yet.
+
+204
+00:14:28.060 --> 00:14:30.370
+It added it, and then pointed c there.
+
+205
+00:14:30.370 --> 00:14:33.640
+So c is pointing now to
+a different spot in memory then d.
+
+206
+00:14:35.120 --> 00:14:36.530
+So that's the exception there.
+
+207
+00:14:37.650 --> 00:14:38.780
+Again, it's important for
+
+208
+00:14:38.780 --> 00:14:42.410
+you to understand the difference
+between by value, and by reference.
+
+209
+00:14:43.590 --> 00:14:46.180
+In some programming languages,
+you can actually
+
+210
+00:14:46.180 --> 00:14:50.860
+decide whether something is passed by
+value or reference, with your code syntax.
+
+211
+00:14:50.860 --> 00:14:53.480
+But in JavaScript you
+don't have that option.
+
+212
+00:14:53.480 --> 00:14:59.180
+All primitive types are by value,
+and all objects are by reference.
+
+213
+00:14:59.180 --> 00:15:02.852
+This can cause some errors and
+bugs that are hard to track down,
+
+214
+00:15:02.852 --> 00:15:04.732
+if you don't understand this.
+
+215
+00:15:04.732 --> 00:15:09.753
+But once you do, once you understand
+that if you're using objects,
+
+216
+00:15:09.753 --> 00:15:14.776
+they're being mutated,
+then all the objects, all the variables,
+
+217
+00:15:14.776 --> 00:15:19.293
+that point to that same object,
+are going to get that change.
+
+218
+00:15:19.293 --> 00:15:23.120
+Going to see that change, cuz they're
+just pointing at the same memory space.
+
+219
+00:15:23.120 --> 00:15:26.860
+You'll understand, if maybe,
+you accidentally mutated an object,
+
+220
+00:15:26.860 --> 00:15:28.400
+that you didn't mean to.
+
+221
+00:15:28.400 --> 00:15:32.670
+Because maybe you passed the object
+by reference, and didn't realize it.
+
+222
+00:15:32.670 --> 00:15:37.660
+On the other hand, maybe you intended to
+change a primitive type, but you didn't
+
+223
+00:15:37.660 --> 00:15:42.320
+change the original value, because
+it was being passed around by value.
+
+224
+00:15:43.690 --> 00:15:45.350
+All right so, take a look at this code.
+
+225
+00:15:45.350 --> 00:15:47.340
+It's provided for you to download.
+
+226
+00:15:47.340 --> 00:15:49.720
+Or try typing it out yourself.
+
+227
+00:15:49.720 --> 00:15:51.860
+Try messing around with it a bit.
+
+228
+00:15:51.860 --> 00:15:54.460
+Understand all of these scenarios.
+
+229
+00:15:54.460 --> 00:15:58.310
+This will help you greatly in debugging
+your own JavaScript code, and
+
+230
+00:15:58.310 --> 00:16:02.520
+providing you some interesting
+options in the code that you write.
+
+231
+00:16:02.520 --> 00:16:05.020
+And will also help you
+understand some things we'll see
+
+232
+00:16:05.020 --> 00:16:07.090
+just a little bit later in the course.
+
+233
+00:16:07.090 --> 00:16:09.230
+So that's by value, and by reference.
+

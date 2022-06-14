@@ -1,0 +1,151 @@
+WEBVTT
+
+1
+00:00:01.890 --> 00:00:03.960
+It's time for another Conceptual Aside.
+
+2
+00:00:03.960 --> 00:00:08.400
+And this is a subject that's already come
+up, that we've already talked about a bit.
+
+3
+00:00:08.400 --> 00:00:12.300
+But we just want to reinforce
+the concept in your mind
+
+4
+00:00:12.300 --> 00:00:15.870
+because it's important to several
+of the things that are coming next.
+
+5
+00:00:16.920 --> 00:00:20.750
+Let's talk again about syntax parsers.
+
+6
+00:00:20.750 --> 00:00:25.591
+Remember that the code you write isn't
+directly run on the computer, but
+
+7
+00:00:25.591 --> 00:00:30.589
+there's that intermediate program
+between your code and the computer that
+
+8
+00:00:30.589 --> 00:00:35.069
+translates your code into something
+the computer can understand.
+
+9
+00:00:35.069 --> 00:00:39.500
+The JavaScript engine on your browser for
+example does this.
+
+10
+00:00:40.510 --> 00:00:46.310
+And it has different aspects and elements
+to it, one of them being a syntax parser,
+
+11
+00:00:46.310 --> 00:00:50.860
+which reads your code and
+determines if it's valid, and
+
+12
+00:00:50.860 --> 00:00:52.960
+what it is you're trying to do.
+
+13
+00:00:52.960 --> 00:00:57.996
+So for example, if it sees in your code
+as it's going character by character
+
+14
+00:00:57.996 --> 00:01:02.700
+an r by itself, it assumes that
+
+15
+00:01:02.700 --> 00:01:06.270
+you're probably going to write a return
+statement, so it's expecting an e.
+
+16
+00:01:06.270 --> 00:01:10.790
+And it will go character by character, and
+
+17
+00:01:10.790 --> 00:01:13.900
+if it sees something unexpected,
+it will throw an error.
+
+18
+00:01:14.940 --> 00:01:19.790
+But if it sees what it
+anticipates as valid syntax,
+
+19
+00:01:19.790 --> 00:01:25.020
+character by character, then it keeps on
+going, it knows what you intend to do.
+
+20
+00:01:26.270 --> 00:01:30.940
+And it may come across an ending or
+terminating character like a semicolon.
+
+21
+00:01:32.390 --> 00:01:35.780
+So, imagine in your mind
+that the JavaScript engine,
+
+22
+00:01:35.780 --> 00:01:40.120
+the syntax parser that's part of that
+JavaScript engine, is going through your
+
+23
+00:01:40.120 --> 00:01:45.990
+code character by character,
+making assumptions, stating certain rules,
+
+24
+00:01:47.050 --> 00:01:52.170
+and can even make changes to
+your code before it's executed.
+
+25
+00:01:53.580 --> 00:01:59.120
+So, that's exactly what happens in certain
+circumstances in JavaScript, and it's
+
+26
+00:01:59.120 --> 00:02:04.980
+important to think this way about how the
+JavaScript engine is reading your code.
+
+27
+00:02:04.980 --> 00:02:08.420
+Character by character,
+using a set of rules for
+
+28
+00:02:08.420 --> 00:02:14.420
+what's valid syntax and
+deciding what it is that you intend.
+
+29
+00:02:14.420 --> 00:02:18.640
+And that's all happening before
+your code is even executed, so
+
+30
+00:02:18.640 --> 00:02:22.080
+it can make changes if it wants to
+the code that you've actually written.
+
+31
+00:02:23.900 --> 00:02:24.880
+All right, let's move on.
+

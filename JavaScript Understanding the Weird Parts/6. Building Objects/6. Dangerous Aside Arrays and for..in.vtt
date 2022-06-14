@@ -1,0 +1,220 @@
+WEBVTT
+
+1
+00:00:02.390 --> 00:00:05.210
+It's time for another Dangerous Aside.
+
+2
+00:00:05.210 --> 00:00:09.540
+Now that we understand function
+constructors, built-in function
+
+3
+00:00:09.540 --> 00:00:15.060
+constructors, and how they can be used in
+libraries and frameworks to add features.
+
+4
+00:00:15.060 --> 00:00:19.880
+We just wanna mention about arrays and
+for in.
+
+5
+00:00:19.880 --> 00:00:25.510
+Do you remember what we did in
+the lesson on reflection and extend.
+
+6
+00:00:25.510 --> 00:00:29.190
+Where we looped through all of
+the properties and methods on an object.
+
+7
+00:00:30.810 --> 00:00:34.700
+Well, arrays are objects, and
+we can do the same thing.
+
+8
+00:00:35.750 --> 00:00:38.245
+Let's say I have an array of names.
+
+9
+00:00:41.225 --> 00:00:44.975
+And then I'll do what we did before,
+I'll use the for, in.
+
+10
+00:00:46.385 --> 00:00:53.125
+And that's going to go through all of the
+properties and methods here on this array.
+
+11
+00:00:54.305 --> 00:00:55.795
+And let's see what we get.
+
+12
+00:00:57.135 --> 00:01:00.790
+Because an array is an object so
+I can use it like an object.
+
+13
+00:01:03.490 --> 00:01:04.880
+There we go.
+
+14
+00:01:04.880 --> 00:01:06.380
+Interesting right?
+
+15
+00:01:06.380 --> 00:01:10.590
+Arrays in Javascript are a bit different
+than they are in other languages.
+
+16
+00:01:10.590 --> 00:01:13.160
+When I reference zero, one, two,
+
+17
+00:01:13.160 --> 00:01:17.470
+and pointing at a particular
+item in the array list.
+
+18
+00:01:18.580 --> 00:01:22.180
+That zero, one, and
+two is actually the name.
+
+19
+00:01:22.180 --> 00:01:25.000
+The property name on the name value pair,
+
+20
+00:01:26.210 --> 00:01:30.620
+which is why I can use
+brackets to grab it.
+
+21
+00:01:30.620 --> 00:01:34.210
+So 0, 1, 2 is the property name and
+these are the values.
+
+22
+00:01:34.210 --> 00:01:35.780
+So looping across this worked.
+
+23
+00:01:37.020 --> 00:01:40.980
+But the fact that an array is an object.
+
+24
+00:01:40.980 --> 00:01:43.800
+And that each of it's items
+is a named value pair.
+
+25
+00:01:43.800 --> 00:01:46.460
+That each item becomes a new property,
+
+26
+00:01:46.460 --> 00:01:49.480
+I've added three properties essentially,
+to this array.
+
+27
+00:01:50.960 --> 00:01:54.310
+Means, that there's a bit of
+a problem if somewhere else.
+
+28
+00:01:54.310 --> 00:01:59.870
+I have some nice framework that
+adds some features to my arrays.
+
+29
+00:01:59.870 --> 00:02:01.670
+So I'll just do my custom feature.
+
+30
+00:02:02.680 --> 00:02:04.520
+Who knows what this could be?
+
+31
+00:02:04.520 --> 00:02:07.060
+This could be some to do with arrays.
+
+32
+00:02:07.060 --> 00:02:09.840
+And it adds it to the array.prototype.
+
+33
+00:02:09.840 --> 00:02:14.300
+Because this object literal is
+calling essentially new array.
+
+34
+00:02:14.300 --> 00:02:15.900
+It's just a shorthand for doing that.
+
+35
+00:02:17.030 --> 00:02:19.695
+So this prototype points at
+
+36
+00:02:19.695 --> 00:02:23.720
+array.prototype as
+the prototype of this object.
+
+37
+00:02:25.160 --> 00:02:26.410
+And there we have the problem.
+
+38
+00:02:27.880 --> 00:02:34.090
+If I refresh,
+I get dot extra property when I use 4n.
+
+39
+00:02:35.650 --> 00:02:39.120
+So, in the case of arrays don't use 4n,
+
+40
+00:02:40.270 --> 00:02:45.688
+use instead the standard I or
+whatever your iterator is, the length.
+
+41
+00:02:45.688 --> 00:02:50.098
+And then, a standard four loop.
+
+42
+00:02:50.098 --> 00:02:52.403
+That's safe.
+
+43
+00:02:52.403 --> 00:02:56.950
+However, iterating overall
+properties is not safe
+
+44
+00:02:56.950 --> 00:03:01.420
+because arrays are objects and
+you could iterate down into the prototype.
+
+45
+00:03:02.830 --> 00:03:08.560
+So this is generally avoided in JavaScript
+because arrays are objects in JavaScript,
+
+46
+00:03:08.560 --> 00:03:10.920
+and their items are added properties.
+
+47
+00:03:11.920 --> 00:03:13.030
+Got that?
+
+48
+00:03:13.030 --> 00:03:15.970
+Just wanted to make mention now
+that we understand all the pieces.
+

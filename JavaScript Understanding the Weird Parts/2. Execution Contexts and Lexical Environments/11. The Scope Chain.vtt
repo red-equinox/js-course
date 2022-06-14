@@ -1,0 +1,1117 @@
+WEBVTT
+
+1
+00:00:01.820 --> 00:00:06.040
+This next lecture is on a concept
+that confuses a lot of people, but
+
+2
+00:00:06.040 --> 00:00:10.680
+now that you're armed with your
+understanding of the execution stack,
+
+3
+00:00:10.680 --> 00:00:14.390
+execution context, and
+variable environments,
+
+4
+00:00:14.390 --> 00:00:17.880
+the scope chain won't be that
+difficult for you to understand.
+
+5
+00:00:17.880 --> 00:00:20.816
+Let's take a look at another
+piece of sample code.
+
+6
+00:00:20.816 --> 00:00:28.260
+Very similar, we have function b,
+function a, and
+
+7
+00:00:28.260 --> 00:00:34.100
+the myVars again, except in function
+b we're not declaring myVar.
+
+8
+00:00:34.100 --> 00:00:35.860
+We're just going to console.log it.
+
+9
+00:00:37.320 --> 00:00:40.730
+So, what do you think is going to happen?
+
+10
+00:00:40.730 --> 00:00:47.010
+When we get to that line in function b,
+and we console.log(myVar).
+
+11
+00:00:47.010 --> 00:00:50.170
+Remember, when b is invoked,
+or executed or
+
+12
+00:00:50.170 --> 00:00:54.680
+run, it creates a new execution context,
+puts it on the stack,
+
+13
+00:00:54.680 --> 00:00:58.360
+and puts into its variable environment
+any variables that are declared.
+
+14
+00:00:59.510 --> 00:01:01.160
+But myVar is not declared.
+
+15
+00:01:02.250 --> 00:01:03.430
+So, what do you think is going to happen?
+
+16
+00:01:05.010 --> 00:01:07.780
+Let's put the code into
+our JavaScript file.
+
+17
+00:01:08.830 --> 00:01:12.280
+Again I'm console logging
+myVar inside the b function.
+
+18
+00:01:13.850 --> 00:01:19.365
+And here myVar is one,
+here myVar is two I'm invoking b,
+
+19
+00:01:19.365 --> 00:01:24.580
+console.log, and at the end I'm invoking a
+here, so that's where this will all start.
+
+20
+00:01:25.920 --> 00:01:27.560
+So what do you think I'll see in the log?
+
+21
+00:01:29.310 --> 00:01:30.610
+Let's run this.
+
+22
+00:01:34.965 --> 00:01:40.227
+And when I look in the developer tools,
+
+23
+00:01:40.227 --> 00:01:44.380
+in the console I get a 1, a 1.
+
+24
+00:01:44.380 --> 00:01:52.250
+The value that was sitting
+here at the global level.
+
+25
+00:01:53.570 --> 00:01:54.710
+Is that what you expected?
+
+26
+00:01:56.030 --> 00:01:59.510
+Some of you might have
+expected it to be undefined.
+
+27
+00:01:59.510 --> 00:02:01.670
+Because we didn't define myVar,
+
+28
+00:02:01.670 --> 00:02:06.060
+we didn't declare it inside this function,
+inside it's variable environment.
+
+29
+00:02:07.100 --> 00:02:12.440
+And maybe some of you thought it might be
+two, because we called b from function a,
+
+30
+00:02:12.440 --> 00:02:16.186
+and maybe somehow it would
+know what its value was there.
+
+31
+00:02:16.186 --> 00:02:21.660
+But instead, it's one,
+the value at the global level.
+
+32
+00:02:22.690 --> 00:02:23.190
+Let's see why.
+
+33
+00:02:25.090 --> 00:02:30.760
+So remember this, function b
+console.log(myVar) was a one, or
+
+34
+00:02:30.760 --> 00:02:37.440
+what was sitting on the global execution
+context, not undefined, not 2, why?
+
+35
+00:02:39.340 --> 00:02:44.130
+Well, remember we have our execution
+stack at the global level it was one.
+
+36
+00:02:44.130 --> 00:02:50.620
+When a is run we also vared my var,
+and that was a value of two.
+
+37
+00:02:50.620 --> 00:02:53.320
+And then when b was executed,
+we just console.logged, and
+
+38
+00:02:53.320 --> 00:02:54.550
+we didn't declare anything.
+
+39
+00:02:55.690 --> 00:02:56.870
+And that was just empty,
+
+40
+00:02:56.870 --> 00:03:02.590
+there is no myVar in that execution
+context variable environment.
+
+41
+00:03:02.590 --> 00:03:04.370
+But when we request a variable.
+
+42
+00:03:05.380 --> 00:03:09.760
+When we do something with the variable,
+JavaScript does more then
+
+43
+00:03:09.760 --> 00:03:14.460
+just look in the variable environment
+of the currently executing context.
+
+44
+00:03:16.150 --> 00:03:20.520
+Remember that each execution context has
+some special things that get created for
+
+45
+00:03:20.520 --> 00:03:22.460
+you like the variable this.
+
+46
+00:03:23.530 --> 00:03:26.460
+Remember we also mentioned one other
+thing that we have not used yet,
+
+47
+00:03:27.640 --> 00:03:30.250
+the reference to the outer environment.
+
+48
+00:03:31.270 --> 00:03:36.040
+Every execution context has
+a reference to its outer environment.
+
+49
+00:03:37.450 --> 00:03:39.140
+Now what is its outer environment?
+
+50
+00:03:40.440 --> 00:03:41.880
+Well in the case of function b,
+
+51
+00:03:43.720 --> 00:03:47.420
+it's outer environment is
+the Global Execution Context.
+
+52
+00:03:48.990 --> 00:03:52.450
+That's also the case in function A.
+
+53
+00:03:52.450 --> 00:03:56.550
+Even though A is directly below
+B in the execution stack,
+
+54
+00:03:56.550 --> 00:03:59.290
+as far as what code is going to run.
+
+55
+00:03:59.290 --> 00:04:03.260
+That little outer environment
+reference that execution context gets,
+
+56
+00:04:03.260 --> 00:04:08.590
+doesn't necessarily have to be
+the execution context directly below it.
+
+57
+00:04:08.590 --> 00:04:12.190
+Instead, it's something that
+we've already talked about.
+
+58
+00:04:13.330 --> 00:04:16.850
+What kind of outer environment
+are we referring to?
+
+59
+00:04:18.350 --> 00:04:22.180
+Remember that big word that we used
+almost at the beginning of this course?
+
+60
+00:04:23.940 --> 00:04:25.750
+The lexical environment.
+
+61
+00:04:26.850 --> 00:04:28.210
+Wait a minute.
+
+62
+00:04:29.490 --> 00:04:31.888
+Back up, back up,
+back up, back up back up.
+
+63
+00:04:31.888 --> 00:04:34.870
+Lexical environment?
+
+64
+00:04:34.870 --> 00:04:37.940
+Didn't that mean that where
+something is written, physically,
+
+65
+00:04:37.940 --> 00:04:40.070
+in your code is important?
+
+66
+00:04:41.240 --> 00:04:46.200
+That it determines certain things
+as far as how the JavaScript engine
+
+67
+00:04:46.200 --> 00:04:50.850
+will decide and
+interpret where things live, and
+
+68
+00:04:50.850 --> 00:04:54.450
+where things will sit in memory, and
+how they'll connect to each other.
+
+69
+00:04:55.870 --> 00:04:56.370
+That's right.
+
+70
+00:04:57.450 --> 00:05:00.340
+So where does function b sit lexically?
+
+71
+00:05:01.950 --> 00:05:06.620
+It lexically sits on top
+of the global environment,
+
+72
+00:05:06.620 --> 00:05:11.630
+in other words It's not inside function a,
+it's sitting
+
+73
+00:05:11.630 --> 00:05:17.065
+right there at the same level as
+that last line where myVar = 1.
+
+74
+00:05:17.065 --> 00:05:22.020
+Now don't get lost about this,
+we're not changing our minds
+
+75
+00:05:22.020 --> 00:05:27.190
+in that the execution
+contexts don't matter,
+
+76
+00:05:27.190 --> 00:05:31.300
+don't regard where something is
+sitting physically in the code.
+
+77
+00:05:31.300 --> 00:05:32.360
+It doesn't.
+
+78
+00:05:32.360 --> 00:05:35.100
+The B could be above the A,
+the A could be above the B.
+
+79
+00:05:35.100 --> 00:05:36.450
+It doesn't matter.
+
+80
+00:05:36.450 --> 00:05:39.960
+What's going to happen is the order
+of execution will determine
+
+81
+00:05:41.220 --> 00:05:45.000
+how those are invoked,
+how those execution contexts are created.
+
+82
+00:05:45.000 --> 00:05:52.010
+However, JavaScript does something special
+it cares about the lexical environment
+
+83
+00:05:52.010 --> 00:05:57.140
+when it comes to the outer reference
+that every execution context gets.
+
+84
+00:05:57.140 --> 00:06:01.210
+And when you ask for a variable while
+running a line of code inside any
+
+85
+00:06:01.210 --> 00:06:07.400
+particular execution context,
+if it can't find that variable it will
+
+86
+00:06:07.400 --> 00:06:13.160
+look at the outer reference and
+go look for variables there.
+
+87
+00:06:13.160 --> 00:06:15.940
+Somewhere down below it
+in the execution stack.
+
+88
+00:06:17.030 --> 00:06:19.240
+And that outer reference where that points
+
+89
+00:06:20.260 --> 00:06:25.030
+is going to depend on where
+the function sits lexically.
+
+90
+00:06:26.390 --> 00:06:31.620
+So my b function sits
+lexically not inside a but
+
+91
+00:06:31.620 --> 00:06:37.950
+at the global level, right smack dab
+at the outmost point of the code,
+
+92
+00:06:37.950 --> 00:06:41.754
+and so its outer environment,
+its outer lexical environment,
+
+93
+00:06:41.754 --> 00:06:47.430
+is global and so as a's.
+
+94
+00:06:47.430 --> 00:06:51.430
+In JavaScript, when I asked for
+myVar inside that b execution context,
+
+95
+00:06:51.430 --> 00:06:52.319
+it couldn't find it.
+
+96
+00:06:53.790 --> 00:07:01.350
+And so it went down and
+found it in the Global Execution Context.
+
+97
+00:07:01.350 --> 00:07:08.000
+So again,
+these execution contexts are created and
+
+98
+00:07:08.000 --> 00:07:12.810
+it doesn't matter where the code is
+physically written, where these functions
+
+99
+00:07:12.810 --> 00:07:17.760
+are physically written in regards to when
+these execution contexts were created.
+
+100
+00:07:17.760 --> 00:07:19.315
+That has to do with when you invoke them.
+
+101
+00:07:19.315 --> 00:07:23.910
+But when you invoke them,
+when you invoke a function.
+
+102
+00:07:23.910 --> 00:07:26.760
+The JavaScript engine creates
+an outer reference for
+
+103
+00:07:26.760 --> 00:07:31.780
+that execution context and it looks at
+where the code was physically sitting.
+
+104
+00:07:31.780 --> 00:07:35.900
+The syntax parser already knows because
+it went through line by line your code,
+
+105
+00:07:35.900 --> 00:07:39.000
+and it knows where that
+function was written.
+
+106
+00:07:40.920 --> 00:07:44.460
+And it then creates
+the appropriate outer reference
+
+107
+00:07:44.460 --> 00:07:49.250
+based on where your function was
+physically written in the JavaScript file.
+
+108
+00:07:51.130 --> 00:07:59.670
+Now this entire act of searching this
+chain of references to outer environments,
+
+109
+00:07:59.670 --> 00:08:04.584
+because this execution context
+stack could get really tall, and
+
+110
+00:08:04.584 --> 00:08:07.560
+maybe myVar is a ways down the stack.
+
+111
+00:08:07.560 --> 00:08:11.460
+It has to search one and then look for
+another outer environment and
+
+112
+00:08:11.460 --> 00:08:14.240
+search again until gets
+all the way to the bottom
+
+113
+00:08:14.240 --> 00:08:19.040
+where the global is where there is
+no outer environment to find myVar.
+
+114
+00:08:19.040 --> 00:08:23.520
+So if I had several more functions calling
+each other it would keep on moving down
+
+115
+00:08:24.850 --> 00:08:28.670
+until it hit global if those functions
+were defined inside each other.
+
+116
+00:08:31.030 --> 00:08:35.050
+Down those outer environment references
+until it finds it or doesn't.
+
+117
+00:08:36.930 --> 00:08:39.910
+That whole chain is
+called the Scope Chain.
+
+118
+00:08:40.980 --> 00:08:45.760
+Remember scope means,
+where can I access a variable.
+
+119
+00:08:45.760 --> 00:08:51.020
+And the chain is those links of
+outer environment references.
+
+120
+00:08:51.020 --> 00:08:54.190
+Lexical, that is where it was
+physically written in your code.
+
+121
+00:08:55.410 --> 00:09:01.260
+So, when we said inside function B
+console dot log MyVar it looked for
+
+122
+00:09:01.260 --> 00:09:06.350
+MyVar, couldn't find it, and
+went down the scope chain.
+
+123
+00:09:07.580 --> 00:09:10.190
+Now, it's going to go down
+the execution stack but
+
+124
+00:09:10.190 --> 00:09:13.970
+it jumps because it's not
+necessarily right below it.
+
+125
+00:09:13.970 --> 00:09:17.260
+The outer environment,
+in this case, lexically was global.
+
+126
+00:09:18.316 --> 00:09:21.590
+All right,
+let's show how we can change this
+
+127
+00:09:21.590 --> 00:09:24.912
+by changing the lexical
+environment of the function.
+
+128
+00:09:24.912 --> 00:09:28.630
+All right, so
+let's take a look at function b again.
+
+129
+00:09:28.630 --> 00:09:29.590
+Where is it lexically?
+
+130
+00:09:30.970 --> 00:09:34.290
+Well, it's lexically sitting
+on the global environment.
+
+131
+00:09:35.580 --> 00:09:39.280
+Remember that this is where it sits.
+
+132
+00:09:39.280 --> 00:09:43.090
+It's actually attached
+to the global object.
+
+133
+00:09:44.250 --> 00:09:53.170
+It's declared lexically, physically,
+at the same spot that myVar is.
+
+134
+00:09:53.170 --> 00:09:56.380
+It's not inside a function,
+it's just there on the JavaScript file.
+
+135
+00:09:58.140 --> 00:10:05.800
+So the JavaScript engine,
+when it generates the execution context,
+
+136
+00:10:05.800 --> 00:10:09.650
+when b is called,
+it creates that execution context,
+
+137
+00:10:09.650 --> 00:10:14.020
+and creates an outer environment along
+with the this variable and other things.
+
+138
+00:10:14.020 --> 00:10:19.860
+It creates an outer environment
+reference to the lexical environment.
+
+139
+00:10:19.860 --> 00:10:24.400
+That is to say hey, the JavaScript
+engine saw that the function is sitting
+
+140
+00:10:24.400 --> 00:10:29.860
+physically here or it could also be
+sitting physically here, doesn't matter.
+
+141
+00:10:31.400 --> 00:10:35.580
+It's sitting physically though not
+inside any other functions, so
+
+142
+00:10:35.580 --> 00:10:41.720
+it's outer reference is the global
+execution context variable environment.
+
+143
+00:10:41.720 --> 00:10:45.090
+So when it looks for
+myVar it can't find it in here.
+
+144
+00:10:45.090 --> 00:10:49.682
+So it goes down the scope chain,
+skips over
+
+145
+00:10:49.682 --> 00:10:55.480
+that A execution context because it's
+not lexically in there, finds it here.
+
+146
+00:10:55.480 --> 00:11:00.330
+So when I run this code I get a 1.
+
+147
+00:11:00.330 --> 00:11:04.290
+But if I change the lexical environment,
+
+148
+00:11:06.810 --> 00:11:12.810
+and put function b inside function a,
+a few things happen.
+
+149
+00:11:14.280 --> 00:11:18.340
+I've changed the lexical environment of b,
+meaning that
+
+150
+00:11:18.340 --> 00:11:22.340
+I've changed where it physically sits in
+the code so that it's inside a function.
+
+151
+00:11:23.980 --> 00:11:25.880
+And so its environment is different.
+
+152
+00:11:27.240 --> 00:11:32.420
+Immediately that means I can no longer
+just call b out here at the global
+
+153
+00:11:32.420 --> 00:11:37.440
+level because what will happen is, the
+global execution environment will look for
+
+154
+00:11:37.440 --> 00:11:39.000
+the function b.
+
+155
+00:11:39.000 --> 00:11:44.380
+But that was never added to its variable
+environment because it's inside a,
+
+156
+00:11:45.700 --> 00:11:51.220
+so the JavaScript engine, when it
+created the Global Execution Context,
+
+157
+00:11:51.220 --> 00:11:55.370
+it found function a and added it, but
+it didn't look inside function a or
+
+158
+00:11:55.370 --> 00:11:58.530
+anything like that, It just went to
+the end of function a and kept going.
+
+159
+00:11:58.530 --> 00:12:03.900
+So, there is no b in
+the global execution context.
+
+160
+00:12:03.900 --> 00:12:08.520
+So I'm gonna get an uncaught reference,
+b is not defined.
+
+161
+00:12:08.520 --> 00:12:09.590
+See that?
+
+162
+00:12:09.590 --> 00:12:14.520
+Because that first creation
+phase didn't find function b
+
+163
+00:12:14.520 --> 00:12:18.710
+in the global execution context was
+created, only function a because that's
+
+164
+00:12:18.710 --> 00:12:23.390
+where it's sitting lexically,
+function a is visible lexically but not b.
+
+165
+00:12:24.770 --> 00:12:29.390
+However, when I call a,
+did you notice what the value was?
+
+166
+00:12:29.390 --> 00:12:33.930
+I called a,
+a's execution environment is created.
+
+167
+00:12:33.930 --> 00:12:38.141
+It's execution context and
+
+168
+00:12:38.141 --> 00:12:42.357
+when I call b what's myvar?
+
+169
+00:12:42.357 --> 00:12:47.350
+2.
+Do you see what just happened?
+
+170
+00:12:48.850 --> 00:12:50.190
+All right.
+
+171
+00:12:50.190 --> 00:12:51.080
+So what just happened?
+
+172
+00:12:53.250 --> 00:12:56.200
+Well, the same execution
+context were created,
+
+173
+00:12:56.200 --> 00:13:00.770
+he global and then a was called,
+and then b was called.
+
+174
+00:13:01.960 --> 00:13:08.410
+However, because b was sitting
+physically inside the a function,
+
+175
+00:13:08.410 --> 00:13:14.210
+the JavaScript engine said, well,
+its outer reference will then be a,
+
+176
+00:13:14.210 --> 00:13:16.250
+because that's where
+it's physically sitting.
+
+177
+00:13:17.340 --> 00:13:20.270
+And as, but
+that would still be the global.
+
+178
+00:13:21.730 --> 00:13:22.950
+And so when we asked for
+
+179
+00:13:22.950 --> 00:13:28.820
+myVar this time and when it went down the
+scope chain cuz it couldn't find it in b,
+
+180
+00:13:28.820 --> 00:13:35.250
+instead of going to global,
+it went to a, found myVar.
+
+181
+00:13:35.250 --> 00:13:39.760
+It said hey you asked for myVar and when
+I went to the outer lexical environment
+
+182
+00:13:39.760 --> 00:13:44.888
+I found myVar, and so, it's two.
+
+183
+00:13:44.888 --> 00:13:48.090
+Makes sense?
+
+184
+00:13:48.090 --> 00:13:52.360
+The outer lexical environment
+of b is a this time,
+
+185
+00:13:52.360 --> 00:13:56.780
+because b is physically sitting,
+in the physical code that we typed,
+
+186
+00:13:56.780 --> 00:14:00.400
+it was physically sitting
+Inside function a.
+
+187
+00:14:02.320 --> 00:14:06.590
+So where something sits physically,
+thinking lexically.
+
+188
+00:14:06.590 --> 00:14:10.360
+There's a really easy way to figure out
+
+189
+00:14:10.360 --> 00:14:13.160
+how something we found
+along the scope chain.
+
+190
+00:14:13.160 --> 00:14:14.570
+In other words,
+
+191
+00:14:14.570 --> 00:14:18.820
+if I don't declare a variable inside
+a function, where will I go find it?
+
+192
+00:14:20.580 --> 00:14:23.170
+So function b is sitting inside a.
+
+193
+00:14:24.170 --> 00:14:30.140
+So if I don't declare it inside b,
+it will go look for it first inside a.
+
+194
+00:14:31.140 --> 00:14:33.760
+If it can't find it inside a,
+
+195
+00:14:33.760 --> 00:14:38.760
+a's outer reference is to global,
+and so it'll look for it there.
+
+196
+00:14:38.760 --> 00:14:42.010
+So notice I just got rid of that,
+it's back to one.
+
+197
+00:14:43.080 --> 00:14:47.470
+See it went up or down, depending on how
+you want to think about it in the chain,
+
+198
+00:14:47.470 --> 00:14:48.950
+the scope chain.
+
+199
+00:14:48.950 --> 00:14:52.510
+So now you look for myVar in the b
+execution context, can't find it.
+
+200
+00:14:52.510 --> 00:14:55.420
+The outer reference is a, can't find it.
+
+201
+00:14:55.420 --> 00:14:57.780
+The auto reference of a is global,
+hey, there it is.
+
+202
+00:14:59.000 --> 00:14:59.750
+See how that works?
+
+203
+00:15:01.370 --> 00:15:06.420
+Now, another way to think about this,
+if you don't want to think lexically is,
+
+204
+00:15:06.420 --> 00:15:07.200
+who created me?
+
+205
+00:15:08.330 --> 00:15:15.500
+The outer reference is to the execution
+context in which the function was created.
+
+206
+00:15:15.500 --> 00:15:19.470
+So, in this case function b isn't created
+
+207
+00:15:19.470 --> 00:15:22.598
+until a's execution
+context is created right?
+
+208
+00:15:22.598 --> 00:15:29.040
+Because the global is just
+gonna add myVar and a.
+
+209
+00:15:29.040 --> 00:15:33.160
+Then when a is run, it's gonna
+go through its create phase, and
+
+210
+00:15:33.160 --> 00:15:35.140
+say I need to create b.
+
+211
+00:15:36.490 --> 00:15:41.320
+And since b was created
+during the creation phase of
+
+212
+00:15:42.550 --> 00:15:45.760
+a's execution context,
+that's its outer environment.
+
+213
+00:15:45.760 --> 00:15:52.940
+If I moved b back out,
+then now when is b created?
+
+214
+00:15:55.300 --> 00:16:00.280
+B is created when the global
+execution context is created and
+
+215
+00:16:00.280 --> 00:16:01.570
+so that's it's outer reference.
+
+216
+00:16:01.570 --> 00:16:03.720
+It's a different way of thinking about it.
+
+217
+00:16:03.720 --> 00:16:05.330
+It still works.
+
+218
+00:16:05.330 --> 00:16:10.600
+But the fastest way to think about it in
+my opinion is thinking about it lexically,
+
+219
+00:16:10.600 --> 00:16:12.620
+that way you can just
+look at your code and
+
+220
+00:16:12.620 --> 00:16:16.890
+know, oh,
+if I have code that looks like this.
+
+221
+00:16:19.150 --> 00:16:25.753
+This is going to be a 2, because of
+where it sits, physically, lexically.
+
+222
+00:16:25.753 --> 00:16:27.200
+Make sense?
+
+223
+00:16:27.200 --> 00:16:30.379
+All right.
+So again, if I just remove all of this,
+
+224
+00:16:30.379 --> 00:16:34.718
+it will go all the way up the scope
+chain and I still get a 1.
+
+225
+00:16:36.158 --> 00:16:39.915
+We've learned that where a function sits
+
+226
+00:16:39.915 --> 00:16:45.190
+determines its outer
+environment reference.
+
+227
+00:16:45.190 --> 00:16:46.670
+But as it's being executed,
+
+228
+00:16:46.670 --> 00:16:52.110
+those execution contexts are stacking up,
+and it's running synchronously.
+
+229
+00:16:53.550 --> 00:16:56.390
+We've learned quite a bit, and
+we're understanding the scope chain.
+
+230
+00:16:57.550 --> 00:17:02.450
+This concept can be confusing for
+people, it can be a little weird.
+
+231
+00:17:02.450 --> 00:17:06.720
+But if you understand what's happening
+under the hood of JavaScript,
+
+232
+00:17:06.720 --> 00:17:10.820
+you'll be able to determine what's
+really happening to your code.
+
+233
+00:17:10.820 --> 00:17:15.310
+And when you have a problem,
+when a variable is an unexpected value,
+
+234
+00:17:15.310 --> 00:17:20.350
+you'll be able to debug it and
+say I know why it is what it is.
+
+235
+00:17:20.350 --> 00:17:22.160
+Because I know how this really works.
+
+236
+00:17:23.660 --> 00:17:24.920
+All right, let's move on.
+

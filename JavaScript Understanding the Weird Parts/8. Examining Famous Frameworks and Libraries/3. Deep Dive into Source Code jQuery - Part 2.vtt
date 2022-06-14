@@ -1,0 +1,1174 @@
+WEBVTT
+
+1
+00:00:04.670 --> 00:00:07.670
+This looks to be the object
+that holds the properties and
+
+2
+00:00:07.670 --> 00:00:10.200
+methods I want to add to something.
+
+3
+00:00:10.200 --> 00:00:13.100
+So how is it doing this?
+
+4
+00:00:13.100 --> 00:00:14.560
+Oh look here.
+
+5
+00:00:14.560 --> 00:00:18.040
+Extend jQuery itself if only
+one argument is passed.
+
+6
+00:00:19.080 --> 00:00:23.429
+So if there's only one argument
+the target becomes this.
+
+7
+00:00:24.490 --> 00:00:27.900
+And this keyword is going to point
+
+8
+00:00:29.010 --> 00:00:34.940
+to the jQuery object, because this
+is a method on the jQuery object.
+
+9
+00:00:34.940 --> 00:00:37.870
+And so, this will be jQuery.
+
+10
+00:00:37.870 --> 00:00:39.710
+All right, so that makes sense.
+
+11
+00:00:39.710 --> 00:00:44.550
+If I pass only one parameter
+to the extend function,
+
+12
+00:00:44.550 --> 00:00:49.050
+it will extend the object
+itself that it's calling on.
+
+13
+00:00:49.050 --> 00:00:51.360
+Got that?
+
+14
+00:00:51.360 --> 00:00:54.850
+All right, so this is gonna extend jQuery.
+
+15
+00:00:56.280 --> 00:00:59.280
+So it adds some more methods.
+
+16
+00:00:59.280 --> 00:01:01.305
+Well here's some interesting ones isArray.
+
+17
+00:01:02.360 --> 00:01:05.580
+Remember we said it's difficult
+to tell if something's an array.
+
+18
+00:01:05.580 --> 00:01:08.000
+So jQuery has that internally.
+
+19
+00:01:08.000 --> 00:01:12.920
+Is numeric does some kind of
+neat trick with parse float.
+
+20
+00:01:12.920 --> 00:01:17.300
+So we're not getting into all of this but
+understand that there are tricks and
+
+21
+00:01:17.300 --> 00:01:20.050
+things you could borrow, right.
+
+22
+00:01:20.050 --> 00:01:23.140
+You could borrow the isArrays and
+isNumerics, if you needed to for
+
+23
+00:01:23.140 --> 00:01:24.760
+your project.
+
+24
+00:01:24.760 --> 00:01:26.615
+And this is probably really good code.
+
+25
+00:01:26.615 --> 00:01:29.025
+Because a whole lot of
+people have read this code,
+
+26
+00:01:29.025 --> 00:01:32.165
+managed this code, updated this code.
+
+27
+00:01:32.165 --> 00:01:34.575
+This is probably the best
+isNumeric you could do right now.
+
+28
+00:01:36.215 --> 00:01:38.235
+Okay, let's see what else.
+
+29
+00:01:38.235 --> 00:01:39.165
+Is it empty?
+
+30
+00:01:40.305 --> 00:01:41.185
+Is it plain?
+
+31
+00:01:42.425 --> 00:01:45.415
+I'm just gonna skip past
+a lot of this stuff.
+
+32
+00:01:45.415 --> 00:01:49.085
+We have a makeArray, we have an inArray.
+
+33
+00:01:49.085 --> 00:01:50.419
+So just lots of things.
+
+34
+00:01:51.510 --> 00:01:53.930
+The jQuery uses internally.
+
+35
+00:01:53.930 --> 00:01:59.060
+Here's a deeper map function kind of
+like the function that we made so
+
+36
+00:01:59.060 --> 00:02:00.360
+it has it's own mapper.
+
+37
+00:02:02.470 --> 00:02:03.150
+Oh hey, look at this.
+
+38
+00:02:03.150 --> 00:02:04.260
+This is interesting.
+
+39
+00:02:04.260 --> 00:02:07.820
+A class2type.
+
+40
+00:02:07.820 --> 00:02:10.770
+Array, really an object.
+
+41
+00:02:10.770 --> 00:02:13.430
+It takes all of these names,
+
+42
+00:02:13.430 --> 00:02:18.170
+which are standard names in JavaScript,
+as a string and then splits them,
+
+43
+00:02:18.170 --> 00:02:21.810
+which is a JavaScript function to
+create an array on a delimiter.
+
+44
+00:02:21.810 --> 00:02:25.630
+So it says split on a space,
+wherever you see a space and
+
+45
+00:02:25.630 --> 00:02:29.900
+make each of those things
+its own item in an array.
+
+46
+00:02:31.480 --> 00:02:36.770
+And then it's concatenating oh that
+bracket object and then end bracket.
+
+47
+00:02:36.770 --> 00:02:42.010
+So this is used to understand,
+to help us figure out what something is.
+
+48
+00:02:42.010 --> 00:02:44.230
+By calling two string you get this.
+
+49
+00:02:44.230 --> 00:02:47.410
+Bracket object in bracket that we
+saw with arrays, remember that?
+
+50
+00:02:48.470 --> 00:02:52.753
+And so, that way you can definitely figure
+out what something is, that's neat.
+
+51
+00:02:54.946 --> 00:02:57.120
+Let's see what else we have,
+well what's this?
+
+52
+00:02:58.700 --> 00:03:04.590
+Sizzlejs, a CSS Selector Engine, and
+
+53
+00:03:04.590 --> 00:03:07.570
+its Sizzle is its own variable.
+
+54
+00:03:07.570 --> 00:03:08.130
+Well, wait a minute.
+
+55
+00:03:08.130 --> 00:03:11.670
+This is another immediately
+invoked function that I'm passing
+
+56
+00:03:12.670 --> 00:03:14.530
+a global object to.
+
+57
+00:03:14.530 --> 00:03:19.320
+This is a whole other
+engine inside of jQuery.
+
+58
+00:03:19.320 --> 00:03:22.285
+Wait a minute, sizzlejs.com,
+let's go look at that for a second.
+
+59
+00:03:22.285 --> 00:03:27.120
+Sizzlejs.com, a pure
+
+60
+00:03:27.120 --> 00:03:32.030
+JavaScript CSS selector engine designed
+to be easily dropped in a host library.
+
+61
+00:03:33.460 --> 00:03:37.960
+So inside of jQuery is an entire
+other library called Sizzle
+
+62
+00:03:38.980 --> 00:03:44.490
+that does all of the give you a string
+to find things in the HTML part.
+
+63
+00:03:45.640 --> 00:03:51.130
+So that string that I passed the selector,
+that's using Sizzle to do that.
+
+64
+00:03:51.130 --> 00:03:52.290
+So that's interesting.
+
+65
+00:03:52.290 --> 00:03:55.080
+I can have an immediately invoked function
+expression inside an immediately invoked
+
+66
+00:03:55.080 --> 00:03:55.980
+function expression.
+
+67
+00:03:59.360 --> 00:04:04.400
+And I can sit whole other
+libraries inside my library.
+
+68
+00:04:04.400 --> 00:04:06.470
+So jQuery has Sizzle sitting inside of it.
+
+69
+00:04:07.630 --> 00:04:09.830
+Alright well we're not
+interesting in how Sizzle works,
+
+70
+00:04:09.830 --> 00:04:12.330
+but that's good to know, right?
+
+71
+00:04:12.330 --> 00:04:14.220
+That's an interesting pattern.
+
+72
+00:04:14.220 --> 00:04:15.080
+Did you know that?
+
+73
+00:04:15.080 --> 00:04:19.150
+That there's an entire other library
+inside jQuery that's doing this.
+
+74
+00:04:19.150 --> 00:04:19.860
+Let's see if we can.
+
+75
+00:04:19.860 --> 00:04:21.060
+I'm just gonna look for
+
+76
+00:04:21.060 --> 00:04:24.330
+the word jQuery to see if I can find
+the end of all this Sizzle code.
+
+77
+00:04:25.800 --> 00:04:30.280
+There are just comments inside Sizzle
+referencing some jQuery stuff,
+
+78
+00:04:30.280 --> 00:04:32.590
+but they're just comments.
+
+79
+00:04:32.590 --> 00:04:33.550
+Not part of the code.
+
+80
+00:04:35.620 --> 00:04:39.500
+Looks like I'm still oh,
+I just found the end, look.
+
+81
+00:04:39.500 --> 00:04:43.140
+Return Sizzle and then it ends
+the immediately invoked function for
+
+82
+00:04:43.140 --> 00:04:46.840
+the Sizzle library and
+
+83
+00:04:46.840 --> 00:04:49.550
+passing the window object to that
+immediately invoked function.
+
+84
+00:04:49.550 --> 00:04:50.900
+Alright so that's the end of Sizzle.
+
+85
+00:04:52.040 --> 00:04:57.740
+And then I'm getting some references
+to the stuff that Sizzle created,
+
+86
+00:04:57.740 --> 00:05:00.378
+that it put on the global object,
+probably.
+
+87
+00:05:00.378 --> 00:05:05.090
+Yeah, so
+jQuery.find is really just Sizzle.
+
+88
+00:05:05.090 --> 00:05:07.590
+They're pointing to the same memory space,
+the same function.
+
+89
+00:05:08.740 --> 00:05:12.100
+So jQuery is using that Sizzle library.
+
+90
+00:05:13.610 --> 00:05:14.350
+So, good to know.
+
+91
+00:05:15.920 --> 00:05:16.560
+Let's keep going.
+
+92
+00:05:18.730 --> 00:05:19.890
+Let's see what else we can find.
+
+93
+00:05:19.890 --> 00:05:21.820
+We have some more properties.
+
+94
+00:05:21.820 --> 00:05:26.710
+We have some more spots where it's using
+extend and adding some properties.
+
+95
+00:05:26.710 --> 00:05:28.500
+We're not too worried about that.
+
+96
+00:05:28.500 --> 00:05:29.130
+Oh, hey.
+
+97
+00:05:29.130 --> 00:05:31.230
+Initialize a jQuery object.
+
+98
+00:05:31.230 --> 00:05:34.245
+All right so
+let's see how this object is being made,
+
+99
+00:05:34.245 --> 00:05:38.700
+we're still confused about
+that .fn.init and there it is.
+
+100
+00:05:38.700 --> 00:05:41.320
+Okay, so this is the constructor function
+
+101
+00:05:41.320 --> 00:05:45.360
+that's calling new jQuery that
+fn.emit way at the top remember?
+
+102
+00:05:46.370 --> 00:05:48.720
+So, here's that function constructor.
+
+103
+00:05:48.720 --> 00:05:57.430
+It takes a selector and it has some
+properties just managing different usages.
+
+104
+00:05:57.430 --> 00:05:59.250
+For example, if I try to pass null or
+
+105
+00:05:59.250 --> 00:06:04.020
+undefined to this function and
+let's see what else.
+
+106
+00:06:04.020 --> 00:06:09.470
+I'm just gonna skip past what it actually
+does because I'm interested in how this
+
+107
+00:06:09.470 --> 00:06:10.510
+function constructor works.
+
+108
+00:06:10.510 --> 00:06:11.050
+Works.
+
+109
+00:06:12.150 --> 00:06:14.470
+So there's the end of
+the function constructor.
+
+110
+00:06:14.470 --> 00:06:16.210
+But it's doing something weird.
+
+111
+00:06:16.210 --> 00:06:17.560
+It's returning a value.
+
+112
+00:06:18.660 --> 00:06:23.220
+Remember we said that calling new
+operator creates a new empty object.
+
+113
+00:06:23.220 --> 00:06:27.340
+And that's what's returned as long as
+you don't return a value yourself.
+
+114
+00:06:27.340 --> 00:06:31.330
+So it's calling new on a function and
+then returning a value.
+
+115
+00:06:31.330 --> 00:06:32.250
+Isn't that wrong?
+
+116
+00:06:33.700 --> 00:06:34.280
+Well let's see.
+
+117
+00:06:34.280 --> 00:06:35.150
+What is it returning?
+
+118
+00:06:35.150 --> 00:06:39.810
+It's returning .makeArray and
+passing this.
+
+119
+00:06:39.810 --> 00:06:42.170
+Well this is pointing to what?
+
+120
+00:06:43.410 --> 00:06:45.520
+If I'm using a function as
+a function constructor.
+
+121
+00:06:46.760 --> 00:06:52.320
+What is it this variable when I'm
+using a function with a new keyword.
+
+122
+00:06:52.320 --> 00:06:56.040
+It's that empty object that's created
+by the new operator, remember?
+
+123
+00:06:56.040 --> 00:06:58.915
+Then I can use this dot so
+I'm using this dot everywhere,
+
+124
+00:06:58.915 --> 00:07:04.820
+jQuery's using this to update that empty
+object created by the new operator.
+
+125
+00:07:04.820 --> 00:07:08.340
+And then passing it by reference
+to some makeArray function.
+
+126
+00:07:08.340 --> 00:07:09.740
+I think we saw that already.
+
+127
+00:07:11.210 --> 00:07:11.980
+Yeah there it is.
+
+128
+00:07:13.720 --> 00:07:18.789
+And it's returning the results of that.
+
+129
+00:07:18.789 --> 00:07:21.395
+And results is this.
+
+130
+00:07:21.395 --> 00:07:24.916
+So it's taking that empty
+object which is results,
+
+131
+00:07:24.916 --> 00:07:30.212
+doing some things with it, converting
+it to an array, and then returning it.
+
+132
+00:07:32.402 --> 00:07:33.492
+So that's interesting.
+
+133
+00:07:34.552 --> 00:07:41.762
+So it took my empty object, made it into
+an array of sorts, and then returned that.
+
+134
+00:07:41.762 --> 00:07:47.080
+So it's not really getting in
+the way of the function constructor.
+
+135
+00:07:47.080 --> 00:07:50.550
+Cuz it's still giving
+me back my empty object
+
+136
+00:07:50.550 --> 00:07:53.810
+that was created with the new operator,
+it's just doing some stuff to it first.
+
+137
+00:07:55.120 --> 00:08:00.340
+So you could, potentially,
+take this variable, pass it around
+
+138
+00:08:00.340 --> 00:08:03.970
+to other functions to do things to it and
+return it from a function constructor.
+
+139
+00:08:05.160 --> 00:08:09.070
+As long as you're still returning the same
+object created by the new operator
+
+140
+00:08:09.070 --> 00:08:14.020
+you aren't really getting in the way
+of that new operator feature.
+
+141
+00:08:15.160 --> 00:08:15.660
+Get that?
+
+142
+00:08:16.900 --> 00:08:21.600
+If I just did nothing it would
+return to this variable.
+
+143
+00:08:21.600 --> 00:08:25.020
+And instead I'm messing around
+with the this variable.
+
+144
+00:08:25.020 --> 00:08:25.910
+And then returning it.
+
+145
+00:08:27.150 --> 00:08:29.390
+So it's kind of the same thing.
+
+146
+00:08:29.390 --> 00:08:32.420
+The JavaScript engine would
+return this variable anyway.
+
+147
+00:08:32.420 --> 00:08:33.520
+The this variable, right there.
+
+148
+00:08:35.020 --> 00:08:37.310
+So this just does some things to it first.
+
+149
+00:08:38.460 --> 00:08:40.440
+Alright, so that makes sense.
+
+150
+00:08:41.830 --> 00:08:44.080
+See how we learned something just there?
+
+151
+00:08:44.080 --> 00:08:47.410
+If your eyes are starting to cross as
+we're trying to just look at all of this
+
+152
+00:08:47.410 --> 00:08:51.630
+code stop and don't get so bogged down
+in what each of these things is doing,
+
+153
+00:08:51.630 --> 00:08:53.870
+what each of these properties and
+methods are doing.
+
+154
+00:08:53.870 --> 00:08:54.860
+We're looking at structure.
+
+155
+00:08:56.180 --> 00:08:58.000
+We just learned something.
+
+156
+00:08:58.000 --> 00:09:02.100
+It's okay to return a value
+from a function constructor.
+
+157
+00:09:02.100 --> 00:09:05.610
+As long as what I'm returning
+is the same as this variable.
+
+158
+00:09:05.610 --> 00:09:08.330
+I can use the same pattern successfully
+
+159
+00:09:08.330 --> 00:09:10.250
+because the prototype has
+been set up properly.
+
+160
+00:09:12.350 --> 00:09:18.220
+All right, so
+I'm a little confused by this line here.
+
+161
+00:09:19.660 --> 00:09:20.820
+This seems pretty important.
+
+162
+00:09:22.180 --> 00:09:26.380
+Give the init function the jQuery
+prototype for later instantiation.
+
+163
+00:09:26.380 --> 00:09:27.076
+Hey well wait a minute.
+
+164
+00:09:27.076 --> 00:09:31.750
+This init right here.
+
+165
+00:09:31.750 --> 00:09:32.540
+I scroll up.
+
+166
+00:09:34.230 --> 00:09:35.130
+There it is.
+
+167
+00:09:35.130 --> 00:09:38.900
+Init is just pointing to jQuery.fn.init.
+
+168
+00:09:38.900 --> 00:09:41.200
+So same memory spot, same function.
+
+169
+00:09:42.550 --> 00:09:46.670
+They're both pointing to this function in
+memory and all functions get a prototype.
+
+170
+00:09:47.870 --> 00:09:51.230
+And, this is actually the new
+object that I'm creating,
+
+171
+00:09:51.230 --> 00:09:56.050
+cuz it's actually calling
+new jQuery.fn.init.
+
+172
+00:09:56.050 --> 00:10:00.479
+So this will be the prototype of
+any objects I create from the init
+
+173
+00:10:00.479 --> 00:10:02.210
+function constructor.
+
+174
+00:10:03.450 --> 00:10:05.290
+But it's pointing that prototype.
+
+175
+00:10:07.010 --> 00:10:10.960
+Well wait, remember fn was the prototype
+property of the jQuery object.
+
+176
+00:10:12.450 --> 00:10:13.256
+Oh wait a minute.
+
+177
+00:10:13.256 --> 00:10:19.670
+Okay so when we looked at this object,
+
+178
+00:10:19.670 --> 00:10:23.735
+the object that's outputted from jQuery
+we're a bit confused because it's
+
+179
+00:10:23.735 --> 00:10:29.250
+jQuery.fn.init, instead of just a jQuery.
+
+180
+00:10:29.250 --> 00:10:34.130
+But all of these cool
+properties are sitting where?
+
+181
+00:10:34.130 --> 00:10:35.320
+Remember?
+
+182
+00:10:35.320 --> 00:10:40.020
+It's sitting on the jQuery.prototype,
+that has a whole bunch of stuff.
+
+183
+00:10:41.570 --> 00:10:45.459
+So I'll go back,
+search for init.prototype.
+
+184
+00:10:45.459 --> 00:10:51.529
+Even though I'm creating a new object
+inside this init function constructor,
+
+185
+00:10:51.529 --> 00:10:55.334
+I'm making sure that
+that object's prototype,
+
+186
+00:10:55.334 --> 00:11:00.770
+any new object created with that init,
+which I'm doing, let's see,
+
+187
+00:11:00.770 --> 00:11:06.142
+here I'm creating a new object with
+that init function constructor.
+
+188
+00:11:06.142 --> 00:11:11.346
+Because this function
+cause new jQuery.fn.init,
+
+189
+00:11:11.346 --> 00:11:18.072
+it's prototype is the same memory
+spot as that jQuery.prototype.
+
+190
+00:11:18.072 --> 00:11:22.572
+So all I'm basically saying is
+make sure that any objects that
+
+191
+00:11:22.572 --> 00:11:26.692
+come back from this function constructor
+have access to all of the properties and
+
+192
+00:11:26.692 --> 00:11:29.172
+methods on this object right here.
+
+193
+00:11:29.172 --> 00:11:30.272
+I'm overriding the prototype.
+
+194
+00:11:31.642 --> 00:11:35.270
+I guess that makes it nicer,
+cleaner code, right?
+
+195
+00:11:35.270 --> 00:11:40.350
+I don't have to call the new
+operator when I use jQuery.
+
+196
+00:11:40.350 --> 00:11:42.660
+Instead this calls a function
+
+197
+00:11:43.700 --> 00:11:47.580
+that then calls a function constructor,
+creating a new object.
+
+198
+00:11:48.660 --> 00:11:53.640
+But that new object has access to
+all the properties and methods here.
+
+199
+00:11:55.380 --> 00:12:00.059
+And instead of always in this jQuery
+code type in jQuery.fn.init.something,
+
+200
+00:12:00.059 --> 00:12:03.192
+it's just the prototype of
+the jQuery object itself.
+
+201
+00:12:05.909 --> 00:12:10.827
+All right, so that's a neat trick to
+be able to avoid having to use the new
+
+202
+00:12:10.827 --> 00:12:14.310
+keyword out where I'm
+using this library itself.
+
+203
+00:12:16.310 --> 00:12:17.220
+Think about that for a bit.
+
+204
+00:12:20.140 --> 00:12:23.990
+I'm going to back up to the top and
+make sure we get this.
+
+205
+00:12:23.990 --> 00:12:24.950
+Because I like this pattern.
+
+206
+00:12:26.760 --> 00:12:31.230
+This is the function I'm
+actually calling when I do this.
+
+207
+00:12:31.230 --> 00:12:32.245
+I'm passing a string.
+
+208
+00:12:32.245 --> 00:12:38.990
+The string is the selector, and then
+what it's giving me back is a new object
+
+209
+00:12:38.990 --> 00:12:43.890
+created with the new keyword
+calling this function right there.
+
+210
+00:12:43.890 --> 00:12:44.390
+See that?
+
+211
+00:12:45.820 --> 00:12:47.200
+This is a function constructor.
+
+212
+00:12:48.940 --> 00:12:54.300
+A function constructor creates a brand new
+empty object with the new keyword and then
+
+213
+00:12:54.300 --> 00:12:59.880
+points the prototype of that object to
+the .prototype property of this function.
+
+214
+00:13:02.130 --> 00:13:06.930
+So, there's my function
+that's actually called.
+
+215
+00:13:06.930 --> 00:13:11.670
+And way down here,
+we make sure that that prototype property
+
+216
+00:13:11.670 --> 00:13:16.010
+is this object I've already created
+with all kind of properties and methods.
+
+217
+00:13:17.930 --> 00:13:18.580
+It's a neat pattern.
+
+218
+00:13:20.230 --> 00:13:22.236
+Now here's the thing I want you
+to think about for a second.
+
+219
+00:13:22.236 --> 00:13:27.181
+Is there anything that we've seen so
+far in examining the structure
+
+220
+00:13:27.181 --> 00:13:31.344
+of one of the most famous
+JavaScript libraries there is,
+
+221
+00:13:31.344 --> 00:13:37.180
+is there anything we've seen so far
+that's beyond our ability to understand?
+
+222
+00:13:37.180 --> 00:13:41.659
+Is there anything we've seen so far that
+we haven't seen before in this course?
+
+223
+00:13:43.410 --> 00:13:44.780
+No.
+
+224
+00:13:44.780 --> 00:13:49.440
+Now it may be some clever
+ideas using these concepts,
+
+225
+00:13:50.940 --> 00:13:53.760
+but the concepts themselves
+we can understand and
+
+226
+00:13:53.760 --> 00:13:56.509
+do our best to figure out
+the clever ideas that are in here.
+
+227
+00:13:57.700 --> 00:13:59.380
+You starting to understand,
+are you starting to get it?
+
+228
+00:14:00.950 --> 00:14:01.880
+A little bit of thought.
+
+229
+00:14:03.230 --> 00:14:09.460
+And you can learn something in this
+deep source code because you understand
+
+230
+00:14:09.460 --> 00:14:14.769
+the basic concepts, the fundamental
+concepts, the fundamental advanced ideas.
+
+231
+00:14:15.840 --> 00:14:16.610
+That we've covered.
+
+232
+00:14:18.640 --> 00:14:20.600
+This is an open source education.
+
+233
+00:14:20.600 --> 00:14:24.350
+We're taking the fundamental ideas and
+figuring out neat ways to play with them.
+
+234
+00:14:25.810 --> 00:14:26.970
+All right, let's keep going.
+
+235
+00:14:26.970 --> 00:14:27.470
+This is fun.
+
+236
+00:14:29.170 --> 00:14:33.410
+Alright.
+So jQuery which you may have used over and
+
+237
+00:14:33.410 --> 00:14:37.480
+over again, we're seeing how it
+really works just for a bit here.
+
+238
+00:14:37.480 --> 00:14:38.970
+We're adding a whole
+bunch more properties.
+
+239
+00:14:38.970 --> 00:14:43.130
+See that using using extend again,
+we're not gonna worry about what these do.
+
+240
+00:14:43.130 --> 00:14:45.280
+Features, features, features.
+
+241
+00:14:45.280 --> 00:14:51.100
+There's a .each, so
+it's doing something with these functions,
+
+242
+00:14:51.100 --> 00:14:53.310
+and there's the function
+that it's doing it with.
+
+243
+00:14:53.310 --> 00:14:56.710
+So It's a function there that
+it's doing on each of these.
+
+244
+00:14:56.710 --> 00:14:58.570
+We're not going to worry
+about that either.
+
+245
+00:14:58.570 --> 00:15:01.840
+In fact, we're not going
+to worry about any of this,
+
+246
+00:15:01.840 --> 00:15:04.010
+this is just all features at this point.
+
+247
+00:15:04.010 --> 00:15:06.670
+These are just properties and
+methods that do things.
+
+248
+00:15:07.770 --> 00:15:11.320
+And we're not worried about what jQuery
+does on every level we're worried about
+
+249
+00:15:11.320 --> 00:15:12.250
+it's structure.
+
+250
+00:15:13.500 --> 00:15:14.090
+So let's see.
+
+251
+00:15:15.500 --> 00:15:22.020
+We're still going, and I see a whole
+lot of functions and methods.
+
+252
+00:15:22.020 --> 00:15:25.290
+So, where I'm really looking for,
+what would I really look?
+
+253
+00:15:25.290 --> 00:15:26.920
+Like to understand.
+
+254
+00:15:26.920 --> 00:15:27.890
+Is there any of these functions and
+
+255
+00:15:27.890 --> 00:15:29.770
+methods that I can learn
+something special from?
+
+256
+00:15:31.540 --> 00:15:35.280
+Let's think about one aspect of
+jQuery that I really like and
+
+257
+00:15:35.280 --> 00:15:37.480
+let's see if we can
+figure out how it works.
+

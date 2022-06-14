@@ -1,0 +1,532 @@
+WEBVTT
+
+1
+00:00:02.200 --> 00:00:04.910
+It's time for another Conceptual Aside.
+
+2
+00:00:04.910 --> 00:00:06.570
+We've already talked about this a bit,
+
+3
+00:00:06.570 --> 00:00:09.600
+but it's important enough to
+delve just a little bit into.
+
+4
+00:00:10.970 --> 00:00:14.350
+JavaScript and undefined.
+
+5
+00:00:14.350 --> 00:00:20.570
+We've already seen that there's this first
+phase of creating an execution context
+
+6
+00:00:20.570 --> 00:00:26.250
+in which there's a global object for
+the global execution context.
+
+7
+00:00:26.250 --> 00:00:29.990
+There's a special variable called this,
+which is always created.
+
+8
+00:00:29.990 --> 00:00:34.680
+There's a reference or a link to
+the outer environment, if there is one.
+
+9
+00:00:34.680 --> 00:00:38.790
+And this phenomenon called hoisting,
+where variables are set up,
+
+10
+00:00:38.790 --> 00:00:39.780
+and functions, as well.
+
+11
+00:00:39.780 --> 00:00:46.200
+And in the case of variables,
+they're initially set equal to undefined.
+
+12
+00:00:46.200 --> 00:00:47.570
+But what do we mean by that?
+
+13
+00:00:47.570 --> 00:00:52.370
+Well, let's go back and
+make our example a bit simpler.
+
+14
+00:00:52.370 --> 00:00:58.140
+I'll get rid of the function and
+the function call, and
+
+15
+00:00:58.140 --> 00:01:01.760
+we'll just focus on
+the concept of undefined.
+
+16
+00:01:01.760 --> 00:01:06.988
+So, I'll just take my variable,
+a, to clear it and then log it.
+
+17
+00:01:08.927 --> 00:01:10.773
+I'll go ahead and run this in brackets.
+
+18
+00:01:14.788 --> 00:01:16.920
+And we see the phrase, undefined.
+
+19
+00:01:18.000 --> 00:01:18.530
+Now remember,
+
+20
+00:01:18.530 --> 00:01:22.820
+we already saw that if I don't declare
+it at all with the var keyword.
+
+21
+00:01:24.160 --> 00:01:29.950
+It actually throws an error,
+where it says a is not defined.
+
+22
+00:01:29.950 --> 00:01:35.550
+But that's confusing, because isn't not
+defined and undefined the same thing?
+
+23
+00:01:35.550 --> 00:01:37.690
+Well, no.
+
+24
+00:01:37.690 --> 00:01:43.120
+Because when we say, and
+I'm going to put the var a back,
+
+25
+00:01:44.500 --> 00:01:49.890
+in JavaScript, when we see
+undefined as opposed to that error,
+
+26
+00:01:49.890 --> 00:01:53.290
+this isn't simply the word undefined, but
+
+27
+00:01:53.290 --> 00:01:58.310
+it's actually a special value
+that JavaScript has within
+
+28
+00:01:58.310 --> 00:02:02.990
+it internally that means that
+the variable hasn't been set.
+
+29
+00:02:04.710 --> 00:02:07.940
+To prove that, I'll show you something.
+
+30
+00:02:07.940 --> 00:02:12.260
+I'll do if (a ===,
+I'm gonna do triple equals.
+
+31
+00:02:12.260 --> 00:02:15.100
+Now if you've never seen
+triple equals before,
+
+32
+00:02:15.100 --> 00:02:18.280
+we'll talk about that at
+length later in the course.
+
+33
+00:02:18.280 --> 00:02:22.160
+But this is very similar to double equals,
+is equal to.
+
+34
+00:02:23.260 --> 00:02:24.670
+But it's a bit safer.
+
+35
+00:02:24.670 --> 00:02:25.790
+And we'll see why later.
+
+36
+00:02:25.790 --> 00:02:29.350
+Just for now we'll just use triple equals,
+because this is good practice,
+
+37
+00:02:29.350 --> 00:02:32.040
+and we'll explaining why
+when the time comes.
+
+38
+00:02:32.040 --> 00:02:35.260
+But for now,
+just imagine using triple equals anywhere
+
+39
+00:02:35.260 --> 00:02:37.560
+where you would use double equals.
+
+40
+00:02:37.560 --> 00:02:42.430
+Alright, so triple equals and
+then I'm gonna say the word undefined.
+
+41
+00:02:43.850 --> 00:02:47.860
+And then if it's undefined
+I'm gonna output a phrase.
+
+42
+00:02:47.860 --> 00:02:53.420
+'a is undefined' and then I'll put else.
+
+43
+00:02:55.120 --> 00:03:02.622
+If it's not undefined I'll put
+console.log('a is defined').
+
+44
+00:03:04.980 --> 00:03:07.590
+Notice that undefined
+isn't wrapped in quotes.
+
+45
+00:03:07.590 --> 00:03:08.690
+This isn't a string.
+
+46
+00:03:09.910 --> 00:03:11.890
+It's a special key word.
+
+47
+00:03:11.890 --> 00:03:13.320
+It's a value.
+
+48
+00:03:13.320 --> 00:03:15.320
+A special value in JavaScript.
+
+49
+00:03:16.330 --> 00:03:21.799
+And when I go back and run this,
+notice that a is undefined.
+
+50
+00:03:22.810 --> 00:03:27.800
+So when this if statement checked if
+a was equal to this special keyword,
+
+51
+00:03:27.800 --> 00:03:33.470
+the special value, undefined,
+it said yes, it is.
+
+52
+00:03:33.470 --> 00:03:42.640
+If I was to set a up here equal to a
+value, then by the time we get down here,
+
+53
+00:03:42.640 --> 00:03:47.390
+a is set, and so a is defined.
+
+54
+00:03:49.200 --> 00:03:50.580
+This was false.
+
+55
+00:03:50.580 --> 00:03:51.870
+It was not equal to undefined.
+
+56
+00:03:51.870 --> 00:03:56.630
+But if I don't set the value again,
+this will be true.
+
+57
+00:03:56.630 --> 00:04:01.680
+Because the initial phase of
+creating the execution context
+
+58
+00:04:01.680 --> 00:04:04.730
+sets all variables equal to undefined.
+
+59
+00:04:05.880 --> 00:04:10.580
+And if you don't do anything else,
+that's what that value will be.
+
+60
+00:04:11.880 --> 00:04:16.360
+Notice again, this is different than if
+I simply never declared the variable,
+
+61
+00:04:16.360 --> 00:04:21.530
+var a, and attempt to console.log(a).
+
+62
+00:04:21.530 --> 00:04:26.630
+When I refresh this It gives me
+an Uncaught Reference error,
+
+63
+00:04:26.630 --> 00:04:27.810
+a is not defined.
+
+64
+00:04:29.150 --> 00:04:34.870
+That's because that initial execution
+context creation, that creation phase,
+
+65
+00:04:34.870 --> 00:04:39.780
+when it went through it
+didn't find a var a so
+
+66
+00:04:39.780 --> 00:04:43.660
+it never set up the memory space.
+
+67
+00:04:43.660 --> 00:04:50.370
+So when it went to execute this code it
+said hey, I don't have a in memory at all.
+
+68
+00:04:50.370 --> 00:04:54.600
+So it gave you an Uncaught Reference,
+a is not defined.
+
+69
+00:04:54.600 --> 00:04:56.140
+I don't have it in memory.
+
+70
+00:04:56.140 --> 00:04:57.330
+That's what the browser is saying.
+
+71
+00:04:57.330 --> 00:04:59.910
+That's what the JavaScript engine
+inside the browser is saying.
+
+72
+00:05:01.200 --> 00:05:06.662
+However, when I declare var a,
+
+73
+00:05:06.662 --> 00:05:16.160
+a is placed into memory
+during the creation phase.
+
+74
+00:05:16.160 --> 00:05:22.060
+So the execution context saw var a and
+set up a in memory.
+
+75
+00:05:22.060 --> 00:05:26.180
+And so even though I haven't set it
+to a value, the JavaScript engine,
+
+76
+00:05:26.180 --> 00:05:29.470
+which is doing more than what
+I'm just writing in my code,
+
+77
+00:05:29.470 --> 00:05:34.140
+already set it to this special
+value called undefined.
+
+78
+00:05:34.140 --> 00:05:37.270
+So undefined is not like empty or
+doesn't exist.
+
+79
+00:05:37.270 --> 00:05:38.700
+It doesn't literally not exist.
+
+80
+00:05:38.700 --> 00:05:39.720
+It's actually a value.
+
+81
+00:05:39.720 --> 00:05:42.590
+It's actually taking up memory space.
+
+82
+00:05:43.730 --> 00:05:46.270
+It's a special keyword.
+
+83
+00:05:46.270 --> 00:05:48.570
+A special value that means
+
+84
+00:05:50.000 --> 00:05:53.230
+this is the value that was
+initially set by JavaScript.
+
+85
+00:05:54.950 --> 00:05:57.116
+And that leads to a little
+bit of a warning.
+
+86
+00:05:57.116 --> 00:05:59.257
+Never do this.
+
+87
+00:06:04.027 --> 00:06:08.970
+Never set yourself a variable
+equal to undefined.
+
+88
+00:06:08.970 --> 00:06:10.850
+Because, actually you can.
+
+89
+00:06:10.850 --> 00:06:16.189
+For example, I could set this
+initially to 'Hello world!'.
+
+90
+00:06:16.189 --> 00:06:18.490
+And then, console.log it.
+
+91
+00:06:18.490 --> 00:06:21.000
+And, later, for some reason,
+set it to undefined.
+
+92
+00:06:21.000 --> 00:06:22.730
+And we'll see that it is.
+
+93
+00:06:22.730 --> 00:06:23.230
+Watch.
+
+94
+00:06:25.080 --> 00:06:29.240
+Hello world!, and
+then later, it's undefined.
+
+95
+00:06:29.240 --> 00:06:31.190
+That's perfectly valid JavaScript.
+
+96
+00:06:32.200 --> 00:06:33.510
+But it's a little dangerous.
+
+97
+00:06:34.730 --> 00:06:39.850
+It's better to let undefined,
+that special keyword mean I,
+
+98
+00:06:39.850 --> 00:06:43.150
+the programmer, never set the value.
+
+99
+00:06:43.150 --> 00:06:45.500
+That will really help
+you when debugging code.
+
+100
+00:06:47.070 --> 00:06:50.940
+If you make a habit of setting
+values equal to undefined,
+
+101
+00:06:50.940 --> 00:06:56.390
+then it's really hard to tell if something
+is undefined because you set it or
+
+102
+00:06:56.390 --> 00:07:00.329
+because the JavaScript engine set it and
+you never set it to anything else.
+
+103
+00:07:01.500 --> 00:07:07.110
+It's always better to let undefined mean,
+I've never set this value.
+
+104
+00:07:08.900 --> 00:07:09.970
+That's really useful.
+
+105
+00:07:11.180 --> 00:07:13.710
+And it will help you in your debugging.
+
+106
+00:07:13.710 --> 00:07:15.320
+So, undefined,
+
+107
+00:07:15.320 --> 00:07:21.740
+this is a special value that is also
+a special keyword in JavaScript.
+
+108
+00:07:21.740 --> 00:07:27.800
+And it's the value that variables
+receive during the creation phase.
+
+109
+00:07:27.800 --> 00:07:33.680
+The first phase of creating an execution
+context sets up the memory of the variable
+
+110
+00:07:33.680 --> 00:07:38.230
+and in that memory space puts
+the value called undefined.
+
+111
+00:07:38.230 --> 00:07:42.500
+I would have called it something
+personally like not set.
+
+112
+00:07:42.500 --> 00:07:45.900
+But that's what JavaScript calls it,
+undefined.
+
+113
+00:07:47.400 --> 00:07:51.780
+And if you don't, in your code, set it to
+anything else, that's what it will be.
+
+114
+00:07:53.070 --> 00:07:58.910
+Or if you set it something else later, and
+use it beforehand, that's what it will be.
+
+115
+00:08:01.020 --> 00:08:04.260
+All right, so
+that's JavaScript and undefined.
+

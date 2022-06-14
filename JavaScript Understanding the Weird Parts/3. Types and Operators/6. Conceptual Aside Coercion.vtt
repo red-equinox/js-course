@@ -1,0 +1,362 @@
+WEBVTT
+
+1
+00:00:02.170 --> 00:00:04.130
+It's time for another conceptual aside.
+
+2
+00:00:05.380 --> 00:00:11.530
+This is another important concept
+that deals with some of the weirder,
+
+3
+00:00:11.530 --> 00:00:14.590
+surprising things that can
+happen sometimes in JavaScript.
+
+4
+00:00:14.590 --> 00:00:18.820
+Because it's a dynamically typed language,
+but also can be very powerful.
+
+5
+00:00:19.920 --> 00:00:22.080
+This concept is coercion.
+
+6
+00:00:23.470 --> 00:00:27.860
+All right, you know what that means,
+big word alert.
+
+7
+00:00:30.690 --> 00:00:39.070
+Coercion, converting a value from one type
+to another, that's all it really means.
+
+8
+00:00:39.070 --> 00:00:45.120
+You might have a number and you coerce it,
+or attempt to convert it to a string.
+
+9
+00:00:45.120 --> 00:00:47.670
+Or you have a string and you coerce it or
+
+10
+00:00:47.670 --> 00:00:52.270
+attempt to convert it to a number and
+so on and so forth.
+
+11
+00:00:53.430 --> 00:00:57.610
+This happens quite a bit in JavaScript,
+because it's dynamically typed.
+
+12
+00:00:58.970 --> 00:01:00.220
+Let's look at an example.
+
+13
+00:01:01.510 --> 00:01:04.840
+So I've already seen that
+I have an operator and
+
+14
+00:01:04.840 --> 00:01:08.750
+it takes two parameters and that this
+is a function, that returns a value.
+
+15
+00:01:08.750 --> 00:01:16.820
+So a is set equal to 3 because 1 + 2 is 3,
+very clear.
+
+16
+00:01:16.820 --> 00:01:21.550
+Now you may also know that the plus
+operator is used to do something else.
+
+17
+00:01:22.820 --> 00:01:26.990
+If I pass two numbers to the plus
+operator, then I get addition.
+
+18
+00:01:26.990 --> 00:01:32.778
+But if I pass two strings like hello and
+
+19
+00:01:32.778 --> 00:01:37.960
+world, then instead of
+trying to add it as numbers,
+
+20
+00:01:37.960 --> 00:01:40.970
+it concatenates the string and
+puts them together.
+
+21
+00:01:43.640 --> 00:01:51.240
+Now, here's the question, what if I
+pass the operator two different types?
+
+22
+00:01:52.380 --> 00:01:55.010
+If I give this function a number and
+
+23
+00:01:55.010 --> 00:01:57.730
+a string,
+what do you think is going to happen?
+
+24
+00:01:58.890 --> 00:01:59.978
+What will be my value?
+
+25
+00:01:59.978 --> 00:02:06.860
+Well, I refresh and
+I get what looks like 12.
+
+26
+00:02:06.860 --> 00:02:10.870
+Now wait a minute,
+did the math just go haywire?
+
+27
+00:02:11.950 --> 00:02:18.980
+No, what I got was,
+as if these were two strings and
+
+28
+00:02:18.980 --> 00:02:23.270
+it simply put them together, 1 and then 2.
+
+29
+00:02:23.270 --> 00:02:24.700
+So what just happened?
+
+30
+00:02:26.310 --> 00:02:31.000
+What happened was that this value,
+the first parameter,
+
+31
+00:02:31.000 --> 00:02:35.460
+was coerced by the JavaScript
+engine into a string.
+
+32
+00:02:37.060 --> 00:02:43.880
+In memory, the string 1 and
+the number 1 look nothing alike.
+
+33
+00:02:43.880 --> 00:02:49.020
+Now they look awfully similar when you're
+typing on the screen, but actually in
+
+34
+00:02:49.020 --> 00:02:54.020
+the computer memory the number 1 and
+the string 1 don't look anything alike.
+
+35
+00:02:55.340 --> 00:03:01.080
+But the JavaScript engine was smart enough
+to say, well I know the people that coded
+
+36
+00:03:01.080 --> 00:03:06.160
+the JavaScript engine coded this guess,
+this best guess, into the engine said.
+
+37
+00:03:06.160 --> 00:03:10.760
+When you call the plus operator this
+function, and you give me a number
+
+38
+00:03:12.380 --> 00:03:20.640
+and a string, then I'm going to make
+a choice to try to coerce that number.
+
+39
+00:03:21.840 --> 00:03:25.340
+I'm going to try to figure out what
+it would be if it was a string,
+
+40
+00:03:25.340 --> 00:03:30.380
+and the JavaScript engine
+successfully coerced that 1,
+
+41
+00:03:30.380 --> 00:03:33.680
+it didn't literally type those in,
+those characters.
+
+42
+00:03:33.680 --> 00:03:38.960
+But under the hood it coerced that
+from the number 1 to the string
+
+43
+00:03:38.960 --> 00:03:44.410
+representation of the number 1, and
+then finished running that function.
+
+44
+00:03:45.950 --> 00:03:51.360
+Notice that I didn't ask
+JavaScript to coerce this value,
+
+45
+00:03:51.360 --> 00:03:53.830
+I didn't type something here special that
+
+46
+00:03:53.830 --> 00:03:59.020
+sent some kind of convert this to
+a string value or something like that.
+
+47
+00:03:59.020 --> 00:04:04.260
+I simply called the function with these
+two parameters and when the function ran,
+
+48
+00:04:04.260 --> 00:04:10.490
+it chose to coerce my value
+instead of giving me an error,
+
+49
+00:04:10.490 --> 00:04:12.570
+which is what some other
+programming languages would do.
+
+50
+00:04:12.570 --> 00:04:18.070
+And this has a lot to do with the fact
+that JavaScript is dynamically typed,
+
+51
+00:04:18.070 --> 00:04:22.540
+so it tends to try to convert
+things to the value that you want.
+
+52
+00:04:23.800 --> 00:04:29.450
+Because you're not explicitly telling
+it what values, types should be,
+
+53
+00:04:31.260 --> 00:04:34.580
+this is just happening under
+the hood of the JavaScript engine.
+
+54
+00:04:35.780 --> 00:04:41.730
+And understanding that coercion
+is happening is very important,
+
+55
+00:04:41.730 --> 00:04:45.750
+because you can avoid
+some important bugs and
+
+56
+00:04:45.750 --> 00:04:49.130
+debug things when things
+look a little strange.
+
+57
+00:04:49.130 --> 00:04:52.740
+For example,
+if someone had accidentally typed this,
+
+58
+00:04:54.470 --> 00:04:58.790
+you would understand that 1 plus
+2 is 12 because of coercion.
+
+59
+00:04:58.790 --> 00:05:02.760
+Because this is a string and
+this is a number and it's being coerced.
+
+60
+00:05:03.830 --> 00:05:06.830
+Sometimes these things can
+be hard to pick up on.
+
+61
+00:05:06.830 --> 00:05:10.600
+For example,
+if I had just said var a equals 1, and
+
+62
+00:05:10.600 --> 00:05:14.680
+b equals 2, and I outputted a plus b,
+
+63
+00:05:14.680 --> 00:05:20.630
+I still get 12.
+
+64
+00:05:20.630 --> 00:05:24.340
+Because b is a string, and
+a is a number, and it coerced a.
+
+65
+00:05:24.340 --> 00:05:29.060
+But if there was a whole bunch of
+code in between these two lines, and
+
+66
+00:05:29.060 --> 00:05:31.440
+this b was set somewhere else in the code,
+
+67
+00:05:32.440 --> 00:05:36.800
+you could be really confused by
+the fact that's returning 12.
+
+68
+00:05:36.800 --> 00:05:42.720
+But we understand coercion, so
+we can track down what's really happening.
+
+69
+00:05:43.750 --> 00:05:48.200
+And we also understand that operators are
+just functions, so they're running code,
+
+70
+00:05:48.200 --> 00:05:52.740
+and coercion is part of that
+process of calling that function.
+
+71
+00:05:54.230 --> 00:05:57.760
+So, we understand that
+JavaScript is doing its best
+
+72
+00:05:57.760 --> 00:06:00.970
+to understand what something should be.
+
+73
+00:06:00.970 --> 00:06:06.435
+Because it's dynamically typed,
+and that coercion is a part,
+
+74
+00:06:06.435 --> 00:06:10.995
+a fundamental part of the JavaScript
+language as a result.
+
+75
+00:06:12.385 --> 00:06:13.565
+All right, let's move on.
+

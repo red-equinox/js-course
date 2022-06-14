@@ -1,0 +1,546 @@
+WEBVTT
+
+1
+00:00:03.109 --> 00:00:06.940
+This is the Underscore.js library.
+
+2
+00:00:06.940 --> 00:00:12.940
+It's a very famous library in JavaScript
+that helps you work with arrays and
+
+3
+00:00:12.940 --> 00:00:14.580
+collections of objects.
+
+4
+00:00:16.260 --> 00:00:22.924
+The really neat thing about Underscore,
+besides how incredibly useful it is,
+
+5
+00:00:22.924 --> 00:00:28.599
+is that it also made an effort to
+show how it implemented what it did.
+
+6
+00:00:28.599 --> 00:00:33.025
+And that gets to something that I'll
+talk about later in this course,
+
+7
+00:00:33.025 --> 00:00:35.960
+which is what I call
+an open source education.
+
+8
+00:00:37.210 --> 00:00:38.550
+There's a massive,
+
+9
+00:00:38.550 --> 00:00:45.010
+massive library of JavaScript code
+out there available for free for you.
+
+10
+00:00:45.010 --> 00:00:48.770
+Libraries and
+frameworks that are well used and
+
+11
+00:00:48.770 --> 00:00:52.140
+well regarded and
+their source code is excellent.
+
+12
+00:00:53.890 --> 00:00:58.620
+You can read the source code of these
+libraries and learn things for free.
+
+13
+00:01:00.510 --> 00:01:03.750
+The challenge, of course,
+is that you need to understand
+
+14
+00:01:03.750 --> 00:01:06.260
+some of these advanced concepts
+that we've talked about.
+
+15
+00:01:07.510 --> 00:01:10.120
+And that's what I hope this
+course is helping you to do.
+
+16
+00:01:10.120 --> 00:01:15.780
+To be able to get an open source education
+to be able to write better JavaScript,
+
+17
+00:01:15.780 --> 00:01:21.364
+but also learn from really good JavaScript
+by being able to read good JavaScript.
+
+18
+00:01:21.364 --> 00:01:26.440
+All right, so Underscore.js,
+if I scroll down,
+
+19
+00:01:26.440 --> 00:01:29.530
+you can download the production version or
+the development version.
+
+20
+00:01:30.920 --> 00:01:34.620
+I downloaded the development version
+because it has a whole lot of comments,
+
+21
+00:01:34.620 --> 00:01:37.650
+and you can just read right through
+it to see how all this works.
+
+22
+00:01:39.380 --> 00:01:44.037
+Or you can go to this link here
+called Annotated Source, and
+
+23
+00:01:44.037 --> 00:01:50.013
+it actually breaks out those comments
+in a separate column next to the code.
+
+24
+00:01:50.013 --> 00:01:55.439
+So you can read right through
+the underscore.js code,
+
+25
+00:01:55.439 --> 00:02:02.840
+and underscore.js implements a lot
+of functional programming concepts.
+
+26
+00:02:03.940 --> 00:02:06.230
+You're almost always passing
+what they call an iteratee, or
+
+27
+00:02:06.230 --> 00:02:09.780
+a predicate, a function that does work.
+
+28
+00:02:09.780 --> 00:02:13.260
+It is other functions that do
+a lot of really good work.
+
+29
+00:02:14.480 --> 00:02:17.355
+So I encourage you to take a look
+at the annotated source code for
+
+30
+00:02:17.355 --> 00:02:19.140
+underscore.js and try using it.
+
+31
+00:02:20.630 --> 00:02:22.410
+Read through some of it.
+
+32
+00:02:22.410 --> 00:02:23.120
+See what you can learn.
+
+33
+00:02:24.780 --> 00:02:28.140
+Also, there's an alternate
+library called lodash.
+
+34
+00:02:28.140 --> 00:02:32.570
+That L-O-D-A-S-H.com.
+
+35
+00:02:32.570 --> 00:02:37.490
+It works very much the same on
+the outside as Underscore, but
+
+36
+00:02:37.490 --> 00:02:40.550
+implements extra features and
+
+37
+00:02:40.550 --> 00:02:44.820
+has rewritten some of its utilities
+that turn out to work a bit faster.
+
+38
+00:02:44.820 --> 00:02:48.400
+So, some people prefer lodash,
+although Underscore and lodash go back and
+
+39
+00:02:48.400 --> 00:02:50.220
+forth on a lot of things.
+
+40
+00:02:52.330 --> 00:02:54.040
+It doesn't really matter
+which one you choose,
+
+41
+00:02:54.040 --> 00:02:58.340
+but I encourage you to go through this
+annotated source code in Underscore,
+
+42
+00:02:58.340 --> 00:03:00.370
+because it's so
+useful on such an education.
+
+43
+00:03:01.670 --> 00:03:05.990
+I also like to give credit to
+the originators of an idea.
+
+44
+00:03:05.990 --> 00:03:07.830
+Underscore was first.
+
+45
+00:03:07.830 --> 00:03:11.970
+Lodash is something that came along later.
+
+46
+00:03:11.970 --> 00:03:17.530
+And while it certainly deserves a lot of
+credit for constructing some even faster,
+
+47
+00:03:17.530 --> 00:03:23.200
+even better performing code,
+it's an awful lot easier to take an idea
+
+48
+00:03:23.200 --> 00:03:27.260
+and improve upon it than it is to create
+an idea from scratch in the first place.
+
+49
+00:03:27.260 --> 00:03:31.810
+So, I like to give credit to the
+originators, to the creators of an idea.
+
+50
+00:03:32.880 --> 00:03:36.120
+So Underscore is the first,
+it came along first, and
+
+51
+00:03:36.120 --> 00:03:39.930
+it has this nice annotated source code for
+you to look at.
+
+52
+00:03:39.930 --> 00:03:42.190
+I encourage you to go through it.
+
+53
+00:03:42.190 --> 00:03:45.210
+It's certainly not bad code by
+any stretch of the imagination.
+
+54
+00:03:46.610 --> 00:03:50.610
+It is extraordinarily clean and
+extraordinarily popular.
+
+55
+00:03:51.770 --> 00:03:53.520
+Let's just try using it just for a second.
+
+56
+00:03:55.200 --> 00:03:58.394
+I'll give myself a little room here.
+
+57
+00:03:58.394 --> 00:04:01.957
+I've downloaded the underscore.js library.
+
+58
+00:04:01.957 --> 00:04:05.580
+So, it's just a lot of JavaScript code.
+
+59
+00:04:06.780 --> 00:04:08.290
+By the way, notice what it starts with.
+
+60
+00:04:08.290 --> 00:04:10.210
+See that?
+
+61
+00:04:11.510 --> 00:04:14.920
+What does this famous,
+well-used library start with?
+
+62
+00:04:16.680 --> 00:04:17.910
+That's right.
+
+63
+00:04:17.910 --> 00:04:24.080
+Its code is wrapped inside of an
+immediately invoked function expression.
+
+64
+00:04:24.080 --> 00:04:27.830
+So that all of this code inside of
+here doesn't collide with any code
+
+65
+00:04:27.830 --> 00:04:28.670
+that you might be writing.
+
+66
+00:04:29.960 --> 00:04:30.460
+Cool, right?
+
+67
+00:04:31.580 --> 00:04:34.510
+All right, so I have all this
+code with all these comments.
+
+68
+00:04:34.510 --> 00:04:37.160
+I've included it and
+then I've referenced it
+
+69
+00:04:37.160 --> 00:04:42.130
+in my index.html file
+before my app.js file.
+
+70
+00:04:42.130 --> 00:04:46.160
+So that immediately invoked function
+expression that wraps all that Underscore
+
+71
+00:04:46.160 --> 00:04:54.310
+code will execute, and then I'll have
+an object in the global object to use.
+
+72
+00:04:55.310 --> 00:04:56.580
+The object and
+
+73
+00:04:56.580 --> 00:05:01.560
+the global object that is set up tries to
+minimize how much typing you have to do.
+
+74
+00:05:01.560 --> 00:05:06.540
+It's literally just an _,
+that's the name of the object.
+
+75
+00:05:07.760 --> 00:05:09.800
+That's a valid name in JavaScript.
+
+76
+00:05:09.800 --> 00:05:12.600
+So that means I only have to write
+one character to use this library,
+
+77
+00:05:12.600 --> 00:05:13.600
+saves a lot of typing.
+
+78
+00:05:14.700 --> 00:05:19.746
+And so, then it has all of
+these methods available to it.
+
+79
+00:05:19.746 --> 00:05:24.954
+So, for example,
+if I was to do something similar
+
+80
+00:05:24.954 --> 00:05:30.414
+to the map that we just made,
+I'll make a new array.
+
+81
+00:05:30.414 --> 00:05:37.470
+I can do _.map, give it an array,
+and give it the function to do work.
+
+82
+00:05:37.470 --> 00:05:40.753
+Let’s say I just want to multiple by 3,
+
+83
+00:05:40.753 --> 00:05:44.830
+all of my items in my array and
+get a new array back.
+
+84
+00:05:44.830 --> 00:05:48.196
+Incidently, Underscore's map is a lot
+better than the one we just wrote because
+
+85
+00:05:48.196 --> 00:05:49.542
+it covers a lot more scenarios.
+
+86
+00:05:49.542 --> 00:05:55.120
+There we go, 3, 6, and 9.
+
+87
+00:05:55.120 --> 00:05:59.320
+That array times 3,
+all of its items times 3.
+
+88
+00:05:59.320 --> 00:06:03.150
+There's other things I could do like,
+I want an array _,
+
+89
+00:06:03.150 --> 00:06:07.919
+that's the name of the object that
+was put intentionally onto the global
+
+90
+00:06:07.919 --> 00:06:10.521
+object to make available everywhere.
+
+91
+00:06:10.521 --> 00:06:12.902
+And I could do .filter.
+
+92
+00:06:12.902 --> 00:06:17.578
+I'll give it, let's say, an array,
+
+93
+00:06:17.578 --> 00:06:21.399
+2, 3, 4, 5, 6, 7, and
+
+94
+00:06:21.399 --> 00:06:26.359
+then I want to get back
+only items that have
+
+95
+00:06:26.359 --> 00:06:30.781
+a remainder when divided by 2 of 0.
+
+96
+00:06:30.781 --> 00:06:35.930
+So these are items that
+are divisible by 0.
+
+97
+00:06:35.930 --> 00:06:36.980
+See that?
+
+98
+00:06:38.530 --> 00:06:41.290
+So this should give me back a filter.
+
+99
+00:06:43.070 --> 00:06:50.000
+It will filter out of this list and
+give me back a sublist.
+
+100
+00:06:51.210 --> 00:06:55.380
+So I've essentially queried my big,
+long array and
+
+101
+00:06:55.380 --> 00:06:58.615
+gotten back only items divisible by 2.
+
+102
+00:06:58.615 --> 00:07:05.830
+And there's a whole bunch of other methods
+that Underscore and lodash offer to us.
+
+103
+00:07:05.830 --> 00:07:09.230
+And they all involve understanding
+these functional programming concepts.
+
+104
+00:07:10.600 --> 00:07:13.510
+So mess around with Underscore.
+
+105
+00:07:13.510 --> 00:07:14.250
+Play with it awhile.
+
+106
+00:07:16.480 --> 00:07:18.530
+Look at its source code.
+
+107
+00:07:18.530 --> 00:07:19.840
+You will learn a lot.
+
+108
+00:07:21.120 --> 00:07:25.477
+And start thinking about how you can
+implement these ideas in your own code.
+
+109
+00:07:26.580 --> 00:07:32.080
+How can you use first class functions
+to their best advantage to write and
+
+110
+00:07:32.080 --> 00:07:38.200
+build cleaner code, to build things
+that other programmers can use,
+
+111
+00:07:38.200 --> 00:07:41.480
+programmers maybe that you're even
+working with or others on the internet?
+
+112
+00:07:42.490 --> 00:07:47.338
+That they can reuse more easily, that
+you yourself can reuse more easily and
+
+113
+00:07:47.338 --> 00:07:50.160
+write less code.
+
+114
+00:07:50.160 --> 00:07:52.840
+This is the power of
+functional programing, and
+
+115
+00:07:52.840 --> 00:07:55.278
+also the power of an open
+source education.
+
+116
+00:07:55.278 --> 00:07:59.942
+All right, so JavaScript,
+first class objects,
+
+117
+00:07:59.942 --> 00:08:05.050
+first class functions, and
+functional programming.
+

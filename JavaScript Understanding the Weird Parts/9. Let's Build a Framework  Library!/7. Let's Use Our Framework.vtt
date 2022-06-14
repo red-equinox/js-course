@@ -1,0 +1,579 @@
+WEBVTT
+
+1
+00:00:02.050 --> 00:00:04.170
+All right, so it's time.
+
+2
+00:00:04.170 --> 00:00:08.870
+We've used the knowledge that we've gained
+to build our own little mini-framework.
+
+3
+00:00:08.870 --> 00:00:11.990
+Well, it's kinda small so
+maybe it's a library.
+
+4
+00:00:11.990 --> 00:00:14.430
+Either way, let's go ahead and
+
+5
+00:00:14.430 --> 00:00:20.460
+use it on a webpage, since,
+in this case, we're supporting jQuery.
+
+6
+00:00:20.460 --> 00:00:23.040
+And even if we weren't supporting jQuery,
+
+7
+00:00:23.040 --> 00:00:25.270
+we could use it maybe in some
+other way on the server.
+
+8
+00:00:26.580 --> 00:00:27.870
+But, let's go.
+
+9
+00:00:27.870 --> 00:00:32.910
+Let's use our framework/library
+that we just built.
+
+10
+00:00:34.050 --> 00:00:39.380
+So I have my immediately invoked function,
+and I have all of my code.
+
+11
+00:00:40.990 --> 00:00:44.660
+By the way,
+if you ever see a library that does this,
+
+12
+00:00:45.700 --> 00:00:49.780
+puts a semicolon before it,
+that's another trick.
+
+13
+00:00:49.780 --> 00:00:54.260
+Just in case there's some other code,
+some other
+
+14
+00:00:54.260 --> 00:00:59.390
+library that may be injected before
+the Greetr.js in a script file,
+
+15
+00:00:59.390 --> 00:01:03.330
+maybe above it, that doesn't quite
+finish out its semicolons properly.
+
+16
+00:01:04.530 --> 00:01:10.150
+You can also put a semicolon there
+to make it more completely useful
+
+17
+00:01:11.620 --> 00:01:15.625
+in that even if the other code doesn't
+finish its semicolons out properly,
+
+18
+00:01:15.625 --> 00:01:19.520
+a code that's used above here,
+your code will still run fine.
+
+19
+00:01:19.520 --> 00:01:23.930
+I just wanted to make mention of that
+because you will see it sometimes used.
+
+20
+00:01:25.320 --> 00:01:28.250
+All right so, I have it all now.
+
+21
+00:01:28.250 --> 00:01:30.000
+And so I'm gonna use it.
+
+22
+00:01:30.000 --> 00:01:33.460
+What I want to do is on
+this little webpage.
+
+23
+00:01:33.460 --> 00:01:35.870
+I'm gonna pretend that this is a login.
+
+24
+00:01:37.600 --> 00:01:40.600
+If you're familiar with jQuery
+what we're going to do is
+
+25
+00:01:40.600 --> 00:01:41.950
+add a click event to this button.
+
+26
+00:01:43.350 --> 00:01:45.010
+And when the button's clicked,
+
+27
+00:01:45.010 --> 00:01:48.850
+we'll set the greeting based
+on the language that's chosen.
+
+28
+00:01:50.210 --> 00:01:52.580
+We'll create a new object with
+the first name and last name.
+
+29
+00:01:52.580 --> 00:01:56.500
+And we'll just pretend that this
+login let us get the first name and
+
+30
+00:01:56.500 --> 00:01:59.634
+last name of the person back from
+the server or something like that.
+
+31
+00:01:59.634 --> 00:02:04.567
+And then we'll use our greeter to set
+
+32
+00:02:04.567 --> 00:02:09.510
+this heading with an ID of greeting.
+
+33
+00:02:11.090 --> 00:02:14.298
+And it needs to do so
+with the language that's chosen.
+
+34
+00:02:14.298 --> 00:02:22.960
+And remember that the HTML greeting
+method already sets up the jQuery object.
+
+35
+00:02:22.960 --> 00:02:24.390
+You just need to give it the selector.
+
+36
+00:02:24.390 --> 00:02:28.280
+Would you like to try that yourself,
+if you're familiar with jQuery?
+
+37
+00:02:28.280 --> 00:02:32.190
+See if you can use the greeter,
+we already have it set up here.
+
+38
+00:02:34.080 --> 00:02:39.270
+See if you can use it in order
+to call the HTML greeting
+
+39
+00:02:40.430 --> 00:02:45.790
+with the appropriate selector, and
+have the language set appropriately.
+
+40
+00:02:47.460 --> 00:02:48.330
+I'll let you give that a try.
+
+41
+00:02:50.590 --> 00:02:52.980
+All right,
+if you're not familiar with jQuery or
+
+42
+00:02:52.980 --> 00:02:57.650
+if you already tried it,
+just move along with me.
+
+43
+00:02:57.650 --> 00:03:02.680
+I need a click event on the login
+button which has an ID of login.
+
+44
+00:03:02.680 --> 00:03:09.220
+So I'll just use jQuery, call the jQuery
+function, pass it the login ID.
+
+45
+00:03:09.220 --> 00:03:10.980
+That pound sign means ID.
+
+46
+00:03:10.980 --> 00:03:12.210
+And a click event and
+
+47
+00:03:12.210 --> 00:03:16.020
+pass it a function object that I create
+on the fly with the function expression.
+
+48
+00:03:17.730 --> 00:03:22.120
+Then I'm going to make a brand new object,
+let's say login greeter.
+
+49
+00:03:22.120 --> 00:03:26.540
+Use g$ that's our object,
+which is created.
+
+50
+00:03:26.540 --> 00:03:29.036
+And we'll know it's John Doe
+because of the user name and
+
+51
+00:03:29.036 --> 00:03:31.170
+password that they gave or
+something like that.
+
+52
+00:03:32.740 --> 00:03:38.040
+And I'm going to go ahead and
+hide this entire
+
+53
+00:03:38.040 --> 00:03:42.390
+select and button,
+this entire drop-down and button.
+
+54
+00:03:42.390 --> 00:03:46.970
+You didn't have to do this after this so
+it has an ID.
+
+55
+00:03:49.320 --> 00:03:55.100
+And then I'm gonna take my login greeter,
+I'm gonna set its language.
+
+56
+00:03:55.100 --> 00:03:59.920
+And you could have set the language here,
+
+57
+00:03:59.920 --> 00:04:04.240
+depending on how you want it, but
+I'll just do it to show chainable methods.
+
+58
+00:04:04.240 --> 00:04:09.432
+I need the value of that select box.
+
+59
+00:04:09.432 --> 00:04:13.120
+It has an ID of lang and
+I need it's value.
+
+60
+00:04:13.120 --> 00:04:15.150
+So I'm gonna pass its
+value which is a string.
+
+61
+00:04:16.630 --> 00:04:19.249
+There's the value,
+pass it to set language.
+
+62
+00:04:19.249 --> 00:04:23.390
+So now my login greeter object will
+have a language of whatever was chosen.
+
+63
+00:04:23.390 --> 00:04:26.840
+And then I'll chain
+the method HTML greeting,
+
+64
+00:04:26.840 --> 00:04:31.190
+I'll pass it the jQuery selector,
+which it'll use to create a jQuery object.
+
+65
+00:04:31.190 --> 00:04:34.170
+And let's say I want a formal greeting,
+so I'll say true.
+
+66
+00:04:34.170 --> 00:04:37.004
+Oh, and I'd like to log this to
+the console while I'm at it with
+
+67
+00:04:37.004 --> 00:04:37.975
+a chainable method.
+
+68
+00:04:37.975 --> 00:04:39.170
+Got that?
+
+69
+00:04:39.170 --> 00:04:43.320
+So, when I click the button,
+creates a new object using my function.
+
+70
+00:04:44.710 --> 00:04:50.050
+I'm just going to hide the UI there,
+the interface.
+
+71
+00:04:50.050 --> 00:04:54.620
+And I'm going to set the language based
+on what's chosen in the select box.
+
+72
+00:04:55.860 --> 00:05:00.723
+Chain a method that
+actually updates that h1,
+
+73
+00:05:00.723 --> 00:05:05.608
+because it has an ID of greeting,
+right there.
+
+74
+00:05:05.608 --> 00:05:07.780
+I want a formal one.
+
+75
+00:05:07.780 --> 00:05:12.384
+And I also want to log it to the console,
+all in one line of code.
+
+76
+00:05:12.384 --> 00:05:13.581
+Let's try it.
+
+77
+00:05:13.581 --> 00:05:16.147
+Refresh.
+
+78
+00:05:16.147 --> 00:05:17.122
+Login.
+
+79
+00:05:19.385 --> 00:05:24.366
+Refresh, Spanish, login.
+
+80
+00:05:24.366 --> 00:05:25.922
+What about the console?
+
+81
+00:05:27.528 --> 00:05:28.330
+There it is.
+
+82
+00:05:28.330 --> 00:05:29.005
+Refresh.
+
+83
+00:05:29.005 --> 00:05:30.310
+Login.
+
+84
+00:05:30.310 --> 00:05:32.489
+I'm logged in.
+
+85
+00:05:32.489 --> 00:05:34.360
+Refresh.
+
+86
+00:05:34.360 --> 00:05:35.620
+Spanish, login.
+
+87
+00:05:37.250 --> 00:05:37.750
+And it logged it.
+
+88
+00:05:39.170 --> 00:05:39.670
+It worked!
+
+89
+00:05:41.400 --> 00:05:47.540
+We have nice, clean, safe reusable,
+little mini frame work or
+
+90
+00:05:47.540 --> 00:05:54.720
+library that has some neat features
+that mimic the structure of jQuery.
+
+91
+00:05:54.720 --> 00:05:59.110
+And its approach with these
+chain-able methods in a function that
+
+92
+00:05:59.110 --> 00:06:04.130
+returns a new object without me
+needing to use a new keyword.
+
+93
+00:06:04.130 --> 00:06:05.420
+Pretty neat, right?
+
+94
+00:06:05.420 --> 00:06:05.920
+What do you think?
+
+95
+00:06:07.600 --> 00:06:14.680
+We have our own reusable mini framework or
+library.
+
+96
+00:06:14.680 --> 00:06:16.980
+And you could use this in your
+apps right now if you wanted.
+
+97
+00:06:16.980 --> 00:06:18.510
+So here's your homework for the future.
+
+98
+00:06:19.510 --> 00:06:20.660
+Try adding another language.
+
+99
+00:06:20.660 --> 00:06:23.280
+See if you can do that.
+
+100
+00:06:23.280 --> 00:06:24.760
+Add support for another language.
+
+101
+00:06:25.840 --> 00:06:27.570
+Add some methods.
+
+102
+00:06:27.570 --> 00:06:28.900
+Add some alternate greetings.
+
+103
+00:06:30.600 --> 00:06:33.030
+Play with this,
+see if it makes sense to you.
+
+104
+00:06:35.160 --> 00:06:39.098
+The last thing we'll do is
+we'll add our comments.
+
+105
+00:06:39.098 --> 00:06:44.857
+Remember, it's JavaScript, and
+in any programming language
+
+106
+00:06:44.857 --> 00:06:52.080
+it's important to have comments,
+but especially with JavaScript.
+
+107
+00:06:52.080 --> 00:06:54.610
+So I'll just add a little
+bit of commenting.
+
+108
+00:06:54.610 --> 00:06:59.700
+So I'll have a commented up usage and
+
+109
+00:06:59.700 --> 00:07:05.500
+inside the actual app
+we have that as well.
+
+110
+00:07:05.500 --> 00:07:10.560
+Inside the actual framework and
+library we have everything we need.
+
+111
+00:07:11.690 --> 00:07:13.920
+And you can take a look through
+this code in the finished folder
+
+112
+00:07:15.000 --> 00:07:16.590
+of the Let's Use Our Framework zip file.
+
+113
+00:07:18.940 --> 00:07:22.160
+So, I hope you appreciate
+how far you've come.
+
+114
+00:07:23.710 --> 00:07:29.000
+We've built our own mini framework
+library by understanding JavaScript,
+
+115
+00:07:29.000 --> 00:07:30.380
+how it works under the hood.
+
+116
+00:07:30.380 --> 00:07:33.980
+And also by looking around a bit
+at the source code of jQuery.
+
+117
+00:07:35.550 --> 00:07:40.470
+This is how you improve as a developer,
+by understanding how things really work,
+
+118
+00:07:41.940 --> 00:07:45.270
+and looking at others' good code.
+
+119
+00:07:45.270 --> 00:07:46.140
+So enjoy it!
+
+120
+00:07:47.890 --> 00:07:51.556
+Remember that writing in
+JavaScript can be an extremely
+
+121
+00:07:51.556 --> 00:07:54.133
+enjoyable experience as a developer.
+
+122
+00:07:54.133 --> 00:07:57.490
+Because of the nature of
+the programming language.
+
+123
+00:07:59.030 --> 00:08:03.140
+So don't be afraid of learning
+something new and trying it.
+
+124
+00:08:03.140 --> 00:08:05.640
+Enjoy your JavaScript development.
+
+125
+00:08:06.920 --> 00:08:11.320
+Enjoy all the parts of JavaScript,
+even the weird ones.
+

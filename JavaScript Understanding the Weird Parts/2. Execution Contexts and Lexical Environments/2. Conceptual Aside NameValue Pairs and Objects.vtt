@@ -1,0 +1,288 @@
+WEBVTT
+
+1
+00:00:02.370 --> 00:00:04.235
+It's time for a conceptual aside.
+
+2
+00:00:04.235 --> 00:00:08.940
+Name/Value pairs and objects.
+
+3
+00:00:08.940 --> 00:00:13.760
+As we talk about JavaScript,
+objects are incredibly important, and
+
+4
+00:00:13.760 --> 00:00:15.980
+we're going to spend
+a lot of time on them.
+
+5
+00:00:17.160 --> 00:00:22.230
+But we need to understand what we're
+talking about when we say an object,
+
+6
+00:00:22.230 --> 00:00:24.250
+in regards to JavaScript itself.
+
+7
+00:00:25.330 --> 00:00:30.080
+First of all, we need to understand
+the term Name/Value pair.
+
+8
+00:00:30.080 --> 00:00:31.198
+It's quite simple actually.
+
+9
+00:00:31.198 --> 00:00:37.940
+A Name/Value pair is a name
+which maps to a unique value.
+
+10
+00:00:39.200 --> 00:00:42.250
+Now that name may be
+defined more than once,
+
+11
+00:00:42.250 --> 00:00:47.240
+but it can only have one
+value in any given context.
+
+12
+00:00:47.240 --> 00:00:50.010
+Remember we're talking
+about execution context.
+
+13
+00:00:50.010 --> 00:00:54.500
+So in any particular execution context,
+that is,
+
+14
+00:00:54.500 --> 00:00:58.940
+a section of code that is running,
+a name can only exist and
+
+15
+00:00:58.940 --> 00:01:01.800
+be defined with one value.
+
+16
+00:01:03.170 --> 00:01:07.550
+However, that value may
+be more Name/Value pairs.
+
+17
+00:01:07.550 --> 00:01:09.580
+Okay, that sounds a little confusing, but
+
+18
+00:01:09.580 --> 00:01:14.110
+all we're really saying is that there's
+a name, and that name is assigned a value,
+
+19
+00:01:14.110 --> 00:01:18.890
+but that value could be other
+collections of name values.
+
+20
+00:01:18.890 --> 00:01:23.620
+Okay, for example,
+this is a Name/Value pair.
+
+21
+00:01:23.620 --> 00:01:26.910
+You've probably done things
+like this all the time in code.
+
+22
+00:01:26.910 --> 00:01:29.910
+You have a name, a variable, and a value.
+
+23
+00:01:29.910 --> 00:01:35.050
+In this case, Address is the name and
+100 Main Street is the value.
+
+24
+00:01:36.160 --> 00:01:38.840
+That's a Name/Value pair.
+
+25
+00:01:38.840 --> 00:01:40.220
+Pretty simple.
+
+26
+00:01:40.220 --> 00:01:42.870
+Now, when we're talking about objects,
+
+27
+00:01:44.070 --> 00:01:48.710
+we can then use this Name/Value
+pair concept to define them.
+
+28
+00:01:50.930 --> 00:01:55.410
+An object is a collection
+of Name/Value pairs.
+
+29
+00:01:55.410 --> 00:01:58.710
+That's the simplest possible
+definition of an object
+
+30
+00:01:58.710 --> 00:02:01.300
+when you're talking about JavaScript.
+
+31
+00:02:01.300 --> 00:02:03.760
+Now, other programming languages
+
+32
+00:02:03.760 --> 00:02:07.585
+might have more complex concepts
+when it comes to objects,
+
+33
+00:02:07.585 --> 00:02:13.095
+but when we're dealing with objects in
+Javascript, that's really what they are.
+
+34
+00:02:13.095 --> 00:02:15.425
+They're a collection of Name/Value pairs.
+
+35
+00:02:16.435 --> 00:02:23.995
+So, for example I might have a name and
+that name has a value.
+
+36
+00:02:25.065 --> 00:02:31.010
+But that value might be a couple
+of other names and values.
+
+37
+00:02:31.010 --> 00:02:36.410
+And inside that name, that value
+might be other name value pairs.
+
+38
+00:02:36.410 --> 00:02:38.800
+And I might have a few of these.
+
+39
+00:02:38.800 --> 00:02:43.966
+So, I have a name and a value, but the
+value might be other lists of names and
+
+40
+00:02:43.966 --> 00:02:48.560
+values, which in turn might have
+other lists of names and values.
+
+41
+00:02:50.260 --> 00:02:54.720
+For example the address example
+we had before that was just
+
+42
+00:02:54.720 --> 00:02:59.390
+a Name/Value pair, here it's
+a collection of Name/Value pairs.
+
+43
+00:02:59.390 --> 00:03:02.730
+Address is a collection of other names and
+values.
+
+44
+00:03:02.730 --> 00:03:05.980
+Address is still the name but
+the value is a collection.
+
+45
+00:03:07.100 --> 00:03:10.090
+Street and Main is a Name/Value pair.
+
+46
+00:03:10.090 --> 00:03:12.630
+Number and 100 is a Name/Value pair.
+
+47
+00:03:12.630 --> 00:03:17.490
+Apartment is a name, and
+it's value is another list or
+
+48
+00:03:17.490 --> 00:03:19.440
+collection of Name/Value pairs.
+
+49
+00:03:19.440 --> 00:03:21.190
+Floor is the name, three is the value.
+
+50
+00:03:21.190 --> 00:03:23.240
+Number is the name, 301 is the value.
+
+51
+00:03:24.360 --> 00:03:26.760
+That's an object in JavaScript.
+
+52
+00:03:26.760 --> 00:03:29.540
+When we're talking about
+objects in JavaScript,
+
+53
+00:03:29.540 --> 00:03:34.170
+we're talking about collections
+of Name/Value pairs.
+
+54
+00:03:34.170 --> 00:03:38.120
+And that value might
+itself be another object.
+
+55
+00:03:38.120 --> 00:03:43.330
+So apartment has a collection of
+Name/Value pairs and that's an object.
+
+56
+00:03:44.480 --> 00:03:47.580
+Address, it's value is an object.
+
+57
+00:03:47.580 --> 00:03:49.660
+Apartment its value as an object.
+
+58
+00:03:49.660 --> 00:03:51.250
+You see how they nest down?
+
+59
+00:03:52.340 --> 00:03:56.320
+Don't think any more deeply about
+objects in JavaScript then this.
+
+60
+00:03:57.550 --> 00:04:00.850
+We're going to see some interesting
+things you could do with objects, but
+
+61
+00:04:00.850 --> 00:04:06.590
+at its core this is what
+an object is in JavaScript.
+
+62
+00:04:06.590 --> 00:04:07.740
+It's just that simple.
+

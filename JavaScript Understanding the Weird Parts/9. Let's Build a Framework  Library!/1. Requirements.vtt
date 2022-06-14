@@ -1,0 +1,227 @@
+WEBVTT
+
+1
+00:00:02.300 --> 00:00:03.950
+All right, so it's time.
+
+2
+00:00:03.950 --> 00:00:08.271
+It's time to use everything
+we've done in this course so
+
+3
+00:00:08.271 --> 00:00:12.244
+far to build our own little
+mini framework library.
+
+4
+00:00:12.244 --> 00:00:14.545
+Frameworks and
+libraries are similar concepts,
+
+5
+00:00:14.545 --> 00:00:16.470
+although frameworks are a more complex.
+
+6
+00:00:16.470 --> 00:00:19.836
+But for the purposes of this course we're
+going to talk about them as if they were
+
+7
+00:00:19.836 --> 00:00:21.480
+the exact same thing.
+
+8
+00:00:21.480 --> 00:00:23.570
+Because we're focusing on structure.
+
+9
+00:00:23.570 --> 00:00:25.620
+Not so much what it does.
+
+10
+00:00:25.620 --> 00:00:29.750
+So let's build our own
+mini-framework/library.
+
+11
+00:00:29.750 --> 00:00:34.280
+And let's build something that you could
+use in a project if you wanted to or
+
+12
+00:00:34.280 --> 00:00:35.190
+in many projects.
+
+13
+00:00:36.580 --> 00:00:41.880
+All right, let's do something first, that
+we need to do for any software project.
+
+14
+00:00:41.880 --> 00:00:43.590
+Let's look at the requirements.
+
+15
+00:00:43.590 --> 00:00:44.870
+What should the software do?
+
+16
+00:00:46.570 --> 00:00:51.250
+Well, first of all, what is our little
+framework library going to be called?
+
+17
+00:00:51.250 --> 00:00:52.680
+Let's call it greetr.
+
+18
+00:00:53.750 --> 00:00:59.490
+All this time in this course we've
+been using greet as a example,
+
+19
+00:00:59.490 --> 00:01:03.760
+and I like to use those simple examples
+because we can focus on the concept and
+
+20
+00:01:03.760 --> 00:01:05.340
+not get lost in the implementation.
+
+21
+00:01:06.350 --> 00:01:08.420
+But now let's formalize it.
+
+22
+00:01:08.420 --> 00:01:14.670
+Let's say we wanted to build a library or
+frame work that helps us give greetings.
+
+23
+00:01:14.670 --> 00:01:19.720
+Maybe for when I'm on a website and
+someone logs in I can show them
+
+24
+00:01:19.720 --> 00:01:23.740
+a greeting after they login in the upper
+right corner or right after they log in.
+
+25
+00:01:23.740 --> 00:01:27.660
+And maybe I'd like to do it in
+different languages, depending on
+
+26
+00:01:27.660 --> 00:01:30.270
+what language they choose, their
+preferred language in the application.
+
+27
+00:01:31.450 --> 00:01:32.950
+Something like that.
+
+28
+00:01:32.950 --> 00:01:34.760
+Let's do the official requirements.
+
+29
+00:01:35.780 --> 00:01:40.130
+When I'm given a first name, a last
+name and an optional language, it should
+
+30
+00:01:40.130 --> 00:01:44.960
+generate formal and informal greetings
+that I could use throughout my app.
+
+31
+00:01:46.370 --> 00:01:49.810
+It should support both English and
+Spanish languages for starters.
+
+32
+00:01:51.310 --> 00:01:52.860
+It should be reusable,
+
+33
+00:01:52.860 --> 00:01:57.920
+meaning that it won't interfere with any
+of the other JavaScript code in my app,
+
+34
+00:01:57.920 --> 00:02:00.950
+and someone else can just grab it and
+use it in their apps.
+
+35
+00:02:02.150 --> 00:02:04.190
+And lastly,
+even though it's called greetr,
+
+36
+00:02:04.190 --> 00:02:08.946
+I'd like to have an easy to type
+structure, kind of jQuery like, and
+
+37
+00:02:08.946 --> 00:02:13.680
+a G$, maybe,
+like the dollar sign for jQuery.
+
+38
+00:02:13.680 --> 00:02:14.930
+Let's do G$.
+
+39
+00:02:16.020 --> 00:02:17.720
+Oh, and one more thing.
+
+40
+00:02:17.720 --> 00:02:21.430
+All my developers use jQuery
+on a lot of their projects.
+
+41
+00:02:21.430 --> 00:02:24.910
+So greetr should also support jQuery.
+
+42
+00:02:25.980 --> 00:02:30.360
+Even though it returns greetings what we'd
+like is to be able to give it a jQuery
+
+43
+00:02:30.360 --> 00:02:34.680
+object that points at some HTML element.
+
+44
+00:02:34.680 --> 00:02:37.450
+And it'll fill that
+element with the greeting.
+
+45
+00:02:37.450 --> 00:02:41.870
+So I could just pass my greetr,
+let's say a div or
+
+46
+00:02:41.870 --> 00:02:45.240
+a span in my HTML that just contains text.
+
+47
+00:02:45.240 --> 00:02:48.400
+And it'll fill that with my
+appropriate greeting text.
+
+48
+00:02:49.640 --> 00:02:55.860
+All right, so that's the requirement
+of our greetr framework/library.
+
+49
+00:02:56.950 --> 00:02:57.550
+Let's go build it.
+

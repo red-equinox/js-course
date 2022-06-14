@@ -1,0 +1,146 @@
+WEBVTT
+
+1
+00:00:02.200 --> 00:00:05.965
+It's time for another conceptual
+aside when it comes to JavaScript.
+
+2
+00:00:07.060 --> 00:00:11.260
+This one is single threaded,
+synchronous execution.
+
+3
+00:00:12.350 --> 00:00:17.320
+So, we have two rather large
+looking terms, so guess what?
+
+4
+00:00:20.050 --> 00:00:20.730
+Big word alert.
+
+5
+00:00:21.890 --> 00:00:24.950
+First of all, single threaded.
+
+6
+00:00:26.050 --> 00:00:29.960
+It sounds pretty complicated but
+it's easy to understand.
+
+7
+00:00:29.960 --> 00:00:34.170
+That means that one command
+is being executed at a time.
+
+8
+00:00:35.420 --> 00:00:39.500
+So any program is full of many commands.
+
+9
+00:00:39.500 --> 00:00:41.110
+Many commands within the code.
+
+10
+00:00:42.140 --> 00:00:46.490
+Single threaded execution means
+you're only doing one at a time.
+
+11
+00:00:47.800 --> 00:00:50.380
+Now, when we're dealing with browsers,
+
+12
+00:00:50.380 --> 00:00:55.050
+understand that JavaScript isn't
+the only thing happening in the browser.
+
+13
+00:00:55.050 --> 00:00:58.990
+So, when we say JavaScript is
+single threaded, It may not be
+
+14
+00:00:58.990 --> 00:01:03.845
+under the hood of the browser, but
+from our perspective as programmers,
+
+15
+00:01:03.845 --> 00:01:08.030
+JavaScript behaves in
+a single threaded manner.
+
+16
+00:01:09.240 --> 00:01:12.540
+All right, the next one.
+
+17
+00:01:12.540 --> 00:01:19.723
+And once again, big word alert.
+
+18
+00:01:19.723 --> 00:01:24.110
+Synchronous, this is very
+similar to single threaded.
+
+19
+00:01:25.400 --> 00:01:29.710
+Synchronous meaning, in the purposes
+of programming, one at a time.
+
+20
+00:01:30.900 --> 00:01:33.530
+Not two at a time or three at a time.
+
+21
+00:01:33.530 --> 00:01:36.130
+But one line of code being executed for
+
+22
+00:01:36.130 --> 00:01:41.760
+synchronous execution at a time and,
+for our purposes, in order.
+
+23
+00:01:41.760 --> 00:01:46.490
+So the code is executed one line at
+a time in the order that it appears.
+
+24
+00:01:47.710 --> 00:01:50.743
+And that's it.
+Single threaded synchronous execution,
+
+25
+00:01:50.743 --> 00:01:55.020
+meaning that in JavaScript,
+only one thing is happening at a time.
+
+26
+00:01:56.530 --> 00:01:58.640
+Now I know what you're probably thinking,
+but hey,
+
+27
+00:01:58.640 --> 00:02:04.110
+I've heard of asynchronous requests
+in JavaScript, especially on the web.
+
+28
+00:02:04.110 --> 00:02:06.130
+AJAX, the A stands for asynchronous.
+
+29
+00:02:06.130 --> 00:02:07.780
+What are you talking about?
+
+30
+00:02:07.780 --> 00:02:11.698
+Well, we'll see that in just a little bit,
+but for now, just trust me.
+
+31
+00:02:11.698 --> 00:02:16.240
+JavaScript is single threaded,
+synchronous execution in its behavior.
+

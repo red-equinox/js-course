@@ -1,0 +1,1108 @@
+WEBVTT
+
+1
+00:00:01.881 --> 00:00:08.568
+It's time to talk about
+an extraordinarily common,
+
+2
+00:00:08.568 --> 00:00:13.175
+often used and pretty neat concept,
+
+3
+00:00:13.175 --> 00:00:19.122
+an immediately invoked
+function expression or
+
+4
+00:00:19.122 --> 00:00:22.406
+an IIFE, an I-I-F-E.
+
+5
+00:00:22.406 --> 00:00:26.030
+What are immediately invoked
+function expressions?
+
+6
+00:00:26.030 --> 00:00:29.510
+How do they work and why are they useful?
+
+7
+00:00:31.480 --> 00:00:32.800
+Let's look.
+
+8
+00:00:32.800 --> 00:00:37.230
+So we've already seen the difference
+between function statements and
+
+9
+00:00:37.230 --> 00:00:39.520
+function expressions.
+
+10
+00:00:39.520 --> 00:00:42.895
+A function statement
+happens as a new statement,
+
+11
+00:00:42.895 --> 00:00:48.450
+where function is the first word either
+on a new line, maybe after a semi-colon.
+
+12
+00:00:48.450 --> 00:00:52.707
+Function, let's say greet,
+takes a name and
+
+13
+00:00:52.707 --> 00:00:56.644
+then let's say, I just output that name.
+
+14
+00:00:56.644 --> 00:01:00.065
+Just for starters, so that's a statement.
+
+15
+00:01:01.315 --> 00:01:04.072
+JavaScript sees this,
+it puts it into memory.
+
+16
+00:01:04.072 --> 00:01:05.593
+But when it begins to execute,
+
+17
+00:01:05.593 --> 00:01:08.758
+when it comes to this line it
+doesn't really execute anything.
+
+18
+00:01:08.758 --> 00:01:13.332
+You actually have to invoke it for
+it to execute.
+
+19
+00:01:13.332 --> 00:01:19.822
+So we know that and
+the function's already in memory,
+
+20
+00:01:19.822 --> 00:01:24.203
+then we have a function expression.
+
+21
+00:01:24.203 --> 00:01:29.286
+For example, I can use a function
+expression to set a variable
+
+22
+00:01:29.286 --> 00:01:34.099
+equal to it and
+I can have anonymous function, like this.
+
+23
+00:01:34.099 --> 00:01:39.999
+And maybe it's the same function,
+essentially.
+
+24
+00:01:39.999 --> 00:01:43.740
+So, I've got another greeting function.
+
+25
+00:01:43.740 --> 00:01:46.043
+This is an expression.
+
+26
+00:01:46.043 --> 00:01:48.901
+It isn't put into memory initially,
+
+27
+00:01:48.901 --> 00:01:53.633
+but rather during execution and
+when it hits this line of code,
+
+28
+00:01:53.633 --> 00:01:58.835
+the JavaScript engine, it creates
+this function object on the fly.
+
+29
+00:01:58.835 --> 00:02:05.130
+And then we can invoke it using a variable
+that's pointing to that memory location.
+
+30
+00:02:05.130 --> 00:02:09.700
+So we've seen that this is
+a function statement and
+
+31
+00:02:09.700 --> 00:02:13.090
+this is using a function expression.
+
+32
+00:02:15.650 --> 00:02:21.250
+So we've seen that this is kind of
+a function literal in this case,
+
+33
+00:02:21.250 --> 00:02:24.970
+where I'm creating a function on the fly,
+I'm creating an object just like a might
+
+34
+00:02:24.970 --> 00:02:31.010
+a string or a number and I have that
+object at this point in the code.
+
+35
+00:02:32.540 --> 00:02:36.518
+Well, now what's the special
+thing we can do with functions,
+
+36
+00:02:36.518 --> 00:02:40.133
+with all functions that make
+it a special kind of object?
+
+37
+00:02:40.133 --> 00:02:45.473
+Well, it has a code property and
+what can we do with that code property?
+
+38
+00:02:45.473 --> 00:02:47.597
+We can invoke it.
+
+39
+00:02:47.597 --> 00:02:50.911
+We've already invoked it here and
+
+40
+00:02:50.911 --> 00:02:55.606
+invoked it here, but
+we can invoke it on the fly.
+
+41
+00:02:55.606 --> 00:02:56.685
+So let me run this first.
+
+42
+00:03:01.122 --> 00:03:05.050
+And I'll just put it in the console and
+we have Hello undefined,
+
+43
+00:03:05.050 --> 00:03:07.467
+cuz I haven't passed a variable to it.
+
+44
+00:03:07.467 --> 00:03:12.684
+So let's just say, John and
+I'll put ('John').
+
+45
+00:03:12.684 --> 00:03:14.831
+Both behave the same way.
+
+46
+00:03:16.887 --> 00:03:22.062
+But I could, instead of calling this greet
+
+47
+00:03:22.062 --> 00:03:26.532
+function here, I could set a value.
+
+48
+00:03:26.532 --> 00:03:31.868
+Let's say,
+var greeting = function(name) and
+
+49
+00:03:31.868 --> 00:03:36.590
+let's give it the same
+exact function body.
+
+50
+00:03:36.590 --> 00:03:41.146
+So very similar equivalent
+object that I'm creating.
+
+51
+00:03:41.146 --> 00:03:45.338
+And in this case, I'm going to invoke
+
+52
+00:03:45.338 --> 00:03:50.188
+the function at the point
+where I create it.
+
+53
+00:03:50.188 --> 00:03:51.988
+Do you see that?
+
+54
+00:03:51.988 --> 00:03:55.528
+This gives me an object,
+a function object.
+
+55
+00:03:55.528 --> 00:03:58.783
+So when this part is done evaluating,
+
+56
+00:03:58.783 --> 00:04:03.979
+I have a function object and
+what do I do to invoke a function?
+
+57
+00:04:03.979 --> 00:04:05.370
+I put parenthesis.
+
+58
+00:04:06.860 --> 00:04:13.687
+This invokes the function
+immediately after creating it.
+
+59
+00:04:13.687 --> 00:04:14.667
+And so
+
+60
+00:04:14.667 --> 00:04:23.692
+this is an Immediately Invoked
+Function Expression or
+
+61
+00:04:23.692 --> 00:04:27.623
+an (IIFE), an IFFE.
+
+62
+00:04:27.623 --> 00:04:32.057
+This is a function expression and
+I'm invoking it or
+
+63
+00:04:32.057 --> 00:04:35.900
+running it, immediately after I create it.
+
+64
+00:04:37.280 --> 00:04:41.930
+So although it sounds complex, it's
+just describing exactly what I'm doing.
+
+65
+00:04:43.040 --> 00:04:49.158
+I'm immediately invoking here,
+this function expression.
+
+66
+00:04:49.158 --> 00:04:56.599
+So let's say that this
+instead returns a value.
+
+67
+00:04:56.599 --> 00:04:59.140
+What am I going to get in
+this greeting variable?
+
+68
+00:05:00.410 --> 00:05:07.850
+Well, if I made it only a function
+expression by itself and
+
+69
+00:05:07.850 --> 00:05:12.990
+then a console.log(greeting),
+it's going to be what?
+
+70
+00:05:14.870 --> 00:05:18.477
+It's going to be a function and
+
+71
+00:05:18.477 --> 00:05:23.897
+then I could invoke it
+to get the proper value.
+
+72
+00:05:23.897 --> 00:05:25.394
+Hello undefined.
+
+73
+00:05:25.394 --> 00:05:31.940
+I could invoke it with parameter and
+then I get the better value, there.
+
+74
+00:05:33.770 --> 00:05:39.380
+But if instead I invoke it here,
+what's going to happen?
+
+75
+00:05:40.790 --> 00:05:47.364
+Well, the function object will be
+created using the function expression,
+
+76
+00:05:47.364 --> 00:05:51.368
+then it will be invoked that is called or
+run and
+
+77
+00:05:51.368 --> 00:05:57.547
+that value will be returned and
+then that will be set equal to greeting.
+
+78
+00:05:57.547 --> 00:06:04.652
+So when I console.log greeting in
+this case, I get Hello undefined.
+
+79
+00:06:07.693 --> 00:06:13.029
+So I need to give it a value and
+here is where I call the function,
+
+80
+00:06:13.029 --> 00:06:16.370
+so I need to pass it a parameter.
+
+81
+00:06:16.370 --> 00:06:19.390
+So, I can pass it John right there.
+
+82
+00:06:19.390 --> 00:06:21.932
+Do you see what's happening?
+
+83
+00:06:21.932 --> 00:06:25.924
+I'm creating the function,
+then I'm calling the function,
+
+84
+00:06:25.924 --> 00:06:29.552
+like I would any function,
+and I pass it the parameters.
+
+85
+00:06:29.552 --> 00:06:34.414
+It expects a name, so
+I give it that name parameter and
+
+86
+00:06:34.414 --> 00:06:37.555
+then I refresh and it's the same.
+
+87
+00:06:37.555 --> 00:06:43.295
+But notice that greeting holds
+the string not the function.
+
+88
+00:06:43.295 --> 00:06:47.020
+If I tried to invoke it,
+it's going to error.
+
+89
+00:06:48.250 --> 00:06:50.650
+String is not a function.
+
+90
+00:06:50.650 --> 00:06:51.150
+You see?
+
+91
+00:06:52.380 --> 00:06:54.260
+Greeting contains a string now,
+
+92
+00:06:55.310 --> 00:07:00.470
+because I invoked this function and
+it returned a string.
+
+93
+00:07:01.910 --> 00:07:09.095
+So this is an Immediately
+Invoked Function Expression and
+
+94
+00:07:09.095 --> 00:07:13.215
+it lets me run the function at
+the point that I create it.
+
+95
+00:07:14.335 --> 00:07:16.112
+And although it looks a little weird,
+
+96
+00:07:16.112 --> 00:07:18.675
+it's actually pretty simple
+when you think about it.
+
+97
+00:07:18.675 --> 00:07:20.637
+Let's give ourself a little
+bit of space here.
+
+98
+00:07:24.446 --> 00:07:25.525
+Again, look at it.
+
+99
+00:07:25.525 --> 00:07:26.500
+Look at it carefully.
+
+100
+00:07:28.090 --> 00:07:31.841
+I created a function on the fly
+that accepts a parameter.
+
+101
+00:07:31.841 --> 00:07:35.971
+I run that function, I call that function,
+I invoke that function and
+
+102
+00:07:35.971 --> 00:07:39.121
+pass the parameter immediately
+after creating it and
+
+103
+00:07:39.121 --> 00:07:43.254
+I get the results of the function and
+that's what goes into greeting.
+
+104
+00:07:43.254 --> 00:07:45.320
+That's what gets passed
+to the equals operator.
+
+105
+00:07:47.390 --> 00:07:49.270
+So that's useful, but
+
+106
+00:07:49.270 --> 00:07:54.400
+even more interesting is if
+I just have a stand alone
+
+107
+00:07:54.400 --> 00:08:00.400
+Immediately Invoked Function Expression
+and that goes to expressions in general.
+
+108
+00:08:00.400 --> 00:08:03.869
+Let's scroll down this a little bit and
+give ourselves some room.
+
+109
+00:08:03.869 --> 00:08:07.149
+I could put a line of
+code at the end of this,
+
+110
+00:08:07.149 --> 00:08:10.992
+it's perfectly valid and
+looks kind of strange.
+
+111
+00:08:10.992 --> 00:08:14.396
+I'll put a semi-colon
+to make sure the syntax
+
+112
+00:08:14.396 --> 00:08:18.855
+parser understands this is one
+line of code, number three.
+
+113
+00:08:18.855 --> 00:08:19.920
+Am I going to get an error?
+
+114
+00:08:21.830 --> 00:08:24.555
+Nope, no errors at the end.
+
+115
+00:08:24.555 --> 00:08:28.042
+This is a valid JavaScript expression.
+
+116
+00:08:28.042 --> 00:08:30.373
+Remember, it can just
+run an expression and
+
+117
+00:08:30.373 --> 00:08:34.094
+it doesn't have to store in a variable or
+anything, it just is there.
+
+118
+00:08:34.094 --> 00:08:37.012
+It runs it, it executes it and that's it.
+
+119
+00:08:37.012 --> 00:08:41.033
+That is so not to do anything with it.
+
+120
+00:08:41.033 --> 00:08:43.053
+So, I could do that.
+
+121
+00:08:43.053 --> 00:08:47.770
+I could do "I am a string" just
+
+122
+00:08:47.770 --> 00:08:52.856
+sitting there, doing nothing.
+
+123
+00:08:52.856 --> 00:08:53.552
+See?
+
+124
+00:08:53.552 --> 00:08:55.611
+I refresh, no error, that's valid.
+
+125
+00:08:55.611 --> 00:08:58.540
+I'm not doing anything with it,
+but it's valid.
+
+126
+00:08:59.820 --> 00:09:02.027
+How about an object?
+
+127
+00:09:02.027 --> 00:09:06.445
+I could create an object using
+object literal syntax and
+
+128
+00:09:06.445 --> 00:09:08.614
+it's just sitting there.
+
+129
+00:09:08.614 --> 00:09:16.041
+It's a line of code in this file,
+that's being executed and no errors.
+
+130
+00:09:16.041 --> 00:09:22.626
+It's a valid JavaScript statement and
+expression.
+
+131
+00:09:22.626 --> 00:09:25.172
+So I can do strings, I can do numbers.
+
+132
+00:09:25.172 --> 00:09:27.290
+What about functions?
+
+133
+00:09:27.290 --> 00:09:30.080
+Well If I was to do, let's say,
+
+134
+00:09:30.080 --> 00:09:35.010
+I took this function and
+made it stand alone.
+
+135
+00:09:36.500 --> 00:09:37.540
+What's the problem here?
+
+136
+00:09:38.690 --> 00:09:41.280
+If I want this to be
+a function expression,
+
+137
+00:09:42.380 --> 00:09:45.630
+where it's creating it on the fly,
+do you see the problem?
+
+138
+00:09:46.990 --> 00:09:53.464
+If I run this, it says,
+hey, Unexpected token (.
+
+139
+00:09:53.464 --> 00:09:54.641
+Why?
+
+140
+00:09:54.641 --> 00:10:01.259
+Cuz the syntax parser saw the word
+function as the beginning of a new line or
+
+141
+00:10:01.259 --> 00:10:06.187
+segment of code,
+it was after this semi-colon here.
+
+142
+00:10:06.187 --> 00:10:12.230
+So it expects that this is a function
+statement, it wants it to have a name.
+
+143
+00:10:12.230 --> 00:10:13.260
+It can't be anonymous.
+
+144
+00:10:14.595 --> 00:10:18.045
+So this syntax is a problem.
+
+145
+00:10:19.285 --> 00:10:24.110
+If I just put function,
+this isn't a function expression.
+
+146
+00:10:24.110 --> 00:10:25.445
+It's a function statement.
+
+147
+00:10:25.445 --> 00:10:31.265
+My normal, kind of, just write a function
+the way you probably first learned to do.
+
+148
+00:10:32.420 --> 00:10:34.744
+That's not what I want.
+
+149
+00:10:34.744 --> 00:10:35.805
+I want it to just sit there.
+
+150
+00:10:35.805 --> 00:10:41.069
+Kind of like a 3 or "I am a string" or
+something like that.
+
+151
+00:10:41.069 --> 00:10:46.013
+So how do we trick the syntax
+parser in to understanding
+
+152
+00:10:46.013 --> 00:10:50.858
+that I don't intend this
+to be a function statement?
+
+153
+00:10:50.858 --> 00:10:55.029
+Well, I need to make sue that the word
+function isn't the first thing it sees
+
+154
+00:10:55.029 --> 00:10:57.240
+on this new line of code.
+
+155
+00:10:57.240 --> 00:11:00.660
+If it isn't the first character
+on this new line of code,
+
+156
+00:11:00.660 --> 00:11:05.530
+if it isn't the first word,
+then it's not a problem.
+
+157
+00:11:05.530 --> 00:11:09.795
+The syntax partial will understand, oh,
+
+158
+00:11:09.795 --> 00:11:13.587
+this can't be a function statement,
+
+159
+00:11:13.587 --> 00:11:18.928
+cuz a function statement has
+to be the word function.
+
+160
+00:11:18.928 --> 00:11:19.676
+So how can I do this?
+
+161
+00:11:19.676 --> 00:11:22.095
+Well, there's a few
+ways to do it actually.
+
+162
+00:11:22.095 --> 00:11:28.250
+But the most accepted, because it's
+the easiest to read and look at and
+
+163
+00:11:28.250 --> 00:11:34.624
+it's the least amount of typing is to
+wrap your function in parentheses.
+
+164
+00:11:34.624 --> 00:11:37.257
+This is when you want
+a function expression,
+
+165
+00:11:37.257 --> 00:11:41.080
+instead of a normal function
+statement that you might be used to.
+
+166
+00:11:43.910 --> 00:11:49.380
+Parenthesis inside JavaScript,
+remember is an operator.
+
+167
+00:11:49.380 --> 00:11:52.420
+And you only use parenthesis
+with expressions,
+
+168
+00:11:54.070 --> 00:11:58.880
+like (3+4)*2 or
+something like that or I'm grouping.
+
+169
+00:12:00.090 --> 00:12:02.159
+It's the grouping operator.
+
+170
+00:12:02.159 --> 00:12:06.524
+You never put a statement inside
+
+171
+00:12:06.524 --> 00:12:11.381
+parentheses, like if something.
+
+172
+00:12:11.381 --> 00:12:14.890
+It always is an expression,
+something that returns a value.
+
+173
+00:12:16.280 --> 00:12:21.575
+So since the JavaScript engine knows
+that anything inside a parentheses must
+
+174
+00:12:21.575 --> 00:12:26.545
+be an expression, it assumes that
+this function that you've written is
+
+175
+00:12:26.545 --> 00:12:32.092
+a function expression, that you're
+creating this function object on the fly.
+
+176
+00:12:32.092 --> 00:12:36.911
+And if I run this,
+once again, I have no errors.
+
+177
+00:12:36.911 --> 00:12:37.460
+See that?
+
+178
+00:12:38.630 --> 00:12:42.450
+I have a function just sitting there,
+doing nothing.
+
+179
+00:12:42.450 --> 00:12:45.010
+And I'm not using it,
+but it's valid syntax.
+
+180
+00:12:47.080 --> 00:12:48.825
+Here's the fun part.
+
+181
+00:12:48.825 --> 00:12:53.583
+Let's say, I change this to
+a console.log('Hello' + name;) or
+
+182
+00:12:53.583 --> 00:12:56.692
+maybe I'll just be
+a little bit more verbose.
+
+183
+00:12:56.692 --> 00:13:00.916
+I'll do a greeting = 'Hello'; and
+
+184
+00:13:00.916 --> 00:13:07.254
+then I'll put greeting + space and
+the name that I have.
+
+185
+00:13:07.254 --> 00:13:12.089
+So now I have a function
+that does some work,
+
+186
+00:13:12.089 --> 00:13:14.973
+creates some variables.
+
+187
+00:13:14.973 --> 00:13:16.296
+I'd like to run this.
+
+188
+00:13:16.296 --> 00:13:20.196
+Remember, when we had just 3 sitting
+there, it didn't do anything or
+
+189
+00:13:20.196 --> 00:13:25.080
+"I am a string", it still put it in
+memory, but then it was kind of lost.
+
+190
+00:13:25.080 --> 00:13:26.080
+I never did anything with it.
+
+191
+00:13:27.110 --> 00:13:29.210
+But what's special about
+a function object, remember?
+
+192
+00:13:30.500 --> 00:13:32.209
+I can invoke it.
+
+193
+00:13:32.209 --> 00:13:37.064
+So after I see the function,
+
+194
+00:13:37.064 --> 00:13:39.903
+I can invoke it.
+
+195
+00:13:39.903 --> 00:13:44.448
+This also is an immediately
+invoked function expression and
+
+196
+00:13:44.448 --> 00:13:49.274
+most often, what we're talking
+about when we say that phrase.
+
+197
+00:13:49.274 --> 00:13:54.901
+A function expression wrapped in
+parentheses, so that the JavaScript engine
+
+198
+00:13:54.901 --> 00:14:00.627
+understands that I don't mean this to be
+my kind of normal function statement.
+
+199
+00:14:00.627 --> 00:14:04.170
+I mean this to be an expression,
+something that's created on the fly.
+
+200
+00:14:04.170 --> 00:14:09.320
+When this line of code is executed,
+I wrap it in parentheses just to trick
+
+201
+00:14:09.320 --> 00:14:15.040
+the syntax parser and
+then I put parentheses to actually run it.
+
+202
+00:14:15.040 --> 00:14:19.300
+So, I'm creating a function and
+running it all at the same time
+
+203
+00:14:21.410 --> 00:14:22.720
+and I can pass values to it.
+
+204
+00:14:24.050 --> 00:14:31.130
+For example, if I have var firstname and
+that's 'John', I can pass firstname.
+
+205
+00:14:33.840 --> 00:14:34.600
+Take a good look at that.
+
+206
+00:14:36.840 --> 00:14:42.822
+I have a function expression, I wrapped it
+in parentheses to trick the syntax parser.
+
+207
+00:14:42.822 --> 00:14:46.422
+And because it knows that this
+is a function expression,
+
+208
+00:14:46.422 --> 00:14:51.372
+it creates this object on the fly and
+it's invocable, cuz it's a function and
+
+209
+00:14:51.372 --> 00:14:52.877
+I can pass values to it.
+
+210
+00:14:52.877 --> 00:14:56.821
+So then, what am I going to get?
+
+211
+00:14:56.821 --> 00:15:00.963
+What's going to happen when
+this line of code is run?
+
+212
+00:15:00.963 --> 00:15:06.141
+Well, let's say 'Inside IIFE: just so
+we can see the difference.
+
+213
+00:15:09.821 --> 00:15:11.620
+See that?
+
+214
+00:15:11.620 --> 00:15:12.730
+Do you see what just happened?
+
+215
+00:15:14.210 --> 00:15:20.911
+I just wrapped all my code in a function,
+created it on the fly and invoked it.
+
+216
+00:15:20.911 --> 00:15:26.275
+This is the classic example of an I-I-F-E,
+an IIFE,
+
+217
+00:15:26.275 --> 00:15:30.853
+an Immediately Invoked
+Function Expression.
+
+218
+00:15:30.853 --> 00:15:37.380
+This turns out to be a wonderful tool in
+your arsenal, as a JavaScript developer.
+
+219
+00:15:38.560 --> 00:15:43.730
+And you'll see this form,
+this style in almost
+
+220
+00:15:43.730 --> 00:15:48.570
+every major framework and
+library that's out there today.
+
+221
+00:15:50.140 --> 00:15:53.100
+So take a look at this code,
+try to write it yourself.
+
+222
+00:15:54.160 --> 00:15:57.050
+Get familiar with it, add some
+extra parameters and pass them in.
+
+223
+00:15:58.200 --> 00:16:03.257
+Understand that we're just
+executing code on the fly.
+
+224
+00:16:03.257 --> 00:16:07.035
+We're just executing
+a function after we create it.
+
+225
+00:16:07.035 --> 00:16:09.730
+Now we'll see just why that's so useful.
+
+226
+00:16:10.840 --> 00:16:12.750
+Oh, one more thing before we go.
+
+227
+00:16:13.940 --> 00:16:17.650
+There's a bit of a controversy
+about which syntax to use.
+
+228
+00:16:17.650 --> 00:16:22.680
+Everyone agrees to use parentheses,
+but you could invoke it
+
+229
+00:16:22.680 --> 00:16:28.119
+inside the parentheses or you could
+invoke it outside the parentheses.
+
+230
+00:16:29.860 --> 00:16:33.870
+It doesn't really matter,
+both work the same way.
+
+231
+00:16:35.300 --> 00:16:36.340
+So which one's the right way?
+
+232
+00:16:37.500 --> 00:16:39.670
+The answer is there is no right way.
+
+233
+00:16:40.880 --> 00:16:44.230
+It's whichever one seems to
+make the most sense to you.
+
+234
+00:16:45.670 --> 00:16:48.790
+A lot of people think this
+makes the most sense,
+
+235
+00:16:48.790 --> 00:16:52.740
+because you're simply encapsulating
+the whole thing in parentheses.
+
+236
+00:16:52.740 --> 00:16:57.827
+I think it's arguable,
+it's more of an artistic choice.
+
+237
+00:16:57.827 --> 00:17:02.378
+But whatever you do,
+pick one and be consistent.
+
+238
+00:17:02.378 --> 00:17:04.460
+So you don't cause yourself
+trouble in the long run.
+
+239
+00:17:06.390 --> 00:17:06.890
+Let's move on.
+

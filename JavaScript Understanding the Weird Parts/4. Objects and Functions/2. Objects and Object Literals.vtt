@@ -1,0 +1,647 @@
+WEBVTT
+
+1
+00:00:02.220 --> 00:00:05.920
+Remember how we said when we
+typed new object that that wasn't
+
+2
+00:00:05.920 --> 00:00:08.640
+the best way to create a new object?
+
+3
+00:00:09.950 --> 00:00:14.229
+Let's talk about objects and
+what's called object literals.
+
+4
+00:00:15.700 --> 00:00:19.470
+So we're back to my blank app.js file.
+
+5
+00:00:19.470 --> 00:00:23.062
+And we're going to talk
+about object literals.
+
+6
+00:00:23.062 --> 00:00:27.520
+In JavaScript there are often more
+than one way to do something.
+
+7
+00:00:28.570 --> 00:00:34.650
+So we already saw that I could create a
+new object by going new object like that.
+
+8
+00:00:34.650 --> 00:00:38.610
+And we'll talk about this more later in
+the course as far as what it really means.
+
+9
+00:00:39.690 --> 00:00:46.220
+But there's a short hand for
+this called an object literal.
+
+10
+00:00:46.220 --> 00:00:50.490
+And it's just curly braces, like that.
+
+11
+00:00:51.880 --> 00:00:54.595
+That's the same as new object.
+
+12
+00:00:54.595 --> 00:01:01.339
+So, if I console.log(person),
+now I'll just run this.
+
+13
+00:01:04.461 --> 00:01:05.989
+Go to the console,
+
+14
+00:01:05.989 --> 00:01:11.735
+you'll see that it's an empty object
+just like when I said new object.
+
+15
+00:01:11.735 --> 00:01:16.388
+So this is shorthand.
+
+16
+00:01:16.388 --> 00:01:19.826
+Notice this is not an operator.
+
+17
+00:01:19.826 --> 00:01:26.480
+What's happening is that
+the JavaScript engine,
+
+18
+00:01:26.480 --> 00:01:32.720
+when it's parsing the syntax, and
+it comes across this curly brace,
+
+19
+00:01:32.720 --> 00:01:35.970
+and it's not part of something
+like an if statement or a for
+
+20
+00:01:35.970 --> 00:01:41.380
+loop, or something like that,
+it assumes that you're creating an object.
+
+21
+00:01:41.380 --> 00:01:46.950
+And so I open and close this brace and
+now I have a new object.
+
+22
+00:01:46.950 --> 00:01:49.330
+But, I can do a lot more than that.
+
+23
+00:01:49.330 --> 00:01:51.640
+I can initialize the object.
+
+24
+00:01:51.640 --> 00:01:57.130
+I can set up properties and
+methods, all within
+
+25
+00:01:57.130 --> 00:02:03.330
+these curly braces on what is
+essentially treated as one line of code.
+
+26
+00:02:03.330 --> 00:02:07.240
+So for example,
+I can put the name of the property or
+
+27
+00:02:07.240 --> 00:02:11.110
+method, then a colon and then the value.
+
+28
+00:02:11.110 --> 00:02:13.750
+So a name value pair.
+
+29
+00:02:14.870 --> 00:02:22.020
+I can separate those with commas,
+and put another name and value pair.
+
+30
+00:02:22.020 --> 00:02:25.804
+So now,
+I have two properties on my object.
+
+31
+00:02:25.804 --> 00:02:31.041
+If I console.log this, and refresh,
+
+32
+00:02:31.041 --> 00:02:37.400
+there I have my object
+with its two properties.
+
+33
+00:02:38.550 --> 00:02:46.080
+This is essentially the same as
+saying person = new Object(),
+
+34
+00:02:46.080 --> 00:02:52.170
+and then manually setting one at
+a time these individual properties.
+
+35
+00:02:52.170 --> 00:02:56.990
+Notice I can use double quotes or
+single quotes for strings in JavaScript.
+
+36
+00:02:59.430 --> 00:03:06.460
+These two things this and
+this are the same.
+
+37
+00:03:06.460 --> 00:03:10.100
+But this is much faster,
+much quicker to write.
+
+38
+00:03:11.450 --> 00:03:13.440
+So I can actually then
+
+39
+00:03:14.640 --> 00:03:20.050
+create that object that I initially
+created in our last lecture.
+
+40
+00:03:20.050 --> 00:03:22.480
+And it's often good to use white space.
+
+41
+00:03:22.480 --> 00:03:28.590
+JavaScript is very liberal about letting
+you use white space that is spaces and
+
+42
+00:03:28.590 --> 00:03:33.010
+tabs and carriage returns, and
+this is still treated as one line of code.
+
+43
+00:03:34.240 --> 00:03:37.570
+But it just makes it more readable for
+me as a human.
+
+44
+00:03:37.570 --> 00:03:43.310
+So I can add another comma, so we separate
+each name value pair with a comma,
+
+45
+00:03:43.310 --> 00:03:45.410
+when using object literal syntax.
+
+46
+00:03:46.490 --> 00:03:51.690
+And I could give it that address, but
+this is another object, so I just make
+
+47
+00:03:51.690 --> 00:03:57.460
+another object with curly braces
+using the object literal syntax and
+
+48
+00:03:57.460 --> 00:04:02.870
+then I can do exactly
+what I did last time,
+
+49
+00:04:02.870 --> 00:04:07.580
+separating with commas,
+giving the name and the values.
+
+50
+00:04:11.530 --> 00:04:16.420
+So what's happening is, the syntax parser,
+and then the JavaScript engine,
+
+51
+00:04:16.420 --> 00:04:22.480
+the rest of that process, when executing
+this code, when it hits this line of code,
+
+52
+00:04:22.480 --> 00:04:27.940
+and again this is treated as one line
+of code, then it sees the curly brace.
+
+53
+00:04:27.940 --> 00:04:32.400
+It says, you must be creating an object,
+and it looks for
+
+54
+00:04:32.400 --> 00:04:37.470
+these name and
+value pairs separated by a colon.
+
+55
+00:04:37.470 --> 00:04:41.930
+And if it sees another set, or
+even within another set, etc.,
+
+56
+00:04:41.930 --> 00:04:47.320
+etc., of curly braces,
+that just means another object.
+
+57
+00:04:47.320 --> 00:04:51.430
+So I can drop an object
+in wherever I want, and
+
+58
+00:04:51.430 --> 00:04:56.700
+define its properties and
+methods on the fly, using the syntax.
+
+59
+00:04:56.700 --> 00:05:02.610
+And so if I output this to the console,
+you can see that I have
+
+60
+00:05:02.610 --> 00:05:06.480
+my first name, my last name,
+and an address property.
+
+61
+00:05:06.480 --> 00:05:10.620
+That's an object itself with city,
+state and street.
+
+62
+00:05:10.620 --> 00:05:15.950
+A lot faster than defining all of these
+one at a time on separate lines of code.
+
+63
+00:05:17.255 --> 00:05:20.005
+So this is a wonderful way,
+and the preferred way,
+
+64
+00:05:20.005 --> 00:05:22.085
+to quickly create an object.
+
+65
+00:05:23.925 --> 00:05:26.315
+It gets even more powerful though,
+
+66
+00:05:26.315 --> 00:05:31.765
+when we look at how the engine
+treats this shorthand.
+
+67
+00:05:32.845 --> 00:05:38.640
+I can create an object anywhere that I
+can create any other variable on the fly.
+
+68
+00:05:39.680 --> 00:05:44.280
+Just like I could pass a number
+to a function or a string and
+
+69
+00:05:44.280 --> 00:05:45.490
+create it on the fly,
+
+70
+00:05:47.040 --> 00:05:50.895
+we can create an object on the fly when
+passing to a function for example.
+
+71
+00:05:50.895 --> 00:05:52.415
+Let's show an example.
+
+72
+00:05:52.415 --> 00:05:57.155
+Let's say I have a greet function
+that accepts some person object, and
+
+73
+00:05:57.155 --> 00:06:00.205
+this person is going to be Tony,
+right here.
+
+74
+00:06:02.115 --> 00:06:11.966
+Let's say the greet says
+console.log('Hi' + person.firstname);.
+
+75
+00:06:11.966 --> 00:06:17.095
+So I have a function that
+expects an object that
+
+76
+00:06:17.095 --> 00:06:22.750
+has a first name property,
+so I could call greet and
+
+77
+00:06:22.750 --> 00:06:26.840
+pass Tony, and I should see hi Tony.
+
+78
+00:06:29.530 --> 00:06:30.030
+I do.
+
+79
+00:06:31.160 --> 00:06:34.400
+So this object that was created and
+is sitting in memory,
+
+80
+00:06:35.690 --> 00:06:40.030
+is passed to the function,
+and it's able to be used.
+
+81
+00:06:41.370 --> 00:06:49.160
+But I could call the greet function and
+create an object on the fly.
+
+82
+00:06:50.780 --> 00:06:57.810
+So maybe I wanted to say first name Mary,
+last name Doe.
+
+83
+00:06:57.810 --> 00:07:01.850
+Notice I separated the name value
+pairs with a comma, and the name and
+
+84
+00:07:01.850 --> 00:07:08.650
+value is separated with a colon and the
+whole thing wrapped inside curly braces.
+
+85
+00:07:08.650 --> 00:07:13.860
+I'll zoom in a bit on the code,
+just a bit so you can see this better.
+
+86
+00:07:13.860 --> 00:07:15.080
+See that?
+
+87
+00:07:15.080 --> 00:07:19.000
+And I could even use then some white space
+
+88
+00:07:19.000 --> 00:07:21.529
+just to make my life a little
+bit easier when reading this.
+
+89
+00:07:23.930 --> 00:07:26.610
+So that looks a little strange doesn't it?
+
+90
+00:07:26.610 --> 00:07:30.280
+Looks a little weird if you've never
+seen something like this before in other
+
+91
+00:07:30.280 --> 00:07:35.890
+programming languages, but in JavaScript,
+I can use object literal syntax.
+
+92
+00:07:35.890 --> 00:07:38.790
+And what's happening is
+the JavaScript engine sees that oh,
+
+93
+00:07:38.790 --> 00:07:42.120
+you're calling a function and oh,
+what are you gonna pass to it?
+
+94
+00:07:42.120 --> 00:07:47.100
+Well, I just saw curly brace so I know
+you're creating an object right here
+
+95
+00:07:47.100 --> 00:07:51.040
+at this moment of execution and
+passing it.
+
+96
+00:07:51.040 --> 00:07:55.260
+It'd be no different than passing
+anything else like a number or a string.
+
+97
+00:07:56.430 --> 00:08:00.950
+Your creating that string on the fly
+when the function is called.
+
+98
+00:08:00.950 --> 00:08:04.750
+And in this case,
+I'm creating the object on the fly.
+
+99
+00:08:06.070 --> 00:08:11.050
+Where ever I want I can
+create an object as I go.
+
+100
+00:08:12.410 --> 00:08:15.280
+And I can use this object
+wherever I use any variable.
+
+101
+00:08:15.280 --> 00:08:17.730
+So in this case I should see, one.
+
+102
+00:08:17.730 --> 00:08:22.180
+While I'm greeting and I'm passing this
+'Tony' variable which contains firstname,
+
+103
+00:08:22.180 --> 00:08:25.570
+and then I'm calling greet
+again with a different object,
+
+104
+00:08:25.570 --> 00:08:31.880
+this one created on the fly using object
+literal syntax and the first name is Mary.
+
+105
+00:08:31.880 --> 00:08:33.292
+So what should I see in the console?
+
+106
+00:08:33.292 --> 00:08:36.721
+Two greetings.
+
+107
+00:08:36.721 --> 00:08:38.154
+Right.
+
+108
+00:08:38.154 --> 00:08:39.876
+Hi Tony.
+
+109
+00:08:39.876 --> 00:08:41.600
+Hi Mary.
+
+110
+00:08:41.600 --> 00:08:42.270
+See how that worked?
+
+111
+00:08:44.090 --> 00:08:49.060
+And notice that I can mix and
+match this syntax.
+
+112
+00:08:49.060 --> 00:08:54.270
+I could take this variable Tony and
+add a new property using
+
+113
+00:08:54.270 --> 00:09:00.600
+the DOT operator instead
+of an object literal
+
+114
+00:09:00.600 --> 00:09:06.210
+and then use an object literal to
+define it as some sort of object.
+
+115
+00:09:06.210 --> 00:09:10.860
+So I'm mixing and
+matching my methodologies.
+
+116
+00:09:12.390 --> 00:09:13.600
+So why does this work?
+
+117
+00:09:15.170 --> 00:09:18.370
+Well, because remember what we said.
+
+118
+00:09:18.370 --> 00:09:19.550
+The code that you write,
+
+119
+00:09:19.550 --> 00:09:24.970
+the physical code you're writing, isn't
+what's really happening under the hood.
+
+120
+00:09:24.970 --> 00:09:27.620
+It's being translated by
+the Java Script engine
+
+121
+00:09:27.620 --> 00:09:30.170
+into something the computer
+can understand.
+
+122
+00:09:30.170 --> 00:09:34.640
+So the syntax whether
+it's object literals or
+
+123
+00:09:34.640 --> 00:09:37.500
+using the dot operator or
+you're saying new object.
+
+124
+00:09:37.500 --> 00:09:41.940
+Whatever is going on it's all
+doing the exact same thing
+
+125
+00:09:41.940 --> 00:09:44.700
+under the hood of the JavaScript engine.
+
+126
+00:09:44.700 --> 00:09:49.270
+It's creating this object in memory and
+its properties and methods in memory.
+
+127
+00:09:49.270 --> 00:09:50.620
+And that's it.
+
+128
+00:09:50.620 --> 00:09:55.570
+So the syntax that I used doesn't
+matter because in the end,
+
+129
+00:09:55.570 --> 00:09:57.430
+I'm actually creating the same thing.
+
+130
+00:09:57.430 --> 00:10:01.250
+The JavaScript engine behaves
+the same way in both cases.
+
+131
+00:10:02.270 --> 00:10:05.590
+So it's just a matter of,
+what syntax would you like to use?
+
+132
+00:10:05.590 --> 00:10:11.740
+And as it turns out, object literal
+syntax turns out to be really powerful.
+
+133
+00:10:11.740 --> 00:10:16.200
+It can make for some very clean
+looking and easy to write code.
+
+134
+00:10:17.440 --> 00:10:22.350
+So this is the object literal syntax.
+
+135
+00:10:22.350 --> 00:10:29.630
+Using these curly braces to define name
+and value pairs separated by colons.
+
+136
+00:10:31.070 --> 00:10:31.880
+All right.
+
+137
+00:10:31.880 --> 00:10:32.380
+Let's move on.
+

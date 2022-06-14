@@ -1,0 +1,277 @@
+WEBVTT
+
+1
+00:00:02.350 --> 00:00:05.790
+All right, so it's time for
+a dangerous aside.
+
+2
+00:00:05.790 --> 00:00:08.800
+We've already talked about
+the built-in function constructors and
+
+3
+00:00:08.800 --> 00:00:14.320
+how they can be kind of neat,
+but they're also dangerous.
+
+4
+00:00:14.320 --> 00:00:18.673
+Here's a simple example to show why
+built-in function constructors for
+
+5
+00:00:18.673 --> 00:00:23.530
+primitive types, especially like boolean,
+number, string, are dangerous.
+
+6
+00:00:25.280 --> 00:00:32.040
+Let's say I have a variable
+a which is 3 and
+
+7
+00:00:32.040 --> 00:00:36.800
+a variable b which is new Number 3.
+
+8
+00:00:36.800 --> 00:00:41.810
+If I say a == b, that's true.
+
+9
+00:00:42.840 --> 00:00:43.340
+Why?
+
+10
+00:00:44.350 --> 00:00:46.552
+Because this coerces types.
+
+11
+00:00:46.552 --> 00:00:53.500
+The ==, that operator,
+looks at a and sees a primitive,
+
+12
+00:00:53.500 --> 00:00:59.180
+looks at b and sees an object, and
+tries to convert them to the same type.
+
+13
+00:00:59.180 --> 00:01:01.190
+And once it does, they're equal.
+
+14
+00:01:01.190 --> 00:01:08.760
+If I use the recommended triple equals,
+a and b are not equal.
+
+15
+00:01:08.760 --> 00:01:10.120
+Why?
+
+16
+00:01:10.120 --> 00:01:13.070
+Because a is a primitive and
+b is an Object,
+
+17
+00:01:13.070 --> 00:01:14.910
+created with this function constructor.
+
+18
+00:01:16.298 --> 00:01:19.200
+And the === function, that operator,
+
+19
+00:01:19.200 --> 00:01:22.870
+if it sees that the two things are not
+equal it immediately returns false.
+
+20
+00:01:22.870 --> 00:01:24.360
+Doesn't even try, doesn't even bother.
+
+21
+00:01:24.360 --> 00:01:28.090
+It just says, nope, they're not the same
+type, there's no way they can be equal.
+
+22
+00:01:28.090 --> 00:01:30.100
+Because in reality,
+these two things aren't equal.
+
+23
+00:01:31.480 --> 00:01:32.738
+So do you see the danger there?
+
+24
+00:01:32.738 --> 00:01:37.110
+By using built-in
+function constructors for
+
+25
+00:01:37.110 --> 00:01:41.080
+creating primitives,
+you aren't really creating primitives.
+
+26
+00:01:41.080 --> 00:01:44.940
+And strange things can happen during
+comparison with operators and coercion.
+
+27
+00:01:45.970 --> 00:01:50.498
+It's better, in general, to not use
+the built-in function constructors.
+
+28
+00:01:50.498 --> 00:01:52.806
+Use literals.
+
+29
+00:01:52.806 --> 00:01:56.630
+Use the actual primitive values.
+
+30
+00:01:56.630 --> 00:01:58.890
+And in cases where you
+absolutely have to use them,
+
+31
+00:01:58.890 --> 00:02:00.520
+understand what you're doing to yourself.
+
+32
+00:02:01.820 --> 00:02:06.060
+Understand that any kind of comparison
+needs to be against the same type.
+
+33
+00:02:07.900 --> 00:02:09.390
+One other thing I want to note,
+
+34
+00:02:09.390 --> 00:02:12.000
+what if you're dealing with
+dates that we already saw?
+
+35
+00:02:12.000 --> 00:02:16.700
+Or we use the date built-in
+function constructor.
+
+36
+00:02:17.720 --> 00:02:21.911
+There's an absolutely terrific
+library called Moment.js.
+
+37
+00:02:21.911 --> 00:02:24.362
+You can go to moment.js.com.
+
+38
+00:02:24.362 --> 00:02:28.266
+And it wraps up a whole
+lot of functionality for
+
+39
+00:02:28.266 --> 00:02:33.590
+dealing with, formatting and
+doing math on dates.
+
+40
+00:02:33.590 --> 00:02:38.410
+If you're going to do a lot of date work,
+I recommend you use this library,
+
+41
+00:02:38.410 --> 00:02:42.852
+instead of a lot of work with
+built-in JavaScript date constructor.
+
+42
+00:02:43.980 --> 00:02:49.850
+This helps out with some problems
+within that built-in constructor.
+
+43
+00:02:50.850 --> 00:02:53.785
+So, just know about Moment.js.
+
+44
+00:02:53.785 --> 00:02:56.610
+Momentjs.com, that's very useful.
+
+45
+00:02:58.180 --> 00:03:02.820
+And again, we just want to be
+certain we have this clear.
+
+46
+00:03:02.820 --> 00:03:06.328
+It's dangerous to use
+function constructors,
+
+47
+00:03:06.328 --> 00:03:10.090
+the built-in ones, for primitives.
+
+48
+00:03:10.090 --> 00:03:13.360
+I can try to use them for
+conversion sometimes,
+
+49
+00:03:13.360 --> 00:03:18.280
+I might say c = Number and
+then pass in a string 3.
+
+50
+00:03:18.280 --> 00:03:22.930
+This time I'm just using it as a regular
+old function, not as the new keyword.
+
+51
+00:03:22.930 --> 00:03:26.850
+And when I do that c is
+the converted value.
+
+52
+00:03:26.850 --> 00:03:30.430
+So that can be useful under
+certain circumstances.
+
+53
+00:03:30.430 --> 00:03:35.690
+But understand again the difference there
+between using the new keyword and not.
+
+54
+00:03:35.690 --> 00:03:36.685
+You're calling the function.
+
+55
+00:03:36.685 --> 00:03:41.780
+In this you're creating an object, calling
+the function and getting an object back.
+
+56
+00:03:43.080 --> 00:03:46.690
+So that's just something
+to note about these things.
+
+57
+00:03:46.690 --> 00:03:50.260
+Some new JavaScript developers use this
+all over the place, use these built-in
+
+58
+00:03:50.260 --> 00:03:55.110
+function constructors, without realizing
+they're creating objects, not primitives.
+
+59
+00:03:55.110 --> 00:03:57.180
+So be aware, and let's move on.
+

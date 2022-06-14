@@ -1,0 +1,311 @@
+WEBVTT
+
+1
+00:00:01.590 --> 00:00:06.600
+It's time for another framework aside,
+where we talk about how some of the things
+
+2
+00:00:06.600 --> 00:00:13.170
+we've been looking at are applied or used
+inside popular frameworks in libraries.
+
+3
+00:00:13.170 --> 00:00:17.980
+Let's talk for a moment about
+something that JavaScript doesn't have
+
+4
+00:00:17.980 --> 00:00:22.120
+that many other programming languages do,
+and why it doesn't matter.
+
+5
+00:00:22.120 --> 00:00:23.590
+This is function overloading.
+
+6
+00:00:24.890 --> 00:00:27.180
+So again I have a greet function.
+
+7
+00:00:27.180 --> 00:00:30.675
+In other programming languages like C#,
+C++,
+
+8
+00:00:30.675 --> 00:00:34.560
+Java, there's the idea
+of function overloading.
+
+9
+00:00:34.560 --> 00:00:38.290
+What that means is I can have
+a function of the same name
+
+10
+00:00:38.290 --> 00:00:40.890
+that has different numbers of parameters.
+
+11
+00:00:42.140 --> 00:00:47.800
+Now this doesn't really work in
+JavaScript because functions are objects.
+
+12
+00:00:47.800 --> 00:00:51.920
+So that functionality isn't available
+
+13
+00:00:51.920 --> 00:00:55.210
+in the way that JavaScript
+deals with functions.
+
+14
+00:00:55.210 --> 00:01:00.210
+But that's okay because having first class
+functions introduces a lot more options.
+
+15
+00:01:01.560 --> 00:01:07.530
+But, what if you did want to
+somehow have some alternatives for
+
+16
+00:01:07.530 --> 00:01:09.220
+how you call the greet method?
+
+17
+00:01:09.220 --> 00:01:13.540
+For example, what if I wanted to not
+always have to pass the language?
+
+18
+00:01:14.540 --> 00:01:18.140
+Well, you've already seen that
+we can default the language.
+
+19
+00:01:19.140 --> 00:01:24.600
+And then have all our logic inside
+this function to decide what to do
+
+20
+00:01:24.600 --> 00:01:27.850
+when the language is under
+different circumstances.
+
+21
+00:01:27.850 --> 00:01:30.780
+So I could say, first of all,
+
+22
+00:01:30.780 --> 00:01:34.360
+that we'll default to English
+if I don't get anything.
+
+23
+00:01:35.930 --> 00:01:41.211
+And then if language is English then let's
+
+24
+00:01:41.211 --> 00:01:45.612
+just log to the console firstname,
+
+25
+00:01:45.612 --> 00:01:50.012
+or actually let's do 'Hello' and
+
+26
+00:01:50.012 --> 00:01:54.137
+then firstname space lastname.
+
+27
+00:01:54.137 --> 00:01:56.596
+Let's just do that.
+
+28
+00:01:56.596 --> 00:02:03.020
+And then if it's Spanish,
+we'll just do the same thing, but Hola.
+
+29
+00:02:03.020 --> 00:02:05.700
+We could make this code a bit better,
+but this is just for
+
+30
+00:02:05.700 --> 00:02:08.680
+clarity to see what's going on.
+
+31
+00:02:08.680 --> 00:02:12.710
+We have, in the case of language
+being English, it'll output one and
+
+32
+00:02:12.710 --> 00:02:13.660
+Spanish is the other.
+
+33
+00:02:13.660 --> 00:02:19.100
+And if I wanted to call this
+I would put John Doe and
+
+34
+00:02:19.100 --> 00:02:22.370
+then a language, like English or
+
+35
+00:02:22.370 --> 00:02:26.885
+I could do John Doe, Spanish.
+
+36
+00:02:26.885 --> 00:02:32.780
+And then when I run this,
+I get my two function calls.
+
+37
+00:02:34.090 --> 00:02:36.530
+But I might want a different version
+
+38
+00:02:36.530 --> 00:02:39.440
+of this function where I don't
+have to pass as much information.
+
+39
+00:02:40.730 --> 00:02:45.960
+We can do that very easily by simply
+creating a different function
+
+40
+00:02:47.080 --> 00:02:51.840
+with certain default parameters that
+will be passed to this greet function.
+
+41
+00:02:51.840 --> 00:02:53.220
+For example, greetEnglish.
+
+42
+00:02:53.220 --> 00:02:55.320
+Let's say I create this function.
+
+43
+00:02:55.320 --> 00:02:57.260
+And it will just take a first name and
+a last name.
+
+44
+00:02:59.290 --> 00:03:05.340
+And then I can just call greet
+pass first name last name
+
+45
+00:03:07.030 --> 00:03:11.648
+in English and
+then I can make another function called
+
+46
+00:03:11.648 --> 00:03:17.780
+greet Spanish, and I'll pass Spanish and
+
+47
+00:03:17.780 --> 00:03:22.840
+I'll call the same core greet
+function that holds all my logic and
+
+48
+00:03:22.840 --> 00:03:28.060
+then when I want to call these,
+instead of always having to think about
+
+49
+00:03:28.060 --> 00:03:33.610
+which language I'm passing,
+I can just call a different function
+
+50
+00:03:35.160 --> 00:03:41.120
+which then passes for
+me my intended Parameter value.
+
+51
+00:03:41.120 --> 00:03:43.790
+See how that works?
+
+52
+00:03:43.790 --> 00:03:46.710
+So, these look the same.
+
+53
+00:03:46.710 --> 00:03:50.620
+They call the same great
+function inside of them,
+
+54
+00:03:50.620 --> 00:03:55.460
+but by default,
+passing a certain parameter value.
+
+55
+00:03:56.920 --> 00:04:03.340
+This is one approach to dealing
+with having simpler function calls.
+
+56
+00:04:03.340 --> 00:04:05.430
+There's another we'll see later on.
+
+57
+00:04:05.430 --> 00:04:08.550
+But just remember, if you're coming
+from another programming language and
+
+58
+00:04:08.550 --> 00:04:11.830
+you're worried about function overloading,
+don't.
+
+59
+00:04:11.830 --> 00:04:16.720
+There are other patterns and in some ways,
+patterns that are better in JavaScript
+
+60
+00:04:16.720 --> 00:04:21.078
+that we'll see as we go along,
+because we have first class functions.
+
+61
+00:04:21.078 --> 00:04:24.960
+All right, this is just one pattern.
+
+62
+00:04:24.960 --> 00:04:25.740
+And a very simple one.
+
+63
+00:04:26.770 --> 00:04:31.720
+But we understand that within
+JavaScript frame works and
+
+64
+00:04:31.720 --> 00:04:35.360
+libraries you'll see this
+kind of pattern on occasion,
+
+65
+00:04:35.360 --> 00:04:39.040
+to make it easier to use the library or
+frame work.
+
+66
+00:04:39.040 --> 00:04:40.490
+Because it's very clear what it's doing.
+
+67
+00:04:41.930 --> 00:04:42.570
+All right, let's move on.
+

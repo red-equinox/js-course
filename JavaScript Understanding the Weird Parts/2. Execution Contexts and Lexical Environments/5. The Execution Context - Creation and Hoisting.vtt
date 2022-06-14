@@ -1,0 +1,604 @@
+WEBVTT
+
+1
+00:00:02.300 --> 00:00:04.390
+So we've seen how JavaScript,
+
+2
+00:00:04.390 --> 00:00:09.647
+the engine, is wrapping our
+executing code in execution context.
+
+3
+00:00:10.820 --> 00:00:13.070
+But there's an important aspect,
+
+4
+00:00:13.070 --> 00:00:17.820
+one of those weirder parts of JavaScript,
+that we need to understand.
+
+5
+00:00:17.820 --> 00:00:22.000
+And to understand itm we just
+need to dig a bit more into what
+
+6
+00:00:22.000 --> 00:00:25.950
+the JavaScript engine does to
+create an execution context.
+
+7
+00:00:27.010 --> 00:00:32.720
+So, this is the execution context,
+Creation and Hoisting.
+
+8
+00:00:32.720 --> 00:00:36.680
+To start with, let's look at
+a phenomenon that happens in JavaScript
+
+9
+00:00:36.680 --> 00:00:41.320
+that people find surprising,
+and perhaps a bit confusing.
+
+10
+00:00:41.320 --> 00:00:44.200
+I have my simple variable here,
+a, and my function b.
+
+11
+00:00:45.260 --> 00:00:51.330
+I'm gonna actually put a line of code in
+here just so the function does something.
+
+12
+00:00:51.330 --> 00:00:54.400
+I'm gonna use console.log.
+
+13
+00:00:54.400 --> 00:01:00.990
+This writes to that console tool window
+in the dev tools in the browser, if you
+
+14
+00:01:00.990 --> 00:01:04.830
+haven't used this before, we'll be using
+this an awful lot throughout this course.
+
+15
+00:01:04.830 --> 00:01:11.480
+It's just going to output whatever we
+put in here out to that DevTools window.
+
+16
+00:01:11.480 --> 00:01:14.520
+So when we see Called b,
+we'll know that we called this function.
+
+17
+00:01:15.890 --> 00:01:18.860
+Now, if I was to call the b function,
+
+18
+00:01:18.860 --> 00:01:23.716
+if I was to invoke it, to execute it,
+you would normally think I would do this.
+
+19
+00:01:23.716 --> 00:01:29.330
+And I can console.log a after that.
+
+20
+00:01:29.330 --> 00:01:30.640
+So what would you expect to see?
+
+21
+00:01:30.640 --> 00:01:34.900
+Well I would expect to see called b and
+then Hello World.
+
+22
+00:01:36.070 --> 00:01:40.390
+All right, so let's go ahead and
+execute this.
+
+23
+00:01:40.390 --> 00:01:42.490
+We'll run it in the browser.
+
+24
+00:01:42.490 --> 00:01:48.200
+Hit f12 from my dev tools, and
+look, exactly what we expected.
+
+25
+00:01:48.200 --> 00:01:50.140
+Now let's do something a little different,
+
+26
+00:01:50.140 --> 00:01:54.470
+that in other programing languages
+you would expect to not work, at all.
+
+27
+00:01:55.890 --> 00:01:59.800
+I'll go ahead and go back to brackets,
+and I'm going to move these calls where I
+
+28
+00:01:59.800 --> 00:02:05.300
+invoke the b function, and where I output
+the value of a to the top of the page.
+
+29
+00:02:07.340 --> 00:02:08.480
+I'll save this.
+
+30
+00:02:08.480 --> 00:02:10.370
+Now what would you expect to have happen?
+
+31
+00:02:11.690 --> 00:02:16.440
+Well, in most programming languages,
+you would expect an error because
+
+32
+00:02:16.440 --> 00:02:21.200
+programming languages execute
+their code one line at a time, and
+
+33
+00:02:21.200 --> 00:02:26.460
+since we haven't gotten to the b function,
+I can't use it yet.
+
+34
+00:02:26.460 --> 00:02:29.240
+That's what you'd normally expect.
+
+35
+00:02:29.240 --> 00:02:30.380
+But JavaScript doesn't like that.
+
+36
+00:02:32.570 --> 00:02:37.880
+When I go back and refresh this page to
+rerun the JavaScript, look what happens.
+
+37
+00:02:39.210 --> 00:02:43.750
+It ran the function, and
+instead of throwing an error,
+
+38
+00:02:45.080 --> 00:02:49.620
+It gave me a value but
+not the hello world value that I saved.
+
+39
+00:02:49.620 --> 00:02:52.010
+But this thing called undefined.
+
+40
+00:02:53.660 --> 00:03:01.530
+So even though the function was below
+where it was executed, it still ran.
+
+41
+00:03:01.530 --> 00:03:04.410
+And in fact this a variable
+was available to me
+
+42
+00:03:04.410 --> 00:03:06.410
+even though it wasn't the proper value.
+
+43
+00:03:06.410 --> 00:03:08.600
+Watch what happens if I
+just remove it outright.
+
+44
+00:03:08.600 --> 00:03:11.820
+So I'm trying to console .log(a) and
+
+45
+00:03:11.820 --> 00:03:16.270
+I do not have it declared
+as a variable anywhere.
+
+46
+00:03:16.270 --> 00:03:21.426
+Now, I actually get
+an error a is not defined.
+
+47
+00:03:21.426 --> 00:03:25.606
+But if I put it back, so
+that somewhere on this
+
+48
+00:03:25.606 --> 00:03:30.227
+JavaScript file I have
+that a variable declared,
+
+49
+00:03:30.227 --> 00:03:35.740
+instead of an error, I get a value,
+the phrase undefined.
+
+50
+00:03:36.960 --> 00:03:40.850
+This phenomenon is called hoisting, but
+
+51
+00:03:40.850 --> 00:03:45.400
+the way it's explained, I think,
+can give you the wrong impression.
+
+52
+00:03:46.710 --> 00:03:52.210
+The way, if you look online, that hoisting
+is explained is that people saying well,
+
+53
+00:03:52.210 --> 00:03:56.850
+that variables and
+functions in JavaScript are hoisted or
+
+54
+00:03:56.850 --> 00:04:01.390
+moved to the top by the JavaScript
+engine as if they were
+
+55
+00:04:01.390 --> 00:04:07.330
+moved physically up to the top so that
+they work no matter where you put them.
+
+56
+00:04:07.330 --> 00:04:11.770
+But we can tell that that's not quite
+right because a wasn't set to Hello World.
+
+57
+00:04:11.770 --> 00:04:18.680
+So it wasn't like this was, the line
+was physically moved, it behaves a bit
+
+58
+00:04:18.680 --> 00:04:24.520
+more like this as if I had a variable
+declare and then set the value later.
+
+59
+00:04:24.520 --> 00:04:28.550
+But still, that's really not what's
+happening because we already said what's
+
+60
+00:04:28.550 --> 00:04:33.580
+executing isn't what you've written, it's
+being translated by the JavaScript engine.
+
+61
+00:04:33.580 --> 00:04:36.240
+So it's not like the JavaScript engine is
+
+62
+00:04:36.240 --> 00:04:40.420
+physically moving the code that you've
+typed around and then executed it.
+
+63
+00:04:40.420 --> 00:04:41.900
+So let's undo all this.
+
+64
+00:04:43.250 --> 00:04:45.400
+Here's the code that we wrote.
+
+65
+00:04:45.400 --> 00:04:49.970
+To understand What JavaScript is doing,
+we just need to dig a little bit deeper
+
+66
+00:04:49.970 --> 00:04:53.060
+into the execution context and
+how it's created.
+
+67
+00:04:54.080 --> 00:04:59.080
+The reason JavaScript behaves the way
+is does, the variables and functions
+
+68
+00:04:59.080 --> 00:05:03.870
+are to some degree available even though
+they're written later in the code,
+
+69
+00:05:03.870 --> 00:05:08.050
+is because the execution context
+is created In two phases.
+
+70
+00:05:09.200 --> 00:05:12.390
+The first phase is called
+the creation phase.
+
+71
+00:05:13.440 --> 00:05:18.890
+In that phase we know we have the global
+object which is set up within memory.
+
+72
+00:05:18.890 --> 00:05:22.260
+We have this which is
+set up in the memory.
+
+73
+00:05:22.260 --> 00:05:25.000
+And again the global object only referring
+
+74
+00:05:25.000 --> 00:05:27.340
+when we're dealing with
+the global execution context.
+
+75
+00:05:27.340 --> 00:05:30.810
+We'll see other execution context later.
+
+76
+00:05:30.810 --> 00:05:33.790
+But this is always created
+inside an execution context.
+
+77
+00:05:33.790 --> 00:05:39.980
+There's an outer environment that's
+created, and in that creation phase,
+
+78
+00:05:39.980 --> 00:05:43.610
+as the parser runs through your code and
+
+79
+00:05:43.610 --> 00:05:48.160
+begins to set up what you've written for
+translation It
+
+80
+00:05:48.160 --> 00:05:52.865
+recognizes where you've created variables
+and where you've created functions.
+
+81
+00:05:52.865 --> 00:05:58.135
+And so it sets up in this creation phase,
+
+82
+00:05:58.135 --> 00:06:05.680
+the memory space for
+the variables and functions.
+
+83
+00:06:05.680 --> 00:06:10.570
+And it's that step that is somewhat
+confusingly called hoisting.
+
+84
+00:06:11.940 --> 00:06:15.370
+It's not actually moving
+code to the top of the page.
+
+85
+00:06:15.370 --> 00:06:23.500
+All this means is that before your code
+begins to be executed line by line,
+
+86
+00:06:25.140 --> 00:06:29.710
+the JavaScript engine has already
+set aside memory space for
+
+87
+00:06:29.710 --> 00:06:35.680
+the variables that you've created in
+that entire code that you've built,
+
+88
+00:06:35.680 --> 00:06:39.910
+and all of the functions
+that you've created as well.
+
+89
+00:06:41.220 --> 00:06:45.370
+So those functions and
+those variables exist in memory.
+
+90
+00:06:46.370 --> 00:06:50.800
+So when the code begins to execute
+line by line, it can access them.
+
+91
+00:06:52.040 --> 00:06:57.530
+However, when it comes to variables,
+it's a little bit different.
+
+92
+00:06:57.530 --> 00:07:02.860
+You see the function in its entirety
+is placed into memory space, meaning
+
+93
+00:07:02.860 --> 00:07:07.560
+that the function, its name and the code
+inside the function is being executed.
+
+94
+00:07:08.710 --> 00:07:14.100
+However the next phase,
+the execution phase which
+
+95
+00:07:14.100 --> 00:07:19.570
+we'll talk about in a moment where it
+actually executes your code line by line,
+
+96
+00:07:19.570 --> 00:07:24.440
+that's when these kind of assignments
+are set, where a equals something.
+
+97
+00:07:26.020 --> 00:07:32.130
+So the JavaScript engine when it sets
+up the memory space for a, it doesn't
+
+98
+00:07:32.130 --> 00:07:37.850
+know what its value will ultimately end up
+being until it starts executing its code.
+
+99
+00:07:37.850 --> 00:07:41.680
+So instead,
+it puts a placeholder called undefined.
+
+100
+00:07:43.340 --> 00:07:49.279
+That placeholder means oh,
+I don't know what this value is yet.
+
+101
+00:07:49.279 --> 00:07:53.310
+It's the same placeholder that we would
+have, if we never said it at all.
+
+102
+00:07:55.170 --> 00:08:00.270
+All variables in JavaScript
+are initially set to undefined,
+
+103
+00:08:01.680 --> 00:08:04.460
+and functions are sitting in
+memory in their entirety.
+
+104
+00:08:04.460 --> 00:08:08.700
+That's why it's actually a bad idea
+to rely on hoisting in any way.
+
+105
+00:08:08.700 --> 00:08:12.330
+You could run into trouble
+when you realize that
+
+106
+00:08:14.250 --> 00:08:19.440
+value is actually undefined, and
+not the value you're expecting.
+
+107
+00:08:20.800 --> 00:08:26.010
+So while this technically kind of works,
+it's better
+
+108
+00:08:26.010 --> 00:08:30.990
+to always do this, so
+that you don't get caught up in that trap.
+
+109
+00:08:32.360 --> 00:08:36.200
+Now that said, we understand that
+when we're talking about hoisting,
+
+110
+00:08:36.200 --> 00:08:40.820
+when we're talking about this scenario
+
+111
+00:08:40.820 --> 00:08:45.670
+where I can call the function even though
+it's declared later really has to do with
+
+112
+00:08:45.670 --> 00:08:50.290
+the fact that what I wrote is not
+what's directly being executed but
+
+113
+00:08:50.290 --> 00:08:55.800
+the JavaScript engine Is then taking
+my code and making decisions.
+
+114
+00:08:55.800 --> 00:09:00.370
+In this first phase of creating the
+execution context the wrapper around my
+
+115
+00:09:00.370 --> 00:09:05.450
+code being executed,
+it's going to set up the memory space for
+
+116
+00:09:05.450 --> 00:09:08.150
+the functions and
+the variables that it sees
+
+117
+00:09:08.150 --> 00:09:11.009
+that are going to be used when
+it starts executing the code.
+
+118
+00:09:12.150 --> 00:09:17.640
+And therefore,
+we have access to them in a limited way
+
+119
+00:09:17.640 --> 00:09:22.340
+before they actually physically appear on
+the page inside that lexical environment.
+
+120
+00:09:23.980 --> 00:09:25.520
+Kinda weird right?
+
+121
+00:09:25.520 --> 00:09:29.850
+But not so much when you understand
+that it's just phase one,
+
+122
+00:09:29.850 --> 00:09:31.940
+I'm gonna set up the memory space.
+
+123
+00:09:31.940 --> 00:09:34.240
+So when the code begins executing,
+
+124
+00:09:34.240 --> 00:09:36.830
+those things are actually
+already sitting in memory.
+
+125
+00:09:36.830 --> 00:09:41.650
+Because it looked at your code and
+already preset things up to be ready for
+
+126
+00:09:41.650 --> 00:09:42.830
+the code to start executing.
+

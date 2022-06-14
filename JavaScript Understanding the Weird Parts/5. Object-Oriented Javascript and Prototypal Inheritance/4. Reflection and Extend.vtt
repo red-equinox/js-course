@@ -1,0 +1,961 @@
+WEBVTT
+
+1
+00:00:02.480 --> 00:00:07.640
+Let's take a moment to
+talk about another aspect
+
+2
+00:00:07.640 --> 00:00:12.270
+of creating objects that's quite
+interesting and quite useful.
+
+3
+00:00:12.270 --> 00:00:16.030
+So useful in fact that many libraries and
+
+4
+00:00:16.030 --> 00:00:21.880
+frameworks include a very
+similar feature called extend.
+
+5
+00:00:21.880 --> 00:00:26.100
+And extend is possible because
+of something called reflection.
+
+6
+00:00:27.330 --> 00:00:30.320
+But first reflection sounds complicated.
+
+7
+00:00:32.610 --> 00:00:33.730
+No, it's not.
+
+8
+00:00:33.730 --> 00:00:34.425
+Big word alert.
+
+9
+00:00:34.425 --> 00:00:39.661
+Reflection: an object can look at itself,
+
+10
+00:00:39.661 --> 00:00:45.755
+listing and
+changing its properties and methods.
+
+11
+00:00:45.755 --> 00:00:54.200
+So a JavaScript object has the ability to
+look at its own properties and methods.
+
+12
+00:00:54.200 --> 00:01:01.100
+We can use that to implement a very
+useful pattern called extend.
+
+13
+00:01:02.460 --> 00:01:07.180
+Here I have my person object again,
+and my john object.
+
+14
+00:01:07.180 --> 00:01:13.480
+Don't ever do this in real life,
+setting the prototype.
+
+15
+00:01:13.480 --> 00:01:16.380
+So John's prototype is person.
+
+16
+00:01:18.300 --> 00:01:22.800
+Now, we're going to show an example
+of refection in JavaScript.
+
+17
+00:01:24.580 --> 00:01:28.720
+I'm going to use the for
+in statement in JavaScript.
+
+18
+00:01:28.720 --> 00:01:32.740
+If you're not used to that,
+it's something like for each, but
+
+19
+00:01:32.740 --> 00:01:35.800
+I can say for and declare a variable.
+
+20
+00:01:35.800 --> 00:01:41.160
+Let's call it prop for property and
+then in and then john.
+
+21
+00:01:41.160 --> 00:01:48.110
+What this will do is loop over
+every member in the object.
+
+22
+00:01:49.660 --> 00:01:50.530
+For in.
+
+23
+00:01:51.910 --> 00:01:57.910
+Kind of like looking at the length of an
+array and looping across all of its items.
+
+24
+00:01:59.040 --> 00:02:01.130
+We can loop across a collection.
+
+25
+00:02:02.680 --> 00:02:08.150
+And for every loop we'll have a variable
+called prop that will be the current item
+
+26
+00:02:08.150 --> 00:02:08.850
+that we're looking at.
+
+27
+00:02:10.740 --> 00:02:16.280
+So this is going to loop over all
+of the members of the john object.
+
+28
+00:02:17.640 --> 00:02:19.730
+And I can simply console.log.
+
+29
+00:02:19.730 --> 00:02:21.690
+Remember, those are name value pairs.
+
+30
+00:02:21.690 --> 00:02:24.000
+So prop will contain the name.
+
+31
+00:02:25.450 --> 00:02:26.540
+I'll just put a colon.
+
+32
+00:02:28.020 --> 00:02:32.970
+And then I'll go look at the john object,
+and grab the value based on the name.
+
+33
+00:02:32.970 --> 00:02:35.610
+And remember that I don't
+have to use the dot operator,
+
+34
+00:02:35.610 --> 00:02:40.610
+I can use the brackets operator, which
+accepts a string as the property name.
+
+35
+00:02:42.540 --> 00:02:43.430
+And I'll just do that.
+
+36
+00:02:45.550 --> 00:02:50.180
+So this is going to loop over everything,
+every property and method in this object.
+
+37
+00:02:51.310 --> 00:02:56.440
+This will be the name and then I'll
+use that name to go grab the value.
+
+38
+00:02:56.440 --> 00:02:58.778
+Make sense?
+
+39
+00:02:58.778 --> 00:03:02.321
+All right.
+
+40
+00:03:02.321 --> 00:03:04.100
+Ta da.
+
+41
+00:03:04.100 --> 00:03:05.750
+The name, the value.
+
+42
+00:03:05.750 --> 00:03:07.750
+The name and the value.
+
+43
+00:03:07.750 --> 00:03:08.480
+And hey, wait a minute.
+
+44
+00:03:09.870 --> 00:03:10.780
+You get full name.
+
+45
+00:03:12.640 --> 00:03:15.290
+Remember the get full name is
+actually on the prototype.
+
+46
+00:03:16.900 --> 00:03:22.230
+So, this for in actually reached out and
+grabbed every property
+
+47
+00:03:23.470 --> 00:03:28.060
+and method not just on the object but
+also on the object's prototype.
+
+48
+00:03:29.370 --> 00:03:30.530
+Well, that can be useful, but
+
+49
+00:03:30.530 --> 00:03:35.510
+what if I just want to know
+what's on the object itself.
+
+50
+00:03:35.510 --> 00:03:42.168
+There is a way to do that,
+I can say if john and then I can check.
+
+51
+00:03:42.168 --> 00:03:50.490
+There's a property on that base object way
+down below so it's on the prototype chain.
+
+52
+00:03:50.490 --> 00:03:54.730
+It will be, I look for hasOwnProperty.
+
+53
+00:03:55.760 --> 00:03:58.320
+This doesn't sit on John,
+it doesn't sit on person.
+
+54
+00:03:59.320 --> 00:04:04.080
+It sits on that base object
+that JavaScript has.
+
+55
+00:04:04.080 --> 00:04:06.630
+This is a method on that base object.
+
+56
+00:04:06.630 --> 00:04:07.980
+And what you can give it is a string.
+
+57
+00:04:09.000 --> 00:04:14.910
+I can say firstname, and this will tell me
+if this object really has this property.
+
+58
+00:04:16.000 --> 00:04:18.540
+If it does it will return true.
+
+59
+00:04:18.540 --> 00:04:25.262
+If this property isn't on that object,
+maybe it's on the prototype or
+
+60
+00:04:25.262 --> 00:04:29.968
+maybe it's not anywhere
+in the prototype chain,
+
+61
+00:04:29.968 --> 00:04:33.664
+It will return false, so I can check and
+
+62
+00:04:33.664 --> 00:04:38.817
+see if this prop string is
+actually on the john object so
+
+63
+00:04:38.817 --> 00:04:42.990
+it will only log it if
+it's really on there.
+
+64
+00:04:42.990 --> 00:04:46.350
+So what I should see, there.
+
+65
+00:04:46.350 --> 00:04:47.290
+First name, last name.
+
+66
+00:04:47.290 --> 00:04:51.620
+Because that's what is
+really on the object.
+
+67
+00:04:51.620 --> 00:04:58.360
+So I can reflect on the John object, look
+at its properties, look at what's called
+
+68
+00:04:58.360 --> 00:05:03.960
+metadata of its properties whether it’s
+really attached to that object or not.
+
+69
+00:05:03.960 --> 00:05:06.850
+List it, and I can change it and
+do thing with it.
+
+70
+00:05:08.150 --> 00:05:13.840
+This concept in turn lets us implement
+an idea, that's also very useful.
+
+71
+00:05:15.440 --> 00:05:19.200
+A complement to prototypal inheritance so
+to speak, but
+
+72
+00:05:19.200 --> 00:05:21.105
+it’s not built in to JavaScript.
+
+73
+00:05:22.290 --> 00:05:27.960
+So, many frameworks and
+libraries build it themselves, right?
+
+74
+00:05:27.960 --> 00:05:30.570
+Some version of it,
+because it's so useful.
+
+75
+00:05:31.930 --> 00:05:34.210
+Let's use the underscore library.
+
+76
+00:05:34.210 --> 00:05:40.240
+I've already grabbed underscore.js, and
+I'll show you what this looks like.
+
+77
+00:05:40.240 --> 00:05:41.400
+It's called extend.
+
+78
+00:05:42.420 --> 00:05:47.200
+I'm going to go ahead and
+make a jane object again,
+
+79
+00:05:47.200 --> 00:05:51.446
+but she's just going to have address and
+
+80
+00:05:51.446 --> 00:05:57.240
+a getFormalFullName function.
+
+81
+00:05:57.240 --> 00:05:57.740
+Got that?
+
+82
+00:05:57.740 --> 00:06:02.324
+So she has a property.
+
+83
+00:06:05.342 --> 00:06:07.370
+And a method that I may find useful.
+
+84
+00:06:08.380 --> 00:06:09.290
+So does jim.
+
+85
+00:06:09.290 --> 00:06:11.510
+We'll make another one.
+
+86
+00:06:11.510 --> 00:06:16.582
+And he's got another property I may
+find useful, getFirstName, let's say.
+
+87
+00:06:19.902 --> 00:06:21.510
+And this will just return the firstname.
+
+88
+00:06:23.560 --> 00:06:26.830
+Notice that I'm not putting
+these into the prototype chain.
+
+89
+00:06:26.830 --> 00:06:30.540
+Maybe I don't want for some reason, maybe
+they have a lot of other properties and
+
+90
+00:06:30.540 --> 00:06:35.590
+methods I don't want to be in that
+prototype chain for one reason or another.
+
+91
+00:06:35.590 --> 00:06:38.130
+Or maybe I want to simply
+use them in a different way.
+
+92
+00:06:39.320 --> 00:06:43.990
+Maybe they are useful individually,
+but not as prototypes of each other.
+
+93
+00:06:45.660 --> 00:06:49.378
+So, what I can do with
+the underscore library, for example,
+
+94
+00:06:49.378 --> 00:06:57.400
+_.extend(john, is what I want to extend.
+
+95
+00:06:57.400 --> 00:07:01.570
+And then I can give it other objects,
+a list of other objects.
+
+96
+00:07:01.570 --> 00:07:08.420
+And what this does is composes or
+combines these objects.
+
+97
+00:07:08.420 --> 00:07:12.140
+It takes all the properties and methods
+of these other objects that I give it and
+
+98
+00:07:12.140 --> 00:07:17.550
+it could be a big long list and
+adds them directly to john for me.
+
+99
+00:07:19.420 --> 00:07:24.280
+I could do this myself, but
+this is a really nice feature.
+
+100
+00:07:24.280 --> 00:07:28.980
+So, if I output John, you'll notice that
+
+101
+00:07:28.980 --> 00:07:34.010
+he now has the address from the Jane
+object, the getFirstName function from
+
+102
+00:07:34.010 --> 00:07:39.130
+the Jim object, and the getFormalFullName
+function from the Jane object,
+
+103
+00:07:39.130 --> 00:07:41.709
+as well as his original firstname and
+lastname properties.
+
+104
+00:07:43.560 --> 00:07:47.300
+And he still has his prototype
+which is the person object
+
+105
+00:07:47.300 --> 00:07:48.135
+where I have get FullName.
+
+106
+00:07:49.560 --> 00:07:54.260
+So you saw this is very different
+from the prototype chain.
+
+107
+00:07:54.260 --> 00:08:01.150
+This physically, actually placed
+the properties onto the john object.
+
+108
+00:08:02.560 --> 00:08:04.030
+We composed, we combined them.
+
+109
+00:08:04.030 --> 00:08:05.670
+How does this work?
+
+110
+00:08:05.670 --> 00:08:08.180
+Let's go to our _.JS source code.
+
+111
+00:08:09.250 --> 00:08:14.490
+Remember, you want to not be afraid
+of getting an open source education,
+
+112
+00:08:14.490 --> 00:08:18.780
+of looking at this
+beautiful source code and
+
+113
+00:08:18.780 --> 00:08:22.670
+learning from it, and we have
+the tools we need to understand it.
+
+114
+00:08:23.860 --> 00:08:27.040
+Al right, so I'm gonna look for extend.
+
+115
+00:08:28.570 --> 00:08:29.250
+Okay, I found it.
+
+116
+00:08:29.250 --> 00:08:33.070
+It's creating this property or
+
+117
+00:08:33.070 --> 00:08:37.580
+this method on this object which
+is just called underscore.
+
+118
+00:08:37.580 --> 00:08:41.150
+It's calling a createAssigner function,
+so we need to go find that.
+
+119
+00:08:41.150 --> 00:08:45.170
+Let's see if we can find, there it is.
+
+120
+00:08:46.720 --> 00:08:47.930
+Create a signer.
+
+121
+00:08:47.930 --> 00:08:51.709
+Well, this is actually
+a function that makes sense and
+
+122
+00:08:51.709 --> 00:08:57.210
+it takes some keys and
+
+123
+00:08:57.210 --> 00:09:01.160
+then it returns a function itself.
+
+124
+00:09:01.160 --> 00:09:04.420
+All right, so this is creating a closure.
+
+125
+00:09:04.420 --> 00:09:04.960
+Remember that?
+
+126
+00:09:06.230 --> 00:09:14.010
+So this is the function that's actually
+getting run when we call the extend.
+
+127
+00:09:15.660 --> 00:09:17.890
+And it has a closure access
+to these other ones.
+
+128
+00:09:19.000 --> 00:09:21.680
+All right, so It looks at the arguments.
+
+129
+00:09:21.680 --> 00:09:24.390
+Remember the arguments is all
+the properties passed in.
+
+130
+00:09:24.390 --> 00:09:31.570
+And it looks at the length, and
+it says, oh, if length is less than 2,
+
+131
+00:09:31.570 --> 00:09:36.830
+then just give me back the object
+that I passed in to add on to.
+
+132
+00:09:36.830 --> 00:09:38.380
+Well, that makes sense.
+
+133
+00:09:38.380 --> 00:09:41.160
+If I didn't pass anything else,
+if length was 1,
+
+134
+00:09:41.160 --> 00:09:46.450
+then just give me back John cuz I didn't
+give you anything to add on to john.
+
+135
+00:09:47.460 --> 00:09:48.960
+That's what that's saying right there.
+
+136
+00:09:50.460 --> 00:09:54.700
+If the number of parameters passed
+to this function is less than two,
+
+137
+00:09:54.700 --> 00:09:56.870
+then just give me back this first one.
+
+138
+00:09:59.410 --> 00:10:04.860
+All right, so
+now it's doing a loop across length.
+
+139
+00:10:04.860 --> 00:10:06.980
+Length is the number of
+parameters I passed in.
+
+140
+00:10:06.980 --> 00:10:10.670
+So that makes sense too,
+but it's starting with one.
+
+141
+00:10:10.670 --> 00:10:13.070
+So it's skipping that first one.
+
+142
+00:10:13.070 --> 00:10:16.240
+Because remember, arrays are zero based.
+
+143
+00:10:16.240 --> 00:10:18.600
+So it skips index zero.
+
+144
+00:10:18.600 --> 00:10:23.006
+So it skips john and
+
+145
+00:10:23.006 --> 00:10:26.690
+it moves onto the rest of the parameters.
+
+146
+00:10:26.690 --> 00:10:30.800
+And remember, I can add other parameters
+here and I don't have to actually
+
+147
+00:10:30.800 --> 00:10:34.080
+list them if they're available
+via the arguments keyword.
+
+148
+00:10:35.320 --> 00:10:39.980
+All right, so it loops through all
+of the other parameters that I pass,
+
+149
+00:10:39.980 --> 00:10:41.890
+in this case jane and jim.
+
+150
+00:10:43.260 --> 00:10:43.960
+Make sense?
+
+151
+00:10:45.880 --> 00:10:53.520
+And it says, all right, go find that
+parameter, so index one would be jane.
+
+152
+00:10:53.520 --> 00:10:57.260
+That becomes the source, keysfunc,
+we won't bother looking at that,
+
+153
+00:10:57.260 --> 00:11:01.670
+but the keys are those property names,
+the names part of the name value pair.
+
+154
+00:11:01.670 --> 00:11:07.560
+So it goes and grabs the name of all
+the properties of that object, so
+
+155
+00:11:07.560 --> 00:11:13.490
+it grabs the names of the jane object,
+of all its properties and methods,
+
+156
+00:11:13.490 --> 00:11:17.780
+and the jim object, all its properties and
+methods, on each of these loops.
+
+157
+00:11:17.780 --> 00:11:21.820
+So the first loop,
+all of Jane's properties and methods.
+
+158
+00:11:21.820 --> 00:11:28.088
+And loops through them using a for
+loop across the length of that array.
+
+159
+00:11:28.088 --> 00:11:34.240
+So jane had two properties and methods,
+
+160
+00:11:34.240 --> 00:11:39.130
+so this will be a two, and it'll loop
+across those and then what does it do?
+
+161
+00:11:40.850 --> 00:11:46.120
+It grabs each property and method and
+it double checks that it's really there
+
+162
+00:11:47.450 --> 00:11:52.530
+and then it updates my obj, which was
+the john object, the first thing passed in
+
+163
+00:11:55.060 --> 00:11:58.200
+and sets its property or method.
+
+164
+00:11:58.200 --> 00:12:04.010
+It creates a new property or
+method with that name to that property or
+
+165
+00:12:04.010 --> 00:12:07.540
+method of that object that I
+passed in to be copied from.
+
+166
+00:12:09.060 --> 00:12:11.980
+And it does it again for the next one, and
+
+167
+00:12:11.980 --> 00:12:15.310
+so on and so forth until it finishes
+the rest of the parameters.
+
+168
+00:12:15.310 --> 00:12:18.760
+So what this is doing here
+is it's using reflection.
+
+169
+00:12:20.400 --> 00:12:25.530
+It's looking at the lists of properties
+and methods, like we've already tried, and
+
+170
+00:12:25.530 --> 00:12:31.120
+it's setting the property and
+method of my john object,
+
+171
+00:12:31.120 --> 00:12:35.610
+of my destination object
+with all of my sources.
+
+172
+00:12:35.610 --> 00:12:39.740
+So it's just basically two loops,
+one inside the other.
+
+173
+00:12:39.740 --> 00:12:44.690
+One loop across all the list of
+objects I added as sources, and
+
+174
+00:12:44.690 --> 00:12:47.670
+one across each of those properties and
+methods.
+
+175
+00:12:49.140 --> 00:12:52.793
+So, it loops across these two and
+inside each of these,
+
+176
+00:12:52.793 --> 00:12:57.091
+it loops across its properties and
+methods and adds them to John.
+
+177
+00:12:57.091 --> 00:13:02.323
+Using reflection, using the fact
+that I can set John's properties and
+
+178
+00:13:02.323 --> 00:13:07.400
+methods with the brackets operator and
+then string name.
+
+179
+00:13:07.400 --> 00:13:10.340
+It sees that Jane has an address so
+
+180
+00:13:10.340 --> 00:13:14.690
+it sets John an address in brackets
+equal to Jane an address in brackets.
+
+181
+00:13:14.690 --> 00:13:20.110
+It's copying over a reference
+to those properties and methods.
+
+182
+00:13:20.110 --> 00:13:21.560
+That's pretty neat.
+
+183
+00:13:21.560 --> 00:13:26.920
+So, when all is said and done,
+John now contains all the properties and
+
+184
+00:13:26.920 --> 00:13:30.050
+methods of these originals.
+
+185
+00:13:30.050 --> 00:13:36.990
+So do you see how reflection is useful,
+and especially extend.
+
+186
+00:13:38.670 --> 00:13:41.930
+This shows up in a lot of frameworks and
+libraries, because it is so useful.
+
+187
+00:13:41.930 --> 00:13:43.930
+You can compose objects.
+
+188
+00:13:43.930 --> 00:13:46.660
+You don't even need
+the prototype chain always.
+
+189
+00:13:46.660 --> 00:13:49.040
+I can use this pattern and
+it's quite powerful.
+
+190
+00:13:50.090 --> 00:13:54.090
+And by looking at the source code
+of underscore, I learned something.
+
+191
+00:13:55.320 --> 00:13:57.280
+I learned how to write some better code.
+
+192
+00:13:57.280 --> 00:13:59.760
+I learned something useful
+that I could reuse myself.
+
+193
+00:13:59.760 --> 00:14:02.960
+I could even pull that extend
+method out of underscore,
+
+194
+00:14:04.170 --> 00:14:09.260
+if I pulled along with it
+whatever it relied on, and
+
+195
+00:14:09.260 --> 00:14:13.050
+could just have it by itself in my own
+library that I use for my own project.
+
+196
+00:14:14.170 --> 00:14:14.750
+Pretty cool.
+
+197
+00:14:17.190 --> 00:14:18.100
+One caveat here.
+
+198
+00:14:19.380 --> 00:14:20.640
+In the next version of JavaScript,
+
+199
+00:14:20.640 --> 00:14:24.760
+there also will be something called,
+extends, with an s.
+
+200
+00:14:26.370 --> 00:14:28.120
+That's going to be used
+to set the prototype.
+
+201
+00:14:28.120 --> 00:14:34.070
+I think that's a little unfortunate
+because I liked the concept of extend,
+
+202
+00:14:34.070 --> 00:14:35.950
+but that'll still be around.
+
+203
+00:14:35.950 --> 00:14:39.400
+It's just a very similar keyword
+will mean the prototype.
+
+204
+00:14:39.400 --> 00:14:43.025
+When we talk about this,
+we will be talking about this composition,
+
+205
+00:14:43.025 --> 00:14:45.720
+we'll see what happens over time.
+
+206
+00:14:46.780 --> 00:14:51.280
+But for now, understand that you can
+use reflection to also have this extend
+
+207
+00:14:51.280 --> 00:14:55.950
+pattern, not just the prototype pattern
+to combine and compose objects.
+
+208
+00:14:57.100 --> 00:14:58.800
+All right, lets move on.
+

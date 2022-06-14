@@ -1,0 +1,1007 @@
+WEBVTT
+
+1
+00:00:02.190 --> 00:00:07.010
+Now that we understand objects and
+prototypes,
+
+2
+00:00:07.010 --> 00:00:11.570
+prototypal inheritance and
+the prototype chain, object properties and
+
+3
+00:00:11.570 --> 00:00:17.550
+methods, it's time to talk more
+deeply about building objects.
+
+4
+00:00:17.550 --> 00:00:19.476
+We've already seen one
+way to build objects.
+
+5
+00:00:19.476 --> 00:00:24.570
+Which is object-literal syntax.
+
+6
+00:00:24.570 --> 00:00:29.480
+However, there are a few
+other ways to build objects,
+
+7
+00:00:29.480 --> 00:00:32.010
+especially when it comes
+to setting the prototype.
+
+8
+00:00:33.510 --> 00:00:34.850
+So, we're going to look at them now.
+
+9
+00:00:36.900 --> 00:00:40.110
+First, our first way of building objects.
+
+10
+00:00:41.170 --> 00:00:45.200
+And we need to understand why
+they work the way they do.
+
+11
+00:00:45.200 --> 00:00:50.230
+This is function constructors,
+'new', and the history of JavaScript.
+
+12
+00:00:51.780 --> 00:00:54.520
+Now, we're not going to get too
+deep into a history lesson, but
+
+13
+00:00:54.520 --> 00:00:55.380
+here's what you need to know.
+
+14
+00:00:56.530 --> 00:01:00.160
+JavaScript was built by
+a guy named Brendon Eich.
+
+15
+00:01:00.160 --> 00:01:05.060
+Back at the time, when much like today,
+there are technology wars between Google
+
+16
+00:01:05.060 --> 00:01:09.840
+and Apple, there was technology and
+programming language wars
+
+17
+00:01:09.840 --> 00:01:14.580
+between various companies like Netscape,
+Microsoft, Oracle and Sun.
+
+18
+00:01:15.830 --> 00:01:20.010
+And so, JavaScript was
+a language that was written for
+
+19
+00:01:20.010 --> 00:01:22.220
+usage in the browser eventually.
+
+20
+00:01:22.220 --> 00:01:23.810
+Not absolutely originally.
+
+21
+00:01:23.810 --> 00:01:26.300
+But eventually that became its purpose,
+primarily.
+
+22
+00:01:27.860 --> 00:01:32.930
+And it was called JavaScript,
+to attract Java developers to it.
+
+23
+00:01:33.950 --> 00:01:35.850
+Because there were a lot
+of Java developers, and
+
+24
+00:01:35.850 --> 00:01:38.610
+if you don't have developers
+using a language, it dies.
+
+25
+00:01:40.230 --> 00:01:44.190
+So, the company that Brandon Eich
+worked for at the time
+
+26
+00:01:45.650 --> 00:01:50.260
+decided to call it JavaScript
+to attract Java developers.
+
+27
+00:01:51.440 --> 00:01:55.305
+Much like at the time Microsoft was
+touting a language in the browser called
+
+28
+00:01:55.305 --> 00:01:58.580
+VBScript, because Visual Basic
+was very popular and
+
+29
+00:01:58.580 --> 00:02:03.535
+it wanted to attract its own
+Visual Basic developers to VBScript.
+
+30
+00:02:05.042 --> 00:02:09.220
+So JavaScript sounds like Java and
+looks a little like Java,
+
+31
+00:02:09.220 --> 00:02:10.610
+but is nothing like Java.
+
+32
+00:02:11.960 --> 00:02:13.090
+This is marketing.
+
+33
+00:02:14.500 --> 00:02:19.930
+And one of the elements of marketing
+JavaScript was this kind of line of code.
+
+34
+00:02:21.790 --> 00:02:25.060
+Java developers were used to
+creating objects like this,
+
+35
+00:02:26.420 --> 00:02:30.909
+using the new keyword and
+something called a class.
+
+36
+00:02:31.966 --> 00:02:37.210
+A class in Java is not an object but
+it defines an object and
+
+37
+00:02:37.210 --> 00:02:41.380
+you use the new keyword to then
+create the object from that class.
+
+38
+00:02:43.630 --> 00:02:47.895
+JavaScript doesn't really have classes
+although there is a class keyword
+
+39
+00:02:47.895 --> 00:02:53.120
+coming In the next version of JavaScript,
+but even then that isn't really a class
+
+40
+00:02:53.120 --> 00:02:58.174
+the way it is in Java or C# or C++.
+
+41
+00:02:58.174 --> 00:03:01.250
+So, Java developers were used
+to creating objects like this.
+
+42
+00:03:01.250 --> 00:03:07.120
+And so JavaScript needed a way
+
+43
+00:03:07.120 --> 00:03:10.920
+to be able to create objects
+with this kind of syntax, so
+
+44
+00:03:10.920 --> 00:03:15.730
+that when Java developers looked at
+JavaScript, they would say, oh see,
+
+45
+00:03:15.730 --> 00:03:16.940
+JavaScript is like Java.
+
+46
+00:03:17.960 --> 00:03:20.830
+You should use it,
+even though it's not really.
+
+47
+00:03:22.770 --> 00:03:28.840
+So what we have and what we still have in
+JavaScript is one approach to building
+
+48
+00:03:28.840 --> 00:03:33.280
+objects that isn't that bad when you get
+down to it, once you get used to it.
+
+49
+00:03:34.630 --> 00:03:37.070
+But it does have some problems.
+
+50
+00:03:38.660 --> 00:03:43.230
+However, even though there are new ways
+coming to build objects in JavaScript,
+
+51
+00:03:43.230 --> 00:03:46.550
+this is one of those things you need
+to know because its ubiquitous.
+
+52
+00:03:46.550 --> 00:03:51.850
+It's everywhere and it will be in a lot
+of the open source that you might read or
+
+53
+00:03:51.850 --> 00:03:55.380
+other projects that you might get involved
+in if you're writing JavaScript or
+
+54
+00:03:55.380 --> 00:03:57.330
+reading someone else's.
+
+55
+00:03:57.330 --> 00:04:03.080
+So, let's talk about function
+constructors and the keyword new.
+
+56
+00:04:03.080 --> 00:04:05.720
+So, let's create a new function.
+
+57
+00:04:05.720 --> 00:04:07.457
+I'm going to call it Person.
+
+58
+00:04:09.778 --> 00:04:11.650
+And then, I'm gonna do
+something kind of interesting.
+
+59
+00:04:12.900 --> 00:04:18.894
+I'm going to set
+this.firstname = 'John' and
+
+60
+00:04:18.894 --> 00:04:22.470
+this.lastname = 'Doe'.
+
+61
+00:04:22.470 --> 00:04:25.060
+And that's that.
+
+62
+00:04:26.650 --> 00:04:32.840
+And then I'm going to stop for
+a moment and create
+
+63
+00:04:34.290 --> 00:04:41.750
+a new object using this new operator,
+the new keyword.
+
+64
+00:04:41.750 --> 00:04:45.550
+And it will explain what it's
+doing once we see what it does.
+
+65
+00:04:46.760 --> 00:04:48.570
+So I'll say new Person.
+
+66
+00:04:50.590 --> 00:04:52.930
+Notice I'm not just calling the function.
+
+67
+00:04:54.060 --> 00:04:55.560
+I'm not just invoking it.
+
+68
+00:04:55.560 --> 00:04:57.695
+I'm putting the new
+keyword in front of it.
+
+69
+00:04:57.695 --> 00:05:04.278
+And then, let's console.log(john).
+
+70
+00:05:04.278 --> 00:05:06.716
+Let's see what we get.
+
+71
+00:05:10.536 --> 00:05:18.780
+I have an object that is a person with its
+first name John and its last name Doe.
+
+72
+00:05:20.390 --> 00:05:21.940
+So what just happened here?
+
+73
+00:05:23.340 --> 00:05:27.510
+Well, remember that everything we're
+going to talk about in this section
+
+74
+00:05:27.510 --> 00:05:31.990
+is just about different
+ways to construct objects.
+
+75
+00:05:31.990 --> 00:05:34.810
+We're not changing what objects are or
+how they work.
+
+76
+00:05:35.930 --> 00:05:40.880
+We're simply utilizing features in
+the JavaScript language that lets us
+
+77
+00:05:40.880 --> 00:05:43.350
+Construct or build objects.
+
+78
+00:05:44.820 --> 00:05:49.100
+To build objects we need to create
+an object, give it properties and
+
+79
+00:05:49.100 --> 00:05:51.560
+methods, and set its prototype.
+
+80
+00:05:52.840 --> 00:05:55.460
+We set the prototype the wrong
+way in the previous lesson
+
+81
+00:05:55.460 --> 00:05:56.640
+just to show how it worked.
+
+82
+00:05:57.780 --> 00:06:00.500
+But now we're going into the right ways or
+
+83
+00:06:00.500 --> 00:06:05.860
+the various ways that are accepted
+to create objects in JavaScript,
+
+84
+00:06:05.860 --> 00:06:09.490
+adding properties, adding methods,
+and setting the prototype.
+
+85
+00:06:11.310 --> 00:06:17.370
+So, the new keyword, which we said was
+basically introduced to make Java and
+
+86
+00:06:17.370 --> 00:06:21.580
+similar language developers feel
+comfortable, is actually an operator.
+
+87
+00:06:22.790 --> 00:06:25.369
+Remember, our JavaScript
+operator precedence list?
+
+88
+00:06:26.660 --> 00:06:33.490
+You can see that new is
+actually an operator.
+
+89
+00:06:33.490 --> 00:06:37.130
+So, when we say new
+something special happens.
+
+90
+00:06:38.430 --> 00:06:41.820
+Immediately, an empty object is created.
+
+91
+00:06:41.820 --> 00:06:49.220
+It would be as if we said, var and then
+some variable and then an empty object.
+
+92
+00:06:50.450 --> 00:06:51.940
+An empty object is created.
+
+93
+00:06:53.750 --> 00:06:55.740
+And then it invokes the function.
+
+94
+00:06:55.740 --> 00:06:58.277
+It calls the function.
+
+95
+00:07:01.368 --> 00:07:06.242
+When the function is called
+we know that the execution
+
+96
+00:07:06.242 --> 00:07:10.806
+context generates for
+us a variable called this.
+
+97
+00:07:12.908 --> 00:07:17.498
+In this case,
+in the case where you use the keyword new,
+
+98
+00:07:17.498 --> 00:07:21.220
+it changes what the this
+variable points to.
+
+99
+00:07:22.870 --> 00:07:26.860
+The this variable points
+to that new empty object.
+
+100
+00:07:29.020 --> 00:07:32.780
+Imagine basically that this operator
+creates an empty object and
+
+101
+00:07:32.780 --> 00:07:33.810
+then calls this function.
+
+102
+00:07:35.540 --> 00:07:39.960
+So now the this variable is pointing
+to that empty object in memory
+
+103
+00:07:39.960 --> 00:07:41.540
+that this new operator created.
+
+104
+00:07:43.850 --> 00:07:50.680
+Now when I add .firstname and .lastname,
+I'm adding it to that empty object.
+
+105
+00:07:52.860 --> 00:07:58.740
+And as long as this function, the function
+that I used the new operator on,
+
+106
+00:07:58.740 --> 00:08:02.520
+doesn't return a value, the JavaScript
+
+107
+00:08:02.520 --> 00:08:07.350
+engine will return that object that
+was created by the new operator.
+
+108
+00:08:08.800 --> 00:08:10.130
+So it created a new object,
+
+109
+00:08:10.130 --> 00:08:15.770
+then called the function with the this
+variable pointing to that empty object.
+
+110
+00:08:15.770 --> 00:08:19.600
+And then whatever I do to that empty
+object using the this variable
+
+111
+00:08:21.760 --> 00:08:26.460
+will end up as part of that object and
+that's what's returned.
+
+112
+00:08:26.460 --> 00:08:29.000
+Let's prove for
+starters that this is being invoked.
+
+113
+00:08:30.360 --> 00:08:33.160
+This function is invoked.
+
+114
+00:08:35.760 --> 00:08:38.563
+All right, let's see what we get.
+
+115
+00:08:38.563 --> 00:08:43.006
+Yep.
+It invoked the function, and
+
+116
+00:08:43.006 --> 00:08:47.230
+then returned this object.
+
+117
+00:08:48.820 --> 00:08:53.470
+If I didn't do anything to this at all,
+
+118
+00:08:54.600 --> 00:08:59.680
+what I would end up with
+is what this is originally.
+
+119
+00:08:59.680 --> 00:09:02.310
+This keyword.
+
+120
+00:09:02.310 --> 00:09:02.810
+What is it?
+
+121
+00:09:04.450 --> 00:09:07.020
+It's an empty object.
+
+122
+00:09:07.020 --> 00:09:10.720
+It knows it's a type of person but
+it's an empty object.
+
+123
+00:09:10.720 --> 00:09:15.120
+And then I started adding properties and
+methods to it.
+
+124
+00:09:16.260 --> 00:09:18.510
+See that?
+And that's returned.
+
+125
+00:09:18.510 --> 00:09:25.903
+If I had returned something else like,
+greeting: 'i got in the way'.
+
+126
+00:09:28.643 --> 00:09:31.960
+That's what would get
+returned from the function.
+
+127
+00:09:31.960 --> 00:09:36.680
+I would essentially be getting in the way
+of that JavaScript engine process.
+
+128
+00:09:38.530 --> 00:09:43.420
+But if I don't return anything,
+the JavaScript engine says, okay,
+
+129
+00:09:43.420 --> 00:09:48.030
+you invoked this function
+using the new operator, so
+
+130
+00:09:48.030 --> 00:09:53.720
+I'm going to give you back the object
+that was set as the this variable
+
+131
+00:09:53.720 --> 00:09:59.000
+before the function started executing,
+when the execution context was created.
+
+132
+00:10:00.150 --> 00:10:00.650
+See that?
+
+133
+00:10:01.700 --> 00:10:06.820
+So this is letting me construct
+an object via a function.
+
+134
+00:10:07.850 --> 00:10:12.390
+So we call a function that's used
+specifically to construct an object
+
+135
+00:10:13.700 --> 00:10:14.970
+a function constructor.
+
+136
+00:10:16.680 --> 00:10:17.300
+Makes sense, right?
+
+137
+00:10:18.790 --> 00:10:20.344
+Now I know what you might be thinking.
+
+138
+00:10:20.344 --> 00:10:22.069
+You might be thinking but
+
+139
+00:10:22.069 --> 00:10:28.080
+what if I want to just create more people
+with the same properties and methods?
+
+140
+00:10:28.080 --> 00:10:28.820
+What happens?
+
+141
+00:10:30.410 --> 00:10:35.242
+If I refresh this,
+you'll see that our first invocation
+
+142
+00:10:35.242 --> 00:10:39.883
+using the new operator works,
+and so does our second.
+
+143
+00:10:42.286 --> 00:10:47.551
+It's invoked again, so
+a different empty object is created.
+
+144
+00:10:47.551 --> 00:10:52.867
+The function is run, and that empty
+object is work on inside the function and
+
+145
+00:10:52.867 --> 00:10:55.870
+returned, although we have one problem.
+
+146
+00:10:57.050 --> 00:11:00.280
+The first and
+last name always have these values.
+
+147
+00:11:01.640 --> 00:11:05.100
+I can make that work a little better
+
+148
+00:11:05.100 --> 00:11:10.210
+by remembering something very
+important about function constructors.
+
+149
+00:11:10.210 --> 00:11:13.990
+Function constructors are just functions.
+
+150
+00:11:15.070 --> 00:11:19.460
+We haven't really changed how functions
+work by calling the new operator.
+
+151
+00:11:20.480 --> 00:11:25.050
+The important things are that putting
+the new operator in front of a function
+
+152
+00:11:25.050 --> 00:11:30.110
+sets the this keyword to
+a brand new empty object, and
+
+153
+00:11:30.110 --> 00:11:32.730
+if you don't return anything
+from that function,
+
+154
+00:11:32.730 --> 00:11:37.780
+instead of returning undefined it
+will return that empty object, but
+
+155
+00:11:37.780 --> 00:11:42.310
+now worked on by you perhaps inside
+that function using the this keyword.
+
+156
+00:11:43.780 --> 00:11:44.320
+Make sense?
+
+157
+00:11:45.370 --> 00:11:50.300
+So if I want first name and last name to
+be whatever I want it to be when I invoke
+
+158
+00:11:50.300 --> 00:11:53.390
+the function, I just set parameters.
+
+159
+00:11:53.390 --> 00:11:57.268
+So I can set firstname, lastname and
+
+160
+00:11:57.268 --> 00:12:00.280
+then you'll usually see
+a pattern that looks like this.
+
+161
+00:12:02.070 --> 00:12:06.460
+Again, the this keyword is pointing
+to an empty object in memory.
+
+162
+00:12:06.460 --> 00:12:12.960
+So, I'm saying, whatever I passed to
+the function, set that value as the value
+
+163
+00:12:12.960 --> 00:12:20.240
+of this new property on my empty object
+that was created by the new keyword.
+
+164
+00:12:20.240 --> 00:12:25.060
+So here I could do John and
+Doe for firstname, lastname, and
+
+165
+00:12:25.060 --> 00:12:28.720
+here I could do Jane and
+Doe for firstname, lastname.
+
+166
+00:12:30.400 --> 00:12:36.300
+Each invocation of the function using
+the new operator invokes the function but
+
+167
+00:12:36.300 --> 00:12:38.740
+first creates a new empty object.
+
+168
+00:12:38.740 --> 00:12:41.270
+These are going to be
+different empty objects.
+
+169
+00:12:42.530 --> 00:12:45.680
+Then work is done using the this keyword,
+if you like.
+
+170
+00:12:46.960 --> 00:12:50.180
+Then as long as you don't have a return
+statement, the JavaScript engine will
+
+171
+00:12:50.180 --> 00:12:55.750
+return that empty object which
+you have now likely manipulated.
+
+172
+00:12:55.750 --> 00:12:56.530
+Added properties.
+
+173
+00:12:56.530 --> 00:12:58.080
+Added methods.
+
+174
+00:12:58.080 --> 00:13:02.240
+That object sitting in that space
+created by the new keyword.
+
+175
+00:13:02.240 --> 00:13:06.820
+And you can use parameters just
+like you would any other function.
+
+176
+00:13:07.830 --> 00:13:13.270
+So in most cases with function
+constructors, you're passing some default
+
+177
+00:13:13.270 --> 00:13:19.670
+values or
+set values to set as part of the object.
+
+178
+00:13:19.670 --> 00:13:22.280
+So you'll usually see a pattern like this.
+
+179
+00:13:22.280 --> 00:13:27.680
+I use the parameters of the function
+to tell the function how to construct.
+
+180
+00:13:27.680 --> 00:13:31.460
+Or what values to place when
+it's constructing the object.
+
+181
+00:13:31.460 --> 00:13:34.150
+This part right here,
+it's adding the property.
+
+182
+00:13:34.150 --> 00:13:37.680
+And this right here is
+the parameter that I passed in.
+
+183
+00:13:37.680 --> 00:13:40.310
+And you could name these
+differently if you wanted.
+
+184
+00:13:40.310 --> 00:13:44.350
+But, this is usually the pattern that
+we see because it's very clean and
+
+185
+00:13:44.350 --> 00:13:48.360
+easy to understand what property
+goes with what parameter.
+
+186
+00:13:48.360 --> 00:13:50.800
+Does that make sense?
+
+187
+00:13:50.800 --> 00:13:56.520
+So if I run this, notice that the first
+
+188
+00:13:56.520 --> 00:14:01.510
+new Person is invoked the new
+operator creates a new object,
+
+189
+00:14:01.510 --> 00:14:04.570
+then the function is invoked here, and
+
+190
+00:14:04.570 --> 00:14:10.460
+then I added my firstname and lastname
+using the values I passed to the function.
+
+191
+00:14:10.460 --> 00:14:15.990
+Then I called new person again,
+got a different empty object and
+
+192
+00:14:15.990 --> 00:14:20.820
+what I ended up with was an object with
+the same properties but different values
+
+193
+00:14:20.820 --> 00:14:26.300
+because I used the values of the
+parameters that I passed to the function.
+
+194
+00:14:26.300 --> 00:14:31.320
+So this is still just calling a function,
+no different, but by putting the new
+
+195
+00:14:31.320 --> 00:14:36.470
+keyword in front of it, it's changed what
+happens with this and what's returned.
+
+196
+00:14:37.470 --> 00:14:42.580
+So now I'm constructing
+objects using functions.
+
+197
+00:14:42.580 --> 00:14:44.408
+And again that's a function constructor.
+
+198
+00:14:47.427 --> 00:14:52.430
+So, big word alert, function constructors.
+
+199
+00:14:52.430 --> 00:14:53.760
+Not that complex after all.
+
+200
+00:14:55.060 --> 00:14:58.630
+A normal function that is
+used to construct objects.
+
+201
+00:15:00.400 --> 00:15:05.320
+When you put that new keyword in front
+of a function call, the 'this' variable,
+
+202
+00:15:05.320 --> 00:15:09.540
+which is created during the creation
+phase of the execution context,
+
+203
+00:15:09.540 --> 00:15:12.140
+it points to a brand new empty object.
+
+204
+00:15:12.140 --> 00:15:16.480
+And that object is returned
+from the function automatically
+
+205
+00:15:16.480 --> 00:15:18.630
+when the function finishes execution.
+
+206
+00:15:19.840 --> 00:15:20.810
+All right.
+
+207
+00:15:20.810 --> 00:15:25.730
+So that's function constructors,
+used for constructing objects.
+
+208
+00:15:25.730 --> 00:15:28.960
+Really, the new operator
+makes the new object.
+
+209
+00:15:28.960 --> 00:15:32.480
+And function constructors are used for
+adding properties and
+
+210
+00:15:32.480 --> 00:15:35.880
+methods to that new object.
+
+211
+00:15:35.880 --> 00:15:40.875
+All right, so that gets us the new
+properties and the new methods, but
+
+212
+00:15:40.875 --> 00:15:42.725
+what about setting the prototype?
+
+213
+00:15:43.795 --> 00:15:48.235
+All right, when it comes to setting
+the prototype with function constructors,
+
+214
+00:15:48.235 --> 00:15:51.415
+it's actually quite easy, but
+looks a little confusing.
+
+215
+00:15:52.815 --> 00:15:53.455
+That's next.
+

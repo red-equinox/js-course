@@ -1,0 +1,551 @@
+WEBVTT
+
+1
+00:00:02.140 --> 00:00:04.450
+It's time for our first aside.
+
+2
+00:00:04.450 --> 00:00:08.640
+Throughout this course,
+we'll have lectures that are asides.
+
+3
+00:00:08.640 --> 00:00:11.500
+That means that we're going
+to cover something just
+
+4
+00:00:11.500 --> 00:00:14.270
+off to the side of what we
+were talking about directly.
+
+5
+00:00:14.270 --> 00:00:18.820
+But very very important to
+understand whatever technique or
+
+6
+00:00:18.820 --> 00:00:23.040
+aspect or concept of JavaScript
+that we're about to cover.
+
+7
+00:00:23.040 --> 00:00:25.450
+Now, each aside might
+have a particular type.
+
+8
+00:00:25.450 --> 00:00:30.150
+In this case,
+we're going to do a Conceptual Aside.
+
+9
+00:00:30.150 --> 00:00:34.960
+A conceptual aside means we'll
+focus on a concept or an idea
+
+10
+00:00:34.960 --> 00:00:39.820
+that's fundamental to the rest of
+the course of understanding and building
+
+11
+00:00:39.820 --> 00:00:43.770
+slowly our knowledge of JavaScript,
+which is what we're going to do.
+
+12
+00:00:43.770 --> 00:00:47.620
+This conceptual aside
+will cover three ideas,
+
+13
+00:00:47.620 --> 00:00:53.170
+syntax parsers, execution contexts,
+and lexical environments.
+
+14
+00:00:53.170 --> 00:00:54.860
+These are fundamental concepts,
+
+15
+00:00:54.860 --> 00:00:59.520
+fundamental ideas to understanding the
+rest of what we're going to talk about.
+
+16
+00:00:59.520 --> 00:01:03.210
+And you're going to see these
+ideas come up again and
+
+17
+00:01:03.210 --> 00:01:06.140
+again throughout the rest of this course.
+
+18
+00:01:06.140 --> 00:01:10.000
+Now all three of these
+are complicated sounding terms that
+
+19
+00:01:10.000 --> 00:01:12.728
+actually aren't that
+difficult to understand.
+
+20
+00:01:12.728 --> 00:01:16.430
+So we're gonna give you your first
+three big word alerts in a row.
+
+21
+00:01:16.430 --> 00:01:18.900
+All right, so here's our first one.
+
+22
+00:01:21.380 --> 00:01:22.930
+Big word alert.
+
+23
+00:01:22.930 --> 00:01:24.130
+Syntax parser.
+
+24
+00:01:24.130 --> 00:01:24.840
+Break glass.
+
+25
+00:01:26.070 --> 00:01:30.780
+A program that reads your code and
+determines what it does and
+
+26
+00:01:30.780 --> 00:01:34.300
+if its grammar or syntax is valid.
+
+27
+00:01:34.300 --> 00:01:38.130
+So, when you write JavaScript
+it isn't magically,
+
+28
+00:01:38.130 --> 00:01:41.000
+directly telling the computer what to do.
+
+29
+00:01:41.000 --> 00:01:44.190
+You're abstracted away from all of that,
+you're writing code but
+
+30
+00:01:44.190 --> 00:01:48.740
+then someone else or
+other people built programs
+
+31
+00:01:48.740 --> 00:01:53.750
+that convert your JavaScript into
+something the computer can understand.
+
+32
+00:01:53.750 --> 00:01:56.090
+Those programs are called compilers and
+
+33
+00:01:56.090 --> 00:01:58.990
+at times,
+they also have to do with interpreters.
+
+34
+00:01:58.990 --> 00:02:03.730
+But those programs, interpreters,
+and compilers do the process,
+
+35
+00:02:03.730 --> 00:02:09.100
+the work of actually reading your
+code character by character.
+
+36
+00:02:09.100 --> 00:02:11.180
+And determining if the syntax is valid and
+
+37
+00:02:11.180 --> 00:02:14.960
+then implementing that syntax in
+a way the computer can understand.
+
+38
+00:02:16.130 --> 00:02:19.680
+So when you're thinking about your code,
+think of it more like this.
+
+39
+00:02:20.750 --> 00:02:25.700
+You have your code that you've written and
+there's a program that
+
+40
+00:02:25.700 --> 00:02:31.370
+is going to convert what you've written
+into a real set of computer instructions.
+
+41
+00:02:31.370 --> 00:02:34.150
+Something the hardware can
+physically understand.
+
+42
+00:02:34.150 --> 00:02:37.010
+So if you have a function with
+the variable, that function and
+
+43
+00:02:37.010 --> 00:02:39.930
+variable will be represented in memory.
+
+44
+00:02:39.930 --> 00:02:45.230
+But it's being translated from what you're
+writing what is more human readable
+
+45
+00:02:45.230 --> 00:02:46.750
+to what the computer can understand.
+
+46
+00:02:46.750 --> 00:02:52.430
+There's a compiler or an interpreter
+between those two things and
+
+47
+00:02:52.430 --> 00:02:54.290
+part of that is a syntax parser.
+
+48
+00:02:54.290 --> 00:03:00.380
+So it's going through character by
+character like F-U-N-C-T-I-O-N.
+
+49
+00:03:00.380 --> 00:03:03.690
+And it says oh, that's function so
+there should be a space after this.
+
+50
+00:03:03.690 --> 00:03:07.160
+And then the next thing I
+see up until the parenthesis
+
+51
+00:03:07.160 --> 00:03:09.310
+will be the name of the function,
+etc, etc.
+
+52
+00:03:09.310 --> 00:03:16.540
+And that gets translated by
+the systems that someone else wrote.
+
+53
+00:03:16.540 --> 00:03:22.350
+But that also means that in that
+translation process, if they so choose,
+
+54
+00:03:22.350 --> 00:03:28.190
+the programmers that wrote the compiler
+can choose to do extra stuff.
+
+55
+00:03:29.380 --> 00:03:33.580
+Your code is not what's actually
+being given to the computer but
+
+56
+00:03:33.580 --> 00:03:34.460
+the translation of it.
+
+57
+00:03:34.460 --> 00:03:38.560
+And so along the way the engine
+
+58
+00:03:38.560 --> 00:03:43.050
+that is interpreting your code
+can decide to do other things.
+
+59
+00:03:43.050 --> 00:03:49.608
+Those programmers, those guys and girls
+could have chosen to do something else.
+
+60
+00:03:49.608 --> 00:03:50.870
+And in fact,
+
+61
+00:03:50.870 --> 00:03:55.580
+that's going to come up as an important
+element of understanding JavaScript.
+
+62
+00:03:56.960 --> 00:04:02.560
+So, that's syntax parsers and
+thinking about the programs
+
+63
+00:04:02.560 --> 00:04:07.088
+that are actually running every
+time you run your JavaScript code.
+
+64
+00:04:07.088 --> 00:04:13.090
+That intermediate program
+that's creating your code and
+
+65
+00:04:13.090 --> 00:04:15.750
+we're going to see this come up later on.
+
+66
+00:04:15.750 --> 00:04:17.230
+All right, time for the second one.
+
+67
+00:04:19.030 --> 00:04:23.140
+So, big word alert.
+
+68
+00:04:23.140 --> 00:04:24.770
+What's the next big word
+we're going to cover?
+
+69
+00:04:26.730 --> 00:04:29.170
+Lexical environment, that's a big term.
+
+70
+00:04:31.020 --> 00:04:34.350
+Where something sits physically
+in the code you write,
+
+71
+00:04:35.870 --> 00:04:39.490
+the word lexical means having
+to do with words or grammar.
+
+72
+00:04:39.490 --> 00:04:44.595
+So we're talking about the code you're
+writing, it's syntax, it's vocabulary.
+
+73
+00:04:44.595 --> 00:04:49.870
+Now, lexical environment exists
+in programming languages in which
+
+74
+00:04:49.870 --> 00:04:52.690
+where you write something is important.
+
+75
+00:04:53.750 --> 00:04:55.850
+So that sounds kinda funny,
+
+76
+00:04:55.850 --> 00:05:00.710
+but actually not every
+programming language is that way.
+
+77
+00:05:00.710 --> 00:05:03.240
+But remember we said,
+you might have some code,
+
+78
+00:05:03.240 --> 00:05:06.510
+let's say a function,
+with a variable inside of it.
+
+79
+00:05:08.000 --> 00:05:11.660
+The variable sits lexically
+inside the function,
+
+80
+00:05:11.660 --> 00:05:16.450
+that is physically the code that
+you're writing, that's where it sits.
+
+81
+00:05:16.450 --> 00:05:17.080
+But remember,
+
+82
+00:05:17.080 --> 00:05:21.410
+we said that your code is not what's
+actually given directly to the computer.
+
+83
+00:05:21.410 --> 00:05:24.930
+But it's translated into something
+the computer can understand.
+
+84
+00:05:24.930 --> 00:05:29.330
+But in programming languages where
+the lexical environment is important,
+
+85
+00:05:29.330 --> 00:05:34.030
+that means that where you see
+things written gives you an idea
+
+86
+00:05:34.030 --> 00:05:37.080
+of where it will actually sit
+in the computer's memory.
+
+87
+00:05:37.080 --> 00:05:40.350
+And how it will interact
+with other variables and
+
+88
+00:05:40.350 --> 00:05:42.030
+functions and elements of the program.
+
+89
+00:05:43.330 --> 00:05:48.000
+And that's because the program, the
+compiler that's converting your code to
+
+90
+00:05:48.000 --> 00:05:53.390
+those instructions cares
+about where you put things.
+
+91
+00:05:53.390 --> 00:05:57.370
+It makes decisions that syntax parser
+going through everything makes decisions.
+
+92
+00:05:57.370 --> 00:06:02.080
+So, when we talk about the lexical
+environment of something in the code we're
+
+93
+00:06:02.080 --> 00:06:08.710
+talking about where it's written and
+what surrounds it, got that?
+
+94
+00:06:08.710 --> 00:06:10.190
+All right, let's move on to the third one.
+
+95
+00:06:11.760 --> 00:06:15.290
+Our last big word alert.
+
+96
+00:06:15.290 --> 00:06:15.790
+What is it?
+
+97
+00:06:18.220 --> 00:06:19.290
+Execution context.
+
+98
+00:06:19.290 --> 00:06:23.940
+A wrapper to help manage
+the code that is running.
+
+99
+00:06:25.520 --> 00:06:27.330
+There are lots of lexical environments,
+
+100
+00:06:27.330 --> 00:06:31.280
+areas of the code that you
+are looking at physically.
+
+101
+00:06:31.280 --> 00:06:33.360
+But which one is currently
+actually running?
+
+102
+00:06:34.680 --> 00:06:38.110
+Is managed via what's
+called execution contexts.
+
+103
+00:06:39.490 --> 00:06:44.130
+And an execution context contains
+your code, the running code.
+
+104
+00:06:44.130 --> 00:06:46.120
+It's running your code, but
+
+105
+00:06:46.120 --> 00:06:50.638
+it also can contain things beyond
+what you've written in your code.
+
+106
+00:06:50.638 --> 00:06:54.290
+Cuz remember again,
+your code is being translated,
+
+107
+00:06:54.290 --> 00:06:57.870
+being processed by a whole other feature.
+
+108
+00:06:57.870 --> 00:07:00.820
+A whole other set of programs
+that someone else wrote.
+
+109
+00:07:00.820 --> 00:07:05.740
+And so, it's executing your code and
+it can do other things as well and
+
+110
+00:07:05.740 --> 00:07:08.840
+that's what's happening inside JavaScript,
+we'll see that very shortly.
+
+111
+00:07:10.230 --> 00:07:14.510
+So, lexical environments,
+we're talking execution context,
+
+112
+00:07:14.510 --> 00:07:17.888
+we're talking about syntax parsers.
+
+113
+00:07:17.888 --> 00:07:23.100
+Just remember, it's important.
+
+114
+00:07:23.100 --> 00:07:27.500
+We're going to hear these terms,
+understand them, throughout the course.
+
+115
+00:07:27.500 --> 00:07:30.740
+And it will give us a basis to
+understand what's happening
+
+116
+00:07:30.740 --> 00:07:33.300
+under the hood in JavaScript.
+
+117
+00:07:33.300 --> 00:07:34.680
+Alright, let's move on.
+

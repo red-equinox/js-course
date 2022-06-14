@@ -1,0 +1,320 @@
+WEBVTT
+
+1
+00:00:02.080 --> 00:00:05.236
+We've talked about features
+that JavaScript has and
+
+2
+00:00:05.236 --> 00:00:07.770
+features that JavaScript doesn't have.
+
+3
+00:00:08.830 --> 00:00:12.620
+We talked about features that are coming
+that not every browser will support yet.
+
+4
+00:00:14.160 --> 00:00:18.130
+And yet people are so
+inclined to use these new features or
+
+5
+00:00:18.130 --> 00:00:21.180
+add on these features that
+JavaScript doesn't have
+
+6
+00:00:21.180 --> 00:00:25.470
+that we have something out there
+called Transpiled Languages.
+
+7
+00:00:25.470 --> 00:00:32.248
+This is Typescript, ES6,
+and Transpiled Languages.
+
+8
+00:00:32.248 --> 00:00:33.510
+So big word alert!
+
+9
+00:00:35.380 --> 00:00:40.840
+To transpile means to convert the syntax
+of one programming language to another.
+
+10
+00:00:42.520 --> 00:00:43.970
+And in this case,
+
+11
+00:00:43.970 --> 00:00:47.130
+we're talking about languages that
+don't ever actually run anywhere.
+
+12
+00:00:47.130 --> 00:00:49.030
+There's no engine that runs them.
+
+13
+00:00:49.030 --> 00:00:52.270
+Instead, they're processed
+by a transpiler and
+
+14
+00:00:52.270 --> 00:00:55.240
+all that means is it generates JavaScript.
+
+15
+00:00:55.240 --> 00:00:57.070
+So you write in one language and
+
+16
+00:00:57.070 --> 00:01:00.740
+what you actually put out
+there is just pure JavaScript
+
+17
+00:01:00.740 --> 00:01:05.040
+that runs in a JavaScript engine just like
+we've talked about this whole course.
+
+18
+00:01:06.190 --> 00:01:08.240
+The first one that's
+already quite popular and
+
+19
+00:01:08.240 --> 00:01:12.680
+will continue to be is called TypeScript
+and it's provided by Microsoft.
+
+20
+00:01:12.680 --> 00:01:16.090
+You can go to typescriptlang.org.
+
+21
+00:01:16.090 --> 00:01:22.020
+If you go to the play, and I'll provide
+link to these in the next lecture,
+
+22
+00:01:22.020 --> 00:01:25.000
+you can see that I can already,
+for example, create a class.
+
+23
+00:01:26.390 --> 00:01:29.990
+And then that's transpiled, or
+converted, to normal JavaScript,
+
+24
+00:01:29.990 --> 00:01:32.990
+which I would then include in
+my application to actually run.
+
+25
+00:01:34.040 --> 00:01:37.750
+But since there's a transpiler
+happening between these two,
+
+26
+00:01:37.750 --> 00:01:43.360
+it can also have error messages and
+certain requirements.
+
+27
+00:01:43.360 --> 00:01:49.740
+The biggest thing about TypeScript is that
+it provides types for your variables.
+
+28
+00:01:49.740 --> 00:01:53.190
+So if you really,
+really wish JavaScript had types,
+
+29
+00:01:53.190 --> 00:01:58.070
+strongly type instead of dynamically
+type that is, that you could say what
+
+30
+00:01:58.070 --> 00:02:02.460
+type a variable should be,
+you can do it in TypeScript.
+
+31
+00:02:02.460 --> 00:02:06.996
+It also has things like class and some
+other features that are coming in ES6,
+
+32
+00:02:06.996 --> 00:02:10.850
+so you can write your entire
+application in TypeScript,
+
+33
+00:02:10.850 --> 00:02:15.020
+transpile it to normal JavaScript and
+it will work on a whole bunch of browsers.
+
+34
+00:02:16.090 --> 00:02:18.110
+So, that's TypeScript.
+
+35
+00:02:18.110 --> 00:02:20.200
+Go ahead and take a look and mess around.
+
+36
+00:02:20.200 --> 00:02:23.145
+The other one that's out here
+on GitHub is called Traceur.
+
+37
+00:02:23.145 --> 00:02:25.920
+T-R-A-C-E-U-R.
+
+38
+00:02:25.920 --> 00:02:29.760
+I also provide links in
+the next lecture to this.
+
+39
+00:02:29.760 --> 00:02:31.410
+And it lets you write ES6 today.
+
+40
+00:02:31.410 --> 00:02:38.350
+In other words, the features of
+the upcoming version of JavaScript but
+
+41
+00:02:38.350 --> 00:02:44.610
+it transpiles that into normal standard
+ES5 JavaScript, that is what's there now.
+
+42
+00:02:44.610 --> 00:02:49.700
+I also provide a link to
+another in browser demo
+
+43
+00:02:49.700 --> 00:02:52.575
+where we can write for example, a class.
+
+44
+00:02:52.575 --> 00:02:56.507
+[SOUND] With a constructor.
+
+45
+00:02:56.507 --> 00:03:01.875
+[SOUND] And set up just like we would
+
+46
+00:03:01.875 --> 00:03:06.668
+if I had access to these latest
+
+47
+00:03:06.668 --> 00:03:12.238
+version and some Greek function.
+
+48
+00:03:12.238 --> 00:03:17.154
+And we can see that it
+might have errors or
+
+49
+00:03:17.154 --> 00:03:21.346
+it might not but I have methods that
+
+50
+00:03:21.346 --> 00:03:26.560
+are being converted to methods on the fly.
+
+51
+00:03:26.560 --> 00:03:29.780
+I have a constructor that's being
+converted to a constructor function.
+
+52
+00:03:31.040 --> 00:03:36.370
+So I'm using this new feature that's
+coming in JavaScript right now but
+
+53
+00:03:36.370 --> 00:03:38.820
+before I push out my code,
+
+54
+00:03:38.820 --> 00:03:42.410
+it gets converted to this JavaScript
+which is what's actually run.
+
+55
+00:03:43.790 --> 00:03:46.790
+So this is another transpiled
+language that, for example,
+
+56
+00:03:46.790 --> 00:03:49.660
+if you have a project starting right now,
+a big JavaScript project, and
+
+57
+00:03:49.660 --> 00:03:54.020
+you know it's gonna be a couple years long
+you might wanna consider using Traceur.
+
+58
+00:03:54.020 --> 00:03:58.000
+You might wanna start writing in
+the next version of JavaScript.
+
+59
+00:03:58.000 --> 00:04:03.050
+And for now it'll just convert down to
+the current version of JavaScript and
+
+60
+00:04:03.050 --> 00:04:07.560
+then in a couple years you
+can stop using Traceur and
+
+61
+00:04:07.560 --> 00:04:09.770
+just directly send your
+code out to production.
+
+62
+00:04:10.840 --> 00:04:12.810
+A lot of people are doing this,
+a lot of teams for
+
+63
+00:04:12.810 --> 00:04:14.670
+long term JavaScript projects right now.
+
+64
+00:04:15.820 --> 00:04:18.120
+So, transpiled languages.
+
+65
+00:04:18.120 --> 00:04:21.410
+But remember, you shouldn't use
+a transpiled language like Traceur or
+
+66
+00:04:21.410 --> 00:04:26.940
+JavaScript transpiler type
+script without understanding
+
+67
+00:04:26.940 --> 00:04:31.260
+the code that it's creating for you
+otherwise you'll get in a lot of trouble.
+
+68
+00:04:31.260 --> 00:04:33.050
+Alright, let's move on.
+

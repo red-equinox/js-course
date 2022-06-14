@@ -1,0 +1,381 @@
+WEBVTT
+
+1
+00:00:01.920 --> 00:00:05.140
+This next section of the course
+is called Odds and Ends.
+
+2
+00:00:05.140 --> 00:00:09.000
+These are things that I could have
+included in other sections of the course,
+
+3
+00:00:09.000 --> 00:00:11.500
+but I didn't wanna distract too much
+
+4
+00:00:11.500 --> 00:00:16.500
+from driving at that deeper understanding
+of the JavaScript programming language.
+
+5
+00:00:16.500 --> 00:00:21.400
+But still, these things are interesting,
+and parts of, in some ways,
+
+6
+00:00:21.400 --> 00:00:24.850
+the things that people find odd, or
+weird, or difficult to get used to.
+
+7
+00:00:25.890 --> 00:00:28.500
+So let's start with initialization.
+
+8
+00:00:29.580 --> 00:00:34.360
+We've seen how we can use object literals,
+array literals, and
+
+9
+00:00:34.360 --> 00:00:38.435
+function expressions to set up our
+objects, arrays, and functions.
+
+10
+00:00:38.435 --> 00:00:42.640
+What I find as when folks who aren't yet
+
+11
+00:00:42.640 --> 00:00:48.860
+used to all that literal notation
+come across a large initialization
+
+12
+00:00:48.860 --> 00:00:54.090
+of objects in JavaScript, they can get
+a little overwhelmed by the syntax.
+
+13
+00:00:54.090 --> 00:00:58.180
+For example, maybe I'm gonna
+create an array of people, so
+
+14
+00:00:58.180 --> 00:01:01.086
+I use my array literal, my brackets.
+
+15
+00:01:01.086 --> 00:01:05.850
+Then I'm going to put my first element
+in my array, and it's an object,
+
+16
+00:01:05.850 --> 00:01:07.130
+so I use an object literal.
+
+17
+00:01:08.730 --> 00:01:10.850
+And then maybe I give it a property,
+
+18
+00:01:10.850 --> 00:01:15.910
+so here's my name value pairs,
+another name value pair.
+
+19
+00:01:15.910 --> 00:01:22.280
+Then maybe some addresses which are also
+an array, so I put brackets there.
+
+20
+00:01:22.280 --> 00:01:28.964
+And I do maybe a couple of addresses.
+
+21
+00:01:28.964 --> 00:01:36.040
+And then I'm gonna do my
+second element in my array.
+
+22
+00:01:36.040 --> 00:01:42.890
+So maybe this is Jane,
+similar, other addresses.
+
+23
+00:01:42.890 --> 00:01:47.585
+And as you can see as we're typing,
+it starts to get large and
+
+24
+00:01:47.585 --> 00:01:53.155
+those that aren't used to it can be a bit
+intimidated by what they're looking at.
+
+25
+00:01:53.155 --> 00:01:54.795
+Maybe I'll also add for
+
+26
+00:01:54.795 --> 00:01:59.575
+Jane a function expression that
+defines the method for that object.
+
+27
+00:02:02.055 --> 00:02:05.795
+So, when you look at this,
+when this gets extremely large,
+
+28
+00:02:05.795 --> 00:02:08.410
+a lot of data,
+it can get a bit intimidating.
+
+29
+00:02:09.990 --> 00:02:14.472
+And maybe, even,
+there might be some comments,
+
+30
+00:02:14.472 --> 00:02:19.060
+as we mentioned in our,
+let's do the john object,
+
+31
+00:02:19.060 --> 00:02:22.920
+as we mentioned in our white space lesson.
+
+32
+00:02:24.960 --> 00:02:26.920
+But don't be intimidated.
+
+33
+00:02:26.920 --> 00:02:30.940
+This is really clean and
+useful way to initialize data.
+
+34
+00:02:30.940 --> 00:02:33.430
+And it's also really nice for prototyping.
+
+35
+00:02:34.470 --> 00:02:38.950
+Say you're building some software that's
+not yet connected to a database or an API.
+
+36
+00:02:38.950 --> 00:02:44.280
+You can easily set up some data
+like this to use in your interface.
+
+37
+00:02:44.280 --> 00:02:47.130
+So that you can see
+what it will look like.
+
+38
+00:02:47.130 --> 00:02:50.530
+And then, when you're ready,
+you can have this object get its data,
+
+39
+00:02:50.530 --> 00:02:53.050
+maybe via some JSON, from an API.
+
+40
+00:02:54.190 --> 00:02:58.680
+And your interface is already ready for
+data that looks like this.
+
+41
+00:02:58.680 --> 00:03:01.700
+You can do testing,
+you could use ability test.
+
+42
+00:03:01.700 --> 00:03:03.850
+Your interface CF users
+can use it all right,
+
+43
+00:03:03.850 --> 00:03:08.030
+before you go down, the road of
+implementing the full software.
+
+44
+00:03:09.390 --> 00:03:10.940
+So that's good.
+
+45
+00:03:10.940 --> 00:03:12.940
+Also a good IVE, that is a good
+
+46
+00:03:14.120 --> 00:03:18.840
+program to do your actual typing in,
+your actual programming in, is good.
+
+47
+00:03:18.840 --> 00:03:23.360
+Brackets, for example,
+nicely highlights where my brackets and
+
+48
+00:03:23.360 --> 00:03:25.770
+curly braces, should be.
+
+49
+00:03:27.040 --> 00:03:31.900
+If you do find yourself missing little
+things, commas are the most often to miss
+
+50
+00:03:31.900 --> 00:03:35.200
+when you're doing a big
+initialization like this.
+
+51
+00:03:35.200 --> 00:03:40.590
+You'll likely see an error message
+that looks something like this,
+
+52
+00:03:40.590 --> 00:03:42.620
+unexpected something.
+
+53
+00:03:42.620 --> 00:03:48.370
+An unexpected token maybe or,
+maybe if you miss a comma inside an array.
+
+54
+00:03:48.370 --> 00:03:52.310
+An unexpected string or number.
+
+55
+00:03:53.620 --> 00:03:57.559
+This just means the syntax parser is going
+through and has certain expectations.
+
+56
+00:03:58.770 --> 00:04:01.060
+And it sees something
+that it doesn't expect.
+
+57
+00:04:01.060 --> 00:04:08.340
+Like, without that comma, it doesn't
+expect to see a starting curly brace.
+
+58
+00:04:08.340 --> 00:04:09.980
+So it says, well, that's unexpected.
+
+59
+00:04:11.510 --> 00:04:14.700
+So, when you see those kinds of errors
+when you have a big initialization like
+
+60
+00:04:14.700 --> 00:04:19.450
+this, you just need to figure out where
+you're missing either your closing or
+
+61
+00:04:19.450 --> 00:04:24.150
+opening brackets or braces,
+your colon, or your comma.
+
+62
+00:04:24.150 --> 00:04:28.640
+I also find that people
+will occasionally do this.
+
+63
+00:04:28.640 --> 00:04:33.630
+They'll accidentally use equals
+instead of colon cuz they're thinking
+
+64
+00:04:33.630 --> 00:04:37.180
+in terms of setting variables.
+
+65
+00:04:37.180 --> 00:04:40.150
+And so
+you'll get that unexpected token again.
+
+66
+00:04:40.150 --> 00:04:46.420
+When I'm doing literal syntax object
+literal these are colons not equal signs.
+
+67
+00:04:46.420 --> 00:04:48.360
+So those are just some tips.
+
+68
+00:04:48.360 --> 00:04:52.290
+This can be very useful to set
+up a lot of data quickly and
+
+69
+00:04:52.290 --> 00:04:54.030
+try it out in your interface.
+
+70
+00:04:54.030 --> 00:04:58.270
+So don't be intimidated when you see
+large initializations of arrays and
+
+71
+00:04:58.270 --> 00:05:00.680
+objects, it’s useful.
+
+72
+00:05:00.680 --> 00:05:05.700
+And if we console.log this people array,
+which is this top level
+
+73
+00:05:05.700 --> 00:05:11.450
+variable being initialized, and
+I refresh and I have two objects.
+
+74
+00:05:12.750 --> 00:05:16.550
+That has a length of two
+inside my John Doe object.
+
+75
+00:05:16.550 --> 00:05:17.900
+I have my addresses.
+
+76
+00:05:18.930 --> 00:05:23.570
+And then I have my second element in
+my array which is my Jane Doe object,
+
+77
+00:05:23.570 --> 00:05:26.310
+which has addresses and a greet method.
+
+78
+00:05:26.310 --> 00:05:34.130
+And so I can do something like people
+the Jane object greet, and there we go.
+
+79
+00:05:34.130 --> 00:05:37.940
+So my array is nicely initialized and
+full of data.
+
+80
+00:05:38.940 --> 00:05:40.170
+So, this is useful.
+
+81
+00:05:40.170 --> 00:05:41.340
+That's initialization.
+

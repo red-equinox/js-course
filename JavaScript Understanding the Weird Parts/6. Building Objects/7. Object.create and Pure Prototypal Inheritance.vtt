@@ -1,0 +1,831 @@
+WEBVTT
+
+1
+00:00:01.920 --> 00:00:06.070
+What we've seen up to now is one
+way to create objects in JavaScript
+
+2
+00:00:06.070 --> 00:00:08.580
+using function constructors.
+
+3
+00:00:08.580 --> 00:00:12.800
+But we've already seen that function
+constructors were designed to mimic other
+
+4
+00:00:12.800 --> 00:00:17.960
+languages that don't implement
+prototypical inheritance, and
+
+5
+00:00:17.960 --> 00:00:19.320
+so they're a little awkward.
+
+6
+00:00:21.060 --> 00:00:26.600
+Other languages implement something called
+classes, where a class defines what
+
+7
+00:00:26.600 --> 00:00:31.400
+an object should look like and then you
+use the new keyword to create the object.
+
+8
+00:00:31.400 --> 00:00:34.080
+And that's what function
+constructors are trying to mimic.
+
+9
+00:00:35.760 --> 00:00:40.990
+On the other hand,
+many consider it better to simply focus
+
+10
+00:00:40.990 --> 00:00:45.090
+on the fact that JavaScript does
+use prototypal inheritance, and
+
+11
+00:00:45.090 --> 00:00:51.340
+not what's called classical inheritance,
+and accept it, embrace it.
+
+12
+00:00:51.340 --> 00:00:57.450
+And so yet another way to create
+objects that doesn't try to mimic other
+
+13
+00:00:57.450 --> 00:01:03.328
+programming languages, and it's something
+that newer browsers all have built in.
+
+14
+00:01:03.328 --> 00:01:06.890
+It's called Object.create.
+
+15
+00:01:06.890 --> 00:01:11.499
+So let's look at it and
+think about pure prototypal inheritance.
+
+16
+00:01:13.470 --> 00:01:18.940
+I'm gonna go ahead and create a new
+object using object literal syntax.
+
+17
+00:01:18.940 --> 00:01:22.660
+And I'll give it a first name of Default.
+
+18
+00:01:22.660 --> 00:01:25.180
+A last name I'll just call it Default.
+
+19
+00:01:25.180 --> 00:01:28.080
+And let's do this time a greet method.
+
+20
+00:01:29.900 --> 00:01:36.067
+And it's going to return
+Hi + this.firstname.
+
+21
+00:01:36.067 --> 00:01:37.300
+Got that?
+
+22
+00:01:38.370 --> 00:01:42.360
+By the way, I have to use this, the this
+keywords when I'm referencing the object.
+
+23
+00:01:42.360 --> 00:01:45.280
+If I didn't use the this
+keyword it would look for
+
+24
+00:01:45.280 --> 00:01:49.840
+it in this function context,
+when executed, this execution context.
+
+25
+00:01:49.840 --> 00:01:54.640
+Not find it, and
+go out to the global execution context.
+
+26
+00:01:54.640 --> 00:01:59.090
+And it wouldn't find first name there,
+because it's inside the person object.
+
+27
+00:01:59.090 --> 00:02:03.740
+And objects don't create new
+execution context, just to be clear.
+
+28
+00:02:03.740 --> 00:02:11.190
+So if you accidentally forget the this
+variable in a method on an object,
+
+29
+00:02:12.430 --> 00:02:18.200
+then it's probably because you forgot that
+this variable that you're getting errors.
+
+30
+00:02:18.200 --> 00:02:21.140
+All right, so, moving on,
+I have this object.
+
+31
+00:02:22.660 --> 00:02:25.990
+Now I'm going to use something
+built in to more modern browsers
+
+32
+00:02:25.990 --> 00:02:27.190
+to create a new object.
+
+33
+00:02:27.190 --> 00:02:29.740
+Again, this is all about building objects.
+
+34
+00:02:29.740 --> 00:02:32.320
+And it's all building the same things.
+
+35
+00:02:32.320 --> 00:02:36.470
+I'm not changing how things work,
+but how I can construct them.
+
+36
+00:02:36.470 --> 00:02:40.150
+So I want to build an object,
+a new one, and set its prototype.
+
+37
+00:02:40.150 --> 00:02:44.630
+So I'm gonna create john,
+and I'm going to go, object.
+
+38
+00:02:44.630 --> 00:02:50.640
+That's that base object
+concept in JavaScript,
+
+39
+00:02:50.640 --> 00:02:54.510
+.create and I pass it a person.
+
+40
+00:02:54.510 --> 00:02:58.319
+I'm gonna pass it the object
+I want to create from.
+
+41
+00:02:59.618 --> 00:03:02.010
+Now what does this create for
+me when I do this?
+
+42
+00:03:02.010 --> 00:03:04.089
+Well let's console.log(john).
+
+43
+00:03:04.089 --> 00:03:07.100
+This is built in to the JavaScript engine.
+
+44
+00:03:09.030 --> 00:03:10.290
+So I have an object.
+
+45
+00:03:12.100 --> 00:03:14.870
+But notice my object is completely empty.
+
+46
+00:03:14.870 --> 00:03:15.800
+There's nothing there.
+
+47
+00:03:17.258 --> 00:03:21.670
+And its prototype is the person object,
+
+48
+00:03:21.670 --> 00:03:25.046
+the first name,
+the greet method and last name.
+
+49
+00:03:25.046 --> 00:03:26.213
+See that?
+
+50
+00:03:26.213 --> 00:03:31.177
+So Object.create creates an empty
+object with its prototype
+
+51
+00:03:31.177 --> 00:03:35.670
+pointing at whatever you
+passed into Object.create.
+
+52
+00:03:35.670 --> 00:03:41.603
+So if I go john.greet I just get default.
+
+53
+00:03:41.603 --> 00:03:47.010
+And the pattern is that you override
+whatever you want to by simply
+
+54
+00:03:47.010 --> 00:03:53.200
+adding the properties and
+methods yourself to the created object.
+
+55
+00:03:53.200 --> 00:03:58.770
+So if I want to hide those default
+values I simply create the same
+
+56
+00:04:00.700 --> 00:04:04.190
+name of the property or
+method on my new object.
+
+57
+00:04:04.190 --> 00:04:09.880
+And since the JavaScript engine travels
+down the prototype chain looking for
+
+58
+00:04:09.880 --> 00:04:15.090
+a property or method until it finds it,
+it'll simply find it on this object and
+
+59
+00:04:15.090 --> 00:04:17.340
+not move down the chain.
+
+60
+00:04:17.340 --> 00:04:21.270
+So if I refresh this,
+now I have my first name and
+
+61
+00:04:21.270 --> 00:04:26.183
+last name on my john object,
+and I still have my prototype,
+
+62
+00:04:26.183 --> 00:04:32.507
+which means I can call john.greet() and
+it works with my updated values.
+
+63
+00:04:32.507 --> 00:04:34.506
+And that's it.
+
+64
+00:04:34.506 --> 00:04:39.590
+That's pure prototypal inheritance.
+
+65
+00:04:39.590 --> 00:04:44.960
+There is no other concept that tries
+to define how an object is structured.
+
+66
+00:04:46.030 --> 00:04:48.550
+You simply make objects and
+
+67
+00:04:48.550 --> 00:04:54.070
+then create new objects from them pointing
+to other objects as their prototype.
+
+68
+00:04:54.070 --> 00:04:56.880
+If you want to define a new object,
+
+69
+00:04:56.880 --> 00:05:00.780
+you create a new object that
+becomes the basis for all others.
+
+70
+00:05:01.840 --> 00:05:06.480
+And then you simply override,
+hide properties and
+
+71
+00:05:06.480 --> 00:05:11.730
+methods on those created objects by
+setting the values of those properties and
+
+72
+00:05:11.730 --> 00:05:13.480
+methods on the new objects themselves.
+
+73
+00:05:14.760 --> 00:05:15.260
+Make sense?
+
+74
+00:05:16.340 --> 00:05:19.030
+So I can keep my methods
+on that base object.
+
+75
+00:05:19.030 --> 00:05:22.700
+I can add new methods and
+properties to my base object and
+
+76
+00:05:22.700 --> 00:05:25.750
+all my created objects using
+Object.create will suddenly get them.
+
+77
+00:05:27.590 --> 00:05:31.710
+This is pure prototypal inheritance and
+it drives some people crazy cuz it's so
+
+78
+00:05:31.710 --> 00:05:32.940
+simple.
+
+79
+00:05:32.940 --> 00:05:37.580
+But when you start to use it in real world
+scenarios, you'll see it's just lovely.
+
+80
+00:05:38.760 --> 00:05:41.410
+You don't have a lot of confusion,
+a lot of verbosity.
+
+81
+00:05:41.410 --> 00:05:47.230
+It's very straightforward, and
+it's very powerful because you can mutate,
+
+82
+00:05:47.230 --> 00:05:50.530
+you can change the prototype
+along the way.
+
+83
+00:05:52.220 --> 00:05:52.800
+Make sense?
+
+84
+00:05:54.470 --> 00:05:57.390
+All right, now we said that this was...
+
+85
+00:05:57.390 --> 00:06:02.479
+A newer thing that modern browsers,
+that's JavaScript engines and
+
+86
+00:06:02.479 --> 00:06:05.471
+more newer browsers are implementing.
+
+87
+00:06:05.471 --> 00:06:10.659
+But what if you are involved in a project
+that requires you to support users that
+
+88
+00:06:10.659 --> 00:06:15.613
+are on older browsers, or maybe an older
+environment where the JavaScript
+
+89
+00:06:15.613 --> 00:06:20.760
+engine doesn't support Object.create,
+it doesn't have it.
+
+90
+00:06:20.760 --> 00:06:23.440
+Well you can use what's called polyfill.
+
+91
+00:06:24.840 --> 00:06:29.760
+And Big Word Alert, polyfill,
+it sounds complicated.
+
+92
+00:06:29.760 --> 00:06:30.260
+Not really.
+
+93
+00:06:31.510 --> 00:06:37.348
+A polyfill is code that adds
+a feature which the engine may lack.
+
+94
+00:06:37.348 --> 00:06:39.255
+So whatever code you're dealing with,
+
+95
+00:06:39.255 --> 00:06:42.072
+because there's usually
+different versions of engines.
+
+96
+00:06:42.072 --> 00:06:46.187
+For example, there's older and
+newer browsers, Internet browsers, so
+
+97
+00:06:46.187 --> 00:06:48.810
+they have older and
+newer JavaScript engines.
+
+98
+00:06:50.200 --> 00:06:53.280
+We can have some code that checks to
+see if the engine has a feature, and
+
+99
+00:06:53.280 --> 00:06:57.120
+if it doesn't we write some code that
+
+100
+00:06:57.120 --> 00:07:02.570
+does the same thing that that new
+feature would do in the newer browsers.
+
+101
+00:07:02.570 --> 00:07:07.458
+So I'm filling in the gaps where
+an older engine might not have
+
+102
+00:07:07.458 --> 00:07:10.845
+some features that the newer features do.
+
+103
+00:07:10.845 --> 00:07:13.084
+So let's look at Object.create.
+
+104
+00:07:13.084 --> 00:07:17.271
+What if I'd like to use
+Object.create in my project but
+
+105
+00:07:17.271 --> 00:07:23.800
+I'm forced to support some older browsers
+that don't have Object.create built in.
+
+106
+00:07:23.800 --> 00:07:27.524
+Their JavaScript engines
+don't have this built in.
+
+107
+00:07:27.524 --> 00:07:28.220
+Am I done?
+
+108
+00:07:28.220 --> 00:07:31.390
+Do I have to use function constructors?
+
+109
+00:07:31.390 --> 00:07:33.330
+No.
+In a lot of cases for
+
+110
+00:07:33.330 --> 00:07:35.920
+a lot of features there are things
+called these polyfills.
+
+111
+00:07:35.920 --> 00:07:39.820
+I'm gonna drop on in here and you can
+see how it uses some of the things we've
+
+112
+00:07:39.820 --> 00:07:44.310
+learned to fill in the gaps for
+any engines that don't have the feature.
+
+113
+00:07:45.630 --> 00:07:51.534
+So I'm checking to see
+if Object.create exists.
+
+114
+00:07:51.534 --> 00:07:53.610
+Why?
+Because if it doesn't exist what will this
+
+115
+00:07:53.610 --> 00:07:54.130
+value be?
+
+116
+00:07:55.680 --> 00:07:57.600
+Undefined, and
+
+117
+00:07:57.600 --> 00:08:02.300
+then I use the not operator,
+that's what's called a unary operator.
+
+118
+00:08:02.300 --> 00:08:06.313
+Meaning that it only takes one
+parameter and then returns the reverse.
+
+119
+00:08:06.313 --> 00:08:11.925
+Other operators like the greater
+than operator are called
+
+120
+00:08:11.925 --> 00:08:19.690
+binary operators because they take
+two parameters, one on each side.
+
+121
+00:08:19.690 --> 00:08:22.520
+There is one other special type of
+
+122
+00:08:22.520 --> 00:08:27.030
+operator called a ternary operator
+that takes three parameters.
+
+123
+00:08:27.030 --> 00:08:30.370
+But anyway I'm digressing here a bit.
+
+124
+00:08:30.370 --> 00:08:35.938
+The idea that this operator will take
+Object.create and if the browser
+
+125
+00:08:35.938 --> 00:08:40.630
+already has this, this will be a function,
+and if it doesn't it will be undefined.
+
+126
+00:08:41.640 --> 00:08:43.660
+Either case it will be
+coerced to a Boolean.
+
+127
+00:08:44.760 --> 00:08:49.358
+And so this whole if statement will be
+skipped, if this exists in the browser.
+
+128
+00:08:49.358 --> 00:08:54.900
+If the JavaScript engine already has this,
+but if it doesn't,
+
+129
+00:08:54.900 --> 00:08:59.760
+if this is undefined, it will run this
+statement, which will add this object and
+
+130
+00:08:59.760 --> 00:09:03.760
+function to the global object.
+
+131
+00:09:03.760 --> 00:09:07.190
+All right, so we have this idea, right?
+
+132
+00:09:07.190 --> 00:09:11.230
+So the create will get added to that base
+object, which is on the global object.
+
+133
+00:09:14.130 --> 00:09:18.192
+So what is this polyfill
+doing if I'm using an older
+
+134
+00:09:18.192 --> 00:09:22.734
+JavaScript engine that
+doesn't have Object.create?
+
+135
+00:09:22.734 --> 00:09:28.330
+Well it takes an object,
+just makes sure that there's one argument.
+
+136
+00:09:28.330 --> 00:09:32.580
+But this is the important part,
+it creates an empty function.
+
+137
+00:09:34.315 --> 00:09:41.355
+And then sets the prototype,
+that variable of prototype that is used
+
+138
+00:09:42.975 --> 00:09:49.285
+for function constructors, and sets it
+equal to the object that you passed in.
+
+139
+00:09:49.285 --> 00:09:52.305
+So you can completely
+overwrite this prototype,
+
+140
+00:09:52.305 --> 00:09:54.775
+set it to whatever object you want.
+
+141
+00:09:54.775 --> 00:10:00.120
+And any objects created using
+the function constructor will get this
+
+142
+00:10:00.120 --> 00:10:02.070
+as its proto property.
+
+143
+00:10:03.370 --> 00:10:07.490
+All right, so this returns a new,
+it uses the new keyword.
+
+144
+00:10:08.680 --> 00:10:14.630
+And then a new empty function here,
+which is just a constructor function.
+
+145
+00:10:14.630 --> 00:10:17.230
+So, if we think about what this is doing.
+
+146
+00:10:17.230 --> 00:10:23.430
+The new creates an empty object,
+it runs this function, which is empty and
+
+147
+00:10:23.430 --> 00:10:28.360
+points the prototype of that new empty
+object to whatever you passed in.
+
+148
+00:10:28.360 --> 00:10:33.530
+And that's exactly what
+Object.create is supposed to do.
+
+149
+00:10:33.530 --> 00:10:39.000
+You give it an object, and that becomes
+the prototype of a new empty object.
+
+150
+00:10:40.100 --> 00:10:42.840
+So this just fills in the same
+functionality that we would
+
+151
+00:10:42.840 --> 00:10:45.170
+expect to see in the browser.
+
+152
+00:10:45.170 --> 00:10:46.820
+So this is a polyfill.
+
+153
+00:10:46.820 --> 00:10:47.670
+I'll just put it there.
+
+154
+00:10:48.790 --> 00:10:49.550
+Put a comment.
+
+155
+00:10:50.660 --> 00:10:51.230
+Polyfill.
+
+156
+00:10:53.620 --> 00:10:58.120
+And if your browser has this,
+has Object.create, then,
+
+157
+00:10:58.120 --> 00:11:03.422
+don't need to worry about it, it's there
+it'll just get skipped and we can use it.
+
+158
+00:11:03.422 --> 00:11:07.910
+All right so let's go back to thinking
+about the usage of Object.create.
+
+159
+00:11:07.910 --> 00:11:16.730
+I create an object that forms the basis
+of my constructing all other objects.
+
+160
+00:11:16.730 --> 00:11:19.780
+This is an object unto itself.
+
+161
+00:11:21.040 --> 00:11:24.960
+Then I use Object.create just to
+create other versions of it, and
+
+162
+00:11:24.960 --> 00:11:28.850
+then can overwrite it or
+hide its properties.
+
+163
+00:11:30.430 --> 00:11:35.290
+So, this is pure prototypal inheritance.
+
+164
+00:11:35.290 --> 00:11:40.940
+It's not trying to squeeze in any other
+concepts from other programming languages.
+
+165
+00:11:40.940 --> 00:11:43.850
+It's just, create an object, and
+
+166
+00:11:43.850 --> 00:11:49.210
+then use that object as the prototype for
+other objects.
+
+167
+00:11:49.210 --> 00:11:51.440
+Very simple, very straightforward.
+
+168
+00:11:51.440 --> 00:11:56.670
+And yet, if you think, oh, this is too
+simple, stop and realize the power
+
+169
+00:11:56.670 --> 00:12:01.110
+of being able to mutate,
+to change the prototype on the fly.
+
+170
+00:12:02.290 --> 00:12:07.410
+You can add features depending
+on what features you need for
+
+171
+00:12:07.410 --> 00:12:10.000
+example, at any point in the application.
+
+172
+00:12:11.470 --> 00:12:17.930
+It opens up a freer approach
+to constructing objects.
+
+173
+00:12:17.930 --> 00:12:23.890
+And you're not unnecessarily creating
+complex layers and interactions.
+
+174
+00:12:25.500 --> 00:12:26.790
+So, try it out.
+
+175
+00:12:26.790 --> 00:12:28.008
+Try it for yourself.
+
+176
+00:12:28.008 --> 00:12:29.575
+Try Object.create.
+
+177
+00:12:29.575 --> 00:12:34.990
+Try thinking purely prototypal and
+see how it works for you.
+
+178
+00:12:36.420 --> 00:12:36.920
+Let's move on.
+

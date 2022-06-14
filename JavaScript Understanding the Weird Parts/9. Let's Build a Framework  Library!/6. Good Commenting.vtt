@@ -1,0 +1,151 @@
+WEBVTT
+
+1
+00:00:01.840 --> 00:00:04.440
+Whoops, see what I just did there?
+
+2
+00:00:05.870 --> 00:00:07.180
+I took a deep breath and was so
+
+3
+00:00:07.180 --> 00:00:12.260
+glad I finished my code,
+I almost made a really bad mistake.
+
+4
+00:00:12.260 --> 00:00:20.290
+I didn't stop to comment up my code, and
+that's especially important in JavaScript.
+
+5
+00:00:20.290 --> 00:00:22.330
+JavaScript is not a verbose language.
+
+6
+00:00:22.330 --> 00:00:23.279
+It's very terse.
+
+7
+00:00:24.410 --> 00:00:30.350
+You can do things in very slick and
+various ways, and
+
+8
+00:00:30.350 --> 00:00:35.160
+as a result, good commenting is especially
+important when writing JavaScript.
+
+9
+00:00:36.280 --> 00:00:42.730
+Because while it's not terrible to read,
+it really is helpful if you explain
+
+10
+00:00:42.730 --> 00:00:47.680
+what your intent is, how you're doing
+something, for yourself and for
+
+11
+00:00:47.680 --> 00:00:52.630
+future coders,
+because JavaScript is so terse.
+
+12
+00:00:54.160 --> 00:00:59.100
+That is, it doesn't have a lot of
+explanatory text within itself.
+
+13
+00:00:59.100 --> 00:01:03.080
+You have a lot of literal syntaxes and
+those sorts of things, and
+
+14
+00:01:03.080 --> 00:01:05.650
+so, commenting is really helpful.
+
+15
+00:01:05.650 --> 00:01:12.150
+So, I've taken our mini library and
+framework, and I've commented it up.
+
+16
+00:01:12.150 --> 00:01:17.880
+And it's available as source code
+in the resources of this lecture.
+
+17
+00:01:17.880 --> 00:01:23.490
+So, you can go find the zip file for
+
+18
+00:01:23.490 --> 00:01:27.580
+good commenting and take a look.
+
+19
+00:01:27.580 --> 00:01:29.110
+And this is what we'll use going forward.
+
+20
+00:01:30.420 --> 00:01:35.250
+So remember in the real world, you might
+have to come back to this a year later,
+
+21
+00:01:35.250 --> 00:01:38.760
+and you will have to
+refigure out what you did.
+
+22
+00:01:40.410 --> 00:01:45.540
+I even did a check of the code while I
+was at it, and I had missed something.
+
+23
+00:01:45.540 --> 00:01:46.170
+Did you notice?
+
+24
+00:01:47.490 --> 00:01:51.790
+I didn't call the validate when
+you initially create the object.
+
+25
+00:01:51.790 --> 00:01:55.300
+I did when you set the language
+later in the chainable function,
+
+26
+00:01:55.300 --> 00:01:58.570
+but not when you actually create it.
+
+27
+00:01:58.570 --> 00:02:00.370
+So I missed something important.
+
+28
+00:02:00.370 --> 00:02:04.590
+So go back through your code in
+JavaScript, do a good check of yourself.
+
+29
+00:02:04.590 --> 00:02:08.535
+And a good way to do that is to
+comment what you're doing so
+
+30
+00:02:08.535 --> 00:02:12.825
+that you can double check the logic and
+the flow of what you've done, and
+
+31
+00:02:12.825 --> 00:02:17.925
+maybe find something you missed,
+as well as help the sanity
+
+32
+00:02:17.925 --> 00:02:20.835
+of future developers that look at
+your code, and yourself as well.
+

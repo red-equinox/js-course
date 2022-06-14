@@ -1,0 +1,448 @@
+WEBVTT
+
+1
+00:00:01.910 --> 00:00:03.800
+It's time for our first Framework Aside.
+
+2
+00:00:05.160 --> 00:00:07.060
+I really like these.
+
+3
+00:00:07.060 --> 00:00:10.820
+The idea here is that we're
+going to talk for a moment.
+
+4
+00:00:10.820 --> 00:00:16.380
+And we'll do this throughout the course,
+about how what we've been discussing
+
+5
+00:00:16.380 --> 00:00:22.470
+is used inside popular and
+famous frameworks and libraries.
+
+6
+00:00:22.470 --> 00:00:28.600
+That are used on millions of sites around
+the internet and in many web applications.
+
+7
+00:00:29.890 --> 00:00:35.470
+For our purposes, although framework and
+library can really mean two different
+
+8
+00:00:35.470 --> 00:00:40.600
+things, we're going to essentially talk
+about them as if they were the same thing.
+
+9
+00:00:40.600 --> 00:00:45.670
+For our purposes, a framework and
+a library are the same thing.
+
+10
+00:00:45.670 --> 00:00:48.900
+A grouping of JavaScript code
+that performs a task and
+
+11
+00:00:48.900 --> 00:00:50.340
+is intended to be reusable.
+
+12
+00:00:51.900 --> 00:00:58.350
+But, we're going to dive deep
+into how libraries like jQuery or
+
+13
+00:00:58.350 --> 00:01:03.820
+frameworks like AngularJs use some of the
+concepts we're discussing in their code.
+
+14
+00:01:05.150 --> 00:01:08.220
+So, let's talk for
+a moment about default values.
+
+15
+00:01:09.610 --> 00:01:14.170
+We can combine some of what we've
+learned about default values, and
+
+16
+00:01:14.170 --> 00:01:20.510
+also about execution contexts in
+the global environment, to understand
+
+17
+00:01:20.510 --> 00:01:26.290
+some lines of code that appear quite often
+in popular frameworks and libraries.
+
+18
+00:01:26.290 --> 00:01:29.350
+If you look under the hood and
+look at their source code.
+
+19
+00:01:30.410 --> 00:01:37.950
+So for example, I have this index that
+HTML file that's just referencing ap.js.
+
+20
+00:01:37.950 --> 00:01:40.960
+I'm gonna pretend that I have
+a couple of libraries or
+
+21
+00:01:40.960 --> 00:01:43.670
+frameworks that I'm
+including in my projects.
+
+22
+00:01:43.670 --> 00:01:50.990
+So let's say lib1 and
+lib2 are two libraries that I have.
+
+23
+00:01:50.990 --> 00:01:55.373
+Now, I'm gonna go ahead and creat those.
+
+24
+00:01:55.373 --> 00:01:57.773
+Lib1, lib2.
+
+25
+00:01:57.773 --> 00:02:02.844
+And library one, just for an example,
+
+26
+00:02:02.844 --> 00:02:07.930
+I'm gonna go ahead and set a variable.
+
+27
+00:02:07.930 --> 00:02:09.950
+Let's say I want the name of the library.
+
+28
+00:02:09.950 --> 00:02:13.690
+So the library name, this is Lib 1.
+
+29
+00:02:13.690 --> 00:02:18.179
+And this suppose is written by one person,
+and
+
+30
+00:02:18.179 --> 00:02:22.784
+Lib 2 is written by someone else entirely,
+but
+
+31
+00:02:22.784 --> 00:02:29.680
+they also create the library name Lib 2,
+the same variable.
+
+32
+00:02:29.680 --> 00:02:31.327
+So what's going to happen?
+
+33
+00:02:32.850 --> 00:02:37.629
+Well, when you look at the app.js file,
+
+34
+00:02:37.629 --> 00:02:41.870
+and I console.log(libraryName)
+
+35
+00:02:44.532 --> 00:02:48.700
+We need to understand what's happening
+when these three JavaScript files are run.
+
+36
+00:02:50.460 --> 00:02:55.320
+These three script tags are not
+creating new execution context.
+
+37
+00:02:55.320 --> 00:02:57.690
+They're not separating
+the code in any way.
+
+38
+00:02:58.920 --> 00:03:04.180
+Quite literally, they're stacking
+the code on top of each other.
+
+39
+00:03:04.180 --> 00:03:09.149
+And then, running all of this JavaScript
+as if it was inside a single file.
+
+40
+00:03:10.710 --> 00:03:14.410
+And often when in production
+JavaScript environments,
+
+41
+00:03:14.410 --> 00:03:19.020
+you actually combine and minify your
+JavaScript code into one file anyway.
+
+42
+00:03:20.150 --> 00:03:24.920
+So it's important that these files
+not collide with one another.
+
+43
+00:03:26.280 --> 00:03:27.490
+Let's run this code for a second.
+
+44
+00:03:30.980 --> 00:03:31.728
+And let's see what we get.
+
+45
+00:03:34.408 --> 00:03:37.840
+I'm going to go ahead and
+open my console window.
+
+46
+00:03:37.840 --> 00:03:39.830
+And look, Lib 2.
+
+47
+00:03:39.830 --> 00:03:43.512
+So what happened?
+
+48
+00:03:43.512 --> 00:03:49.700
+Well, what happened was that when
+looking at how the JavaScript
+
+49
+00:03:50.710 --> 00:03:55.760
+source files were loaded, library one or
+Lib 1 was loaded as line one.
+
+50
+00:03:56.830 --> 00:03:57.670
+Lib 2 was loaded.
+
+51
+00:03:57.670 --> 00:03:59.898
+So that's line two of
+the code that was run.
+
+52
+00:03:59.898 --> 00:04:02.930
+And then, console.log.
+
+53
+00:04:02.930 --> 00:04:05.900
+This was all then treated as
+
+54
+00:04:05.900 --> 00:04:10.870
+global variables sitting inside
+the global execution context, and
+
+55
+00:04:10.870 --> 00:04:14.760
+thus attached to the Window object,
+in the case of the browser.
+
+56
+00:04:16.220 --> 00:04:21.590
+So, I declared var libraryName, and
+that was attached to the window object.
+
+57
+00:04:21.590 --> 00:04:29.140
+And the second var just replaced it,
+right over this first library name.
+
+58
+00:04:30.640 --> 00:04:35.795
+So this can be a bit unusual when
+dealing with frameworks or libraries.
+
+59
+00:04:35.795 --> 00:04:40.050
+Maybe we've accidentally
+collided with another library, or
+
+60
+00:04:40.050 --> 00:04:42.820
+maybe another library
+is there to replace us.
+
+61
+00:04:42.820 --> 00:04:45.350
+So, we wanna be nice about this.
+
+62
+00:04:46.540 --> 00:04:47.160
+What can we do?
+
+63
+00:04:47.160 --> 00:04:52.425
+Well, let's go to Lib 2,
+and we can check and
+
+64
+00:04:52.425 --> 00:05:01.160
+see if libraryName is already in
+the global execution, global variable.
+
+65
+00:05:01.160 --> 00:05:06.247
+So, I could say window.libraryName =, and
+
+66
+00:05:06.247 --> 00:05:11.470
+then I'll say window.libraryName or Lib 2.
+
+67
+00:05:11.470 --> 00:05:14.930
+So what am I doing?
+
+68
+00:05:14.930 --> 00:05:19.040
+I'm checking to see if there's
+already a library name in the global
+
+69
+00:05:19.040 --> 00:05:22.600
+execution context sitting on
+the global variable which is Window.
+
+70
+00:05:23.740 --> 00:05:26.280
+If it is,
+then I'm just not going to do anything.
+
+71
+00:05:27.790 --> 00:05:32.900
+And if not, using the or operator
+to set my default value because if
+
+72
+00:05:32.900 --> 00:05:35.690
+this wasn't set by anyone,
+it'd be undefined.
+
+73
+00:05:35.690 --> 00:05:37.970
+Then, I'll set it to
+the value that I want.
+
+74
+00:05:39.430 --> 00:05:43.210
+So, if I run this code, it's Lib 1.
+
+75
+00:05:43.210 --> 00:05:46.050
+See that?
+
+76
+00:05:46.050 --> 00:05:50.460
+Because this first JavaScript file,
+that's the line that was run.
+
+77
+00:05:51.990 --> 00:05:54.090
+This is put onto the window object.
+
+78
+00:05:55.230 --> 00:05:59.600
+And then in my second library file,
+I just made sure that I wasn't colliding
+
+79
+00:06:00.690 --> 00:06:04.050
+with it by checking to see if something
+was already there of that name.
+
+80
+00:06:05.890 --> 00:06:09.450
+So in the case of a lot of frameworks and
+libraries,
+
+81
+00:06:09.450 --> 00:06:12.880
+you'll see a line of code that
+looks something like this.
+
+82
+00:06:12.880 --> 00:06:16.080
+Where it's actually setting the object or
+
+83
+00:06:16.080 --> 00:06:20.980
+the set of functions that define
+the library or the framework.
+
+84
+00:06:20.980 --> 00:06:25.770
+And not bothering to do anything at all if
+something is already there of that name.
+
+85
+00:06:25.770 --> 00:06:29.290
+Now of course, this could,
+in itself, cause some errors,
+
+86
+00:06:29.290 --> 00:06:32.850
+but that's likely
+the developer's fault for
+
+87
+00:06:32.850 --> 00:06:38.270
+perhaps colliding with the name that's
+already in the library he or she is using.
+
+88
+00:06:38.270 --> 00:06:42.990
+And it makes it easier to debug and
+understand what's going on,
+
+89
+00:06:42.990 --> 00:06:46.650
+because the entire library
+just won't be there.
+
+90
+00:06:46.650 --> 00:06:49.950
+Because it will say, oh,
+you've already used that name.
+
+91
+00:06:49.950 --> 00:06:53.300
+So I'm going to exclude myself
+from doing anything at all.
+
+92
+00:06:54.440 --> 00:06:57.910
+So when you look inside the source code
+and you see something that looks kind of
+
+93
+00:06:57.910 --> 00:07:03.590
+like this, understand that it's
+checking the global namespace,
+
+94
+00:07:03.590 --> 00:07:07.620
+or the global object,
+to see if something of that name is there.
+
+95
+00:07:07.620 --> 00:07:10.130
+So that it doesn't collide or override it.
+

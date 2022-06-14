@@ -1,0 +1,821 @@
+WEBVTT
+
+1
+00:00:01.710 --> 00:00:05.520
+It's time to talk about another
+special keyword that the JavaScript
+
+2
+00:00:05.520 --> 00:00:10.220
+engine sets up for you automatically
+when you execute a function.
+
+3
+00:00:11.310 --> 00:00:12.520
+It's called arguments.
+
+4
+00:00:13.660 --> 00:00:16.470
+And since in the next
+version of JavaScript,
+
+5
+00:00:16.470 --> 00:00:20.920
+we probably won't use arguments as much,
+we'll mention the new
+
+6
+00:00:20.920 --> 00:00:25.880
+approach to doing what arguments does
+currently which was called spread.
+
+7
+00:00:27.020 --> 00:00:29.830
+But, if you're looking at any code,
+
+8
+00:00:29.830 --> 00:00:33.750
+especially current code of frameworks and
+libraries,
+
+9
+00:00:33.750 --> 00:00:37.670
+their source code, you're likely
+going to see the arguments variable.
+
+10
+00:00:37.670 --> 00:00:40.370
+So, you should know what it is and
+how to use it.
+
+11
+00:00:40.370 --> 00:00:45.250
+As we've seen many times before,
+when you execute a function,
+
+12
+00:00:45.250 --> 00:00:49.090
+a new execution context is created,
+and the JavaScript engine
+
+13
+00:00:49.090 --> 00:00:53.402
+sets up some things for us like a variable
+environment to hold our variables,
+
+14
+00:00:53.402 --> 00:00:58.950
+an outer environment reference for
+the scope chain, the special keyword,
+
+15
+00:00:58.950 --> 00:01:03.220
+this, which will point to different things
+depending on where the function lives or
+
+16
+00:01:03.220 --> 00:01:11.170
+how it's called, and it also sets up
+another special keyword, called arguments.
+
+17
+00:01:11.170 --> 00:01:15.481
+Arguments contains a list
+of all the values,
+
+18
+00:01:15.481 --> 00:01:20.251
+of all the parameters that
+you pass to a function.
+
+19
+00:01:20.251 --> 00:01:24.997
+So arguments holds all those
+values that you pass to whatever
+
+20
+00:01:24.997 --> 00:01:27.970
+function you're calling.
+
+21
+00:01:27.970 --> 00:01:33.530
+And, just to be really clear,
+big word alert,
+
+22
+00:01:35.970 --> 00:01:39.620
+arguments, the concept
+of arguments in general,
+
+23
+00:01:39.620 --> 00:01:44.890
+is just another name for
+the parameters you pass to a function.
+
+24
+00:01:44.890 --> 00:01:46.930
+So you could say your parameters.
+
+25
+00:01:46.930 --> 00:01:51.310
+You could also say your arguments.That's
+really in the case of any
+
+26
+00:01:51.310 --> 00:01:53.970
+programming language that has functions.
+
+27
+00:01:53.970 --> 00:02:00.020
+However, JavaScript gives you a keyword of
+that same name which contains them all.
+
+28
+00:02:01.110 --> 00:02:04.000
+So when we're talking about
+the concept of arguments,
+
+29
+00:02:04.000 --> 00:02:07.280
+we're just talking about the parameters
+you pass to your function.
+
+30
+00:02:07.280 --> 00:02:10.050
+But the special keyword arguments
+
+31
+00:02:10.050 --> 00:02:13.820
+is something special that
+the JavaScript engine sets up for you.
+
+32
+00:02:13.820 --> 00:02:14.930
+To understand arguments and
+
+33
+00:02:14.930 --> 00:02:18.080
+how it can be useful,
+let's set up another simple scenario.
+
+34
+00:02:18.080 --> 00:02:21.490
+We've been using this idea of
+a greeting function a lot,
+
+35
+00:02:21.490 --> 00:02:23.560
+so let's create a function greet.
+
+36
+00:02:23.560 --> 00:02:27.120
+And it'll be firstname,
+lastname, and language.
+
+37
+00:02:28.260 --> 00:02:31.934
+And then inside here
+all I'm going to do for
+
+38
+00:02:31.934 --> 00:02:35.405
+now is just log all of these parameters,
+
+39
+00:02:35.405 --> 00:02:40.529
+all of these arguments,
+that I've passed to my function.
+
+40
+00:02:44.734 --> 00:02:45.500
+Let's do that.
+
+41
+00:02:45.500 --> 00:02:46.550
+Okay.
+
+42
+00:02:46.550 --> 00:02:52.610
+So, if I call greet then it's
+going to log these values.
+
+43
+00:02:52.610 --> 00:02:57.760
+Now here's what's unusual about
+JavaScript compared to other languages.
+
+44
+00:02:57.760 --> 00:03:04.720
+I can just call greet and
+not have any parameters passed to it.
+
+45
+00:03:05.810 --> 00:03:07.840
+In other programming languages
+this would be an error.
+
+46
+00:03:07.840 --> 00:03:13.900
+It would say, well I expect these values,
+but JavaScript doesn't care.
+
+47
+00:03:13.900 --> 00:03:21.141
+If I go run this in my browser, and I'll
+refresh the page here, I get undefined.
+
+48
+00:03:21.141 --> 00:03:23.950
+So, hoisting,
+
+49
+00:03:23.950 --> 00:03:29.640
+that thing that happens when the function
+is executed, where it sets up the values,
+
+50
+00:03:30.780 --> 00:03:35.700
+takes care of these parameters for me
+even though I haven't given them values.
+
+51
+00:03:35.700 --> 00:03:37.230
+It executed the greet function,
+
+52
+00:03:37.230 --> 00:03:42.250
+and the first thing it did was set up
+memory space for firstname, lastname, and
+
+53
+00:03:42.250 --> 00:03:46.430
+language and set them equal to undefined,
+just like we've already learned.
+
+54
+00:03:46.430 --> 00:03:50.090
+And the fact that we didn't give
+it any values to set it to, well,
+
+55
+00:03:50.090 --> 00:03:51.840
+JavaScript didn't care.
+
+56
+00:03:51.840 --> 00:03:53.300
+It still set up the memory space,
+
+57
+00:03:53.300 --> 00:03:57.610
+and they're equal to undefined,
+just like we've learned before.
+
+58
+00:03:57.610 --> 00:04:02.400
+And then, if I start to pass arguments,
+they'll be processed left to right.
+
+59
+00:04:02.400 --> 00:04:07.260
+So, if I pass John,
+it will assume that this
+
+60
+00:04:07.260 --> 00:04:12.710
+one is the first name and that I've passed
+nothing to the lastname and language.
+
+61
+00:04:12.710 --> 00:04:18.380
+So, what I see, and
+just to make sure we separate clearly
+
+62
+00:04:19.430 --> 00:04:24.258
+these different parameters, or
+these different function calls,
+
+63
+00:04:24.258 --> 00:04:28.700
+I'm just gonna put a line there so
+that we see that in the console log.
+
+64
+00:04:28.700 --> 00:04:32.510
+So, first we'll see this get outputted,
+then we'll see this get outputted.
+
+65
+00:04:33.580 --> 00:04:40.010
+And when I run this, you'll see
+now that firstname holds John and
+
+66
+00:04:40.010 --> 00:04:43.340
+the other two are still
+undefined because of hoisting.
+
+67
+00:04:44.800 --> 00:04:49.030
+So I could go on, and I could pass Doe.
+
+68
+00:04:49.030 --> 00:04:53.230
+And I could pass Doe
+
+69
+00:04:54.950 --> 00:04:59.420
+and en for English or es for
+Spanish, or whatever.
+
+70
+00:04:59.420 --> 00:05:06.520
+And, we'll see that on each one of
+those subsequent function invocations,
+
+71
+00:05:06.520 --> 00:05:11.920
+each time I run that function,
+first I have three undefineds, then two,
+
+72
+00:05:11.920 --> 00:05:17.300
+then only language is undefined, and
+then they're all three are defined.
+
+73
+00:05:17.300 --> 00:05:23.360
+So, this means that you can skip
+the passing of parameters or you can pass
+
+74
+00:05:23.360 --> 00:05:28.980
+only part of this list of parameters,
+and JavaScript's okay with that.
+
+75
+00:05:28.980 --> 00:05:32.870
+While this feels a little weird, it
+actually introduces some powerful concepts
+
+76
+00:05:32.870 --> 00:05:35.760
+to the language under
+certain circumstances.
+
+77
+00:05:35.760 --> 00:05:39.160
+For example,
+in the next version of JavaScript,
+
+78
+00:05:39.160 --> 00:05:42.120
+I'll be able to set a default parameter.
+
+79
+00:05:42.120 --> 00:05:45.040
+I'll be able to say,
+if you don't give me a value,
+
+80
+00:05:45.040 --> 00:05:48.240
+then make it English for example here.
+
+81
+00:05:48.240 --> 00:05:49.890
+If I don't give you language,
+
+82
+00:05:49.890 --> 00:05:55.080
+if this is undefined in these first
+three cases here then set this value.
+
+83
+00:05:56.220 --> 00:06:00.830
+However, as that's not available
+in all modern browsers yet, and
+
+84
+00:06:00.830 --> 00:06:05.490
+older ones as well, you can use
+that default parameter concept,
+
+85
+00:06:05.490 --> 00:06:09.550
+the default value concept,
+to set up default parameters.
+
+86
+00:06:09.550 --> 00:06:15.040
+So I could say,
+language is equal to language or English.
+
+87
+00:06:15.040 --> 00:06:20.680
+So, if this is undefined,
+it gets passed to the or operator,
+
+88
+00:06:20.680 --> 00:06:26.680
+gets coerced to false cuz undefined
+coerced is to false, remember?
+
+89
+00:06:26.680 --> 00:06:29.530
+And then I'll end up with this value,
+English,
+
+90
+00:06:29.530 --> 00:06:34.990
+getting passed to the equals operator,
+so language will end up equaling English
+
+91
+00:06:34.990 --> 00:06:38.140
+if it's undefined by the time I
+start running this statement.
+
+92
+00:06:39.210 --> 00:06:40.120
+All right, let's try that.
+
+93
+00:06:42.130 --> 00:06:43.770
+Refresh.
+
+94
+00:06:43.770 --> 00:06:47.850
+Notice now, instead of undefined for
+language, I get English.
+
+95
+00:06:47.850 --> 00:06:48.840
+English.
+
+96
+00:06:48.840 --> 00:06:49.490
+English.
+
+97
+00:06:49.490 --> 00:06:52.018
+And then when I do pass it,
+it just stays Spanish.
+
+98
+00:06:52.018 --> 00:06:53.882
+See that?
+
+99
+00:06:53.882 --> 00:06:57.890
+So, I've set up default
+parameters using this approach.
+
+100
+00:06:57.890 --> 00:07:01.350
+In the next version of JavaScript I'll
+be able to just put it right there
+
+101
+00:07:01.350 --> 00:07:04.595
+where I declare the parameter
+while defining the function.
+
+102
+00:07:04.595 --> 00:07:10.420
+And at this point we can
+also show you that there's
+
+103
+00:07:10.420 --> 00:07:15.110
+a special keyword that this
+JavaScript engine has set up for us.
+
+104
+00:07:16.320 --> 00:07:20.690
+Just like the keyword, this,
+we have a new keyword called arguments.
+
+105
+00:07:20.690 --> 00:07:22.810
+Notice I didn't declare it anywhere.
+
+106
+00:07:22.810 --> 00:07:25.480
+It's just automatically available to me.
+
+107
+00:07:25.480 --> 00:07:28.730
+The execution context made
+sure that I have this set up.
+
+108
+00:07:29.750 --> 00:07:32.640
+So what do I get when I see arguments?
+
+109
+00:07:32.640 --> 00:07:36.891
+Let's look.
+Well notice, that it's
+
+110
+00:07:36.891 --> 00:07:42.104
+containing a list of all the values
+
+111
+00:07:42.104 --> 00:07:47.868
+of the parameters that I've passed.
+
+112
+00:07:47.868 --> 00:07:49.280
+See that?
+
+113
+00:07:51.500 --> 00:07:55.310
+So you might notice that this
+kind of looks like an array, but
+
+114
+00:07:55.310 --> 00:07:59.300
+we generally declare an array
+with brackets, like that.
+
+115
+00:07:59.300 --> 00:08:02.790
+Those are slighty italicized brackets.
+
+116
+00:08:02.790 --> 00:08:06.870
+That's because the argument's
+special thing that
+
+117
+00:08:06.870 --> 00:08:11.120
+the JavaScript engine sets up
+is what we'd call array-like.
+
+118
+00:08:11.120 --> 00:08:13.170
+You'll see that if you look it up.
+
+119
+00:08:13.170 --> 00:08:17.880
+That means that it acts like an array,
+it looks like an array, but
+
+120
+00:08:17.880 --> 00:08:20.290
+it isn't exactly a JavaScript array.
+
+121
+00:08:21.550 --> 00:08:25.947
+Only in the sense that it doesn't have
+all the features of a JavaScript array.
+
+122
+00:08:26.960 --> 00:08:28.640
+A lot of people are upset about this too.
+
+123
+00:08:28.640 --> 00:08:29.800
+They think that's wrong.
+
+124
+00:08:29.800 --> 00:08:30.700
+I agree.
+
+125
+00:08:30.700 --> 00:08:33.828
+I think arguments should just
+be a regular JavaScript array,
+
+126
+00:08:33.828 --> 00:08:35.950
+but, that's what the engine does.
+
+127
+00:08:35.950 --> 00:08:40.820
+It's sufficed to say that it acts
+enough like an array that we can use it
+
+128
+00:08:40.820 --> 00:08:43.280
+in the same way under most circumstances.
+
+129
+00:08:43.280 --> 00:08:46.990
+So for example if I don't want my
+function to try to do anything,
+
+130
+00:08:46.990 --> 00:08:53.700
+if no parameters are passed,
+I could check the arguments.length,
+
+131
+00:08:53.700 --> 00:08:58.980
+and if it's zero, meaning that since
+it contains the list of all the values
+
+132
+00:08:58.980 --> 00:09:02.610
+a length of zero,
+just like any array would mean it's empty.
+
+133
+00:09:02.610 --> 00:09:06.850
+I could do something like,
+Missing parameters.
+
+134
+00:09:08.600 --> 00:09:12.440
+Then I'll just drop this and return.
+
+135
+00:09:12.440 --> 00:09:16.570
+And the return statement will just
+kick me back out of the function, and
+
+136
+00:09:16.570 --> 00:09:17.690
+it won't do any of this.
+
+137
+00:09:18.800 --> 00:09:23.370
+So if I save and run this, look at that.
+
+138
+00:09:23.370 --> 00:09:27.360
+Missing parameters, and then it goes
+on when I finally have some parameters
+
+139
+00:09:27.360 --> 00:09:33.310
+because this arguments
+variable.length is greater than zero.
+
+140
+00:09:33.310 --> 00:09:37.620
+That is it isn't zero,
+it just skip this if and moves on.
+
+141
+00:09:37.620 --> 00:09:41.730
+So I could do something special depending
+on how many arguments was passed to me,
+
+142
+00:09:41.730 --> 00:09:43.010
+for example.
+
+143
+00:09:43.010 --> 00:09:47.700
+And although arguments doesn't
+contain the names of the arguments,
+
+144
+00:09:47.700 --> 00:09:51.490
+just the values,
+I could use it like an array.
+
+145
+00:09:51.490 --> 00:09:54.490
+I can use the brackets operator and
+
+146
+00:09:54.490 --> 00:09:59.390
+say, give me an argument
+value at that position.
+
+147
+00:09:59.390 --> 00:10:03.360
+So the zero position
+being the first position.
+
+148
+00:10:03.360 --> 00:10:06.800
+And I should see that there, and
+just to be clear what it is,
+
+149
+00:10:06.800 --> 00:10:09.370
+I'll just say arg 0 like that.
+
+150
+00:10:11.010 --> 00:10:15.310
+And if I go back, and refresh, we see that
+
+151
+00:10:16.590 --> 00:10:21.616
+arg 0 is John because
+it's the first element
+
+152
+00:10:21.616 --> 00:10:26.570
+in this array-like
+structure called arguments.
+
+153
+00:10:27.840 --> 00:10:33.280
+So that's arguments, when you see this
+being used you can understand what it is.
+
+154
+00:10:33.280 --> 00:10:35.960
+It's worth saying that as time goes on,
+
+155
+00:10:35.960 --> 00:10:39.390
+arguments will become
+what's called deprecated.
+
+156
+00:10:39.390 --> 00:10:42.920
+That means that it's something
+that will still be around but
+
+157
+00:10:42.920 --> 00:10:44.900
+won't be the best way to
+do something anymore.
+
+158
+00:10:44.900 --> 00:10:46.990
+There'll be something new.
+
+159
+00:10:46.990 --> 00:10:49.620
+The new thing is called
+a spread parameter.
+
+160
+00:10:50.980 --> 00:10:56.025
+That means that if I
+have parameters that I'm
+
+161
+00:10:56.025 --> 00:11:02.414
+passing to a function,
+I can add a parameter with a...
+
+162
+00:11:02.414 --> 00:11:04.230
+and then a name.
+
+163
+00:11:04.230 --> 00:11:06.140
+Whatever that name might
+be that I want to call it.
+
+164
+00:11:07.380 --> 00:11:11.900
+And if I add on,
+tack on other parameters in the call,
+
+165
+00:11:11.900 --> 00:11:16.298
+let's say I added on address and
+
+166
+00:11:16.298 --> 00:11:20.410
+a street name and a city name,
+or something like that.
+
+167
+00:11:21.450 --> 00:11:26.490
+These extra parameters that
+aren't defined explicitly
+
+168
+00:11:26.490 --> 00:11:30.370
+all get wrapped up into
+a JavaScript array.
+
+169
+00:11:30.370 --> 00:11:35.580
+So this, ..., means take everything else,
+and wrap it up into an array of this name.
+
+170
+00:11:36.790 --> 00:11:41.160
+This isn't completely available yet
+either, but once it becomes available,
+
+171
+00:11:42.170 --> 00:11:47.410
+then it will be the preferred
+approach to dealing with various
+
+172
+00:11:47.410 --> 00:11:53.010
+sequences and various numbers
+of arguments of parameters.
+
+173
+00:11:54.030 --> 00:11:56.010
+So, that's just good to know about.
+
+174
+00:11:56.010 --> 00:11:59.720
+But again, right now,
+you'll see a lot of usage of arguments.
+

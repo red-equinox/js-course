@@ -1,0 +1,1305 @@
+WEBVTT
+
+1
+00:00:01.850 --> 00:00:05.620
+It's time to talk about
+Comparison Operators in JavaScript.
+
+2
+00:00:05.620 --> 00:00:10.270
+And here's where we'll see that what we've
+been discussing, all these things that
+
+3
+00:00:10.270 --> 00:00:15.250
+may have felt not very necessary until
+now, regarding operators and precedents,
+
+4
+00:00:15.250 --> 00:00:19.170
+and associativity and
+coercion where they all come together.
+
+5
+00:00:19.170 --> 00:00:24.290
+To explain some behaviors in
+JavaScript that many find confusing.
+
+6
+00:00:24.290 --> 00:00:28.800
+So again I have a blank app.js file,
+I'm gonna try some things.
+
+7
+00:00:28.800 --> 00:00:34.160
+And I encourage you to try these
+things yourself in your app.js file or
+
+8
+00:00:34.160 --> 00:00:37.780
+in the console,
+in the dev tools of your browser.
+
+9
+00:00:37.780 --> 00:00:39.180
+Mess around.
+
+10
+00:00:39.180 --> 00:00:43.960
+As we discuss,
+you'll want to be able to understand and
+
+11
+00:00:43.960 --> 00:00:47.650
+be familiar with some of the quirks
+that we're going to see.
+
+12
+00:00:47.650 --> 00:00:50.310
+All right, so for example,
+
+13
+00:00:51.950 --> 00:00:57.090
+I'm going to console.log a statement
+that should look pretty obvious.
+
+14
+00:00:57.090 --> 00:01:00.253
+One is less than two is less than three.
+
+15
+00:01:02.212 --> 00:01:06.320
+So, as a human,
+what would you expect the result to be?
+
+16
+00:01:06.320 --> 00:01:10.380
+Again, these are less than operator.
+
+17
+00:01:10.380 --> 00:01:12.337
+So, it's gonna return a boolean.
+
+18
+00:01:12.337 --> 00:01:14.240
+Either this is true or false.
+
+19
+00:01:14.240 --> 00:01:18.480
+If I just read this one is less
+than two is less than three.
+
+20
+00:01:18.480 --> 00:01:21.405
+I would expect that to be true,
+cuz it is true.
+
+21
+00:01:21.405 --> 00:01:24.620
+One is less than two and
+two is less than three.
+
+22
+00:01:24.620 --> 00:01:30.070
+So if I run this, it appears that
+the browser agrees that JavaScript,
+
+23
+00:01:30.070 --> 00:01:34.580
+the JavaScript engine inside the browser
+ran that statement and agrees with that,
+
+24
+00:01:34.580 --> 00:01:35.390
+cuz it said true.
+
+25
+00:01:35.390 --> 00:01:42.256
+All right, let's change this to three
+is less than two is less than one.
+
+26
+00:01:42.256 --> 00:01:45.165
+Well that should be false, right?
+
+27
+00:01:45.165 --> 00:01:48.940
+Three is not less than two,
+two is not less than one.
+
+28
+00:01:48.940 --> 00:01:50.770
+I run that.
+
+29
+00:01:50.770 --> 00:01:53.680
+And that's also true.
+
+30
+00:01:55.410 --> 00:02:00.180
+So why is this returning true?
+
+31
+00:02:00.180 --> 00:02:04.390
+And for that matter, why did one is less
+than two is less than three return true?
+
+32
+00:02:05.410 --> 00:02:08.610
+Well, we can start to answer this by
+using the knowledge we've gained.
+
+33
+00:02:08.610 --> 00:02:10.810
+About operator precedence and
+associativity.
+
+34
+00:02:12.040 --> 00:02:17.660
+These are two less than operators,
+so they have the same precedence.
+
+35
+00:02:17.660 --> 00:02:19.830
+So what determines which
+one gets run first?
+
+36
+00:02:21.170 --> 00:02:22.600
+Well, associativity.
+
+37
+00:02:24.160 --> 00:02:29.130
+And if I scroll down and
+find the less than operator,
+
+38
+00:02:29.130 --> 00:02:34.220
+I see that it's left to right
+associativity, see that?
+
+39
+00:02:34.220 --> 00:02:38.710
+That means, the one furthest to
+the left will get run first.
+
+40
+00:02:38.710 --> 00:02:42.604
+So, what does three is
+less than two return?
+
+41
+00:02:42.604 --> 00:02:44.710
+Well, we know that.
+
+42
+00:02:44.710 --> 00:02:50.144
+If I clear this and go,
+three less than two, it returns false.
+
+43
+00:02:50.144 --> 00:02:54.090
+So That means what's really
+happening is that this is being run.
+
+44
+00:02:56.280 --> 00:02:58.730
+The second operator function,
+
+45
+00:02:58.730 --> 00:03:03.530
+when it's invoked, is getting passed
+the parameters one and false.
+
+46
+00:03:04.660 --> 00:03:09.340
+And what does an operator
+in JavaScript try to do
+
+47
+00:03:09.340 --> 00:03:13.960
+when I give it a value that's
+a type it doesn't expect.
+
+48
+00:03:13.960 --> 00:03:16.760
+This wants two numbers and
+I'm giving it a number and a boolean.
+
+49
+00:03:17.890 --> 00:03:22.017
+Well it's going to try to coerce or
+convert this boolean to a number.
+
+50
+00:03:22.017 --> 00:03:27.829
+Well what does false become when
+I try to convert it to a number?
+
+51
+00:03:29.320 --> 00:03:31.560
+We can actually see this
+if I open up the console.
+
+52
+00:03:31.560 --> 00:03:33.420
+I'll clear this again.
+
+53
+00:03:34.610 --> 00:03:37.490
+I can use a built in function.
+
+54
+00:03:37.490 --> 00:03:40.330
+I recommend that you don't use this but
+
+55
+00:03:40.330 --> 00:03:44.550
+its very useful to see what
+things will coerce to.
+
+56
+00:03:45.790 --> 00:03:50.510
+However we'll talk about this later
+in the course about using these and
+
+57
+00:03:50.510 --> 00:03:52.940
+not using these built-in functions.
+
+58
+00:03:52.940 --> 00:03:57.430
+But just to show what something coerces
+to, I'm gonna use the number function,
+
+59
+00:03:57.430 --> 00:04:01.940
+where I can give it a value,
+any value, and it will show me what
+
+60
+00:04:01.940 --> 00:04:05.490
+this will coerce to, because it
+will try to convert it to a number.
+
+61
+00:04:05.490 --> 00:04:07.020
+So if I, for example,
+
+62
+00:04:07.020 --> 00:04:11.920
+try to coerce the string three I get
+a three back as we've talked about.
+
+63
+00:04:13.150 --> 00:04:18.860
+All right so I'm going to try to
+coerce a boolean false into a number.
+
+64
+00:04:18.860 --> 00:04:20.586
+What does it become?
+
+65
+00:04:20.586 --> 00:04:21.345
+Zero.
+
+66
+00:04:21.345 --> 00:04:25.510
+Well that's interesting.
+
+67
+00:04:25.510 --> 00:04:30.460
+Actually true and false both can
+coerce false becomes a zero and
+
+68
+00:04:30.460 --> 00:04:31.930
+true becomes a one.
+
+69
+00:04:33.640 --> 00:04:36.630
+So, what does that mean is happening?
+
+70
+00:04:36.630 --> 00:04:40.830
+Well, over here, when this less
+than operator is invoked, and
+
+71
+00:04:40.830 --> 00:04:44.260
+it coerces false,
+it's actually running this statement.
+
+72
+00:04:45.660 --> 00:04:47.290
+Is zero less than one?
+
+73
+00:04:47.290 --> 00:04:51.770
+Because it converted the boolean to
+a different type to a number, and
+
+74
+00:04:51.770 --> 00:04:53.380
+that became a zero.
+
+75
+00:04:54.720 --> 00:04:56.270
+So, is zero less than one?
+
+76
+00:04:57.500 --> 00:05:00.190
+So this becomes true.
+
+77
+00:05:01.310 --> 00:05:06.230
+So if I look at the order again,
+three is less than two is false.
+
+78
+00:05:06.230 --> 00:05:09.030
+Left to right associativity,
+that was called first.
+
+79
+00:05:09.030 --> 00:05:10.680
+False is less than one.
+
+80
+00:05:10.680 --> 00:05:13.380
+False becomes coerced,
+so convert it to zero.
+
+81
+00:05:13.380 --> 00:05:15.490
+Zero is less than one?
+
+82
+00:05:15.490 --> 00:05:16.720
+That's true.
+
+83
+00:05:16.720 --> 00:05:21.870
+So this sequence of function calls,
+three is less than two is less than one.
+
+84
+00:05:21.870 --> 00:05:25.210
+Although it looks from
+a human perspective,
+
+85
+00:05:25.210 --> 00:05:28.360
+like it should obviously be false.
+
+86
+00:05:28.360 --> 00:05:32.400
+From the JavaScript engine's perspective,
+which parses and
+
+87
+00:05:32.400 --> 00:05:36.660
+executes this code,
+it makes perfect sense.
+
+88
+00:05:36.660 --> 00:05:43.140
+That this result would be true
+because of the order of execution
+
+89
+00:05:43.140 --> 00:05:47.610
+of these function operators and
+the coercion of the resulting values.
+
+90
+00:05:48.710 --> 00:05:51.940
+But we can see how not
+understanding these things
+
+91
+00:05:51.940 --> 00:05:56.700
+could lead one to feel that JavaScript is
+behaving in a weird or strange manner.
+
+92
+00:05:58.360 --> 00:06:03.100
+Let's go back to one is less
+than two is less than three.
+
+93
+00:06:03.100 --> 00:06:08.130
+Now that we have a grasp of what's really
+happening, we can see that even though
+
+94
+00:06:09.130 --> 00:06:14.390
+this is returning true, it's not because
+it's doing what we're doing as humans.
+
+95
+00:06:14.390 --> 00:06:17.320
+Looking at that and saying yes,
+obviously that's true.
+
+96
+00:06:17.320 --> 00:06:20.630
+What's actually happening is it's
+running this function first because of
+
+97
+00:06:20.630 --> 00:06:24.360
+left associativity for
+the less than operator.
+
+98
+00:06:24.360 --> 00:06:26.560
+One is less than two is true.
+
+99
+00:06:27.780 --> 00:06:32.010
+True less than three,
+this function operator is invoked.
+
+100
+00:06:32.010 --> 00:06:33.490
+True is coerced.
+
+101
+00:06:33.490 --> 00:06:35.120
+Remember what that was.
+
+102
+00:06:35.120 --> 00:06:37.100
+True becomes a one.
+
+103
+00:06:37.100 --> 00:06:40.055
+And one is less than three, is true.
+
+104
+00:06:40.055 --> 00:06:41.940
+And so we get true.
+
+105
+00:06:43.240 --> 00:06:47.790
+So we see that coercion can cause some,
+
+106
+00:06:47.790 --> 00:06:50.190
+from a human perspective,
+surprising results.
+
+107
+00:06:50.190 --> 00:06:52.800
+But from the computer's perspective,
+
+108
+00:06:52.800 --> 00:06:55.620
+from the JavaScript engine,
+this makes total sense.
+
+109
+00:06:56.880 --> 00:07:04.350
+Now, that is to say that not every case is
+going to coerce in a way that is expected.
+
+110
+00:07:04.350 --> 00:07:08.910
+For example, I can coerce false or
+true to a number.
+
+111
+00:07:08.910 --> 00:07:14.590
+I can coerce a string to a number
+if that string looks like a number.
+
+112
+00:07:15.840 --> 00:07:18.550
+But, if I try to coerce, for example,
+
+113
+00:07:20.230 --> 00:07:26.440
+undefined, I get this special thing.
+
+114
+00:07:26.440 --> 00:07:30.460
+NaN, which literally means, not a number.
+
+115
+00:07:31.560 --> 00:07:36.610
+This isn't exactly a primitive type,
+but you can basically treat it as such.
+
+116
+00:07:36.610 --> 00:07:42.550
+Not a number means, I have this thing
+that I tried to convert to a number and
+
+117
+00:07:42.550 --> 00:07:43.880
+it just isn't a number.
+
+118
+00:07:43.880 --> 00:07:46.770
+There's no way to convert it to a number.
+
+119
+00:07:46.770 --> 00:07:49.960
+So undefined couldn't convert to a number.
+
+120
+00:07:50.960 --> 00:07:54.050
+Or null, oh well wait a minute.
+
+121
+00:07:55.130 --> 00:07:59.056
+Null, JavaScript decides, is a zero.
+
+122
+00:07:59.056 --> 00:08:02.110
+So you see what's happening?
+
+123
+00:08:04.260 --> 00:08:11.800
+It isn't always obvious what
+a particular type is going to coerce to.
+
+124
+00:08:11.800 --> 00:08:13.530
+The JavaScript engine decides.
+
+125
+00:08:14.850 --> 00:08:16.870
+This can cause a lot of strange bugs and
+
+126
+00:08:16.870 --> 00:08:20.210
+odd problems if you don't
+understand again what's going on.
+
+127
+00:08:21.500 --> 00:08:23.120
+You can believe that undefined and
+
+128
+00:08:23.120 --> 00:08:26.580
+null are going to behave the same way,
+but they won't.
+
+129
+00:08:28.130 --> 00:08:32.629
+So while coercion is very powerful,
+it can also be dangerous,
+
+130
+00:08:34.210 --> 00:08:39.710
+So wouldn't it be nice if we had
+a way to not coerce under a certain,
+
+131
+00:08:39.710 --> 00:08:41.780
+very common circumstance?
+
+132
+00:08:41.780 --> 00:08:43.710
+That is checking if two things are equal.
+
+133
+00:08:45.130 --> 00:08:45.990
+Well, we do.
+
+134
+00:08:47.120 --> 00:08:50.352
+Let's pull up our JavaScript
+Operator Precedence table again.
+
+135
+00:08:50.352 --> 00:08:52.220
+All right,
+
+136
+00:08:52.220 --> 00:08:58.130
+I'm going to scroll down to find something
+very common in programming languages.
+
+137
+00:08:58.130 --> 00:08:58.630
+Equality.
+
+138
+00:08:59.870 --> 00:09:02.100
+It's a double equals.
+
+139
+00:09:02.100 --> 00:09:04.760
+Meaning, are two things equal?
+
+140
+00:09:04.760 --> 00:09:07.070
+We often put this in if statements.
+
+141
+00:09:07.070 --> 00:09:10.580
+If something equals something else.
+
+142
+00:09:10.580 --> 00:09:14.799
+So, if I open up my browser and
+clear this.
+
+143
+00:09:15.930 --> 00:09:20.640
+It might be something
+like three equals three.
+
+144
+00:09:20.640 --> 00:09:24.550
+This is an operator and
+it returns true or false.
+
+145
+00:09:24.550 --> 00:09:25.050
+True.
+
+146
+00:09:26.710 --> 00:09:31.860
+If I pass it the string three and
+three, very much like those
+
+147
+00:09:31.860 --> 00:09:38.030
+operators that we've seen, the doubles
+equal operator coerce the types.
+
+148
+00:09:38.030 --> 00:09:42.440
+It expects two of the same type and
+if they're not, it will make a choice.
+
+149
+00:09:44.480 --> 00:09:44.980
+True.
+
+150
+00:09:46.190 --> 00:09:50.010
+It coerced one type and
+then checked equality.
+
+151
+00:09:51.220 --> 00:09:55.460
+But again we saw that this
+can be a little strange.
+
+152
+00:09:55.460 --> 00:09:57.319
+This can cause some strange side effects.
+
+153
+00:09:59.050 --> 00:10:03.820
+For example, if I clear this,
+we know that false
+
+154
+00:10:03.820 --> 00:10:07.930
+when converted to a number
+when coerced becomes a zero.
+
+155
+00:10:07.930 --> 00:10:12.334
+So that means false double
+equals zero is true.
+
+156
+00:10:12.334 --> 00:10:16.470
+Strange, right?
+
+157
+00:10:16.470 --> 00:10:19.470
+That means var a equals false.
+
+158
+00:10:19.470 --> 00:10:22.010
+I have a variable that's a bullion.
+
+159
+00:10:22.010 --> 00:10:27.250
+And if I check if a is zero, it says
+yes a is zero, because of coercion.
+
+160
+00:10:28.645 --> 00:10:32.605
+This can cause those kind of strange
+problems that are hard to debug.
+
+161
+00:10:34.415 --> 00:10:36.885
+Or, I already said false equals zero,
+that's true.
+
+162
+00:10:36.885 --> 00:10:39.034
+How about null equals zero?
+
+163
+00:10:39.034 --> 00:10:42.775
+Remember null also coerces
+to zero as a number.
+
+164
+00:10:44.485 --> 00:10:46.445
+Oh, but that's false.
+
+165
+00:10:47.575 --> 00:10:49.985
+So, there are special cases,
+like undefined and
+
+166
+00:10:49.985 --> 00:10:54.150
+null, that don't do what you would expect.
+
+167
+00:10:55.860 --> 00:10:56.920
+False equals zero.
+
+168
+00:10:58.150 --> 00:11:03.387
+Yes, but null, although it coerces
+to zero under other circumstances,
+
+169
+00:11:03.387 --> 00:11:08.380
+like null is less than 1,
+it doesn't coerce to zero for comparison.
+
+170
+00:11:09.890 --> 00:11:12.910
+This causes all sorts of confusion and
+problems.
+
+171
+00:11:12.910 --> 00:11:16.970
+And is actually considered
+a negative part of the language,
+
+172
+00:11:16.970 --> 00:11:23.060
+in that comparison operators,
+especially double equals causes
+
+173
+00:11:23.060 --> 00:11:28.171
+strange errors because of unexpected
+ways in which it behaves.
+
+174
+00:11:30.350 --> 00:11:31.088
+I'll show you another one.
+
+175
+00:11:31.088 --> 00:11:36.450
+Double equals using
+
+176
+00:11:36.450 --> 00:11:40.500
+an empty string and zero, that's true.
+
+177
+00:11:42.410 --> 00:11:48.580
+So if I have empty string and
+false, that's also true.
+
+178
+00:11:50.840 --> 00:11:54.930
+You see the problem,
+it makes some sense because it's
+
+179
+00:11:54.930 --> 00:11:58.260
+attempting to convert these
+values to the same time.
+
+180
+00:11:59.310 --> 00:12:04.490
+But it can make your code
+very difficult to anticipate
+
+181
+00:12:04.490 --> 00:12:06.380
+as far as what's going to happen.
+
+182
+00:12:06.380 --> 00:12:07.510
+So how do we solve this.
+
+183
+00:12:08.840 --> 00:12:13.980
+Well, we'll go back to our
+operator precedence table, and
+
+184
+00:12:13.980 --> 00:12:17.280
+we saw the double equals,
+which is equality.
+
+185
+00:12:17.280 --> 00:12:24.370
+But there's also a triple equals,
+which is called strict equality.
+
+186
+00:12:25.760 --> 00:12:30.360
+And the same there's regular inequality,
+not equal, using the exclamation mark.
+
+187
+00:12:30.360 --> 00:12:34.280
+And there's strict inequality, not equal,
+
+188
+00:12:34.280 --> 00:12:36.710
+using an exclamation mark and
+a double equals.
+
+189
+00:12:37.950 --> 00:12:39.980
+So when people see these triple equals for
+
+190
+00:12:39.980 --> 00:12:43.810
+the first time, especially if coming
+from another programming language.
+
+191
+00:12:43.810 --> 00:12:48.060
+The first response is what
+in the world is that?
+
+192
+00:12:49.380 --> 00:12:51.600
+That is going to save your life.
+
+193
+00:12:53.040 --> 00:12:57.950
+Strict inequality,
+the triple equals compares two things,
+
+194
+00:12:57.950 --> 00:13:04.420
+it's a standard operator, but
+doesn't try to coerce the values.
+
+195
+00:13:04.420 --> 00:13:07.760
+If the two values are not the same type,
+
+196
+00:13:07.760 --> 00:13:11.130
+it just says no,
+they're not equal and returns false.
+
+197
+00:13:12.380 --> 00:13:17.011
+So, if I clear this,
+three triple equals three is
+
+198
+00:13:17.011 --> 00:13:20.798
+true because those are both numeric.
+
+199
+00:13:20.798 --> 00:13:24.750
+Three triple equals three the strings,
+also true,
+
+200
+00:13:24.750 --> 00:13:30.195
+because they're the same value and
+they're both strings.
+
+201
+00:13:30.195 --> 00:13:35.564
+But three the string triple equals
+
+202
+00:13:35.564 --> 00:13:40.200
+three the number, is false.
+
+203
+00:13:41.520 --> 00:13:45.840
+The triple equals,
+built in operator function,
+
+204
+00:13:45.840 --> 00:13:50.730
+says those two things are a different
+type, so they're not equal.
+
+205
+00:13:52.370 --> 00:13:56.200
+So using the triple equals will prevent us
+
+206
+00:13:56.200 --> 00:14:00.220
+from having some odd
+potential errors in our code.
+
+207
+00:14:00.220 --> 00:14:01.500
+When comparing values.
+
+208
+00:14:02.870 --> 00:14:08.790
+So if I go back to my code, I'm gonna
+shrink down the font size just a bit.
+
+209
+00:14:09.980 --> 00:14:15.210
+And let's say I had a variable
+a which is a zero a number,
+
+210
+00:14:15.210 --> 00:14:17.390
+variable b which is false.
+
+211
+00:14:17.390 --> 00:14:19.350
+The Boolean, two primitive types.
+
+212
+00:14:19.350 --> 00:14:25.035
+And I say if double equals right here,
+if a double equals b,
+
+213
+00:14:25.035 --> 00:14:31.770
+I'll do an else and then I'll say
+console Dot.log, they are equal.
+
+214
+00:14:35.250 --> 00:14:42.410
+Then I might say console.log,
+nope, not equal.
+
+215
+00:14:42.410 --> 00:14:46.820
+If I use the double equals,
+these two values will be converted or
+
+216
+00:14:46.820 --> 00:14:51.640
+coerced to the same value and
+I get, they are equal.
+
+217
+00:14:54.210 --> 00:15:02.600
+If I use the triple equals because they're
+different types I get nope, not equal.
+
+218
+00:15:04.780 --> 00:15:06.000
+So what's the lesson?
+
+219
+00:15:07.350 --> 00:15:11.650
+First of all, in general,
+try to do comparison against things
+
+220
+00:15:11.650 --> 00:15:15.010
+in your code that you know
+will be the same type.
+
+221
+00:15:16.600 --> 00:15:20.660
+And in general,
+I would say 99% of the time.
+
+222
+00:15:22.370 --> 00:15:27.010
+Use triple equals when
+making equality comparisons.
+
+223
+00:15:28.860 --> 00:15:32.588
+Don't use double equals
+unless you explicitly.
+
+224
+00:15:32.588 --> 00:15:37.675
+Unless you consciously want
+
+225
+00:15:37.675 --> 00:15:44.335
+to coerce the two values, you should
+start right now if you haven't already.
+
+226
+00:15:44.335 --> 00:15:48.375
+Start using triple equals
+in your code by default.
+
+227
+00:15:48.375 --> 00:15:52.470
+That's your initial go
+to equality comparer.
+
+228
+00:15:52.470 --> 00:15:56.860
+And use double equals
+only if you are aware of
+
+229
+00:15:56.860 --> 00:16:00.900
+the implications and
+that's what you want to have happen.
+
+230
+00:16:02.270 --> 00:16:06.438
+And of course,
+you can also use the strict inequality
+
+231
+00:16:06.438 --> 00:16:11.000
+which is not than the double equals.
+
+232
+00:16:11.000 --> 00:16:18.850
+So, regular inequality not equal
+If I put a is not equal to b,
+
+233
+00:16:18.850 --> 00:16:24.070
+and I said they are not equal,
+that happens.
+
+234
+00:16:24.070 --> 00:16:26.380
+Otherwise I'd say equal.
+
+235
+00:16:27.420 --> 00:16:31.150
+Then because this coerces the two values.
+
+236
+00:16:31.150 --> 00:16:34.220
+Same thing, that get's equal.
+
+237
+00:16:34.220 --> 00:16:38.080
+This was false,
+this are they not equal was false, but
+
+238
+00:16:38.080 --> 00:16:43.680
+the double, the strict inequality,
+does what I would expect.
+
+239
+00:16:43.680 --> 00:16:44.570
+They are not equal.
+
+240
+00:16:46.130 --> 00:16:50.437
+So when you see these values,
+
+241
+00:16:50.437 --> 00:16:57.120
+don't get overly confused or concerned
+because we've learned what operators are.
+
+242
+00:16:57.120 --> 00:16:58.720
+They're just functions.
+
+243
+00:16:58.720 --> 00:17:03.560
+This would be as if I had
+a function double equals which
+
+244
+00:17:03.560 --> 00:17:07.350
+took a couple of parameters,
+and this one coerced, and
+
+245
+00:17:07.350 --> 00:17:10.620
+add a function triple equals and it took
+two parameters, and this one didn't.
+
+246
+00:17:11.810 --> 00:17:13.900
+They're just two different functions.
+
+247
+00:17:13.900 --> 00:17:14.960
+That behave differently.
+
+248
+00:17:16.090 --> 00:17:19.470
+And as it turns out in production code,
+
+249
+00:17:19.470 --> 00:17:22.630
+in the real world,
+it's generally better to use this one.
+
+250
+00:17:23.720 --> 00:17:27.030
+That said it would be nice to
+at least have a reference for
+
+251
+00:17:27.030 --> 00:17:29.730
+what's going to happen in these cases.
+
+252
+00:17:29.730 --> 00:17:34.020
+There's a really nice link, again,
+over on the Mozilla Developer Network.
+
+253
+00:17:34.020 --> 00:17:38.590
+www.developer.mozilla.org called
+equality comparisons and
+
+254
+00:17:38.590 --> 00:17:42.640
+sameness, and it talks all about this.
+
+255
+00:17:42.640 --> 00:17:44.020
+And it has, at the bottom,
+
+256
+00:17:44.020 --> 00:17:49.110
+a really nice sameness comparison
+table showing what happens when
+
+257
+00:17:49.110 --> 00:17:55.520
+you compare two different types of values
+using double equals, the triple equals.
+
+258
+00:17:55.520 --> 00:17:58.925
+And something new that's coming in
+the next version of JavaScript called
+
+259
+00:17:58.925 --> 00:18:02.280
+Object.is, which is even a bit better.
+
+260
+00:18:03.960 --> 00:18:08.920
+I've taken the liberty of converting
+this to a PDF document for
+
+261
+00:18:08.920 --> 00:18:11.360
+you, and it's attached to this lecture.
+
+262
+00:18:12.410 --> 00:18:15.920
+But you can just go to
+the website if you like and
+
+263
+00:18:15.920 --> 00:18:19.670
+look up the this Equality Comparison and
+Sameness Table.
+
+264
+00:18:19.670 --> 00:18:22.930
+And you can see for example that zero and
+
+265
+00:18:22.930 --> 00:18:26.700
+false are when compared with
+double equals, that's true.
+
+266
+00:18:26.700 --> 00:18:30.650
+They're considered the same thing but
+with triple equals that's false.
+
+267
+00:18:30.650 --> 00:18:32.190
+With object that is.
+
+268
+00:18:32.190 --> 00:18:36.920
+That's false, and you can see that there
+
+269
+00:18:36.920 --> 00:18:42.700
+are cases where its true across
+the board as its suppose to be.
+
+270
+00:18:42.700 --> 00:18:47.820
+The object.is and the way you use
+that is you pass the two values to
+
+271
+00:18:47.820 --> 00:18:52.820
+the is function, object.is, so
+it isn't treated like an operator.
+
+272
+00:18:54.110 --> 00:18:59.654
+A positive 0 and a negative 0,
+
+273
+00:18:59.654 --> 00:19:03.980
+although they would appear to be
+the same thing, are treated differently.
+
+274
+00:19:05.030 --> 00:19:08.100
+So you can look at this table and
+get some idea.
+
+275
+00:19:08.100 --> 00:19:10.460
+Of what the expected results would be,
+
+276
+00:19:11.800 --> 00:19:15.350
+depending on the values
+that you're dealing with.
+
+277
+00:19:15.350 --> 00:19:17.330
+But that doesn't change the fact that, for
+
+278
+00:19:17.330 --> 00:19:20.980
+right now especially,
+triple equals is your best option.
+
+279
+00:19:22.542 --> 00:19:27.420
+All right, so we've talked about operators
+and precedents and associativity.
+
+280
+00:19:27.420 --> 00:19:28.830
+Comparison and coercion.
+
+281
+00:19:28.830 --> 00:19:32.520
+And we've seen how coercion can be bad.
+
+282
+00:19:32.520 --> 00:19:37.950
+But, let's talk about a case which is used
+in many popular JavaScript frameworks and
+
+283
+00:19:37.950 --> 00:19:42.120
+libraries where coercion
+actually is helpful.
+

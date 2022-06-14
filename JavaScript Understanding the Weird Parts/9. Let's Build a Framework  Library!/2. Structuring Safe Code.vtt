@@ -1,0 +1,231 @@
+WEBVTT
+
+1
+00:00:02.240 --> 00:00:06.620
+To start with, let's look at
+structuring our greeter frame work
+
+2
+00:00:07.700 --> 00:00:12.140
+in a way that's safe so that it can be
+reused inside any Java script application.
+
+3
+00:00:13.540 --> 00:00:18.020
+In the downloadable source code for this
+lecture, you'll find this starter setup.
+
+4
+00:00:18.020 --> 00:00:23.980
+I've got an index, that HTML page,
+and three JavaScript files.
+
+5
+00:00:23.980 --> 00:00:25.030
+I have jQuery.
+
+6
+00:00:25.030 --> 00:00:29.320
+Since we said we wanted jQuery support,
+I need to load that first.
+
+7
+00:00:29.320 --> 00:00:33.870
+I have my Greetr.js file,
+which will be my framework slash library.
+
+8
+00:00:33.870 --> 00:00:37.125
+That's where I'm gonna put my code, and
+
+9
+00:00:37.125 --> 00:00:42.550
+an app.js file we'll use our
+frameworks and libraries.
+
+10
+00:00:42.550 --> 00:00:43.560
+Got that?
+
+11
+00:00:43.560 --> 00:00:44.590
+So just three files and
+
+12
+00:00:44.590 --> 00:00:49.147
+we're going to do most of our work
+inside here, inside greeter.js.
+
+13
+00:00:50.180 --> 00:00:52.270
+So for starters,
+here's what we want to do.
+
+14
+00:00:53.410 --> 00:00:58.790
+We want to create a new execution context
+for our entire framework/library.
+
+15
+00:00:58.790 --> 00:01:01.380
+So all of our variables declared are safe.
+
+16
+00:01:01.380 --> 00:01:04.160
+And we're only exposing on
+the global object what we want.
+
+17
+00:01:05.560 --> 00:01:06.360
+So how do we do that?
+
+18
+00:01:08.460 --> 00:01:09.260
+Start right here.
+
+19
+00:01:10.690 --> 00:01:16.270
+Wrap up some code in the way that
+you think would be appropriate,
+
+20
+00:01:16.270 --> 00:01:18.560
+in order to make any
+code inside of it safe.
+
+21
+00:01:20.590 --> 00:01:23.264
+And pass to it what we need access to.
+
+22
+00:01:23.264 --> 00:01:27.259
+We need access to the global
+variable which is Window and
+
+23
+00:01:27.259 --> 00:01:32.200
+the jQuery variable which is either
+the word jQuery or a dollar sign.
+
+24
+00:01:32.200 --> 00:01:36.370
+Here's your first hint.
+
+25
+00:01:36.370 --> 00:01:37.740
+It's an immediately invoked function.
+
+26
+00:01:39.030 --> 00:01:40.800
+So go ahead and pause the video.
+
+27
+00:01:40.800 --> 00:01:44.850
+Set up an immediately invoked function,
+that accepts and
+
+28
+00:01:44.850 --> 00:01:48.140
+takes in a global object and
+a jQuery object.
+
+29
+00:01:48.140 --> 00:01:50.380
+And when you invoke that
+immediately invoked function.
+
+30
+00:01:50.380 --> 00:01:55.281
+When you do those parentheses to call it,
+make sure you're passing in Window, and
+
+31
+00:01:55.281 --> 00:01:56.481
+the jQuery object.
+
+32
+00:01:58.290 --> 00:01:59.030
+Go ahead and pause.
+
+33
+00:02:00.410 --> 00:02:01.110
+All right.
+
+34
+00:02:01.110 --> 00:02:01.610
+You ready?
+
+35
+00:02:02.640 --> 00:02:05.070
+So we're going to create our
+immediately invoked function.
+
+36
+00:02:06.420 --> 00:02:07.430
+I can't just do function.
+
+37
+00:02:07.430 --> 00:02:15.570
+I have to do a parentheses or something
+like that to trick the syntax parser.
+
+38
+00:02:15.570 --> 00:02:18.350
+And then I end the function and end that.
+
+39
+00:02:18.350 --> 00:02:21.460
+And then I'm going to
+invoke it with parentheses.
+
+40
+00:02:22.460 --> 00:02:26.980
+I'm gonna pass a global object in jQuery
+which I'll just make a dollar sign.
+
+41
+00:02:28.720 --> 00:02:32.330
+And when I invoke it,
+I pass in my global and
+
+42
+00:02:32.330 --> 00:02:36.380
+my jQuery object, which I could either
+put dollar sign or jQuery right here.
+
+43
+00:02:38.080 --> 00:02:38.600
+Make sense?
+
+44
+00:02:40.360 --> 00:02:43.780
+So now I have safe code.
+
+45
+00:02:43.780 --> 00:02:48.120
+I've structure around the code
+that I'm going to write.
+
+46
+00:02:49.220 --> 00:02:52.450
+So the first thing that
+happens is it executes this,
+
+47
+00:02:52.450 --> 00:02:56.130
+creating a new execution context
+giving me the variables I need to run.
+
+48
+00:02:56.130 --> 00:03:03.575
+And so now my whole greeter is safe inside
+of here and ready to be reused by anybody.
+
+49
+00:03:03.575 --> 00:03:06.490
+All right, pretty simple start.
+
+50
+00:03:06.490 --> 00:03:07.020
+Let's keep going
+

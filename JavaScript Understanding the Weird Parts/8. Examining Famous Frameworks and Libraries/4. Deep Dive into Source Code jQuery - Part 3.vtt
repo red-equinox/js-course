@@ -1,0 +1,735 @@
+WEBVTT
+
+1
+00:00:03.967 --> 00:00:07.751
+There's an aspect of jQuery
+that's really useful when typing,
+
+2
+00:00:07.751 --> 00:00:10.730
+save yourself a lot of typing actually.
+
+3
+00:00:10.730 --> 00:00:14.710
+Let's say I'm looking
+at this just ul.people,
+
+4
+00:00:14.710 --> 00:00:17.390
+that's this element in the HTML.
+
+5
+00:00:17.390 --> 00:00:20.960
+I found a UL with a class of people,
+that's what that query says.
+
+6
+00:00:22.220 --> 00:00:28.080
+I can, for example, add another class to
+it using the addClass method in jQuery.
+
+7
+00:00:28.080 --> 00:00:31.680
+So let's say I just wanted to say,
+newclass,
+
+8
+00:00:31.680 --> 00:00:36.570
+so when that gets called if I go and
+look at this ul,
+
+9
+00:00:38.200 --> 00:00:44.680
+see there's the newclass added on.
+
+10
+00:00:44.680 --> 00:00:48.692
+Simple enough, but what I really like in
+jQuery is that I can immediately call
+
+11
+00:00:48.692 --> 00:00:53.320
+.removeClass or any other method that acts
+
+12
+00:00:53.320 --> 00:00:57.930
+on a jQuery object, and
+I could remove the class people.
+
+13
+00:00:57.930 --> 00:01:04.150
+So if I refresh this, see that?
+
+14
+00:01:05.460 --> 00:01:10.540
+So it called one method, addClass,
+
+15
+00:01:10.540 --> 00:01:14.730
+remember a method is just a function
+that's attached to an object, and
+
+16
+00:01:14.730 --> 00:01:18.720
+that this keyword of the function ends
+up being the object that contains it.
+
+17
+00:01:20.090 --> 00:01:25.553
+So the add class acted on this jQuery
+object and added a new class to that ul,
+
+18
+00:01:25.553 --> 00:01:30.324
+and then I called the removeClass
+within another dot operator and
+
+19
+00:01:30.324 --> 00:01:32.920
+it acted on that same object.
+
+20
+00:01:32.920 --> 00:01:36.680
+Which is interesting because
+if i do dot on this function,
+
+21
+00:01:36.680 --> 00:01:41.040
+shouldn't that be affecting this function?
+
+22
+00:01:41.040 --> 00:01:47.170
+Shouldn't this not work because this
+removeClass sits on this object?
+
+23
+00:01:47.170 --> 00:01:48.370
+How is jQuery doing that?
+
+24
+00:01:48.370 --> 00:01:54.130
+I really like that as a style,
+allowing other coders to quickly
+
+25
+00:01:54.130 --> 00:02:01.387
+run methods like this,
+this is called method chaining.
+
+26
+00:02:01.387 --> 00:02:03.520
+Ok fine, big word alert.
+
+27
+00:02:06.220 --> 00:02:09.500
+Method chaining: calling
+one method after another,
+
+28
+00:02:09.500 --> 00:02:11.586
+and each method affects the parent object.
+
+29
+00:02:11.586 --> 00:02:14.938
+So obj.method1, then .method2 and
+
+30
+00:02:14.938 --> 00:02:19.580
+both methods end up with this
+variable pointing at obj.
+
+31
+00:02:20.630 --> 00:02:23.510
+I'd like to know how to do that,
+let's look at jQuery.
+
+32
+00:02:25.300 --> 00:02:29.050
+I think the fastest way to do this would
+be to just find the addClass method
+
+33
+00:02:29.050 --> 00:02:30.590
+inside the jQuery source code.
+
+34
+00:02:31.720 --> 00:02:35.370
+So, let's go find it, hey there it is,
+
+35
+00:02:36.650 --> 00:02:41.030
+it's added onto the prototype
+via the extend method.
+
+36
+00:02:42.630 --> 00:02:43.450
+What does it do?
+
+37
+00:02:43.450 --> 00:02:45.632
+Well, I don't really need
+to know what it does,
+
+38
+00:02:45.632 --> 00:02:48.096
+I just wanna know how is it
+that I can chain this method?
+
+39
+00:02:48.096 --> 00:02:51.366
+So, it has a function,
+it does some things,
+
+40
+00:02:51.366 --> 00:02:54.820
+and there's the remove class and,
+oh, wait.
+
+41
+00:02:56.660 --> 00:02:57.250
+See that line?
+
+42
+00:02:58.800 --> 00:03:03.880
+Return this,
+the addClass function returns a value
+
+43
+00:03:05.160 --> 00:03:08.078
+even though it just is doing work.
+
+44
+00:03:08.078 --> 00:03:14.330
+I bet you the removeClass does the same
+thing, here's the removeClass function.
+
+45
+00:03:15.620 --> 00:03:20.150
+Yeah, it also returns this, what's
+this pointing at, the this variable?
+
+46
+00:03:20.150 --> 00:03:24.332
+Well since these are methods attached to
+
+47
+00:03:24.332 --> 00:03:28.650
+the object, well,
+it's attached to the prototype and
+
+48
+00:03:28.650 --> 00:03:34.420
+remember when we call the method from the
+object, it will look for it on the object.
+
+49
+00:03:34.420 --> 00:03:38.980
+It won't find it,
+it'll find it on the prototype, right?
+
+50
+00:03:38.980 --> 00:03:42.600
+Because when I outputted
+this to the counsel,
+
+51
+00:03:44.260 --> 00:03:47.980
+the add class isn't there,
+it's on the prototype, see, there it is.
+
+52
+00:03:49.460 --> 00:03:53.330
+But when I execute a method or
+call a method, and
+
+53
+00:03:53.330 --> 00:03:56.440
+it's found down the prototype chain,
+the this variable
+
+54
+00:03:56.440 --> 00:03:59.720
+points at that originating object,
+the object that actually made the call.
+
+55
+00:04:00.990 --> 00:04:06.090
+So that means the this variable
+points to my jQuery object,
+
+56
+00:04:06.090 --> 00:04:10.068
+the one that was newly
+created by this query and
+
+57
+00:04:10.068 --> 00:04:13.740
+that's what the this variable points to.
+
+58
+00:04:13.740 --> 00:04:16.990
+So the add class returns it, so
+
+59
+00:04:16.990 --> 00:04:21.970
+I have an object I call addClass,
+it does some work and returns this.
+
+60
+00:04:21.970 --> 00:04:24.680
+So when this is done it's
+essentially like that,
+
+61
+00:04:26.030 --> 00:04:30.090
+the object that it returned is this object
+and so I can call remove class on it.
+
+62
+00:04:30.090 --> 00:04:33.640
+So all I have to do to make methods
+chainable, methods of an object,
+
+63
+00:04:33.640 --> 00:04:37.900
+is finish the method,
+the last line essentially of the method,
+
+64
+00:04:37.900 --> 00:04:44.150
+the last thing I do is
+return the this variable.
+
+65
+00:04:44.150 --> 00:04:45.980
+Hey that makes total sense and
+that's pretty easy.
+
+66
+00:04:47.250 --> 00:04:48.120
+We just learned something.
+
+67
+00:04:49.468 --> 00:04:50.930
+All right,
+
+68
+00:04:50.930 --> 00:04:55.180
+so we have learned something from deep
+inside these methods in all of this.
+
+69
+00:04:56.220 --> 00:05:02.393
+I'd like to find finally how is
+this exposed to the outside world,
+
+70
+00:05:02.393 --> 00:05:06.265
+this entire jQuery giant massive thing?
+
+71
+00:05:06.265 --> 00:05:10.480
+That would be kind of interesting to see,
+I bet you it's towards the bottom.
+
+72
+00:05:11.540 --> 00:05:16.643
+Yeah, so here is where all those function
+expressions and all of that end,
+
+73
+00:05:16.643 --> 00:05:23.209
+it's all inside its own,
+Execution context.
+
+74
+00:05:25.110 --> 00:05:30.430
+Here we go, so jQuery is first making
+sure, remember we said we could
+
+75
+00:05:30.430 --> 00:05:33.750
+when we add something to the window object
+make sure that it's not already there?
+
+76
+00:05:35.310 --> 00:05:43.180
+So, it's checking to see if there is
+a jQuery function at the global object.
+
+77
+00:05:43.180 --> 00:05:47.170
+Just put an underscore there, just to keep
+it separate, and it's checking to see if
+
+78
+00:05:47.170 --> 00:05:50.840
+there's a $ on the window object,
+and it's just keeping it separate.
+
+79
+00:05:52.410 --> 00:05:56.610
+And then, there's a no
+conflict that you you can call
+
+80
+00:05:56.610 --> 00:06:01.570
+the checks to see if this thing that's
+already on the global object is jQuery.
+
+81
+00:06:03.550 --> 00:06:08.970
+And if it is,
+then it just keeps it there basically,
+
+82
+00:06:08.970 --> 00:06:13.270
+and if not, it kind of ignores it,
+it says, oh, it returns jQuery.
+
+83
+00:06:13.270 --> 00:06:17.590
+So you could call .noconflict and
+
+84
+00:06:17.590 --> 00:06:20.370
+set jQuery equal to a different
+variable on the global object.
+
+85
+00:06:21.730 --> 00:06:24.413
+So, this is just making sure there
+isn't something called jQuery or
+
+86
+00:06:24.413 --> 00:06:30.480
+$ on the global object first, and then,
+well, here it is, here's that line.
+
+87
+00:06:31.500 --> 00:06:36.158
+Looks like it's making sure that there's
+a global object, and if there is,
+
+88
+00:06:36.158 --> 00:06:40.500
+it does window.jQuery.
+
+89
+00:06:40.500 --> 00:06:46.040
+So it puts that in the global namespace,
+the global object, and
+
+90
+00:06:46.040 --> 00:06:48.586
+it just does another reference,
+so this is just an alias,
+
+91
+00:06:48.586 --> 00:06:53.440
+window.$ so the $ is just a function name.
+
+92
+00:06:55.060 --> 00:06:58.130
+And it's pointing at the same spot
+in memory as the word jQuery,
+
+93
+00:06:58.130 --> 00:07:01.260
+this is a valid character for
+a function name or
+
+94
+00:07:01.260 --> 00:07:06.790
+a variable name, so
+it's a method called $.
+
+95
+00:07:06.790 --> 00:07:10.726
+And both of these are pointing at
+the same spot in memory as the jQuery
+
+96
+00:07:10.726 --> 00:07:14.940
+object created inside this function
+that had all of these properties and
+
+97
+00:07:14.940 --> 00:07:16.407
+methods attached to it.
+
+98
+00:07:16.407 --> 00:07:21.863
+So this is exposing jQuery or
+$, both of these,
+
+99
+00:07:21.863 --> 00:07:26.800
+it's exposing this function, globally.
+
+100
+00:07:27.950 --> 00:07:32.670
+So I can use it here, so
+when I call $, I'm calling a function,
+
+101
+00:07:32.670 --> 00:07:34.820
+that's why I have parentheses.
+
+102
+00:07:34.820 --> 00:07:39.547
+That function I'm calling
+sitting on the window object is
+
+103
+00:07:39.547 --> 00:07:43.796
+this jQuery function which
+was defined way up here.
+
+104
+00:07:46.101 --> 00:07:47.686
+Way, way, way up here.
+
+105
+00:07:49.207 --> 00:07:56.570
+Here, and I'm passing a string
+which is the selector.
+
+106
+00:07:56.570 --> 00:08:02.350
+And then it's doing the whole thing of
+calling the new, calling a function
+
+107
+00:08:02.350 --> 00:08:07.010
+constructor that returns an adjusted
+object that's adjusted into an array.
+
+108
+00:08:08.260 --> 00:08:10.160
+And make sure that it's prototype,
+
+109
+00:08:10.160 --> 00:08:15.060
+this which is the prototype,
+has access to all of these functions and
+
+110
+00:08:15.060 --> 00:08:18.660
+methods and properties,
+all this stuff that it added on.
+
+111
+00:08:18.660 --> 00:08:22.780
+So it makes sense then that
+when I see my jQuery object,
+
+112
+00:08:22.780 --> 00:08:25.010
+that it's actually an array.
+
+113
+00:08:26.290 --> 00:08:32.240
+And for example, if I pass something,
+let's get rid of these,
+
+114
+00:08:32.240 --> 00:08:38.140
+if I pass li,
+then it converts what I get to an array.
+
+115
+00:08:38.140 --> 00:08:41.520
+I have all of my elements in that array,
+but then my prototype
+
+116
+00:08:43.460 --> 00:08:48.500
+has all of those methods and
+properties that are available to do work.
+
+117
+00:08:48.500 --> 00:08:55.420
+A giant library of methods, that's what
+JQuery is, it's just a JavaScript library.
+
+118
+00:08:55.420 --> 00:08:58.090
+You know, a lot of people get
+bent out of shape about this,
+
+119
+00:08:59.640 --> 00:09:04.810
+some people don't like JQuery because it's
+wrapping up so much JavaScript knowledge.
+
+120
+00:09:04.810 --> 00:09:10.210
+I think that's true, you shouldn't just
+use jQuery and never learn how it works,
+
+121
+00:09:10.210 --> 00:09:14.390
+never learn the JavaScript
+concepts that make it work.
+
+122
+00:09:14.390 --> 00:09:17.500
+Otherwise, you're gonna find yourself in a
+lot of trouble later as you try to do more
+
+123
+00:09:17.500 --> 00:09:18.780
+complex things.
+
+124
+00:09:18.780 --> 00:09:22.710
+But if you understand fundamental
+JavaScript then jQuery is great.
+
+125
+00:09:22.710 --> 00:09:27.388
+You can use it for all sorts of things and
+you know how to use it properly and
+
+126
+00:09:27.388 --> 00:09:28.857
+you know how it works.
+
+127
+00:09:28.857 --> 00:09:33.625
+And you know, when we look at this,
+even the people that don't like jQuery
+
+128
+00:09:33.625 --> 00:09:38.470
+have to acknowledge that this code has
+been looked at over and over again by so
+
+129
+00:09:38.470 --> 00:09:40.540
+many people, it's good code.
+
+130
+00:09:40.540 --> 00:09:45.410
+So, we've just taken a quick look
+through and we've learned a ton.
+
+131
+00:09:47.340 --> 00:09:50.400
+So, what do you think,
+do you think this was worthwhile?
+
+132
+00:09:50.400 --> 00:09:52.770
+We learned a couple techniques,
+
+133
+00:09:52.770 --> 00:09:57.400
+like chaining methods,
+not having to put new in front of this all
+
+134
+00:09:57.400 --> 00:10:00.880
+of the time because the jQuery
+structure takes care of that for us.
+
+135
+00:10:02.350 --> 00:10:07.790
+We've learned that we could save other
+coders some typing by just making short
+
+136
+00:10:07.790 --> 00:10:10.110
+function names like this, like $.
+
+137
+00:10:10.110 --> 00:10:15.810
+What do you think,
+was this an open source education?
+
+138
+00:10:15.810 --> 00:10:17.960
+Is this something that you could do,
+and should do?
+
+139
+00:10:17.960 --> 00:10:19.790
+I think so, and I hope you do too.
+
+140
+00:10:21.480 --> 00:10:25.350
+You can learn a lot from
+famous frameworks and
+
+141
+00:10:25.350 --> 00:10:29.440
+libraries, and it will make
+you a better JavaScript coder.
+
+142
+00:10:29.440 --> 00:10:33.000
+And, look, you don't have to be afraid of
+going through the code, because we didn't
+
+143
+00:10:33.000 --> 00:10:38.890
+see anything that we couldn't eventually
+figure out by looking through the code,
+
+144
+00:10:38.890 --> 00:10:42.120
+finding where these functions were
+referenced, and thinking about it a bit.
+
+145
+00:10:43.750 --> 00:10:45.720
+We went through this kind of fast, but
+
+146
+00:10:45.720 --> 00:10:49.890
+you can take your time, look through code,
+look a little more at jQuery.
+
+147
+00:10:49.890 --> 00:10:52.680
+Is there anything that you've done in
+jQuery that you'd like to understand
+
+148
+00:10:52.680 --> 00:10:53.720
+how it works?
+
+149
+00:10:53.720 --> 00:10:57.370
+Go take a look, don't be afraid
+
+150
+00:10:58.470 --> 00:11:02.500
+of good code, it will make you
+a better JavaScript developer.
+
+151
+00:11:04.050 --> 00:11:08.450
+So this was a deep dive into
+the source code of jQuery.
+
+152
+00:11:08.450 --> 00:11:12.310
+What we're going to do next
+is take what we've learned
+
+153
+00:11:12.310 --> 00:11:15.230
+inside jQuery as well as
+our other concepts and
+
+154
+00:11:15.230 --> 00:11:21.630
+try our hand at building our own little
+mini framework, or library, ourselves.
+
+155
+00:11:21.630 --> 00:11:22.130
+Let's go.
+

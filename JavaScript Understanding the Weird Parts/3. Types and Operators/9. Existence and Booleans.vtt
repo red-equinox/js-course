@@ -1,0 +1,515 @@
+WEBVTT
+
+1
+00:00:01.970 --> 00:00:05.620
+How could all this dynamic typing and
+coercion be useful?
+
+2
+00:00:06.670 --> 00:00:11.430
+Well, let's talk about Existence and
+Booleans.
+
+3
+00:00:11.430 --> 00:00:13.070
+I have my DevTools open.
+
+4
+00:00:13.070 --> 00:00:15.470
+And much like I used
+the number built-in function,
+
+5
+00:00:15.470 --> 00:00:19.730
+there's a Boolean built-in
+function to try to convert.
+
+6
+00:00:19.730 --> 00:00:22.780
+Again, I don't recommend
+that you use these.
+
+7
+00:00:22.780 --> 00:00:26.940
+However, they're useful for
+demonstration purposes.
+
+8
+00:00:26.940 --> 00:00:29.470
+So, if I'm converting to a Boolean,
+
+9
+00:00:29.470 --> 00:00:34.140
+true or false some different values,
+let's see what happens.
+
+10
+00:00:34.140 --> 00:00:38.510
+When I try to convert
+undefined to a Boolean,
+
+11
+00:00:39.640 --> 00:00:44.660
+undefined becomes false when it's
+converted in the JavaScript engine.
+
+12
+00:00:44.660 --> 00:00:45.340
+How about null?
+
+13
+00:00:46.830 --> 00:00:47.750
+Null is false.
+
+14
+00:00:49.070 --> 00:00:50.440
+How about empty string?
+
+15
+00:00:52.090 --> 00:00:54.640
+Empty string is also false.
+
+16
+00:00:54.640 --> 00:01:02.660
+So all of these things that imply the lack
+of existence, they convert to false.
+
+17
+00:01:03.710 --> 00:01:05.840
+Can we use that to our advantage?
+
+18
+00:01:05.840 --> 00:01:09.350
+Yes, let's go back to our code.
+
+19
+00:01:09.350 --> 00:01:14.700
+In this lecture, and in many of the ones
+beyond, you'll get this code downloadable.
+
+20
+00:01:14.700 --> 00:01:17.060
+The previous lectures were
+just simple examples, so
+
+21
+00:01:17.060 --> 00:01:19.660
+I encourage you to try them yourselves.
+
+22
+00:01:19.660 --> 00:01:20.890
+But here we go.
+
+23
+00:01:20.890 --> 00:01:28.610
+We're gonna set var a, and I'm not
+going to set it equal to any value.
+
+24
+00:01:28.610 --> 00:01:33.380
+Let's suppose I have some code that
+I won't write that goes out to
+
+25
+00:01:33.380 --> 00:01:38.580
+the internet and looks for a value.
+
+26
+00:01:38.580 --> 00:01:42.210
+And if it finds it,
+then it sets a equal to that value.
+
+27
+00:01:43.800 --> 00:01:45.540
+I can then say an if statement.
+
+28
+00:01:47.140 --> 00:01:51.600
+Whatever I put inside
+the parentheses of an if statement,
+
+29
+00:01:51.600 --> 00:01:56.670
+it will attempt to convert or
+coerce to a Boolean.
+
+30
+00:01:56.670 --> 00:01:58.091
+True or false?
+
+31
+00:01:58.091 --> 00:02:00.580
+So it doesn't really matter what a is.
+
+32
+00:02:00.580 --> 00:02:05.440
+If I put it inside
+the if as the statement.
+
+33
+00:02:05.440 --> 00:02:07.160
+As the thing I'm checking.
+
+34
+00:02:07.160 --> 00:02:11.335
+It will attempt to
+convert it to a Boolean.
+
+35
+00:02:11.335 --> 00:02:18.301
+So I can go console.log('Something
+
+36
+00:02:18.301 --> 00:02:24.010
+is there.') If a, see that?
+
+37
+00:02:24.010 --> 00:02:27.260
+A will be converted to a Boolean,
+so if I go back,
+
+38
+00:02:28.350 --> 00:02:33.030
+if a is any of these three things,
+then this if statement
+
+39
+00:02:34.280 --> 00:02:37.800
+will fail because a is nothing.
+
+40
+00:02:38.910 --> 00:02:43.760
+Because remember the creation phase
+of the execution context is going to
+
+41
+00:02:43.760 --> 00:02:47.985
+set up the memory space for this variable
+and then what is it going to do?
+
+42
+00:02:47.985 --> 00:02:50.975
+It's going to set it to
+what value initially?
+
+43
+00:02:50.975 --> 00:02:52.735
+That's right, undefined.
+
+44
+00:02:52.735 --> 00:02:54.365
+And what does undefined convert to?
+
+45
+00:02:55.415 --> 00:02:56.595
+False.
+
+46
+00:02:56.595 --> 00:03:03.770
+So we can use this coercion to check
+if a is nothing, if a came back and
+
+47
+00:03:03.770 --> 00:03:07.770
+ended up being undefined cuz it
+was never set, or a was null.
+
+48
+00:03:08.825 --> 00:03:13.270
+When I was doing whatever logic I
+was doing, I'll still get nothing.
+
+49
+00:03:13.270 --> 00:03:20.370
+If a was an empty string, this will still
+convert to false, so nothing will happen.
+
+50
+00:03:20.370 --> 00:03:25.410
+But as soon as I have something,
+like in string that's not empty.
+
+51
+00:03:27.730 --> 00:03:30.240
+Then that runs.
+
+52
+00:03:30.240 --> 00:03:31.810
+See how that works?
+
+53
+00:03:31.810 --> 00:03:35.010
+We can use coercion to
+our own advantage and
+
+54
+00:03:35.010 --> 00:03:39.740
+check to see if a variable has a value.
+
+55
+00:03:39.740 --> 00:03:42.293
+Something other than undefined,
+null, or empty string.
+
+56
+00:03:42.293 --> 00:03:47.234
+Now there is one caveat If I clear
+
+57
+00:03:47.234 --> 00:03:52.729
+this Boolean(0) is also false.
+
+58
+00:03:52.729 --> 00:03:57.587
+So if there's any chance that this
+variable could end up being zero,
+
+59
+00:03:57.587 --> 00:03:59.022
+that's a problem.
+
+60
+00:03:59.022 --> 00:04:02.060
+Because zero is not
+necessarily lack of existence.
+
+61
+00:04:02.060 --> 00:04:04.060
+Maybe that's a valid value.
+
+62
+00:04:04.060 --> 00:04:09.530
+But a is going to be coerced
+when it's just like this,
+
+63
+00:04:09.530 --> 00:04:11.390
+just by itself to a Boolean.
+
+64
+00:04:11.390 --> 00:04:18.000
+And so if I refresh this I don't get
+a console.log because this is false.
+
+65
+00:04:18.000 --> 00:04:19.990
+Zero became false.
+
+66
+00:04:19.990 --> 00:04:24.550
+So I could do something like this if I
+ever thought that was possible I could do
+
+67
+00:04:24.550 --> 00:04:29.285
+or a === 0.
+
+68
+00:04:29.285 --> 00:04:31.980
+So, what's gonna happen here.
+
+69
+00:04:31.980 --> 00:04:36.948
+Well, if I check my operator
+precedence and associativity table.
+
+70
+00:04:36.948 --> 00:04:44.595
+I have, when I scroll down,
+the or, logical or.
+
+71
+00:04:44.595 --> 00:04:48.775
+And that has a lower precedence
+than strict equality.
+
+72
+00:04:48.775 --> 00:04:54.315
+So this strict equality function will
+be run before this function, the or.
+
+73
+00:04:55.425 --> 00:04:58.940
+So first,
+it will run this triple equals function.
+
+74
+00:04:58.940 --> 00:05:00.230
+A is zero.
+
+75
+00:05:00.230 --> 00:05:02.080
+It's not going to coerce.
+
+76
+00:05:02.080 --> 00:05:09.830
+So if it really truly is zero, it will
+say this is true, and then this will run.
+
+77
+00:05:09.830 --> 00:05:14.740
+The a will be coerced, and since this is
+zero it will be coerced to false since or
+
+78
+00:05:14.740 --> 00:05:17.530
+wants Boolean values.
+
+79
+00:05:17.530 --> 00:05:20.470
+And it will say if false or true.
+
+80
+00:05:20.470 --> 00:05:26.600
+And or when I say false or
+true returns true.
+
+81
+00:05:26.600 --> 00:05:31.030
+If either one is true or
+both are true this function returns true.
+
+82
+00:05:31.030 --> 00:05:35.980
+So, then this becomes simply true.
+
+83
+00:05:35.980 --> 00:05:37.380
+And I should see something as there.
+
+84
+00:05:37.380 --> 00:05:41.050
+So if I back this out, this phrase.
+
+85
+00:05:41.050 --> 00:05:44.770
+These two functions run
+in order should then
+
+86
+00:05:46.310 --> 00:05:50.110
+result in something is there being
+outputted to the console and it does.
+
+87
+00:05:51.710 --> 00:05:57.150
+So all I'm doing here saying if
+a is something not undefined,
+
+88
+00:05:57.150 --> 00:05:59.030
+not null, not empty string.
+
+89
+00:06:00.450 --> 00:06:03.070
+And you may never need
+to do this because if
+
+90
+00:06:03.070 --> 00:06:05.780
+there's no real chance that
+this is going to be a zero.
+
+91
+00:06:05.780 --> 00:06:10.870
+It may be perfectly fine to simply
+leave it as if this exists,
+
+92
+00:06:10.870 --> 00:06:13.170
+if this even exists at all,
+
+93
+00:06:13.170 --> 00:06:17.620
+if anything was placed into memory other
+than undefined, or null, or empty string.
+
+94
+00:06:19.580 --> 00:06:21.910
+So that can be very useful.
+
+95
+00:06:21.910 --> 00:06:26.400
+And this pattern of coercion, of using
+coercion in this case, to check for
+
+96
+00:06:26.400 --> 00:06:30.860
+existence is used in a lot of really
+great frameworks and libraries.
+
+97
+00:06:30.860 --> 00:06:34.340
+A lot of really strong JavaScript
+code that's out there.
+
+98
+00:06:34.340 --> 00:06:35.910
+It's very useful.
+
+99
+00:06:35.910 --> 00:06:36.670
+And you can use it.
+
+100
+00:06:37.840 --> 00:06:42.050
+Of course if you're helping someone to
+debug their code that has see this and
+
+101
+00:06:42.050 --> 00:06:45.050
+is trying to use it without
+fully understanding it.
+
+102
+00:06:45.050 --> 00:06:49.380
+And the if statement seems to be
+
+103
+00:06:49.380 --> 00:06:53.840
+returning false when they're confused
+that there is a value in there.
+
+104
+00:06:53.840 --> 00:06:55.270
+You could help them maybe.
+
+105
+00:06:55.270 --> 00:06:56.610
+That value is zero.
+
+106
+00:06:56.610 --> 00:06:59.810
+And you could explain to
+them zero converts to false.
+
+107
+00:06:59.810 --> 00:07:02.990
+So that's why it's acting
+as if nothing is there
+
+108
+00:07:02.990 --> 00:07:06.210
+when you're using it inside
+an if statement this way.
+
+109
+00:07:06.210 --> 00:07:09.400
+So again, understanding what's
+happening under the hood and
+
+110
+00:07:09.400 --> 00:07:13.530
+how all this is working will make
+you a better JavaScript programmer.
+
+111
+00:07:13.530 --> 00:07:18.370
+You'll be able to debug problems
+better and also use advanced concepts
+
+112
+00:07:18.370 --> 00:07:22.850
+like this in a clean,
+clear, and correct way.
+

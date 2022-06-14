@@ -1,0 +1,741 @@
+WEBVTT
+
+1
+00:00:01.790 --> 00:00:06.600
+Now that we understand what function
+constructors are, we can talk for a moment
+
+2
+00:00:06.600 --> 00:00:12.900
+in this conceptual aside about built-in
+function constructors in JavaScript.
+
+3
+00:00:12.900 --> 00:00:15.810
+Function constructors that
+are just there all ready
+
+4
+00:00:15.810 --> 00:00:19.540
+inside the JavaScript architecture and
+
+5
+00:00:19.540 --> 00:00:25.350
+ready to use inside the Java Script
+engine, and how you might use them.
+
+6
+00:00:25.350 --> 00:00:28.850
+I have my console open here and
+Google Chrome running.
+
+7
+00:00:28.850 --> 00:00:31.880
+And let's show some of the built-in
+function constructors that exist.
+
+8
+00:00:32.920 --> 00:00:38.900
+Meaning that there are just some functions
+and function prototypes that exist that
+
+9
+00:00:38.900 --> 00:00:42.189
+many of which you might have used already,
+perhaps even without realizing it.
+
+10
+00:00:43.210 --> 00:00:48.410
+For example I could say that
+some value is a new number.
+
+11
+00:00:50.070 --> 00:00:52.860
+And then give it a number
+to initiate with.
+
+12
+00:00:54.370 --> 00:00:58.430
+Or even give it a string
+to convert it to a number.
+
+13
+00:00:58.430 --> 00:00:59.080
+Something like that.
+
+14
+00:01:00.750 --> 00:01:02.060
+What is this?
+
+15
+00:01:02.060 --> 00:01:07.890
+Well, it's using the new operator, so this
+is a function, a function constructor.
+
+16
+00:01:07.890 --> 00:01:12.310
+And JavaScript even uses the convention of
+capitalizing the first letter of the word.
+
+17
+00:01:13.730 --> 00:01:15.380
+So I've created a new number.
+
+18
+00:01:15.380 --> 00:01:22.096
+If I hit enter and then output what A is,
+notice that A is not a number,
+
+19
+00:01:22.096 --> 00:01:27.290
+it's not a primitive, it's an object.
+
+20
+00:01:27.290 --> 00:01:29.240
+Because function constructors create what?
+
+21
+00:01:30.330 --> 00:01:30.960
+Objects.
+
+22
+00:01:31.960 --> 00:01:36.190
+Then added a primitive value inside of it,
+three, but
+
+23
+00:01:36.190 --> 00:01:39.220
+because it's an object
+there's a prototype.
+
+24
+00:01:39.220 --> 00:01:41.140
+So there's a number dot prototype
+
+25
+00:01:42.180 --> 00:01:45.980
+which is what all number
+objects will have access to.
+
+26
+00:01:47.700 --> 00:01:52.640
+And it has some built in methods,
+like toPrecision or toFixed for
+
+27
+00:01:52.640 --> 00:01:55.370
+doing math and
+conversion there on numbers.
+
+28
+00:01:56.660 --> 00:01:57.410
+Interesting right?
+
+29
+00:01:57.410 --> 00:02:02.180
+So that means I can do a.toFixed,
+for example.
+
+30
+00:02:02.180 --> 00:02:02.680
+See that?
+
+31
+00:02:04.800 --> 00:02:06.074
+All right, let's try a different one.
+
+32
+00:02:06.074 --> 00:02:11.070
+How about A equals new String.
+
+33
+00:02:11.070 --> 00:02:13.430
+And I'll start it off with John.
+
+34
+00:02:15.040 --> 00:02:17.098
+This is also a function constructor.
+
+35
+00:02:17.098 --> 00:02:22.390
+And A dot has access to
+
+36
+00:02:22.390 --> 00:02:26.280
+a whole bunch of methods of things
+that I could do with a string.
+
+37
+00:02:26.280 --> 00:02:29.680
+Because those methods don't
+actually live on A, but
+
+38
+00:02:29.680 --> 00:02:36.180
+live on string.prototype, which is the
+function constructor's prototype property,
+
+39
+00:02:36.180 --> 00:02:40.120
+where this variable's
+prototype is pointing, right?
+
+40
+00:02:41.130 --> 00:02:46.630
+So, that's actually where these
+interesting things like index of,
+
+41
+00:02:46.630 --> 00:02:48.010
+for example.
+
+42
+00:02:48.010 --> 00:02:52.770
+And I give it a character, and
+it tells me whether or not it's there.
+
+43
+00:02:52.770 --> 00:02:59.780
+Or I give it a value and
+it tells me whether or not it's there.
+
+44
+00:02:59.780 --> 00:03:03.310
+Now, I did this on string.prototype so
+I didn't find anything.
+
+45
+00:03:03.310 --> 00:03:07.350
+But if I do it on A,
+then the this changes.
+
+46
+00:03:09.380 --> 00:03:12.510
+And I can find O at position one.
+
+47
+00:03:12.510 --> 00:03:13.380
+Zero, one.
+
+48
+00:03:13.380 --> 00:03:14.730
+See that?
+
+49
+00:03:16.000 --> 00:03:19.460
+So the string isn't itself though.
+
+50
+00:03:20.720 --> 00:03:25.320
+If I hit enter here, notice that string
+is not a string, it's not a primitive.
+
+51
+00:03:26.440 --> 00:03:28.260
+It's an object.
+
+52
+00:03:28.260 --> 00:03:33.090
+It has all of these properties and
+methods on it and then inside of it,
+
+53
+00:03:33.090 --> 00:03:37.230
+what's called boxed inside of it,
+is the primitive value itself.
+
+54
+00:03:38.520 --> 00:03:42.120
+So these built in function constructors
+
+55
+00:03:42.120 --> 00:03:46.680
+look like you're creating primitives,
+but you're not.
+
+56
+00:03:46.680 --> 00:03:52.420
+You're actually creating objects
+that contain primitives and
+
+57
+00:03:52.420 --> 00:03:55.190
+give them extra abilities.
+
+58
+00:03:55.190 --> 00:03:59.980
+In some cases, JavaScript understands
+that you intend to look at an object and
+
+59
+00:03:59.980 --> 00:04:00.680
+not a primitive.
+
+60
+00:04:00.680 --> 00:04:05.890
+So I could do John dot length.
+
+61
+00:04:05.890 --> 00:04:08.360
+What happened is that
+the primitive is just a primitive,
+
+62
+00:04:08.360 --> 00:04:09.710
+it doesn't have properties or methods.
+
+63
+00:04:09.710 --> 00:04:15.190
+But the JavaScript engine boxed it
+inside of a string object which has
+
+64
+00:04:15.190 --> 00:04:19.750
+all these properties and methods, and then
+gave me access to it kinda automatically.
+
+65
+00:04:19.750 --> 00:04:24.085
+Basically the same as
+going new String John, and
+
+66
+00:04:24.085 --> 00:04:28.120
+then doing the dot length on that.
+
+67
+00:04:28.120 --> 00:04:28.650
+Make sense?
+
+68
+00:04:30.230 --> 00:04:33.580
+So there are cases where the JavaScript
+engine wraps up the primitive in
+
+69
+00:04:33.580 --> 00:04:38.110
+its object for you, just so you can use
+properties and methods you might want to.
+
+70
+00:04:39.120 --> 00:04:42.745
+But anytime you see new, maybe a new data
+
+71
+00:04:43.815 --> 00:04:47.885
+takes a string inside
+the function constructor.
+
+72
+00:04:47.885 --> 00:04:51.715
+This is just a function, and I called
+new and so I get an object back, and
+
+73
+00:04:51.715 --> 00:04:53.135
+what is A?
+
+74
+00:04:53.135 --> 00:04:56.695
+Well A is an object
+because when I hit dot,
+
+75
+00:04:56.695 --> 00:05:02.560
+I have a whole bunch of features that
+the JavaScript engine provided on where?
+
+76
+00:05:02.560 --> 00:05:06.840
+Where are all of these properties and
+methods actually living?
+
+77
+00:05:06.840 --> 00:05:08.310
+They're not actually living on A.
+
+78
+00:05:08.310 --> 00:05:10.330
+Where are they actually living?
+
+79
+00:05:10.330 --> 00:05:13.770
+Well this is the name of the function,
+right?
+
+80
+00:05:13.770 --> 00:05:16.624
+So they're living on date dot prototype.
+
+81
+00:05:16.624 --> 00:05:21.438
+And that's where actually all those
+methods and properties live on.
+
+82
+00:05:21.438 --> 00:05:24.233
+Make sense?
+
+83
+00:05:24.233 --> 00:05:28.030
+So when I'm using these
+function constructors,
+
+84
+00:05:28.030 --> 00:05:31.720
+you have to remember that you're
+actually creating objects.
+
+85
+00:05:31.720 --> 00:05:34.800
+And it turns out that this
+can be somewhat useful,
+
+86
+00:05:34.800 --> 00:05:38.810
+especially if you're building
+extra features in libraries or
+
+87
+00:05:38.810 --> 00:05:43.590
+frameworks to tack on to
+these primitive values.
+
+88
+00:05:43.590 --> 00:05:47.980
+Or really any of the pre-existing
+values like a raise, or objects, or
+
+89
+00:05:47.980 --> 00:05:51.040
+functions inside JavaScript.
+
+90
+00:05:51.040 --> 00:05:55.610
+So if I go to my app.js file,
+let's say I want to
+
+91
+00:05:55.610 --> 00:06:01.060
+add a feature to all
+strings in JavaScript.
+
+92
+00:06:01.060 --> 00:06:04.610
+Well we saw that JavaScript will
+box those strings, that it'll,
+
+93
+00:06:04.610 --> 00:06:08.280
+it'll convert the primitive to the string
+object which has a bunch of properties and
+
+94
+00:06:08.280 --> 00:06:09.250
+methods on it for you.
+
+95
+00:06:10.380 --> 00:06:15.780
+And that's pointing to a prototype where
+those properties and methods actually
+
+96
+00:06:15.780 --> 00:06:20.145
+live, and there's nothing preventing
+me in JavaScript from adding onto them.
+
+97
+00:06:20.145 --> 00:06:25.815
+So I can go string.prototype, which is
+where all string objects will point at for
+
+98
+00:06:25.815 --> 00:06:30.410
+their prototype, where they'll look at
+when going down the prototype chain.
+
+99
+00:06:30.410 --> 00:06:36.285
+And let's say I wanted to add a feature
+like is length greater than and
+
+100
+00:06:36.285 --> 00:06:37.325
+I'll pass a limit.
+
+101
+00:06:39.220 --> 00:06:42.980
+And I'll return this,
+now what is this going to be pointing at?
+
+102
+00:06:44.030 --> 00:06:48.210
+Well, if I have a string object, it'll be
+pointing at that string object because
+
+103
+00:06:48.210 --> 00:06:51.260
+the JavaScript engine takes care of that
+when going down the prototype chain.
+
+104
+00:06:52.550 --> 00:06:57.170
+Dot length is greater than limit, so
+it'll give me back true or false.
+
+105
+00:06:57.170 --> 00:07:00.340
+So, I could say, let's say .console.log.
+
+106
+00:07:00.340 --> 00:07:03.130
+John dot.
+
+107
+00:07:03.130 --> 00:07:04.930
+Is length greater than.
+
+108
+00:07:04.930 --> 00:07:06.870
+And let's say, three.
+
+109
+00:07:08.010 --> 00:07:10.970
+So what's going to happen?
+
+110
+00:07:11.970 --> 00:07:12.470
+True.
+
+111
+00:07:13.720 --> 00:07:14.360
+What just happened?
+
+112
+00:07:15.640 --> 00:07:20.650
+Well, the primitive string was
+automatically converted to a string
+
+113
+00:07:20.650 --> 00:07:25.770
+object generated by the string
+prototype function.
+
+114
+00:07:25.770 --> 00:07:26.730
+This is a function.
+
+115
+00:07:26.730 --> 00:07:32.070
+It returns an object because
+I put a dot after and
+
+116
+00:07:32.070 --> 00:07:35.910
+I added a method to the prototype, so
+
+117
+00:07:35.910 --> 00:07:40.310
+all strings instantly have
+access to this method.
+
+118
+00:07:40.310 --> 00:07:42.080
+All strings everywhere.
+
+119
+00:07:42.080 --> 00:07:44.520
+That's the power of
+prototypal inheritance.
+
+120
+00:07:46.320 --> 00:07:49.740
+I've just enhanced the JavaScript
+programming language just like that.
+
+121
+00:07:49.740 --> 00:07:54.800
+And many libraries and frameworks
+use this technique to add features.
+
+122
+00:07:56.320 --> 00:07:59.399
+To add concepts and ideas and utilities.
+
+123
+00:08:00.990 --> 00:08:02.840
+Now you have to know what you're doing,
+you have to be careful,
+
+124
+00:08:02.840 --> 00:08:08.360
+you don't wanna overwrite an existing or
+preexisting property or method.
+
+125
+00:08:08.360 --> 00:08:13.280
+But you can very powerfully affect
+the language by understanding function
+
+126
+00:08:13.280 --> 00:08:18.400
+constructors, the prototype property
+of a function constructor, and
+
+127
+00:08:18.400 --> 00:08:25.033
+editing the prototype property of
+built in function constructors.
+
+128
+00:08:25.033 --> 00:08:26.660
+Make sense?
+
+129
+00:08:26.660 --> 00:08:32.940
+Now this worked because this string was
+converted to an object automatically.
+
+130
+00:08:32.940 --> 00:08:35.550
+So can I do that with numbers?
+
+131
+00:08:35.550 --> 00:08:39.600
+Let's say I want to take number, which
+is the built in function constructor.
+
+132
+00:08:39.600 --> 00:08:44.490
+It's just a function intended to
+be used with the new keyword and
+
+133
+00:08:44.490 --> 00:08:46.120
+that'll affect it's prototype, so
+
+134
+00:08:46.120 --> 00:08:50.670
+hopefully affecting all objects
+created with the number constructor.
+
+135
+00:08:50.670 --> 00:08:56.730
+And let's call this is positive and
+this'll be a function that just says,
+
+136
+00:08:56.730 --> 00:09:00.940
+"Is this greater than
+zero?" How about that?
+
+137
+00:09:00.940 --> 00:09:05.440
+So can I use that in the same way?
+
+138
+00:09:05.440 --> 00:09:09.796
+Refresh, I'll do three dot is positive.
+
+139
+00:09:09.796 --> 00:09:10.917
+Oh, error.
+
+140
+00:09:10.917 --> 00:09:11.580
+Why?
+Well,
+
+141
+00:09:11.580 --> 00:09:15.060
+because JavaScript, while it's
+nice enough to convert string for
+
+142
+00:09:15.060 --> 00:09:18.960
+me automatically won't convert
+a number to an object automatically.
+
+143
+00:09:19.970 --> 00:09:25.180
+However, if I did something like A equals
+new number, so I use that function
+
+144
+00:09:25.180 --> 00:09:29.530
+constructor, meaning A's prototype
+will point at number dot prototype.
+
+145
+00:09:31.250 --> 00:09:33.690
+Then I could do A dot is positive.
+
+146
+00:09:35.380 --> 00:09:39.980
+So this whole thing of built
+in function constructors.
+
+147
+00:09:39.980 --> 00:09:43.660
+It's neat and you can add some abilities.
+
+148
+00:09:43.660 --> 00:09:47.120
+Especially to things like arrays or
+strings pretty easily.
+
+149
+00:09:48.160 --> 00:09:54.090
+But it gets a little dicey as you
+try to deal with primitives versus
+
+150
+00:09:54.090 --> 00:09:58.810
+things that were created with the function
+constructors that look like primitives.
+
+151
+00:09:58.810 --> 00:10:00.820
+This looks like it's a number.
+
+152
+00:10:00.820 --> 00:10:02.300
+It's not a number.
+
+153
+00:10:02.300 --> 00:10:08.480
+It's an object that wraps or boxes up
+a number and adds a bunch of features.
+
+154
+00:10:08.480 --> 00:10:09.920
+So it can get confusing.
+
+155
+00:10:09.920 --> 00:10:16.860
+We're going to talk in the next lesson
+about why this is dangerous for a moment.
+
+156
+00:10:16.860 --> 00:10:20.640
+And why in general you shouldn't
+use function constructors,
+
+157
+00:10:20.640 --> 00:10:24.810
+the built in function constructors,
+for these primitive types.
+
+158
+00:10:24.810 --> 00:10:25.690
+Unless you have to.
+
+159
+00:10:26.750 --> 00:10:31.170
+Even though it is useful to
+add features in some cases.
+
+160
+00:10:31.170 --> 00:10:31.810
+All right, let's move on.
+

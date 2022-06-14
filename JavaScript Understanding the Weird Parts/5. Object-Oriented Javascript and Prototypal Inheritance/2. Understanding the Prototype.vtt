@@ -1,0 +1,850 @@
+WEBVTT
+
+1
+00:00:02.570 --> 00:00:05.010
+Understanding the prototype.
+
+2
+00:00:05.010 --> 00:00:09.790
+We've said that JavaScript implements
+something called prototypal inheritance.
+
+3
+00:00:10.880 --> 00:00:15.220
+That means that there exists this
+concept called the prototype.
+
+4
+00:00:16.380 --> 00:00:17.130
+So what is that?
+
+5
+00:00:18.560 --> 00:00:23.290
+Well in this case, instead of a big
+word alert, let's show you what we mean.
+
+6
+00:00:25.550 --> 00:00:28.930
+Let's say we have an object in memory,
+we'll just call it obj.
+
+7
+00:00:30.580 --> 00:00:35.240
+We've already seen that objects
+can have properties and methods.
+
+8
+00:00:36.630 --> 00:00:38.020
+This obj has a property.
+
+9
+00:00:38.020 --> 00:00:39.720
+Let's say it's property 1.
+
+10
+00:00:39.720 --> 00:00:47.030
+And I can access it with
+obj.prop1 using the dot operator.
+
+11
+00:00:48.050 --> 00:00:53.760
+The dot operator goes out and looks for
+a reference to something named prop1 and
+
+12
+00:00:53.760 --> 00:00:56.340
+goes, finds that memory and
+gives it back to me.
+
+13
+00:00:56.340 --> 00:01:01.110
+As long as it's referenced against obj,
+you've seen that already.
+
+14
+00:01:02.460 --> 00:01:06.860
+We also know that the JavaScript engine
+adds hidden properties and methods to
+
+15
+00:01:06.860 --> 00:01:12.580
+things or properties and methods that we
+normally don't interact with directly.
+
+16
+00:01:15.070 --> 00:01:20.110
+All objects In JavaScript,
+and that includes functions.
+
+17
+00:01:20.110 --> 00:01:24.510
+All objects have a prototype property.
+
+18
+00:01:26.590 --> 00:01:32.780
+The property is simply a reference to
+another object, we'll call it proto.
+
+19
+00:01:34.410 --> 00:01:38.700
+It's an object that stands on its own,
+we could use it by itself if we wanted to.
+
+20
+00:01:40.540 --> 00:01:46.900
+But the object property that we'll
+call proto, that's it's prototype.
+
+21
+00:01:49.040 --> 00:01:54.540
+That's the object that it's going to grab
+and be able to get its properties and
+
+22
+00:01:54.540 --> 00:01:59.880
+methods as well So if this other object,
+and it's just an object,
+
+23
+00:01:59.880 --> 00:02:06.588
+has some other property, say,
+Prop 2, when I call obj.prop2,
+
+24
+00:02:06.588 --> 00:02:12.960
+the dot operator goes and looks for
+Prop 2 referenced on obj itself.
+
+25
+00:02:14.010 --> 00:02:19.450
+And it doesn't find it, so
+it next goes to the prototype.
+
+26
+00:02:21.070 --> 00:02:24.120
+There, that object proto and looks for
+
+27
+00:02:24.120 --> 00:02:28.640
+that property name there and
+if it finds it, it returns it.
+
+28
+00:02:30.360 --> 00:02:34.050
+So it looks like prop two
+is on our object, but
+
+29
+00:02:34.050 --> 00:02:36.190
+it's actually on our objects prototype.
+
+30
+00:02:38.770 --> 00:02:44.520
+Similarly that prototype object itself
+can also point to another object and
+
+31
+00:02:44.520 --> 00:02:46.500
+so on and so forth.
+
+32
+00:02:48.590 --> 00:02:52.820
+Each object can have its own prototype,
+and
+
+33
+00:02:52.820 --> 00:02:57.520
+maybe this prototype of the prototype
+has another property, prop 3.
+
+34
+00:02:57.520 --> 00:03:02.800
+And so
+I use the dot operator to call obj.prop3.
+
+35
+00:03:02.800 --> 00:03:08.720
+It doesn't find it in obj, so it looks
+at the prototype, that proto object.
+
+36
+00:03:09.900 --> 00:03:14.450
+It doesn't find Prop 3 there, so
+it looks at the prototype of that object,
+
+37
+00:03:16.170 --> 00:03:19.220
+and it finds Prop 3 and
+returns it, gives it to us.
+
+38
+00:03:20.700 --> 00:03:24.560
+It looks like it's on our main object but
+
+39
+00:03:24.560 --> 00:03:29.598
+it's actually a ways down what's
+called the prototype chain.
+
+40
+00:03:29.598 --> 00:03:32.940
+It looks like Like a chain, right?
+
+41
+00:03:32.940 --> 00:03:37.820
+Don't confuse that with the scope chain,
+though it is kind of similar in some ways.
+
+42
+00:03:37.820 --> 00:03:41.930
+The scope change is about looking for
+where we have access to a variable,
+
+43
+00:03:43.760 --> 00:03:47.500
+however this has to do with where
+we have access to a property or
+
+44
+00:03:47.500 --> 00:03:52.120
+method amongst a sequence of objects
+
+45
+00:03:52.120 --> 00:03:56.340
+that are connected via this prototype
+property, that we're calling here proto.
+
+46
+00:03:58.510 --> 00:04:06.450
+And it's hidden from me in the sense that
+I don't have to go obj.proto.proto.prop3.
+
+47
+00:04:06.450 --> 00:04:08.945
+I can just say obj.prop3.
+
+48
+00:04:08.945 --> 00:04:13.490
+And the JavaScript engine does the work
+of searching the prototype chain,
+
+49
+00:04:14.680 --> 00:04:16.960
+for those properties and methods.
+
+50
+00:04:18.800 --> 00:04:23.920
+The really interesting thing is if I
+have another object, let's say obj2,
+
+51
+00:04:25.540 --> 00:04:29.840
+it can point to the same
+object as its prototype
+
+52
+00:04:32.060 --> 00:04:35.490
+It's just another object,
+these are just references.
+
+53
+00:04:35.490 --> 00:04:39.740
+So objects can share all the same
+prototype if they want to, or
+
+54
+00:04:39.740 --> 00:04:40.580
+if you want them to.
+
+55
+00:04:40.580 --> 00:04:46.450
+And so if I call obj2.prop2,
+
+56
+00:04:46.450 --> 00:04:50.530
+interestingly that's going to
+return the exact same property.
+
+57
+00:04:50.530 --> 00:04:55.680
+The same spot in memory as obj.prop2.
+
+58
+00:04:55.680 --> 00:05:01.000
+So they're literally sharing
+a property but not directly.
+
+59
+00:05:01.000 --> 00:05:04.450
+Instead, via this concept within
+the engine called the prototype chain.
+
+60
+00:05:06.160 --> 00:05:08.190
+Prop2 isn't on obj and obj2.
+
+61
+00:05:09.360 --> 00:05:13.360
+It's just that when the JavaScript
+engine goes down the chain to search,
+
+62
+00:05:13.360 --> 00:05:15.910
+they happen to be pointing
+at the same place.
+
+63
+00:05:17.630 --> 00:05:18.210
+Make sense?
+
+64
+00:05:19.990 --> 00:05:23.780
+This is the prototype chain,
+the concept of prototypes.
+
+65
+00:05:23.780 --> 00:05:27.350
+And it's very simple, don't over-think it.
+
+66
+00:05:27.350 --> 00:05:32.420
+It's just I have this special reference
+in my object that says where to look
+
+67
+00:05:33.920 --> 00:05:37.940
+for other properties and
+methods, that's my prototype but
+
+68
+00:05:37.940 --> 00:05:41.660
+I don't have to manually go dot
+prototype or something like that.
+
+69
+00:05:41.660 --> 00:05:46.490
+I can just go dot property or dot method
+and the JavaScript engine will go look for
+
+70
+00:05:46.490 --> 00:05:47.180
+it down the chain.
+
+71
+00:05:48.970 --> 00:05:51.140
+All right, let's see some examples.
+
+72
+00:05:51.140 --> 00:05:53.045
+Let's say I have a person object.
+
+73
+00:05:53.045 --> 00:05:58.898
+[SOUND] And I'm going to give
+this person object a firstname,
+
+74
+00:05:58.898 --> 00:06:02.470
+and I'm just gonna call it Default.
+
+75
+00:06:02.470 --> 00:06:08.024
+This is a generic person, [SOUND] and
+the last name, also Default.
+
+76
+00:06:08.024 --> 00:06:13.428
+[SOUND] and
+I'm going to give myself a property or
+
+77
+00:06:13.428 --> 00:06:18.293
+a method I should say called getFullName,
+
+78
+00:06:18.293 --> 00:06:21.399
+that uses the first name and
+
+79
+00:06:21.399 --> 00:06:27.089
+last name properties,
+we've done this before.
+
+80
+00:06:27.089 --> 00:06:30.010
+All right, so there's my object person.
+
+81
+00:06:30.010 --> 00:06:32.200
+It has two properties and the method.
+
+82
+00:06:33.820 --> 00:06:36.700
+Now let's suppose I have
+another object called john.
+
+83
+00:06:39.020 --> 00:06:43.090
+John has first name John and
+a last name property Doe.
+
+84
+00:06:45.800 --> 00:06:49.050
+Now I'm going to do something
+that you should never, ever do.
+
+85
+00:06:50.380 --> 00:06:51.480
+I know why.
+
+86
+00:06:51.480 --> 00:06:54.360
+Well, we're going to talk quite
+extensively about the different ways to
+
+87
+00:06:54.360 --> 00:06:56.380
+build objects and set the prototype.
+
+88
+00:06:57.560 --> 00:07:02.940
+But, for demonstration purposes and
+to explain this concept.
+
+89
+00:07:02.940 --> 00:07:08.850
+The best way to explain this
+concept is to use a technique
+
+90
+00:07:08.850 --> 00:07:14.380
+that you really should never
+use in real life because
+
+91
+00:07:14.380 --> 00:07:19.510
+modern browsers do provide a way
+to directly access the prototype,
+
+92
+00:07:21.090 --> 00:07:24.610
+but you don't want to use it.
+
+93
+00:07:24.610 --> 00:07:29.360
+You don't want to set it,
+because it's a performance problem,
+
+94
+00:07:29.360 --> 00:07:32.060
+it can slow down your
+applications dramatically.
+
+95
+00:07:32.060 --> 00:07:38.150
+So, I'm just gonna put a comment here,
+don't do this, EVER!
+
+96
+00:07:38.150 --> 00:07:41.000
+for demo purposes only!!!
+
+97
+00:07:42.130 --> 00:07:42.630
+Okay.
+
+98
+00:07:43.820 --> 00:07:45.300
+So.
+
+99
+00:07:45.300 --> 00:07:50.960
+So I'll take my john object,
+and I'll set the prototype.
+
+100
+00:07:50.960 --> 00:07:52.830
+Again, don't ever do it this way.
+
+101
+00:07:52.830 --> 00:07:55.230
+But it'll make it very easy to
+understand what's going on.
+
+102
+00:07:56.270 --> 00:08:01.670
+Remember that all objects have
+a reference to another object and
+
+103
+00:08:01.670 --> 00:08:07.100
+we call that its prototype
+where it goes and looks for
+
+104
+00:08:07.100 --> 00:08:11.010
+properties and methods if not
+found on the original object.
+
+105
+00:08:11.010 --> 00:08:15.775
+So, in most modern browsers,
+you can do this,
+
+106
+00:08:15.775 --> 00:08:20.800
+__proto__ I know, weird, right?
+
+107
+00:08:20.800 --> 00:08:25.120
+But that's to make sure you
+never accidentally type it.
+
+108
+00:08:25.120 --> 00:08:28.890
+And you likely will never accidentally
+type underscore underscore, proto,
+
+109
+00:08:28.890 --> 00:08:30.220
+underscore underscore.
+
+110
+00:08:30.220 --> 00:08:32.580
+Or accidentally name your own method or
+property that.
+
+111
+00:08:34.220 --> 00:08:36.360
+It's really important to not mess this up.
+
+112
+00:08:36.360 --> 00:08:40.660
+So, even in the JavaScript language,
+they made sure that that was hard.
+
+113
+00:08:40.660 --> 00:08:41.940
+So again, don't do this.
+
+114
+00:08:42.960 --> 00:08:48.690
+But we're going to set the prototype of
+the John object to the person object,
+
+115
+00:08:48.690 --> 00:08:51.160
+and that's all we have to do.
+
+116
+00:08:52.800 --> 00:08:55.260
+John now inherits from person.
+
+117
+00:08:56.400 --> 00:09:00.840
+In other words, the JavaScript engine, if
+I was to call a property or method, if I
+
+118
+00:09:00.840 --> 00:09:05.550
+was to try to access a property and method
+on John, that doesn't exist on John.
+
+119
+00:09:05.550 --> 00:09:08.960
+It will go to person to try to find it.
+
+120
+00:09:10.500 --> 00:09:14.490
+And if it's not on person, whatever
+person's dot proto is, it will go and
+
+121
+00:09:14.490 --> 00:09:17.170
+try to find it there and
+on down the chain.
+
+122
+00:09:18.430 --> 00:09:23.290
+So now that John's
+prototype points to person,
+
+123
+00:09:23.290 --> 00:09:28.580
+I can just console.log (john.getFullName).
+
+124
+00:09:28.580 --> 00:09:31.650
+Name.
+I couldn't do that before,
+
+125
+00:09:31.650 --> 00:09:33.740
+there was no getFullName.
+
+126
+00:09:33.740 --> 00:09:38.870
+So, when I try to access getFullName,
+it will see that it's not there,
+
+127
+00:09:40.400 --> 00:09:44.320
+and look at the proto, and then look for
+it there and it will find it.
+
+128
+00:09:44.320 --> 00:09:49.030
+So, there it is, John Doe.
+
+129
+00:09:49.030 --> 00:09:50.580
+Notice something else important.
+
+130
+00:09:50.580 --> 00:09:57.390
+When this function is invoked, the
+execution context when it creates the this
+
+131
+00:09:57.390 --> 00:10:04.240
+variable knows what object
+originally we're talking about.
+
+132
+00:10:05.510 --> 00:10:10.730
+So this does not refer to person,
+it refers to John,
+
+133
+00:10:10.730 --> 00:10:14.200
+whatever object originated the call.
+
+134
+00:10:14.200 --> 00:10:15.100
+Awfully useful, isn't it?
+
+135
+00:10:16.810 --> 00:10:25.490
+So now I've just basically given
+access to this method of person.
+
+136
+00:10:28.410 --> 00:10:37.237
+Now if I console.log(john.firstname),
+
+137
+00:10:37.237 --> 00:10:43.270
+that property, I see John.
+
+138
+00:10:43.270 --> 00:10:44.920
+Let's think about that.
+
+139
+00:10:44.920 --> 00:10:46.820
+Why don't I get the fault?
+
+140
+00:10:48.810 --> 00:10:50.550
+Well because of the prototype chain.
+
+141
+00:10:52.690 --> 00:10:56.785
+I'm asking for the first name
+property of the john object.
+
+142
+00:10:58.645 --> 00:11:03.345
+So it first looks at the john object for
+that property and
+
+143
+00:11:03.345 --> 00:11:05.625
+if it finds it it returns it and stops.
+
+144
+00:11:05.625 --> 00:11:08.725
+It doesn't search the prototype
+chain any further
+
+145
+00:11:08.725 --> 00:11:10.135
+once it finds what I'm looking for.
+
+146
+00:11:11.255 --> 00:11:18.850
+So this firstname hides the first
+name on the prototype, make sense?
+
+147
+00:11:20.860 --> 00:11:24.350
+And that's only because the JavaScript
+engine starts at the top of the chain and
+
+148
+00:11:24.350 --> 00:11:30.480
+works it's way down, and stops, the first
+time it finds what it's looking for.
+
+149
+00:11:32.350 --> 00:11:36.860
+All right, let's try something else,
+let's add a new object,
+
+150
+00:11:36.860 --> 00:11:40.840
+Jane, and
+Jane will just have a first name.
+
+151
+00:11:42.060 --> 00:11:43.240
+No last name.
+
+152
+00:11:43.240 --> 00:11:46.060
+Just one name, like Beyonce or something.
+
+153
+00:11:46.060 --> 00:11:47.040
+Jane.
+
+154
+00:11:47.040 --> 00:11:48.310
+All right.
+
+155
+00:11:48.310 --> 00:11:52.070
+So we'll set,
+remember don't ever do this, but
+
+156
+00:11:52.070 --> 00:11:54.350
+just to make it easy to
+understand what's going on,
+
+157
+00:11:55.730 --> 00:12:00.710
+we'll set the Jane object's
+prototype to the same person object.
+
+158
+00:12:02.120 --> 00:12:06.450
+So both of these protos, John's proto and
+Jane's proto, are pointing
+
+159
+00:12:08.040 --> 00:12:11.735
+at the same spot in memory
+where this person object lives.
+
+160
+00:12:11.735 --> 00:12:18.180
+So, I can console.log,(jane.getFullName).
+
+161
+00:12:18.180 --> 00:12:22.580
+All right,
+now I want you to think about this.
+
+162
+00:12:22.580 --> 00:12:24.190
+What am I going to see?
+
+163
+00:12:26.460 --> 00:12:35.200
+The getFullName method returns
+this.firstname + this.lastname.
+
+164
+00:12:35.200 --> 00:12:40.950
+And whenever we request a property,
+it searches the prototype chain and
+
+165
+00:12:40.950 --> 00:12:44.700
+for starters this, what is the this
+keyword is going to be pointing to?
+
+166
+00:12:46.770 --> 00:12:49.230
+It's going to be pointing at Jane.
+
+167
+00:12:49.230 --> 00:12:52.450
+So it's going to search for
+first name and for
+
+168
+00:12:52.450 --> 00:12:56.620
+last name on the Jane object and
+move down the prototype chain.
+
+169
+00:12:58.430 --> 00:13:00.970
+Jane only has a first name property.
+
+170
+00:13:02.590 --> 00:13:08.517
+So what will
+the (jane.getFullName) return?
+
+171
+00:13:08.517 --> 00:13:09.590
+You have an answer?
+
+172
+00:13:12.590 --> 00:13:13.090
+Run it.
+
+173
+00:13:14.560 --> 00:13:15.090
+Jane Default.
+
+174
+00:13:15.090 --> 00:13:16.730
+Is that what you guessed?
+
+175
+00:13:18.780 --> 00:13:20.858
+Is that what you deduced?
+
+176
+00:13:20.858 --> 00:13:23.857
+You're right.
+
+177
+00:13:23.857 --> 00:13:31.540
+When it invokes get full name, the this
+variable, the this keyword points to Jane.
+
+178
+00:13:31.540 --> 00:13:34.610
+Because that object originated the call.
+
+179
+00:13:36.840 --> 00:13:38.940
+And then it searches for
+
+180
+00:13:38.940 --> 00:13:45.010
+first name on "Jane", finds it,
+and says okay, it's Jane.
+
+181
+00:13:45.010 --> 00:13:50.980
+And then it searches for lastname on
+the Jane object, doesn't find it,
+
+182
+00:13:50.980 --> 00:13:56.400
+and looks at the prototype,
+which is person, and finds lastname there.
+
+183
+00:13:56.400 --> 00:13:59.743
+So we get "Jane' 'Default'.
+
+184
+00:13:59.743 --> 00:14:02.391
+Makes sense?
+

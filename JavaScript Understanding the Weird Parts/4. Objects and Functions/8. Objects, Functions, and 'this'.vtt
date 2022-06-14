@@ -1,0 +1,1364 @@
+WEBVTT
+
+1
+00:00:02.100 --> 00:00:05.690
+We've talked quite a bit about
+what a function really is.
+
+2
+00:00:05.690 --> 00:00:08.960
+It's an object with properties and
+various things that happen.
+
+3
+00:00:10.100 --> 00:00:15.050
+Now it's time to take a step back and
+look again at what happens when
+
+4
+00:00:15.050 --> 00:00:19.910
+the code of a function is invoked,
+when a function is Run.
+
+5
+00:00:21.030 --> 00:00:24.780
+Remember those execution
+contexts that we talked about
+
+6
+00:00:24.780 --> 00:00:26.890
+at the beginning of the course.
+
+7
+00:00:26.890 --> 00:00:35.030
+So this is Objects, Functions and
+the sometimes confusing keyword this.
+
+8
+00:00:35.030 --> 00:00:36.610
+Just as a reminder,
+
+9
+00:00:36.610 --> 00:00:42.140
+when a function is invoked a new
+execution context is created.
+
+10
+00:00:43.290 --> 00:00:47.770
+Remember not to confuse this with
+the object that we've been discussing.
+
+11
+00:00:47.770 --> 00:00:52.328
+The object sitting in memory that is
+a function has properties and methods.
+
+12
+00:00:52.328 --> 00:00:58.020
+It has a name property and
+a code property where the code lives.
+
+13
+00:00:58.020 --> 00:01:01.280
+But when that code is invoked and
+
+14
+00:01:01.280 --> 00:01:06.060
+execution context is created and
+put on the execution stack.
+
+15
+00:01:06.060 --> 00:01:12.230
+And that determines how that code is Run,
+is executed.
+
+16
+00:01:12.230 --> 00:01:15.010
+So think of the execution context
+
+17
+00:01:15.010 --> 00:01:19.950
+as focusing on that code portion
+of that function object.
+
+18
+00:01:19.950 --> 00:01:23.530
+What happens when I run
+the code in that code property?
+
+19
+00:01:24.590 --> 00:01:27.670
+So we know that an execution
+context is created.
+
+20
+00:01:29.610 --> 00:01:33.700
+Each executions context has
+this variable environment.
+
+21
+00:01:33.700 --> 00:01:37.040
+Where the variables created
+inside that function live.
+
+22
+00:01:38.840 --> 00:01:41.570
+It has a reference to
+its outer environment.
+
+23
+00:01:41.570 --> 00:01:45.570
+Its outer lexical environment,
+where it sits physically in the code,
+
+24
+00:01:45.570 --> 00:01:48.760
+which tells it how to look
+down the scope chain.
+
+25
+00:01:48.760 --> 00:01:51.970
+In other words,
+if I ask for a variable and
+
+26
+00:01:51.970 --> 00:01:56.640
+it's not there inside that
+function's variable environment.
+
+27
+00:01:56.640 --> 00:02:00.860
+It'll go out and out further, and all
+the way out until it reaches the global
+
+28
+00:02:00.860 --> 00:02:04.876
+environment looking for
+that variable or that function.
+
+29
+00:02:06.155 --> 00:02:08.165
+So it has that outer reference.
+
+30
+00:02:09.515 --> 00:02:13.225
+And we also know that in
+JavaScript engine every time
+
+31
+00:02:13.225 --> 00:02:17.212
+an execution context is created,
+that is every time a function is Run.
+
+32
+00:02:18.242 --> 00:02:22.052
+It gives us, without us having
+to create it, declare it or
+
+33
+00:02:22.052 --> 00:02:27.252
+anything, it gives us this variable
+called this, which can be useful.
+
+34
+00:02:28.522 --> 00:02:34.940
+And this will be pointing
+at a different object,
+
+35
+00:02:34.940 --> 00:02:40.410
+a different thing,
+depending on how the function is invoked.
+
+36
+00:02:41.720 --> 00:02:43.430
+This can cause a lot of confusion.
+
+37
+00:02:44.590 --> 00:02:47.890
+There are a few scenarios where this
+
+38
+00:02:48.940 --> 00:02:53.020
+will be changed depending on
+how the function is called.
+
+39
+00:02:53.020 --> 00:02:57.430
+For the JavaScript engine will decide that
+this should point to something different.
+
+40
+00:02:58.486 --> 00:03:02.480
+That the this keyword is
+a particular object or another,
+
+41
+00:03:02.480 --> 00:03:05.030
+depending on where the function is and
+how it's called.
+
+42
+00:03:06.040 --> 00:03:09.800
+So let's take a look at a couple
+of these scenarios, and
+
+43
+00:03:09.800 --> 00:03:13.060
+we'll see this again later
+in the course as well.
+
+44
+00:03:13.060 --> 00:03:14.760
+So, the this keyword.
+
+45
+00:03:16.090 --> 00:03:19.310
+I once again have my empty app.js file,
+and
+
+46
+00:03:19.310 --> 00:03:24.250
+we'll use some simple examples
+to explain what this,
+
+47
+00:03:24.250 --> 00:03:28.528
+the keyword this will be
+under certain circumstances.
+
+48
+00:03:28.528 --> 00:03:33.750
+Now you maybe thinking that you'd like to
+see some more concrete complete examples.
+
+49
+00:03:33.750 --> 00:03:34.500
+I agree.
+
+50
+00:03:34.500 --> 00:03:39.860
+As this course goes on especially toward
+the end, we'll look at far more complex
+
+51
+00:03:39.860 --> 00:03:45.675
+examples of the concepts that
+we're using in the real world and
+
+52
+00:03:45.675 --> 00:03:50.605
+in very popular JavaScript libraries and
+frameworks.
+
+53
+00:03:50.605 --> 00:03:55.785
+But I believe it's important first
+to understand the concept and
+
+54
+00:03:55.785 --> 00:04:01.640
+not get bogged down in the details of
+implementation of more complex examples.
+
+55
+00:04:01.640 --> 00:04:04.280
+So right now we're focusing on just
+
+56
+00:04:04.280 --> 00:04:08.020
+understanding what's happening
+under the hood with JavaScript.
+
+57
+00:04:08.020 --> 00:04:12.260
+And then later we'll build on that
+knowledge with more complex example.
+
+58
+00:04:13.670 --> 00:04:17.405
+For now,
+let's move on talking about this keyword.
+
+59
+00:04:18.430 --> 00:04:24.910
+We've already seen that this is
+immediately available, the keyword this.
+
+60
+00:04:24.910 --> 00:04:28.300
+Even at the global
+execution context level.
+
+61
+00:04:28.300 --> 00:04:36.460
+So I can run this, and inside the browser,
+it's going to show me the window object.
+
+62
+00:04:36.460 --> 00:04:42.060
+Because this points to the global
+object at this level in the code.
+
+63
+00:04:43.310 --> 00:04:45.870
+And inside the browser,
+the global object is,
+
+64
+00:04:45.870 --> 00:04:48.000
+as you might recall, the Window object.
+
+65
+00:04:49.480 --> 00:04:52.980
+Now let's look at another example,
+let's say I have a function.
+
+66
+00:04:52.980 --> 00:04:58.950
+I'll just call it a, and
+I'm going to log this.
+
+67
+00:05:00.380 --> 00:05:02.940
+And then, I'll invoke a.
+
+68
+00:05:05.170 --> 00:05:09.690
+Remember that invoking a,
+means run that code property
+
+69
+00:05:09.690 --> 00:05:13.020
+which contains all the lines
+of code inside the function.
+
+70
+00:05:13.020 --> 00:05:19.030
+And the first thing it does is create
+that execution context, and one of that
+
+71
+00:05:20.350 --> 00:05:25.370
+pieces of the puzzle is
+the creation of the keyword this.
+
+72
+00:05:26.620 --> 00:05:29.040
+So what will the keyword this be
+
+73
+00:05:30.130 --> 00:05:35.430
+inside the execution context
+that's created by invoking a?
+
+74
+00:05:35.430 --> 00:05:39.530
+Execution context for
+running the a function.
+
+75
+00:05:39.530 --> 00:05:40.545
+Now let's take a look.
+
+76
+00:05:43.286 --> 00:05:46.510
+It's also the Window object.
+
+77
+00:05:47.860 --> 00:05:52.910
+So when you create a function,
+the this keyword is still going to
+
+78
+00:05:52.910 --> 00:05:56.470
+point to the global object.
+
+79
+00:05:57.710 --> 00:06:01.990
+If you decided to use this,
+if you're simply invoking the function.
+
+80
+00:06:03.730 --> 00:06:09.320
+Similarly, if I use a function expression
+
+81
+00:06:09.320 --> 00:06:13.900
+to set up the object, and
+then set that equal to a variable.
+
+82
+00:06:15.090 --> 00:06:16.190
+Actually I mean this.
+
+83
+00:06:17.810 --> 00:06:25.340
+So, var b gets this function
+expression to declare it, to create it.
+
+84
+00:06:25.340 --> 00:06:27.410
+What will this be in that case?
+
+85
+00:06:28.440 --> 00:06:29.520
+Well, I'll go ahead and
+
+86
+00:06:29.520 --> 00:06:33.830
+invoke b, using the variable
+name to point to that function.
+
+87
+00:06:36.930 --> 00:06:39.320
+And it's still Window.
+
+88
+00:06:39.320 --> 00:06:43.283
+So whenever I create a function
+
+89
+00:06:43.283 --> 00:06:48.580
+that's simply a function expression or
+a function statement.
+
+90
+00:06:48.580 --> 00:06:52.430
+Creating a function at
+this level in the code,
+
+91
+00:06:52.430 --> 00:06:55.310
+then this will point to the global object.
+
+92
+00:06:56.410 --> 00:06:59.670
+And that's true even
+though there's actually
+
+93
+00:06:59.670 --> 00:07:03.110
+three execution contexts that we see here.
+
+94
+00:07:03.110 --> 00:07:08.080
+The global one, then the one that's
+created when a is invoked, and
+
+95
+00:07:08.080 --> 00:07:12.070
+another execution context that's
+created when b is invoked.
+
+96
+00:07:13.440 --> 00:07:16.970
+And in each of those cases,
+they get their own this keyword.
+
+97
+00:07:18.110 --> 00:07:23.500
+But in all those cases,
+the keyword points to the same address,
+
+98
+00:07:23.500 --> 00:07:25.850
+the same location in
+your computer's memory.
+
+99
+00:07:27.050 --> 00:07:29.240
+So they're all pointing
+at the global object.
+
+100
+00:07:30.470 --> 00:07:31.099
+Makes sense?
+
+101
+00:07:32.380 --> 00:07:38.707
+That means you could even do strange
+things like this.newvariable
+
+102
+00:07:38.707 --> 00:07:43.230
+let's say equals hello.
+
+103
+00:07:43.230 --> 00:07:46.545
+I've attached it to the global object.
+
+104
+00:07:46.545 --> 00:07:54.542
+So after I call a,
+I could actually console.log newvariable.
+
+105
+00:07:54.542 --> 00:07:57.579
+Cuz that's been created and
+using the dot operator,
+
+106
+00:07:57.579 --> 00:08:01.450
+I've attached a new variable
+to the global object.
+
+107
+00:08:01.450 --> 00:08:02.130
+And remember,
+
+108
+00:08:02.130 --> 00:08:07.290
+any variables attached to the global
+object, I can just reference like that.
+
+109
+00:08:07.290 --> 00:08:09.950
+I don't need to use the dot operator.
+
+110
+00:08:09.950 --> 00:08:14.498
+It just assumes I'm asking for
+a variable on the global object.
+
+111
+00:08:14.498 --> 00:08:17.232
+So I can refresh this and
+
+112
+00:08:17.232 --> 00:08:22.300
+actually see that hello, kind of strange.
+
+113
+00:08:22.300 --> 00:08:25.783
+If you don't understand what
+this keyword is pointing to and
+
+114
+00:08:25.783 --> 00:08:30.031
+you think you're somehow attaching
+this to the function, you're not.
+
+115
+00:08:30.031 --> 00:08:33.551
+You're actually crashing into
+the global namespace and
+
+116
+00:08:33.551 --> 00:08:37.150
+you could cause yourself
+a lot of problems.
+
+117
+00:08:37.150 --> 00:08:44.140
+So when you're just invoking the function,
+this points to the global variable.
+
+118
+00:08:45.150 --> 00:08:49.092
+However, you may have seen something that
+looks like this when learning JavaScript.
+
+119
+00:08:49.092 --> 00:08:54.769
+We're gonna talk about that later in
+the course about what circumstance
+
+120
+00:08:54.769 --> 00:08:59.900
+when you would use the this variable
+inside a function like this.
+
+121
+00:08:59.900 --> 00:09:05.634
+Now that said,
+what about an object method?
+
+122
+00:09:05.634 --> 00:09:10.641
+Let me create a little space here and
+I'll create a new object literal and
+
+123
+00:09:10.641 --> 00:09:13.925
+now that we understand
+function expressions,
+
+124
+00:09:13.925 --> 00:09:19.032
+I can do something that we haven't
+done before inside an object literal.
+
+125
+00:09:19.032 --> 00:09:21.412
+I can create a method.
+
+126
+00:09:21.412 --> 00:09:25.231
+Remember, if the value is a primitive,
+it's called a property.
+
+127
+00:09:25.231 --> 00:09:30.360
+And if the value a function,
+it's called a method.
+
+128
+00:09:30.360 --> 00:09:32.910
+So, I'll create a name-value pair.
+
+129
+00:09:32.910 --> 00:09:37.146
+I'll just call it name, so
+we can recognize the object and
+
+130
+00:09:37.146 --> 00:09:42.083
+I'll call it the c object and
+then a comma and I'll create a method.
+
+131
+00:09:42.083 --> 00:09:45.527
+I'll do log: so that's the name and
+
+132
+00:09:45.527 --> 00:09:50.204
+then the value I want to
+create a function object.
+
+133
+00:09:50.204 --> 00:09:52.942
+So, I'll just use a function expression.
+
+134
+00:09:52.942 --> 00:09:58.155
+An anonymous function, no name and
+
+135
+00:09:58.155 --> 00:10:03.022
+then I'll console.log this and
+
+136
+00:10:03.022 --> 00:10:07.835
+then I'll call c.log So
+
+137
+00:10:07.835 --> 00:10:13.831
+now I can invoke the function that was
+created inside this object literal,
+
+138
+00:10:13.831 --> 00:10:16.317
+which is attached to this log.
+
+139
+00:10:16.317 --> 00:10:21.135
+So this is the log method of the object c.
+
+140
+00:10:21.135 --> 00:10:21.690
+See that?
+
+141
+00:10:23.010 --> 00:10:25.970
+What will this turn out to be?
+
+142
+00:10:25.970 --> 00:10:30.556
+Remember every time a function is invoked,
+a new execution context is created and
+
+143
+00:10:30.556 --> 00:10:36.220
+the JavaScript engine
+decides what that keyword,
+
+144
+00:10:36.220 --> 00:10:39.310
+the keyword this should be pointing to.
+
+145
+00:10:41.190 --> 00:10:44.090
+In these other cases,
+it was the window object.
+
+146
+00:10:44.090 --> 00:10:49.676
+But in this case,
+it's a method on an object and
+
+147
+00:10:49.676 --> 00:10:54.716
+that means, see that there at the bottom?
+
+148
+00:10:54.716 --> 00:11:00.163
+In the case where a function
+is actually a method
+
+149
+00:11:00.163 --> 00:11:05.339
+attached to an object,
+this keyword becomes
+
+150
+00:11:05.339 --> 00:11:11.212
+the object that that method
+is sitting inside of c.
+
+151
+00:11:11.212 --> 00:11:14.731
+See that?
+
+152
+00:11:14.731 --> 00:11:16.970
+These functions, this keyword.
+
+153
+00:11:16.970 --> 00:11:19.850
+The JavaScript engine said,
+you're attached to an object.
+
+154
+00:11:19.850 --> 00:11:24.511
+So when you see,
+when you use the this keyword I'm going to
+
+155
+00:11:24.511 --> 00:11:28.615
+be pointing at that very
+object that contains you.
+
+156
+00:11:28.615 --> 00:11:32.030
+So I could actually say,
+
+157
+00:11:32.030 --> 00:11:36.916
+this.name = 'Updated c object'
+
+158
+00:11:39.546 --> 00:11:43.910
+And then when this is logged, see that?
+
+159
+00:11:43.910 --> 00:11:49.450
+I changed that property
+on this parent object,
+
+160
+00:11:49.450 --> 00:11:53.750
+the object that holds the function.
+
+161
+00:11:54.790 --> 00:11:56.270
+So that's useful.
+
+162
+00:11:56.270 --> 00:12:00.419
+I can mutate that is change the object,
+
+163
+00:12:00.419 --> 00:12:08.104
+that contains me if I'm a method of
+that object by using of this keyword.
+
+164
+00:12:08.104 --> 00:12:13.318
+You can imagine that can be very useful
+to be able to access other properties and
+
+165
+00:12:13.318 --> 00:12:17.428
+methods on the same object that
+a particular method lives on.
+
+166
+00:12:17.428 --> 00:12:21.380
+This is very common to use and it's neat.
+
+167
+00:12:23.030 --> 00:12:26.936
+Now there's one more thing to show you and
+
+168
+00:12:26.936 --> 00:12:31.409
+this a lot of people feel
+is a bug in JavaScript.
+
+169
+00:12:31.409 --> 00:12:34.900
+Now you might be saying,
+what do you mean a bug in JavaScript?
+
+170
+00:12:34.900 --> 00:12:39.826
+Well, JavaScript is a programming language
+and the engines and the language was
+
+171
+00:12:39.826 --> 00:12:44.470
+designed by people and so decisions
+were made about how things should work.
+
+172
+00:12:44.470 --> 00:12:51.485
+And in this one case, this decision
+a lot of people feel is wrong.
+
+173
+00:12:51.485 --> 00:12:53.010
+Let me show you.
+
+174
+00:12:53.010 --> 00:12:59.535
+Let's suppose that I create a function
+inside this method, we can do that right.
+
+175
+00:12:59.535 --> 00:13:03.011
+I'm gonna call it setname,
+I'll use a variable and
+
+176
+00:13:03.011 --> 00:13:05.311
+I'll set a function expression.
+
+177
+00:13:05.311 --> 00:13:09.536
+This time,
+I'll pass a variable to my function.
+
+178
+00:13:09.536 --> 00:13:10.918
+Let's say, new name.
+
+179
+00:13:10.918 --> 00:13:12.729
+I can do that.
+
+180
+00:13:12.729 --> 00:13:19.950
+And inside here,
+I'm gonna say this.name = newname.
+
+181
+00:13:19.950 --> 00:13:23.411
+So, I'm trying to update or
+
+182
+00:13:23.411 --> 00:13:27.891
+mutate my object with this newname.
+
+183
+00:13:27.891 --> 00:13:32.174
+And then let's say that here,
+
+184
+00:13:32.174 --> 00:13:37.940
+I'm going to go ahead and call setname and
+
+185
+00:13:37.940 --> 00:13:41.915
+I'll say 'Updated again!
+
+186
+00:13:41.915 --> 00:13:45.053
+The c object') and
+
+187
+00:13:45.053 --> 00:13:50.779
+then console.log(this) again.
+
+188
+00:13:50.779 --> 00:13:55.340
+So I mutate it and
+I should see 'Updated c object'.
+
+189
+00:13:55.340 --> 00:14:01.369
+I create a function that also, well when
+executed, create a new execution context.
+
+190
+00:14:01.369 --> 00:14:06.164
+And I would expect,
+personally that this keyword would
+
+191
+00:14:06.164 --> 00:14:09.531
+still point to the containing object,
+
+192
+00:14:09.531 --> 00:14:15.462
+because it's a function inside of
+a function, inside of an object.
+
+193
+00:14:15.462 --> 00:14:20.993
+And since this keyword points to
+the object, I would expect, well, one more
+
+194
+00:14:20.993 --> 00:14:26.885
+function down and it'll still point to
+the object and I can mutate it, change it.
+
+195
+00:14:26.885 --> 00:14:33.347
+So I would expect that after
+calling this setname function,
+
+196
+00:14:33.347 --> 00:14:41.595
+I'll see updated again the c object as
+the name on that second console.log.
+
+197
+00:14:41.595 --> 00:14:44.775
+Let's try it.
+
+198
+00:14:44.775 --> 00:14:47.363
+Well, that's a problem.
+
+199
+00:14:47.363 --> 00:14:50.882
+"Updated c object" and Updated c object".
+
+200
+00:14:50.882 --> 00:14:54.509
+Meaning, this ran, but
+
+201
+00:14:54.509 --> 00:15:00.738
+this didn't seem to do anything or did it.
+
+202
+00:15:00.738 --> 00:15:06.161
+Oh, let's try going back and taking a look
+
+203
+00:15:06.161 --> 00:15:11.593
+at the window object, the global object.
+
+204
+00:15:11.593 --> 00:15:15.354
+And if I take a good look, look at that.
+
+205
+00:15:15.354 --> 00:15:16.080
+See that?
+
+206
+00:15:17.890 --> 00:15:24.490
+That name property here
+was instead created and
+
+207
+00:15:24.490 --> 00:15:31.200
+added by the equals operator
+on the global object.
+
+208
+00:15:31.200 --> 00:15:36.010
+That means that this internal function,
+when its execution
+
+209
+00:15:36.010 --> 00:15:41.478
+context was created, the this key
+word points to the global object,
+
+210
+00:15:41.478 --> 00:15:46.780
+even though it's sitting kind of
+inside an object that I created.
+
+211
+00:15:46.780 --> 00:15:50.599
+I think that's wrong and
+a lot of people do, but
+
+212
+00:15:50.599 --> 00:15:54.515
+that's the way JavaScript
+works in this case and
+
+213
+00:15:54.515 --> 00:15:58.542
+there's not a lot we can
+do about it at this point.
+
+214
+00:15:58.542 --> 00:16:02.757
+So what can we do when I
+have this kind of scenario?
+
+215
+00:16:02.757 --> 00:16:08.030
+To make sure that I'm
+using the right object.
+
+216
+00:16:08.030 --> 00:16:12.780
+That this keyword isn't causing
+me to make an unintended error.
+
+217
+00:16:13.890 --> 00:16:18.690
+Well there's a very common pattern
+that we can use in this case.
+
+218
+00:16:18.690 --> 00:16:21.700
+And we'll understand it
+because We understand
+
+219
+00:16:21.700 --> 00:16:23.430
+that objects are set by reference.
+
+220
+00:16:23.430 --> 00:16:27.250
+Now that we understand that,
+we can understand this pattern.
+
+221
+00:16:29.210 --> 00:16:32.610
+I can simply say I'm
+going to set a variable.
+
+222
+00:16:32.610 --> 00:16:33.380
+I'll call it self.
+
+223
+00:16:33.380 --> 00:16:36.850
+Some people call it that, but I like self.
+
+224
+00:16:36.850 --> 00:16:38.350
+Because I'm inside this object.
+
+225
+00:16:38.350 --> 00:16:42.670
+And I'm going to set that equal to this.
+
+226
+00:16:42.670 --> 00:16:46.020
+It was the very first
+line of my object method.
+
+227
+00:16:48.290 --> 00:16:50.270
+So what happened right here?
+
+228
+00:16:50.270 --> 00:16:54.680
+Well, now we have a new
+variable called self, and
+
+229
+00:16:54.680 --> 00:17:01.090
+since these are objects, it's going
+to be set equal to by reference.
+
+230
+00:17:01.090 --> 00:17:05.480
+So self will be pointing at the same
+location in memory as the this keyword.
+
+231
+00:17:06.610 --> 00:17:10.390
+And right now, the this keyword on
+this line of code is pointing to
+
+232
+00:17:11.490 --> 00:17:13.190
+my whole object.
+
+233
+00:17:14.570 --> 00:17:20.150
+And then for sanity's sake, we simply
+use self everywhere where we normally
+
+234
+00:17:20.150 --> 00:17:26.032
+would have used this,
+even inside these sub-functions.
+
+235
+00:17:27.330 --> 00:17:32.770
+That way I don't have to think about,
+am I pointing to the right object?
+
+236
+00:17:34.920 --> 00:17:36.690
+This is still pointing.
+
+237
+00:17:36.690 --> 00:17:41.950
+The self variable is still pointing to
+the same location in memory as this.
+
+238
+00:17:41.950 --> 00:17:45.740
+So when I mutate it, when I change it,
+when I add something to it or change it or
+
+239
+00:17:45.740 --> 00:17:49.450
+whatever, it's going to
+update the appropriate thing,
+
+240
+00:17:49.450 --> 00:17:52.220
+in this case, my whole object.
+
+241
+00:17:53.840 --> 00:17:58.980
+So self, I can log that,
+and then when I look
+
+242
+00:17:58.980 --> 00:18:04.210
+at this new function that I created,
+and this gets executed right here.
+
+243
+00:18:05.790 --> 00:18:08.040
+I don't even worry about
+the this variable.
+
+244
+00:18:09.160 --> 00:18:10.320
+I simply say self.
+
+245
+00:18:11.470 --> 00:18:12.430
+So what's going to happen?
+
+246
+00:18:13.440 --> 00:18:16.830
+Well, self isn't declared
+inside this function.
+
+247
+00:18:16.830 --> 00:18:19.680
+So the JavaScript engine will
+look down the scope chain.
+
+248
+00:18:21.460 --> 00:18:24.980
+Where is this function sitting
+physically in the code?
+
+249
+00:18:24.980 --> 00:18:26.790
+Well, right inside here.
+
+250
+00:18:26.790 --> 00:18:33.670
+So we can see that'll it just go outside
+to the next area outside, the outer
+
+251
+00:18:33.670 --> 00:18:37.790
+lexical reference, and look for it, a
+variable called self and it will find it.
+
+252
+00:18:39.160 --> 00:18:43.290
+And so this right here,
+the self variable inside this function,
+
+253
+00:18:43.290 --> 00:18:45.710
+will end up being this one here.
+
+254
+00:18:47.270 --> 00:18:51.260
+And that's still pointing
+to my whole object.
+
+255
+00:18:53.480 --> 00:18:56.470
+So I can mutate my object here, as well.
+
+256
+00:18:57.780 --> 00:18:59.560
+So now, this should show up properly.
+
+257
+00:19:00.750 --> 00:19:02.770
+I have a proper reference to my object.
+
+258
+00:19:04.130 --> 00:19:06.898
+And then I just use it from there on out,
+just for sanity's sake, so
+
+259
+00:19:06.898 --> 00:19:08.220
+I don't have to think about it.
+
+260
+00:19:09.850 --> 00:19:12.220
+And then I'll mutate it, I'll change it.
+
+261
+00:19:13.580 --> 00:19:16.310
+And then I'll create a function, and
+
+262
+00:19:16.310 --> 00:19:19.550
+I'll call that function and
+that will mutate the object.
+
+263
+00:19:19.550 --> 00:19:21.490
+And I'll put it again.
+
+264
+00:19:21.490 --> 00:19:25.560
+So this time I should see, look at that.
+
+265
+00:19:26.570 --> 00:19:28.160
+That's proper.
+
+266
+00:19:28.160 --> 00:19:29.250
+That's what I expected.
+
+267
+00:19:31.150 --> 00:19:33.040
+So what did we learn?
+
+268
+00:19:34.390 --> 00:19:38.210
+We learned that no programming
+language is perfect.
+
+269
+00:19:38.210 --> 00:19:42.210
+They all have their quirks, and
+JavaScript certainly isn't an exception.
+
+270
+00:19:43.270 --> 00:19:46.210
+But there are patterns
+we can use to get around
+
+271
+00:19:46.210 --> 00:19:48.470
+any problems the programming
+language might have.
+
+272
+00:19:50.480 --> 00:19:55.430
+Now I also wanna make mention that
+this pattern you'll see very often if
+
+273
+00:19:55.430 --> 00:20:00.600
+you're working in any real-world
+JavaScript scenarios.
+
+274
+00:20:00.600 --> 00:20:05.810
+However, the let keyword,
+which will be an alternative
+
+275
+00:20:05.810 --> 00:20:10.290
+to the var keyword, is meant to
+clear some of these problems up.
+
+276
+00:20:11.410 --> 00:20:14.880
+So as that becomes available
+in modern browsers,
+
+277
+00:20:14.880 --> 00:20:17.780
+and depending on the kind of
+project you're working on,
+
+278
+00:20:17.780 --> 00:20:23.550
+if you're working on a web project and you
+don't have to worry about older browsers.
+
+279
+00:20:23.550 --> 00:20:26.740
+That's something that you'll
+soon start to be able to use,
+
+280
+00:20:26.740 --> 00:20:32.230
+and bonus lectures in this course
+will help with that, as time goes on.
+
+281
+00:20:32.230 --> 00:20:35.380
+But for now,
+realize that this pattern is a good one.
+
+282
+00:20:35.380 --> 00:20:39.060
+It is used quite often and
+is quite useful.
+
+283
+00:20:40.630 --> 00:20:43.020
+So we've seen the this key word.
+
+284
+00:20:44.200 --> 00:20:45.850
+It's the global variable, or
+
+285
+00:20:45.850 --> 00:20:51.059
+the global object,
+when just invoking a function like this.
+
+286
+00:20:52.250 --> 00:20:55.830
+And when the function is
+a method of an object,
+
+287
+00:20:55.830 --> 00:20:58.290
+the this keyword points to the object.
+
+288
+00:20:59.730 --> 00:21:04.520
+However, any internal
+functions have a problem.
+
+289
+00:21:04.520 --> 00:21:08.640
+So we can use this concept of
+setting a variable equal to this,
+
+290
+00:21:08.640 --> 00:21:13.820
+and then just carrying that
+with us the rest of the way to
+
+291
+00:21:13.820 --> 00:21:19.200
+make sure that we don't run
+across any unintentional errors,
+
+292
+00:21:19.200 --> 00:21:23.160
+or somehow throw things onto the global
+object that we didn't mean to.
+
+293
+00:21:24.480 --> 00:21:25.920
+All right, let's move on.
+

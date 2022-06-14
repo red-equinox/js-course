@@ -1,0 +1,516 @@
+WEBVTT
+
+1
+00:00:02.180 --> 00:00:05.400
+It's time for another Framework Aside,
+where we step aside for
+
+2
+00:00:05.400 --> 00:00:10.210
+a moment to talk about using the things
+we've learned within libraries,
+
+3
+00:00:10.210 --> 00:00:12.640
+frameworks, and more complex code.
+
+4
+00:00:12.640 --> 00:00:17.050
+Things that you'll often see if
+you crack open the source code of
+
+5
+00:00:17.050 --> 00:00:19.660
+famous libraries and frameworks.
+
+6
+00:00:19.660 --> 00:00:23.400
+In this case, after we've talked
+about objects, the dot operator, and
+
+7
+00:00:23.400 --> 00:00:28.540
+object literals, we're going to
+talk about faking namespaces.
+
+8
+00:00:29.680 --> 00:00:30.770
+Well, wait a minute.
+
+9
+00:00:33.104 --> 00:00:34.100
+Big word alert.
+
+10
+00:00:35.310 --> 00:00:36.310
+A namespace.
+
+11
+00:00:38.710 --> 00:00:46.080
+In modern coding, a namespace is
+a container for variables and functions.
+
+12
+00:00:46.080 --> 00:00:47.250
+And that's really all it is.
+
+13
+00:00:47.250 --> 00:00:48.960
+It's just a holder, a container.
+
+14
+00:00:50.030 --> 00:00:56.130
+And typically it's used to keep variables
+and functions with the same name separate.
+
+15
+00:00:57.210 --> 00:01:02.250
+But here's the problem,
+JavaScript doesn't have namespaces.
+
+16
+00:01:02.250 --> 00:01:04.480
+Now, if you're not familiar
+with this concept,
+
+17
+00:01:04.480 --> 00:01:08.270
+we'll show you why it's useful,
+and if you are familiar with it,
+
+18
+00:01:08.270 --> 00:01:11.890
+in other programming languages,
+you'll see that in JavaScript,
+
+19
+00:01:11.890 --> 00:01:17.570
+because of the nature of objects,
+we don't need namespaces as a feature.
+
+20
+00:01:17.570 --> 00:01:20.020
+We can fake it.
+
+21
+00:01:20.020 --> 00:01:25.660
+So, here we have another app.js file,
+and I have two greet variables.
+
+22
+00:01:27.010 --> 00:01:30.740
+One says hello, and
+the other one is in Spanish and says hola.
+
+23
+00:01:32.320 --> 00:01:36.780
+So, when I console.log(greet),
+what do you think I'm going to see?
+
+24
+00:01:38.080 --> 00:01:40.300
+Will I see hello or hola?
+
+25
+00:01:41.790 --> 00:01:46.400
+Well, we know that in the creation
+phase this will be set to undefined.
+
+26
+00:01:46.400 --> 00:01:50.810
+And then synchronously these lines
+of code will be run in order.
+
+27
+00:01:50.810 --> 00:01:54.890
+So, the greet should be hola.
+
+28
+00:01:54.890 --> 00:01:56.150
+And that's what it is.
+
+29
+00:01:57.380 --> 00:02:02.330
+But let's imagine that these two variables
+
+30
+00:02:02.330 --> 00:02:06.440
+were created in two
+different JavaScript files.
+
+31
+00:02:06.440 --> 00:02:08.270
+Maybe one for English greetings, and
+
+32
+00:02:08.270 --> 00:02:13.090
+some other library or framework for
+Spanish greetings that I found.
+
+33
+00:02:14.460 --> 00:02:18.600
+This would be a problem because we know
+that both are setting their value, in this
+
+34
+00:02:18.600 --> 00:02:23.760
+case on the global object, and overwriting
+each other, as we've seen before.
+
+35
+00:02:25.235 --> 00:02:27.690
+Namespaces would help
+us with this because,
+
+36
+00:02:27.690 --> 00:02:32.230
+in the case of namespaces we would have
+a container for the English greeting and
+
+37
+00:02:32.230 --> 00:02:36.930
+a container for the Spanish greeting,
+and it's related methods and properties.
+
+38
+00:02:36.930 --> 00:02:40.040
+And that we don't have
+name spaces in JavaScript,
+
+39
+00:02:40.040 --> 00:02:43.510
+we can do just that with objects.
+
+40
+00:02:43.510 --> 00:02:49.050
+So we can prevent this collision for
+example, by creating an object that
+
+41
+00:02:49.050 --> 00:02:55.490
+will be the container for our properties
+and methods and the things we want to use.
+
+42
+00:02:55.490 --> 00:02:59.840
+So I'll create an English object,
+just using object literal syntax, and
+
+43
+00:02:59.840 --> 00:03:04.030
+a Spanish object creating
+object literal syntax.
+
+44
+00:03:04.030 --> 00:03:08.440
+And I'm just going to use
+this object as a container.
+
+45
+00:03:08.440 --> 00:03:13.280
+It won't really have any other
+functionality, and that's okay.
+
+46
+00:03:13.280 --> 00:03:18.470
+So, I can then say,
+well I'll do english.greet = Hello.
+
+47
+00:03:19.670 --> 00:03:23.200
+And spanish.greet = Hola.
+
+48
+00:03:24.430 --> 00:03:28.150
+And these two variables,
+although are both called greet,
+
+49
+00:03:29.560 --> 00:03:33.750
+they don't collide with each other,
+they don't override each other.
+
+50
+00:03:34.960 --> 00:03:38.570
+So at this point,
+I can simply look at, for
+
+51
+00:03:38.570 --> 00:03:44.560
+example the english property,
+
+52
+00:03:44.560 --> 00:03:49.440
+this object, and
+it has greet on it, and it's hello.
+
+53
+00:03:50.490 --> 00:03:56.170
+And so this variable has just become,
+basically a container,
+
+54
+00:03:56.170 --> 00:04:01.340
+to make sure I don't collide with other
+things, with other JavaScript files,
+
+55
+00:04:01.340 --> 00:04:04.100
+with other variables in
+the global namespace, etc.
+
+56
+00:04:05.460 --> 00:04:11.180
+So this you'll see a lot inside of
+frameworks and libraries and you can use
+
+57
+00:04:11.180 --> 00:04:15.730
+in your own code as a method, to make sure
+that when you're writing a function and
+
+58
+00:04:15.730 --> 00:04:21.310
+someone else is writing a function, that
+we don't have any namespace collisions.
+
+59
+00:04:21.310 --> 00:04:24.350
+Meaning two things that
+are named the same.
+
+60
+00:04:25.930 --> 00:04:29.600
+Now, what's nice is you could
+make this as deep as you want.
+
+61
+00:04:29.600 --> 00:04:36.580
+You could keep having levels of
+different containing objects.
+
+62
+00:04:36.580 --> 00:04:41.250
+For example, maybe I'd wanna say that
+english actually has a greetings
+
+63
+00:04:41.250 --> 00:04:46.480
+name space inside of it, and inside
+of there I'd hold various greetings.
+
+64
+00:04:46.480 --> 00:04:51.600
+Now the thing is, this is where object
+literal syntax is a bit more powerful.
+
+65
+00:04:51.600 --> 00:04:58.141
+I can't just go
+english.greetings.greet = hello.
+
+66
+00:04:58.141 --> 00:04:58.861
+Why?
+
+67
+00:04:58.861 --> 00:05:02.100
+Well, I'll get uncaught type error.
+
+68
+00:05:02.100 --> 00:05:04.790
+Cannot set property greet of undefined.
+
+69
+00:05:05.980 --> 00:05:06.830
+Well why did that happen?
+
+70
+00:05:08.883 --> 00:05:13.170
+Well, remember this is an operator
+that's left-associative,
+
+71
+00:05:13.170 --> 00:05:18.050
+meaning first the leftmost one gets
+called and then further on, so
+
+72
+00:05:18.050 --> 00:05:23.310
+on an so forth to the right,
+assuming they all are the same function or
+
+73
+00:05:23.310 --> 00:05:26.870
+have the same priority.
+
+74
+00:05:28.050 --> 00:05:31.490
+Now, when this dot operator
+is called it looks for
+
+75
+00:05:31.490 --> 00:05:36.260
+a greetings variable on english, and
+since it's empty, it doesn't find it.
+
+76
+00:05:36.260 --> 00:05:38.070
+So this is undefined, and
+
+77
+00:05:38.070 --> 00:05:43.930
+then it passes undefined, to the dot
+operator and it says, well I can't.
+
+78
+00:05:43.930 --> 00:05:46.230
+Undefined isn't even an object.
+
+79
+00:05:46.230 --> 00:05:48.470
+So I'm not going to find greet on it.
+
+80
+00:05:48.470 --> 00:05:52.970
+And that's why it says cannot
+set property greet of undefined.
+
+81
+00:05:52.970 --> 00:05:58.870
+I can't find it and I can't create it
+because this, english.greetings actually
+
+82
+00:05:58.870 --> 00:06:03.390
+is returning undefined and I'm trying
+to do this, and that just doesn't work.
+
+83
+00:06:04.420 --> 00:06:06.730
+So I can't create on the fly.
+
+84
+00:06:06.730 --> 00:06:12.880
+I would have to say
+english.greetings = and
+
+85
+00:06:12.880 --> 00:06:16.670
+then create an object so
+that now there's an object in memory, and
+
+86
+00:06:16.670 --> 00:06:21.550
+then I could attach
+a greet inside of there.
+
+87
+00:06:23.560 --> 00:06:28.430
+Or, I could simply initialize
+
+88
+00:06:28.430 --> 00:06:32.880
+this using object literal syntax,
+
+89
+00:06:32.880 --> 00:06:37.090
+which lets me say greetings and
+then inside there, have another object.
+
+90
+00:06:38.330 --> 00:06:41.200
+And maybe instead of greet,
+I'll just say basic and
+
+91
+00:06:41.200 --> 00:06:42.710
+I'll have various greetings in here.
+
+92
+00:06:43.870 --> 00:06:45.230
+And say hello.
+
+93
+00:06:45.230 --> 00:06:50.530
+And let me maneuver this a bit so
+it's a bit easier to read.
+
+94
+00:06:53.810 --> 00:06:58.790
+So since object literal syntax is
+creating this on the fly, I could
+
+95
+00:06:58.790 --> 00:07:03.820
+do this like this, and then greetings
+is created, and then basic is created.
+
+96
+00:07:03.820 --> 00:07:08.130
+And so I don't get any undefined errors
+because it's all created at once.
+
+97
+00:07:08.130 --> 00:07:12.620
+As opposed to the dot operator,
+which was doing it one at a time,
+
+98
+00:07:12.620 --> 00:07:16.730
+and failed because I hadn't
+created this greetings first.
+
+99
+00:07:18.170 --> 00:07:18.770
+Make sense?
+
+100
+00:07:19.800 --> 00:07:23.400
+So I can do it either way,
+but the idea here
+
+101
+00:07:23.400 --> 00:07:28.510
+is that I have contained my properties.
+
+102
+00:07:28.510 --> 00:07:33.660
+I've contained my variables,
+maybe my functions and methods, and
+
+103
+00:07:33.660 --> 00:07:39.560
+other objects, inside a container object,
+and that's all it's really doing.
+
+104
+00:07:39.560 --> 00:07:43.370
+It's just keeping us separate
+from any other code,
+
+105
+00:07:43.370 --> 00:07:48.340
+any other objects sitting in the global
+namespace from the global object that
+
+106
+00:07:48.340 --> 00:07:51.890
+someone else might have written or even
+that we've written and forgotten about.
+
+107
+00:07:53.960 --> 00:07:57.730
+So, that's faking
+namespaces in JavaScript.
+
+108
+00:07:57.730 --> 00:08:02.700
+And again, you'll see this sort of
+thing if you crack open the source code
+
+109
+00:08:02.700 --> 00:08:06.510
+of frameworks and
+libraries that people use everyday.
+

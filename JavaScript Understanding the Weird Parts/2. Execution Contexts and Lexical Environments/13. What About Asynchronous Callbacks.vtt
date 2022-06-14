@@ -1,0 +1,761 @@
+WEBVTT
+
+1
+00:00:01.780 --> 00:00:03.720
+Before we finish up this section,
+
+2
+00:00:03.720 --> 00:00:07.430
+let's go back to a question that
+many of you are likely asking.
+
+3
+00:00:07.430 --> 00:00:10.950
+We've been talking about all this
+synchronicity in JavaScript,
+
+4
+00:00:10.950 --> 00:00:13.510
+how things are executed synchronously.
+
+5
+00:00:13.510 --> 00:00:16.640
+But what about asynchronous callbacks?
+
+6
+00:00:16.640 --> 00:00:20.520
+Many of you may have used these,
+or perhaps have heard of them.
+
+7
+00:00:20.520 --> 00:00:21.259
+Well, first of all.
+
+8
+00:00:23.393 --> 00:00:24.950
+Big word alert.
+
+9
+00:00:24.950 --> 00:00:27.040
+What do we mean by asynchronous?
+
+10
+00:00:28.550 --> 00:00:33.180
+Asynchronous simply means
+more than one at a time.
+
+11
+00:00:33.180 --> 00:00:39.660
+So we may be dealing with code that's
+executing and that starts off some
+
+12
+00:00:39.660 --> 00:00:44.750
+other code to execute, and that may start
+other code executing and all of those
+
+13
+00:00:44.750 --> 00:00:48.290
+pieces of code are actually executing
+within the engine at the same time.
+
+14
+00:00:49.380 --> 00:00:52.120
+But JavaScript, as we've said,
+is synchronous.
+
+15
+00:00:52.120 --> 00:00:54.150
+It doesn't execute asynchronously.
+
+16
+00:00:54.150 --> 00:00:57.230
+It executes code a line at a time.
+
+17
+00:00:57.230 --> 00:01:00.240
+Yet there are things like click events or
+you can go off and
+
+18
+00:01:00.240 --> 00:01:02.870
+get data in JavaScript and get it back.
+
+19
+00:01:02.870 --> 00:01:05.850
+Where you have callback
+functions that run when that
+
+20
+00:01:07.040 --> 00:01:11.730
+event is complete,
+when that action is complete.
+
+21
+00:01:11.730 --> 00:01:19.210
+So since JavaScript is synchronous, how is
+this handling those asynchronous events?
+
+22
+00:01:19.210 --> 00:01:23.640
+Well, first of all, we need to think
+about the JavaScript engine itself.
+
+23
+00:01:23.640 --> 00:01:25.350
+When we're talking about
+running JavaScript, and
+
+24
+00:01:25.350 --> 00:01:28.670
+the JavaScript engine itself,
+we understand that it doesn't
+
+25
+00:01:28.670 --> 00:01:33.690
+exist by itself inside, for
+example, an Internet browser.
+
+26
+00:01:33.690 --> 00:01:35.300
+There are other elements.
+
+27
+00:01:35.300 --> 00:01:40.730
+There are other engines and running
+pieces of code that are happening outside
+
+28
+00:01:40.730 --> 00:01:44.230
+the JavaScript engine that runs JavaScript
+when you load it into the browser.
+
+29
+00:01:44.230 --> 00:01:49.390
+So there's things like the rendering
+engine that actually renders or
+
+30
+00:01:50.440 --> 00:01:55.180
+prints or paints to the screen whatever
+the web page is that you're looking at.
+
+31
+00:01:55.180 --> 00:01:58.930
+Or there's elements of the browser
+that have to do with going out and
+
+32
+00:01:58.930 --> 00:02:04.820
+getting HTTP request responses, so
+going out, for example, and getting data.
+
+33
+00:02:06.726 --> 00:02:12.350
+The JavaScript engine has hooks where
+it can talk to the rendering engine and
+
+34
+00:02:12.350 --> 00:02:17.120
+change what the web page looks like,
+or go out and request data.
+
+35
+00:02:17.120 --> 00:02:18.790
+But all that is running,
+
+36
+00:02:18.790 --> 00:02:22.180
+while it may be running asynchronously
+meaning that the rendering engine and
+
+37
+00:02:22.180 --> 00:02:27.960
+the JavaScript engine and request are
+running asynchronously inside the browser,
+
+38
+00:02:27.960 --> 00:02:33.480
+what's happening inside just
+the JavaScript engine is synchronous.
+
+39
+00:02:33.480 --> 00:02:37.530
+So when we asynchronously go out and
+make a request, or
+
+40
+00:02:37.530 --> 00:02:42.870
+we say, let's run a function when someone
+clicks on a button, what happens?
+
+41
+00:02:42.870 --> 00:02:46.490
+Because that is being
+handled asynchronously.
+
+42
+00:02:46.490 --> 00:02:49.560
+Other parts of the browser are running and
+
+43
+00:02:49.560 --> 00:02:52.510
+looking at that code while
+the JavaScript code is still running.
+
+44
+00:02:53.790 --> 00:02:54.610
+All right, so let's take a look.
+
+45
+00:02:55.910 --> 00:02:58.610
+We've already learned
+about the execution stack,
+
+46
+00:02:58.610 --> 00:03:02.130
+that we have these execution
+contexts that are being created.
+
+47
+00:03:02.130 --> 00:03:06.530
+And as functions are being called, they're
+being run stacked on top of each other.
+
+48
+00:03:06.530 --> 00:03:09.740
+And as they finish, they leave the stack.
+
+49
+00:03:09.740 --> 00:03:11.660
+There's another, however,
+
+50
+00:03:11.660 --> 00:03:16.250
+list that sits inside the JavaScript
+engine called the event queue.
+
+51
+00:03:17.260 --> 00:03:25.220
+And this is full of events, notifications
+of events, that might be happening.
+
+52
+00:03:25.220 --> 00:03:30.470
+So when the browser, somewhere outside
+the JavaScript engine, has an event that
+
+53
+00:03:30.470 --> 00:03:37.490
+inside the JavaScript engine we want to be
+notified of, it gets placed on the queue.
+
+54
+00:03:37.490 --> 00:03:43.570
+And whether or not we actually have
+a function that needs to respond to it,
+
+55
+00:03:43.570 --> 00:03:48.990
+well, we can listen for that event and
+have that function handle that event,
+
+56
+00:03:48.990 --> 00:03:51.965
+but either way the event
+gets placed on the queue.
+
+57
+00:03:51.965 --> 00:03:57.740
+So a click event, for example,
+if someone clicks on the screen.
+
+58
+00:03:57.740 --> 00:04:01.931
+Now what happens if I have a function
+that's supposed to respond to that click
+
+59
+00:04:01.931 --> 00:04:06.030
+event or maybe another event happens while
+code is running, like I went out and
+
+60
+00:04:06.030 --> 00:04:09.460
+got data and
+that code went out to the browser.
+
+61
+00:04:09.460 --> 00:04:14.190
+The browser went and got the data while my
+code kept running and now it's finished.
+
+62
+00:04:14.190 --> 00:04:19.150
+Well, what happens is that event
+queue gets looked at by JavaScript
+
+63
+00:04:19.150 --> 00:04:22.780
+when the execution stack is empty.
+
+64
+00:04:22.780 --> 00:04:26.530
+So let's say my function b finishes and
+
+65
+00:04:26.530 --> 00:04:29.490
+now it's going to run function a and
+finish whatever is going on there.
+
+66
+00:04:29.490 --> 00:04:32.219
+And then when that finishes,
+it keeps going and
+
+67
+00:04:32.219 --> 00:04:35.960
+finishes whatever execution
+is at the global level.
+
+68
+00:04:35.960 --> 00:04:37.672
+And when the stack is empty,
+
+69
+00:04:37.672 --> 00:04:42.390
+then JavaScript periodically
+looks at the event queue.
+
+70
+00:04:42.390 --> 00:04:44.660
+It waits for something to be there.
+
+71
+00:04:44.660 --> 00:04:47.760
+And if something is there, it looks to see
+
+72
+00:04:47.760 --> 00:04:52.620
+if a particular function should be
+run when that event was triggered.
+
+73
+00:04:52.620 --> 00:04:56.910
+So it sees a click event, it processes
+that click event and knows, hey,
+
+74
+00:04:56.910 --> 00:05:00.670
+there's a function that needs
+to be run for that event.
+
+75
+00:05:00.670 --> 00:05:03.360
+So it creates the execution context for
+
+76
+00:05:03.360 --> 00:05:05.430
+whatever function when
+that event happened.
+
+77
+00:05:05.430 --> 00:05:08.490
+And so that event is processed and
+
+78
+00:05:08.490 --> 00:05:12.300
+the next item in the queue moves up,
+and so on and so forth.
+
+79
+00:05:13.300 --> 00:05:14.220
+But again,
+
+80
+00:05:14.220 --> 00:05:19.270
+the event queue won't be processed
+until the execution stack is empty,
+
+81
+00:05:19.270 --> 00:05:23.490
+until JavaScript is finished running
+all of that other code line by line.
+
+82
+00:05:23.490 --> 00:05:25.790
+So it isn't really asynchronous.
+
+83
+00:05:25.790 --> 00:05:29.950
+What's happening is the browser
+asynchronously is putting things into
+
+84
+00:05:29.950 --> 00:05:34.560
+the event queue, but the code that is
+running is still running line by line.
+
+85
+00:05:34.560 --> 00:05:38.800
+And then when this is empty,
+when the execution contexts are all gone,
+
+86
+00:05:38.800 --> 00:05:41.950
+all finished,
+then it processes the events.
+
+87
+00:05:41.950 --> 00:05:44.080
+It waits for them and sees an event.
+
+88
+00:05:44.080 --> 00:05:48.930
+And if an event causes a function to be
+created and executed, then there it is.
+
+89
+00:05:48.930 --> 00:05:52.670
+It will appear on the execution stack and
+run like normal.
+
+90
+00:05:52.670 --> 00:05:57.009
+All right, let's see some code so
+we can see what this looks like.
+
+91
+00:05:58.350 --> 00:06:02.480
+So I have some code here
+to show what happens
+
+92
+00:06:02.480 --> 00:06:06.370
+as far as how JavaScript
+handles asynchronous callbacks.
+
+93
+00:06:07.540 --> 00:06:11.440
+I have a function here that
+essentially simulates a function or
+
+94
+00:06:11.440 --> 00:06:13.570
+an action that takes a long time.
+
+95
+00:06:13.570 --> 00:06:16.760
+So this while loop is just
+going to wait three seconds.
+
+96
+00:06:16.760 --> 00:06:21.470
+It'll force this function to take
+three seconds to finish running.
+
+97
+00:06:21.470 --> 00:06:25.384
+And then when it's finished,
+it'll console.log it.
+
+98
+00:06:25.384 --> 00:06:27.630
+I also have a function
+that's my clickHandler.
+
+99
+00:06:27.630 --> 00:06:31.400
+So I'm going to listen for
+a browser event.
+
+100
+00:06:31.400 --> 00:06:35.540
+I'm going to listen for a click event
+to appear in that event queue and
+
+101
+00:06:35.540 --> 00:06:37.430
+I'm gonna run the clickHandler function.
+
+102
+00:06:37.430 --> 00:06:39.050
+That's what this line does.
+
+103
+00:06:39.050 --> 00:06:42.780
+I'm listening for click, and
+I'll run this clickHandler function
+
+104
+00:06:44.080 --> 00:06:48.830
+when the JavaScript engine decides to
+go look at and process the event queue.
+
+105
+00:06:50.210 --> 00:06:55.760
+So then I run this function,
+the long one, and I'm gonna click
+
+106
+00:06:55.760 --> 00:07:01.050
+around on the page while this
+three second function is running,
+
+107
+00:07:01.050 --> 00:07:06.380
+to see what happens and then I'm going to
+console.log and I'm completely finished.
+
+108
+00:07:06.380 --> 00:07:09.680
+So I should see all of
+these three console.logs.
+
+109
+00:07:09.680 --> 00:07:12.670
+But the question is, if I run the page and
+
+110
+00:07:12.670 --> 00:07:17.940
+click while this function is running,
+the one that takes three seconds,
+
+111
+00:07:17.940 --> 00:07:21.730
+in what order will these
+three console.logs appear?
+
+112
+00:07:23.400 --> 00:07:27.670
+So I'm gonna run this in my browser, and
+
+113
+00:07:27.670 --> 00:07:30.820
+you'll notice it takes three seconds for
+the page to finish loading.
+
+114
+00:07:30.820 --> 00:07:32.300
+That's that long-running function.
+
+115
+00:07:33.420 --> 00:07:38.140
+And because I didn't click anything,
+notice that I have finished my
+
+116
+00:07:38.140 --> 00:07:42.650
+function and then finished the execution
+and that's based on how we understand it.
+
+117
+00:07:42.650 --> 00:07:47.305
+This function, when invoked here,
+was placed on the execution stack,
+
+118
+00:07:47.305 --> 00:07:49.670
+an execution context was created.
+
+119
+00:07:49.670 --> 00:07:50.730
+It's running.
+
+120
+00:07:50.730 --> 00:07:53.330
+When it finished, it outputted that.
+
+121
+00:07:53.330 --> 00:07:56.490
+Then this left the execution stack and
+
+122
+00:07:56.490 --> 00:08:00.400
+the global code continued running,
+and that's what we see in that order.
+
+123
+00:08:00.400 --> 00:08:05.630
+Now if I refresh this page and click while
+the long-running function is running,
+
+124
+00:08:05.630 --> 00:08:08.450
+while it's executing, what should happen?
+
+125
+00:08:08.450 --> 00:08:13.385
+Well, the browser is going to place
+that click event on the event queue, but
+
+126
+00:08:13.385 --> 00:08:16.750
+when is JavaScript going to look at
+that event queue and process it?
+
+127
+00:08:17.850 --> 00:08:19.105
+I'll refresh, click.
+
+128
+00:08:21.480 --> 00:08:25.350
+And there we go.
+Are you surprised?
+
+129
+00:08:25.350 --> 00:08:30.610
+Notice that the function completed,
+and the global code completed, before
+
+130
+00:08:30.610 --> 00:08:35.870
+it went off and created an execution
+context for that clickHandler function.
+
+131
+00:08:35.870 --> 00:08:36.850
+Why?
+
+132
+00:08:36.850 --> 00:08:40.400
+Because the JavaScript engine won't
+look at the event queue until the stack
+
+133
+00:08:40.400 --> 00:08:41.750
+is empty.
+
+134
+00:08:41.750 --> 00:08:46.000
+So that means long-running functions can
+actually interrupt events being handled.
+
+135
+00:08:47.020 --> 00:08:50.640
+But this how JavaScript synchronously
+is dealing with the fact
+
+136
+00:08:50.640 --> 00:08:52.400
+that asynchronous events are happening,
+
+137
+00:08:52.400 --> 00:08:56.790
+that elsewhere simultaneously
+in the browser in this example,
+
+138
+00:08:56.790 --> 00:09:01.140
+things are happening that then complete
+that JavaScript needs to know about.
+
+139
+00:09:01.140 --> 00:09:05.170
+So all it does, it just keeps running its
+normal code, and when that's all done,
+
+140
+00:09:05.170 --> 00:09:08.800
+it will then go and
+look at the event queue.
+
+141
+00:09:08.800 --> 00:09:10.800
+And if it's already done,
+
+142
+00:09:10.800 --> 00:09:16.490
+then it will just continue to watch that
+event queue in the loop, the event loop.
+
+143
+00:09:16.490 --> 00:09:19.970
+That's what that's called,
+the continuous check.
+
+144
+00:09:19.970 --> 00:09:24.370
+And then when it sees something,
+if there's supposed to be a function,
+
+145
+00:09:24.370 --> 00:09:27.950
+if there's a handler, if there's
+a listener that's supposed to run
+
+146
+00:09:27.950 --> 00:09:30.610
+when that event appears in
+the event queue, it will run it.
+
+147
+00:09:31.810 --> 00:09:33.160
+So that's how JavaScript,
+
+148
+00:09:33.160 --> 00:09:36.250
+though synchronous,
+deals with asynchronous events.
+
+149
+00:09:36.250 --> 00:09:41.200
+Any events that happen outside of
+the engine get placed into that queue, and
+
+150
+00:09:41.200 --> 00:09:45.370
+if the execution stack is empty, if
+JavaScript isn't working on anything else
+
+151
+00:09:45.370 --> 00:09:49.530
+currently, it'll process those events.
+
+152
+00:09:49.530 --> 00:09:51.790
+It will process the events
+in the order they happened.
+
+153
+00:09:52.790 --> 00:09:54.820
+So if a click event happens and
+
+154
+00:09:54.820 --> 00:09:59.700
+then an HTTP event, it will process the
+click first and then run that function,
+
+155
+00:09:59.700 --> 00:10:02.940
+complete that function,
+then start looking at the queue again.
+
+156
+00:10:04.050 --> 00:10:08.700
+All right, so again, asynchronous
+callbacks are possible in JavaScript.
+
+157
+00:10:08.700 --> 00:10:11.220
+But the asynchronous part is really about
+
+158
+00:10:11.220 --> 00:10:13.492
+what's happening outside
+the JavaScript engine.
+
+159
+00:10:13.492 --> 00:10:16.086
+And JavaScript, via this event loop,
+
+160
+00:10:16.086 --> 00:10:20.251
+via this list of events that
+are happening, when it's ready,
+
+161
+00:10:20.251 --> 00:10:24.826
+will look at events and process them,
+but it does so synchronously.
+

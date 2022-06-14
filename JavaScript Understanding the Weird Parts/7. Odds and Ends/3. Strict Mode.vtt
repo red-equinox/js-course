@@ -1,0 +1,412 @@
+WEBVTT
+
+1
+00:00:01.810 --> 00:00:05.670
+We've seen throughout this course that
+JavaScript can be somewhat liberal about
+
+2
+00:00:05.670 --> 00:00:08.930
+things when it comes to what it allows.
+
+3
+00:00:08.930 --> 00:00:14.600
+There is a way that you may have
+heard of to opt in, to tell
+
+4
+00:00:14.600 --> 00:00:21.100
+the JavaScript engine that you would like
+it to process your code in a stricter way,
+
+5
+00:00:21.100 --> 00:00:25.980
+to be more regimented,
+to be pickier about what it lets you do.
+
+6
+00:00:27.230 --> 00:00:31.770
+Now this doesn't solve every
+possible case where JavaScript
+
+7
+00:00:31.770 --> 00:00:36.110
+is more liberal, because JavaScript
+is a very flexible language.
+
+8
+00:00:36.110 --> 00:00:40.190
+And with flexibility,
+comes a lack of rules, sometimes.
+
+9
+00:00:40.190 --> 00:00:45.150
+But strict mode can help you prevent
+errors under certain circumstances.
+
+10
+00:00:46.230 --> 00:00:47.260
+Let's show you one right now.
+
+11
+00:00:48.660 --> 00:00:51.750
+Let's supposed that I
+declare a variable person.
+
+12
+00:00:51.750 --> 00:00:55.210
+And then I go to set its value.
+
+13
+00:00:55.210 --> 00:00:59.440
+But let's suppose that
+I mistype the variable.
+
+14
+00:00:59.440 --> 00:01:02.550
+And I put persom instead of person.
+
+15
+00:01:02.550 --> 00:01:03.980
+It's really easy to do.
+
+16
+00:01:03.980 --> 00:01:08.181
+And fairly easy to not notice when
+you're in the midst of coding.
+
+17
+00:01:08.181 --> 00:01:12.534
+So let's console.log(persom).
+
+18
+00:01:12.534 --> 00:01:14.748
+[SOUND] What do you
+think's going to happen?
+
+19
+00:01:14.748 --> 00:01:16.038
+Do you think this is going to error?
+
+20
+00:01:16.038 --> 00:01:18.521
+Let's see.
+
+21
+00:01:18.521 --> 00:01:21.663
+[SOUND] Nope.
+
+22
+00:01:21.663 --> 00:01:23.110
+Persom exists.
+
+23
+00:01:23.110 --> 00:01:24.320
+I have an empty object.
+
+24
+00:01:24.320 --> 00:01:28.783
+It's sitting on the global
+object window.persom.
+
+25
+00:01:28.783 --> 00:01:32.535
+And is also window.person,
+
+26
+00:01:32.535 --> 00:01:37.680
+which is undefined because I never set it,
+because I mistyped the variable.
+
+27
+00:01:38.990 --> 00:01:42.050
+That can cause some really squirrely
+errors that are tough to track down.
+
+28
+00:01:43.760 --> 00:01:46.910
+So JavaScript has an option.
+
+29
+00:01:46.910 --> 00:01:54.460
+And you're quite literally telling the
+JavaScript engine to please be stricter,
+
+30
+00:01:54.460 --> 00:02:00.530
+to implement some extra rules when you
+parse my code, when you try to execute it.
+
+31
+00:02:02.620 --> 00:02:03.820
+And so use strict.
+
+32
+00:02:03.820 --> 00:02:07.870
+One of the things, one of its most
+useful aspects, when you opt in
+
+33
+00:02:07.870 --> 00:02:12.930
+to using the strict version of JavaScript,
+is that it doesn't let this happen.
+
+34
+00:02:12.930 --> 00:02:17.460
+You must declare a variable in
+order to set it equal to anything,
+
+35
+00:02:17.460 --> 00:02:18.720
+in order to use it.
+
+36
+00:02:18.720 --> 00:02:20.580
+So, instead, I get.
+
+37
+00:02:20.580 --> 00:02:23.150
+Persom is not defined,
+uncaught reference error.
+
+38
+00:02:24.630 --> 00:02:25.200
+So that's good.
+
+39
+00:02:26.330 --> 00:02:29.860
+You use strict as literally a string.
+
+40
+00:02:29.860 --> 00:02:32.890
+It's a string called use strict, and
+
+41
+00:02:32.890 --> 00:02:38.800
+it must go either at the top of your file,
+or at the top of a function.
+
+42
+00:02:39.800 --> 00:02:45.460
+Cuz you can make a function
+be executed with use strict,
+
+43
+00:02:45.460 --> 00:02:52.620
+essentially a new execution context
+to have its code run with use strict,
+
+44
+00:02:52.620 --> 00:02:57.940
+and not the rest of the file, not the
+global execution context or other context.
+
+45
+00:02:57.940 --> 00:03:03.903
+So if I mimicked what I just did,
+[SOUND] and I got rid of use strict,
+
+46
+00:03:03.903 --> 00:03:10.211
+use strict would have to be at the top
+if I wanted to use it everywhere.
+
+47
+00:03:10.211 --> 00:03:15.730
+If I got rid of it so it's not executing
+globally with these strict rules.
+
+48
+00:03:16.790 --> 00:03:18.280
+What's going to happen?
+
+49
+00:03:18.280 --> 00:03:22.190
+Well, let me go ahead and
+call logNewPerson after this.
+
+50
+00:03:22.190 --> 00:03:25.240
+So I've declared a person,
+mistyped the name, so
+
+51
+00:03:25.240 --> 00:03:29.120
+I have a different variable set equal to
+an empty object and I'm outputting it.
+
+52
+00:03:29.120 --> 00:03:33.520
+Then I'm calling logNewPerson,
+which generates a new execution context,
+
+53
+00:03:33.520 --> 00:03:37.090
+and the first line of code that
+it runs across is use strict.
+
+54
+00:03:37.090 --> 00:03:41.470
+So, when this is executing or
+this execution context is executing,
+
+55
+00:03:42.630 --> 00:03:47.400
+I'm going to see that the JavaScript
+engine uses stricter rules,
+
+56
+00:03:47.400 --> 00:03:50.740
+won't allow certain things
+as it executes the code.
+
+57
+00:03:50.740 --> 00:03:54.035
+So I have the same set-up,
+and let's see what happens.
+
+58
+00:03:54.035 --> 00:03:57.171
+[SOUND] So the global, go ahead and
+
+59
+00:03:57.171 --> 00:04:01.763
+did it because I wasn't
+opted in to use strict but
+
+60
+00:04:01.763 --> 00:04:06.019
+I put the string use strict
+as my first line and
+
+61
+00:04:06.019 --> 00:04:10.275
+it has to be the first
+line on my function and so
+
+62
+00:04:10.275 --> 00:04:14.989
+my function executed with
+the stricter variant.
+
+63
+00:04:14.989 --> 00:04:18.330
+The JavaScript engine was stricter
+about things, and threw an error.
+
+64
+00:04:19.780 --> 00:04:24.290
+So you may be asking why didn't we use,
+use strict throughout this entire course?
+
+65
+00:04:25.500 --> 00:04:27.570
+Because this is an opt in.
+
+66
+00:04:27.570 --> 00:04:28.910
+This is an extra feature.
+
+67
+00:04:29.990 --> 00:04:35.310
+And not every JavaScript engine
+implements use strict the same way.
+
+68
+00:04:35.310 --> 00:04:38.090
+They don't all agree on every
+rule that they'll implement.
+
+69
+00:04:39.490 --> 00:04:45.500
+So this is an extra thing, and
+not something you can 100% rely on.
+
+70
+00:04:45.500 --> 00:04:47.310
+But it can be useful.
+
+71
+00:04:47.310 --> 00:04:50.810
+So you might want to use it at
+the top of your file or functions.
+
+72
+00:04:52.080 --> 00:04:55.743
+Also a note there,
+if you have several JavaScript files, and
+
+73
+00:04:55.743 --> 00:04:59.830
+then as part of your pushing them
+to production, you concatenate and
+
+74
+00:04:59.830 --> 00:05:03.987
+minify them, that's very common
+where you put all of your JavaScript
+
+75
+00:05:03.987 --> 00:05:07.736
+files together in one file so
+it only has to be downloaded once.
+
+76
+00:05:07.736 --> 00:05:11.970
+If that first file has
+use strict at the top,
+
+77
+00:05:11.970 --> 00:05:19.890
+then the whole thing will be processed
+using that strict JavaScript engine flag.
+
+78
+00:05:19.890 --> 00:05:23.770
+So you might cause yourself some
+trouble if other JavaScript
+
+79
+00:05:23.770 --> 00:05:25.739
+files don't follow the strict rules.
+
+80
+00:05:26.740 --> 00:05:28.400
+All right, well, that aside,
+
+81
+00:05:28.400 --> 00:05:32.370
+this is something you can just drop
+into your code, and it just works.
+
+82
+00:05:32.370 --> 00:05:34.600
+The JavaScript engine knows what to do.
+
+83
+00:05:35.660 --> 00:05:39.340
+There's a wonderful link,
+again on the Mozilla Developer Network,
+
+84
+00:05:39.340 --> 00:05:40.920
+under Strict mode.
+
+85
+00:05:40.920 --> 00:05:44.990
+It talks about how Strict mode is
+implemented, at least in Firefox and
+
+86
+00:05:44.990 --> 00:05:45.860
+many other browsers.
+
+87
+00:05:46.980 --> 00:05:49.080
+I'll leave this link for
+you in the next lecture.
+
+88
+00:05:50.400 --> 00:05:50.900
+Let's move on.
+

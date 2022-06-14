@@ -1,0 +1,564 @@
+WEBVTT
+
+1
+00:00:02.120 --> 00:00:05.850
+So, after all this talk about closures and
+execution contacts and
+
+2
+00:00:05.850 --> 00:00:10.000
+first class functions, your head
+might be spinning a bit if this is
+
+3
+00:00:10.000 --> 00:00:12.680
+the first time you've ever
+heard about these concepts.
+
+4
+00:00:13.990 --> 00:00:18.380
+But what if I told you that if you've
+done any JavaScript programming,
+
+5
+00:00:18.380 --> 00:00:23.140
+even a little, you've probably
+used these concepts at least once.
+
+6
+00:00:24.510 --> 00:00:29.432
+What if I told you that if you
+use something like setTimeout or
+
+7
+00:00:29.432 --> 00:00:33.370
+jQuery events that you're
+using closures all the time.
+
+8
+00:00:35.140 --> 00:00:38.480
+Let's talk for
+a second about closures and callbacks.
+
+9
+00:00:40.180 --> 00:00:45.864
+Let's write a simple
+function called sayHiLater.
+
+10
+00:00:45.864 --> 00:00:48.667
+And I'll create a greeting, Hi.
+
+11
+00:00:48.667 --> 00:00:55.770
+And then I'll use a built in
+JavaScript function called setTimeout.
+
+12
+00:00:55.770 --> 00:00:58.760
+You may have used this before
+when you wanted something to
+
+13
+00:00:58.760 --> 00:01:00.750
+happen after a few seconds of waiting.
+
+14
+00:01:01.820 --> 00:01:06.832
+setTimeout, and the setTimeout
+that's built in to JavaScript
+
+15
+00:01:06.832 --> 00:01:11.839
+takes a function of what I want to
+happen after the timer is done,
+
+16
+00:01:11.839 --> 00:01:17.056
+and then how many milliseconds it
+should wait until that happens.
+
+17
+00:01:17.056 --> 00:01:21.083
+So, I'll just console.log(greeting).
+
+18
+00:01:21.083 --> 00:01:21.700
+See that?
+
+19
+00:01:23.300 --> 00:01:25.400
+Then, I'll call sayHiLater.
+
+20
+00:01:27.850 --> 00:01:29.480
+So, what's going to happen?
+
+21
+00:01:29.480 --> 00:01:32.248
+Well, I refresh and wait.
+
+22
+00:01:32.248 --> 00:01:33.417
+One.
+
+23
+00:01:33.417 --> 00:01:34.586
+Two.
+
+24
+00:01:34.586 --> 00:01:36.319
+Three.
+
+25
+00:01:36.319 --> 00:01:38.075
+And it logged it.
+
+26
+00:01:38.075 --> 00:01:42.773
+It waited 3000 milliseconds, that is
+three seconds, and ran this function.
+
+27
+00:01:45.058 --> 00:01:51.836
+Do you realize that you are using
+function expressions, closures right now?
+
+28
+00:01:54.344 --> 00:01:57.983
+You see,
+setTimeout takes a function object.
+
+29
+00:01:57.983 --> 00:02:00.392
+You're passing it as a parameter, so
+
+30
+00:02:00.392 --> 00:02:04.244
+that's making use of first
+class functions in JavaScript.
+
+31
+00:02:04.244 --> 00:02:06.807
+And we're creating
+the function on the fly, so
+
+32
+00:02:06.807 --> 00:02:09.510
+I'm taking advantage of
+a function expression.
+
+33
+00:02:11.750 --> 00:02:17.520
+So, I'm passing a function object and
+another parameter the time to setTimeout.
+
+34
+00:02:19.720 --> 00:02:22.808
+Now, sayHiLater then finishes.
+
+35
+00:02:22.808 --> 00:02:27.668
+You may recall, early in this course we
+talked about asynchronous processes and
+
+36
+00:02:27.668 --> 00:02:28.677
+the event loop.
+
+37
+00:02:28.677 --> 00:02:33.596
+Well, setTimeout goes off outside in
+the browser, counts and waits and
+
+38
+00:02:33.596 --> 00:02:38.835
+then drops an event when this 3000
+seconds has passed that says my timeout
+
+39
+00:02:38.835 --> 00:02:44.579
+has finished, and then the engine says,
+are there any other functions listening?
+
+40
+00:02:44.579 --> 00:02:45.440
+And it finds one.
+
+41
+00:02:47.510 --> 00:02:49.830
+And so then, it runs this function.
+
+42
+00:02:49.830 --> 00:02:52.967
+But greeting doesn't exist
+inside this function and
+
+43
+00:02:52.967 --> 00:02:55.550
+sayHiLater has already finished running.
+
+44
+00:02:56.940 --> 00:02:58.250
+So, what happens?
+
+45
+00:02:58.250 --> 00:02:59.790
+Exactly what we saw before.
+
+46
+00:03:00.810 --> 00:03:04.430
+It goes up the scope chain and
+it has a closure for this variable.
+
+47
+00:03:05.540 --> 00:03:08.530
+It knows the memory space
+where this was sitting
+
+48
+00:03:08.530 --> 00:03:11.920
+when sayHiLater was running
+in its execution context.
+
+49
+00:03:13.400 --> 00:03:18.690
+So, thanks to the closure, it still has
+access to greeting three seconds later,
+
+50
+00:03:18.690 --> 00:03:21.740
+even though a long time ago,
+sayHiLater finished running.
+
+51
+00:03:23.400 --> 00:03:27.540
+This only takes milliseconds to run and
+yet three seconds later,
+
+52
+00:03:28.910 --> 00:03:35.057
+it still has access when this function
+is executed by the JavaScript engine.
+
+53
+00:03:36.600 --> 00:03:40.860
+So, if you've done any code like this,
+and you have already used closures and
+
+54
+00:03:40.860 --> 00:03:42.750
+function expressions.
+
+55
+00:03:42.750 --> 00:03:44.000
+Same thing with jQuery.
+
+56
+00:03:45.000 --> 00:03:48.570
+For those of you that are web developers,
+if you have done something like maybe you
+
+57
+00:03:48.570 --> 00:03:55.000
+had a button and then you had a click
+event, and you gave it a what, a function.
+
+58
+00:03:56.460 --> 00:04:00.952
+This click is a function, and
+inside the code in jQuery,
+
+59
+00:04:00.952 --> 00:04:05.734
+it accepts another function to
+run when that event happens.
+
+60
+00:04:05.734 --> 00:04:07.740
+So, you used first class functions.
+
+61
+00:04:07.740 --> 00:04:12.760
+You passed it as a parameter, and
+you're using a function expression to
+
+62
+00:04:12.760 --> 00:04:17.794
+declare your function, to set up or
+to find your function at that point.
+
+63
+00:04:17.794 --> 00:04:24.921
+So, this is jQuery uses
+function expressions and
+
+64
+00:04:24.921 --> 00:04:28.829
+first-class functions.
+
+65
+00:04:28.829 --> 00:04:32.330
+Now, I don't have jQuery referenced,
+so I'll just comment this out.
+
+66
+00:04:33.660 --> 00:04:35.160
+Do you see what's happening?
+
+67
+00:04:37.150 --> 00:04:41.450
+All along, if you've done some jQuery or
+
+68
+00:04:41.450 --> 00:04:44.570
+some JavaScript programming,
+at some point,
+
+69
+00:04:44.570 --> 00:04:50.060
+you've probably been taking advantage
+of first-class functions and closures.
+
+70
+00:04:50.060 --> 00:04:53.860
+These functions that do something
+
+71
+00:04:54.890 --> 00:04:59.480
+after you run another function, giving
+this function to another function and
+
+72
+00:04:59.480 --> 00:05:03.250
+having it execute when it's done,
+is called a callback.
+
+73
+00:05:03.250 --> 00:05:04.930
+A callback function.
+
+74
+00:05:04.930 --> 00:05:08.890
+You are saying here, take this function,
+and when you are done working,
+
+75
+00:05:08.890 --> 00:05:11.130
+call the function,
+execute the function I just gave you.
+
+76
+00:05:12.570 --> 00:05:13.840
+It's a callback.
+
+77
+00:05:13.840 --> 00:05:18.490
+I executed you, and you in turn
+execute this other function for
+
+78
+00:05:18.490 --> 00:05:20.060
+me when you're done.
+
+79
+00:05:22.650 --> 00:05:23.998
+So, big word alert.
+
+80
+00:05:23.998 --> 00:05:29.080
+A callback function, that's a function
+
+81
+00:05:29.080 --> 00:05:33.800
+you give to another function to be run
+when the other function is finished.
+
+82
+00:05:35.230 --> 00:05:39.650
+So, you call a function,
+that is you invoke it, you execute it, and
+
+83
+00:05:39.650 --> 00:05:41.080
+you give it your own function.
+
+84
+00:05:42.650 --> 00:05:47.410
+Then, that function calls back by calling
+the function you gave it when it finishes.
+
+85
+00:05:48.740 --> 00:05:51.490
+So, I call function A,
+and give it function B.
+
+86
+00:05:52.930 --> 00:05:56.630
+When function A finishes running,
+it calls function B for me.
+
+87
+00:05:57.650 --> 00:05:58.380
+It calls back.
+
+88
+00:05:59.680 --> 00:06:01.680
+Thus the name, the callback function.
+
+89
+00:06:02.850 --> 00:06:05.633
+Let's build a function that
+takes a callback real quick.
+
+90
+00:06:05.633 --> 00:06:12.721
+[SOUND] function tellMeWhenDone.
+
+91
+00:06:12.721 --> 00:06:15.400
+And, it accepts a callback.
+
+92
+00:06:15.400 --> 00:06:17.140
+And I'll literally just call it callback.
+
+93
+00:06:17.140 --> 00:06:20.040
+You could call it whatever you want.
+
+94
+00:06:20.040 --> 00:06:24.510
+And then,
+let's say that it sets a variable.
+
+95
+00:06:24.510 --> 00:06:28.418
+[SOUND] And then when it's done,
+
+96
+00:06:28.418 --> 00:06:32.626
+I'll do another one just for fun.
+
+97
+00:06:32.626 --> 00:06:36.231
+[SOUND] This could be anything.
+
+98
+00:06:36.231 --> 00:06:39.056
+And then when it's done,
+it's going to run the callback.
+
+99
+00:06:39.056 --> 00:06:43.785
+[SOUND] Let me call this
+
+100
+00:06:43.785 --> 00:06:47.993
+a couple of times.
+
+101
+00:06:47.993 --> 00:06:52.370
+I'll say tellMeWhenDone, and
+I'll give it a callback function.
+
+102
+00:06:53.370 --> 00:06:58.510
+I'll tell it the function that I'm going
+to give to it that it should execute.
+
+103
+00:06:58.510 --> 00:07:05.880
+So here, I'll say console.log, I am done.
+
+104
+00:07:05.880 --> 00:07:08.960
+And I can do this again, and
+have a different callback function.
+
+105
+00:07:10.620 --> 00:07:15.468
+And in this case, I might say,
+I'll console.log,
+
+106
+00:07:15.468 --> 00:07:18.930
+or actually, let's alert I am done.
+
+107
+00:07:18.930 --> 00:07:24.961
+In the browser,
+the alert will pop up, so let's see.
+
+108
+00:07:24.961 --> 00:07:26.507
+Refresh, look at that.
+
+109
+00:07:26.507 --> 00:07:28.806
+I am done.
+
+110
+00:07:28.806 --> 00:07:31.091
+I am done.
+
+111
+00:07:31.091 --> 00:07:36.361
+Or, I could change this to console.log.
+
+112
+00:07:36.361 --> 00:07:37.441
+All done.
+
+113
+00:07:42.236 --> 00:07:43.200
+Did you see what's happening?
+
+114
+00:07:44.450 --> 00:07:46.465
+Oh, and
+that Hi popped from the setTimeout.
+
+115
+00:07:47.660 --> 00:07:54.210
+But these call back functions,
+I gave it to this function.
+
+116
+00:07:54.210 --> 00:08:01.052
+So, I called this function that is
+I invoked it and it called back.
+
+117
+00:08:01.052 --> 00:08:04.691
+It called, or executed, or
+invoked the function I gave it.
+
+118
+00:08:04.691 --> 00:08:08.732
+I call you, then you call
+the function that I gave you.
+
+119
+00:08:08.732 --> 00:08:09.974
+All right.
+
+120
+00:08:09.974 --> 00:08:15.062
+So, closures,
+function expressions, callbacks,
+
+121
+00:08:15.062 --> 00:08:20.713
+these are things that you've
+likely have some exposure to.
+
+122
+00:08:20.713 --> 00:08:25.615
+You use closures and
+first-class functions all the time.
+
+123
+00:08:25.615 --> 00:08:26.250
+Let's move on.
+

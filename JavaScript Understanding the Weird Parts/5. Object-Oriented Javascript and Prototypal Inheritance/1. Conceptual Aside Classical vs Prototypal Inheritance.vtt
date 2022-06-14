@@ -1,0 +1,333 @@
+WEBVTT
+
+1
+00:00:01.920 --> 00:00:06.320
+It's time to dive in to another
+extraordinarily important concept
+
+2
+00:00:06.320 --> 00:00:10.160
+to advance your ability as
+a JavaScript developer.
+
+3
+00:00:11.170 --> 00:00:16.610
+And it's also a topic that causes a lot
+of confusion because JavaScript in this
+
+4
+00:00:16.610 --> 00:00:21.710
+case is so extraordinarily different
+from most other programming languages.
+
+5
+00:00:22.810 --> 00:00:27.010
+And yet, JavaScript once again,
+much like first class functions,
+
+6
+00:00:28.180 --> 00:00:32.954
+is making popular a concept
+that in many ways is
+
+7
+00:00:32.954 --> 00:00:36.775
+better than what is most in use right now.
+
+8
+00:00:36.775 --> 00:00:44.500
+Let's talk about object-oriented
+JavaScript and prototypal inheritance.
+
+9
+00:00:45.760 --> 00:00:49.310
+And in this course,
+when we say object-oriented JavaScript,
+
+10
+00:00:49.310 --> 00:00:54.970
+we're going to focus primarily
+on the creation of objects,
+
+11
+00:00:54.970 --> 00:00:58.390
+because that's where a great
+deal of confusion lies.
+
+12
+00:00:59.830 --> 00:01:06.259
+So, for our first lecture in this section,
+we'll start with a conceptual aside.
+
+13
+00:01:07.450 --> 00:01:11.020
+Classical versus prototypal inheritance.
+
+14
+00:01:12.020 --> 00:01:15.340
+Okay, big word alert.
+
+15
+00:01:17.590 --> 00:01:26.240
+Inheritance, one object gets access to the
+properties and methods of another object.
+
+16
+00:01:27.520 --> 00:01:30.210
+Now remember we're talking
+about Java Script.
+
+17
+00:01:30.210 --> 00:01:32.960
+The general idea of inheritance
+
+18
+00:01:32.960 --> 00:01:36.010
+is implemented differently
+in different languages.
+
+19
+00:01:36.010 --> 00:01:41.080
+But for our purposes we only need to
+understand the most basic concept.
+
+20
+00:01:41.080 --> 00:01:46.960
+That one object gets access to the
+properties and methods of another object.
+
+21
+00:01:46.960 --> 00:01:51.550
+So, I have two objects,
+and my first object
+
+22
+00:01:51.550 --> 00:01:56.620
+inherits from my second object, it gets
+access to its properties and methods.
+
+23
+00:01:58.200 --> 00:02:03.040
+A lot of talk about inheritance uses all
+kinds of crazy examples with animals and
+
+24
+00:02:03.040 --> 00:02:05.360
+elephants and cars and trains.
+
+25
+00:02:05.360 --> 00:02:08.390
+I think it's better just to
+flat out say what it does.
+
+26
+00:02:10.200 --> 00:02:12.610
+You have an object,
+you have another object, and
+
+27
+00:02:12.610 --> 00:02:16.370
+I can go and get access to the properties
+and methods on that other object.
+
+28
+00:02:18.040 --> 00:02:21.600
+So, what do we mean when
+we're talking about classical
+
+29
+00:02:21.600 --> 00:02:24.330
+versus prototypal Inheritance.
+
+30
+00:02:25.760 --> 00:02:28.723
+Well, classical inheritance,
+
+31
+00:02:28.723 --> 00:02:34.554
+we're talking about what's
+currently best known and popular.
+
+32
+00:02:34.554 --> 00:02:40.790
+It's there in C#, it's there in Java.
+
+33
+00:02:40.790 --> 00:02:44.508
+It's a way of sharing methods and
+properties of objects.
+
+34
+00:02:44.508 --> 00:02:47.930
+That's very classical.
+
+35
+00:02:47.930 --> 00:02:51.560
+In other words, it's the way
+it's been done for a long time.
+
+36
+00:02:52.560 --> 00:02:56.020
+The most popular way it's been done for
+a long time, anyway.
+
+37
+00:02:56.020 --> 00:03:00.540
+And right now, I'm not going to say
+that classical inheritance is bad.
+
+38
+00:03:00.540 --> 00:03:02.980
+Obviously, it works,
+otherwise it wouldn't be so popular.
+
+39
+00:03:04.270 --> 00:03:08.240
+However thinking that this
+is the only approach.
+
+40
+00:03:08.240 --> 00:03:10.970
+And thinking that it doesn't
+have its downsides is wrong.
+
+41
+00:03:12.200 --> 00:03:16.690
+Classical inheritance and I've built
+plenty of large object structures with
+
+42
+00:03:16.690 --> 00:03:21.160
+lots of objects that inherit from each
+other that share properties and methods.
+
+43
+00:03:21.160 --> 00:03:22.370
+It's very verbose.
+
+44
+00:03:23.450 --> 00:03:28.579
+There's a lot going on and you can end up
+with these huge, massive collections and
+
+45
+00:03:28.579 --> 00:03:33.482
+trees of objects that interact and it can
+be so hard to figure out how one is going
+
+46
+00:03:33.482 --> 00:03:38.193
+to affect the other even if you use
+good practice once it gets large enough.
+
+47
+00:03:38.193 --> 00:03:40.727
+It's like building a house that's so
+intertwined and
+
+48
+00:03:40.727 --> 00:03:44.880
+wrong that you change the light bulb,
+and all of a sudden, the toilet flushes.
+
+49
+00:03:44.880 --> 00:03:47.590
+That's how it can feel with
+classical inheritance sometimes.
+
+50
+00:03:47.590 --> 00:03:51.470
+Then you have all these different
+keywords flying around, friend and
+
+51
+00:03:51.470 --> 00:03:55.330
+protected and private and
+interface and who knows what else, and
+
+52
+00:03:55.330 --> 00:03:58.140
+you have to learn what all those mean,
+and try to use them.
+
+53
+00:03:59.790 --> 00:04:00.740
+Again, it's not bad.
+
+54
+00:04:01.870 --> 00:04:05.390
+But I personally have never
+really liked it all that much.
+
+55
+00:04:07.560 --> 00:04:11.560
+Now when we talk about
+prototypal inheritance,
+
+56
+00:04:13.260 --> 00:04:15.780
+we're talking about
+something much simpler.
+
+57
+00:04:17.540 --> 00:04:23.070
+It's very flexible, very extensible,
+and very easy to understand.
+
+58
+00:04:24.990 --> 00:04:28.380
+And i'm not saying that
+it's perfect either, but
+
+59
+00:04:29.480 --> 00:04:34.430
+you should understand that when we
+talk about inheritance in JavaScript,
+
+60
+00:04:34.430 --> 00:04:38.230
+it's different than what we may be talking
+about with other programming languages.
+
+61
+00:04:39.270 --> 00:04:40.680
+And we need to understand it.
+
+62
+00:04:42.040 --> 00:04:43.380
+And it won't be hard to understand.
+
+63
+00:04:44.790 --> 00:04:48.060
+And once you do understand it,
+you'll see just how powerful
+
+64
+00:04:48.060 --> 00:04:52.770
+it can be as an approach to sharing
+properties and methods amongst objects.
+
+65
+00:04:53.960 --> 00:04:58.060
+Just remember when we say inheritance,
+we're just talking that
+
+66
+00:04:58.060 --> 00:05:01.310
+one object gets access to the properties
+and methods of another object.
+
+67
+00:05:01.310 --> 00:05:05.470
+And we're going to see
+how JavaScript does that.
+
+68
+00:05:06.690 --> 00:05:09.310
+Using what's called
+prototypal inheritance.
+
+69
+00:05:10.480 --> 00:05:10.980
+Let's move on.
+

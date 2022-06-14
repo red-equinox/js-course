@@ -1,0 +1,406 @@
+WEBVTT
+
+1
+00:00:02.260 --> 00:00:08.000
+Now that we understand
+the object prototype we can even
+
+2
+00:00:08.000 --> 00:00:13.115
+more deeply understand what we mean by
+everything in JavaScript is an object or
+
+3
+00:00:13.115 --> 00:00:18.050
+primitive because everything in
+JavaScript that isn't a primitive,
+
+4
+00:00:18.050 --> 00:00:21.542
+a number, string, bullion etc.
+
+5
+00:00:21.542 --> 00:00:27.070
+Functions, arrays, basic objects.
+
+6
+00:00:27.070 --> 00:00:30.920
+They all have a prototype.
+
+7
+00:00:30.920 --> 00:00:32.900
+Except for one thing.
+
+8
+00:00:32.900 --> 00:00:35.145
+The base object in JavaScript.
+
+9
+00:00:36.470 --> 00:00:38.050
+Now let's take a look.
+
+10
+00:00:38.050 --> 00:00:40.360
+I'm going to go ahead and
+create three things.
+
+11
+00:00:40.360 --> 00:00:42.617
+I'll create an object.
+
+12
+00:00:42.617 --> 00:00:47.590
+I'll create a function,
+it'll just be empty.
+
+13
+00:00:48.860 --> 00:00:51.910
+And I'll create an array, also empty.
+
+14
+00:00:51.910 --> 00:00:54.800
+An empty object, an empty function,
+and an empty array.
+
+15
+00:00:54.800 --> 00:00:56.610
+You can go ahead and
+do this yourself if you like.
+
+16
+00:00:57.650 --> 00:01:02.680
+But we're only going to use these to
+explain how everything has a prototype.
+
+17
+00:01:04.060 --> 00:01:07.130
+So if I go and run this there's no errors.
+
+18
+00:01:07.130 --> 00:01:08.770
+And I'll have access to a, b, and c.
+
+19
+00:01:08.770 --> 00:01:12.610
+They're in memory here,
+running in the browser.
+
+20
+00:01:12.610 --> 00:01:16.149
+So in my console I can
+go a which is an object,
+
+21
+00:01:16.149 --> 00:01:21.142
+__proto this works in the latest
+version of Google Chrome.
+
+22
+00:01:23.383 --> 00:01:25.140
+And let's see what I have.
+
+23
+00:01:27.160 --> 00:01:32.090
+I have the base object in JavaScript.
+
+24
+00:01:32.090 --> 00:01:34.330
+The base object is just called object,
+
+25
+00:01:34.330 --> 00:01:38.010
+it's the very bottom of
+the prototype chain always.
+
+26
+00:01:39.540 --> 00:01:42.720
+Everything eventually
+leads to the base object.
+
+27
+00:01:44.250 --> 00:01:48.700
+And these objects have properties and
+methods on them.
+
+28
+00:01:48.700 --> 00:01:53.630
+So if I go look at the base object,
+dot, let's see what we have.
+
+29
+00:01:53.630 --> 00:01:56.640
+See, I have some properties and
+methods, like toString.
+
+30
+00:01:57.990 --> 00:02:02.380
+All objects get access to .toString
+because that's the bottom
+
+31
+00:02:02.380 --> 00:02:03.422
+of the prototype chain.
+
+32
+00:02:03.422 --> 00:02:07.611
+[SOUND] All right,
+let's take a look at something else.
+
+33
+00:02:07.611 --> 00:02:08.560
+Let's try a function.
+
+34
+00:02:10.120 --> 00:02:10.920
+b is a function.
+
+35
+00:02:12.250 --> 00:02:18.170
+So, if I do .prototype, we'll see that
+there's this empty function object
+
+36
+00:02:18.170 --> 00:02:21.380
+that's the prototype of all functions.
+
+37
+00:02:21.380 --> 00:02:26.120
+Any function you create in JavaScript
+will automatically have this proto.
+
+38
+00:02:27.690 --> 00:02:29.130
+So what is it?
+
+39
+00:02:29.130 --> 00:02:33.319
+Well, on it, we have some
+familiar properties and methods.
+
+40
+00:02:35.080 --> 00:02:35.790
+Remember apply?
+
+41
+00:02:35.790 --> 00:02:38.490
+Do you remember bind?
+
+42
+00:02:38.490 --> 00:02:40.930
+Do you remember call?
+
+43
+00:02:42.370 --> 00:02:43.130
+Those methods?
+
+44
+00:02:44.320 --> 00:02:48.350
+Remember how we said all functions
+could access to those methods?
+
+45
+00:02:49.360 --> 00:02:50.040
+This is why.
+
+46
+00:02:51.040 --> 00:02:55.730
+All functions in JavaScript are
+automatically have their proto property,
+
+47
+00:02:55.730 --> 00:03:01.990
+their prototype set to
+this built in object
+
+48
+00:03:03.970 --> 00:03:08.810
+that has these methods on it, apply,
+bind, call, and some other things.
+
+49
+00:03:10.490 --> 00:03:14.670
+So I have access to
+
+50
+00:03:14.670 --> 00:03:18.990
+these methods because it's on
+the prototype of the function objects.
+
+51
+00:03:18.990 --> 00:03:24.570
+So when I call .apply, it looks for
+it on my function, doesn't find it and
+
+52
+00:03:24.570 --> 00:03:29.168
+goes to the prototype which
+happens to be set to an automatic
+
+53
+00:03:29.168 --> 00:03:35.200
+built-in JavaScript object
+that does all of that work.
+
+54
+00:03:36.710 --> 00:03:37.270
+Makes sense?
+
+55
+00:03:39.100 --> 00:03:40.010
+Same for the array.
+
+56
+00:03:41.430 --> 00:03:44.220
+c was the array,
+I'll go look at its prototype.
+
+57
+00:03:45.950 --> 00:03:46.970
+That's a little funkier.
+
+58
+00:03:48.060 --> 00:03:49.610
+Some kind of empty array.
+
+59
+00:03:51.130 --> 00:03:57.604
+But if I do a dot, I see it has
+a whole bunch of useful functionality
+
+60
+00:03:57.604 --> 00:04:02.070
+like indexOf, length,
+we've used that already.
+
+61
+00:04:03.110 --> 00:04:04.410
+We've also used push.
+
+62
+00:04:06.140 --> 00:04:10.120
+So all arrays in JavaScript, for example,
+
+63
+00:04:10.120 --> 00:04:14.880
+I can do .push,
+because any array that I create,
+
+64
+00:04:14.880 --> 00:04:17.760
+the JavaScript engine
+automatically sets its prototype
+
+65
+00:04:18.830 --> 00:04:23.820
+to this built in JavaScript object
+that has the push method on it.
+
+66
+00:04:23.820 --> 00:04:28.860
+So I can call my array .push, and the
+JavaScript engine searches the prototype
+
+67
+00:04:28.860 --> 00:04:34.390
+chain, doesn't find push on my array,
+finds it on the prototype.
+
+68
+00:04:34.390 --> 00:04:37.740
+That's why it's automatically
+available to you,
+
+69
+00:04:37.740 --> 00:04:40.400
+because JavaScript engine just
+set the prototype for you.
+
+70
+00:04:42.070 --> 00:04:43.570
+Makes sense?
+
+71
+00:04:43.570 --> 00:04:47.630
+All arrays have a prototype pointing
+to an object with these methods.
+
+72
+00:04:47.630 --> 00:04:52.120
+All functions have a prototype point to
+an object with those function methods.
+
+73
+00:04:53.470 --> 00:04:54.280
+Now here's the fun thing.
+
+74
+00:04:55.550 --> 00:04:57.940
+What's the prototype of the prototype?
+
+75
+00:05:00.130 --> 00:05:00.630
+Object.
+
+76
+00:05:01.650 --> 00:05:04.710
+Remember, that's the bottom of
+the prototype chain, always?
+
+77
+00:05:04.710 --> 00:05:06.280
+Eventually you get down to the bottom.
+
+78
+00:05:06.280 --> 00:05:08.920
+An object doesn't have a prototype,
+it's the base.
+
+79
+00:05:08.920 --> 00:05:11.180
+Same thing with a function.
+
+80
+00:05:11.180 --> 00:05:15.330
+A function's prototype is that
+base prototype object and
+
+81
+00:05:15.330 --> 00:05:17.860
+it's prototype is object.
+
+82
+00:05:19.730 --> 00:05:22.110
+And if I create my own simple object.
+
+83
+00:05:23.530 --> 00:05:25.510
+This prototype is object.
+
+84
+00:05:25.510 --> 00:05:31.570
+That built in core object that's
+the bottom of the prototype chain.
+
+85
+00:05:32.580 --> 00:05:35.090
+So that's how you get access
+to some of those methods and
+
+86
+00:05:35.090 --> 00:05:36.950
+properties that we've seen in others.
+
+87
+00:05:38.170 --> 00:05:41.575
+Understanding that helps us understand
+what's happening under the hood and
+
+88
+00:05:41.575 --> 00:05:44.050
+that helps us understand
+JavaScript better.
+
+89
+00:05:45.240 --> 00:05:45.740
+Let's move on.
+

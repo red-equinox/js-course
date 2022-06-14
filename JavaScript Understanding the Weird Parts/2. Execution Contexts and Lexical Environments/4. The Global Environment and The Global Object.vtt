@@ -1,0 +1,732 @@
+WEBVTT
+
+1
+00:00:02.540 --> 00:00:04.340
+I know what you're thinking.
+
+2
+00:00:04.340 --> 00:00:09.270
+Are we going to actually write any
+JavaScript code any time soon?
+
+3
+00:00:09.270 --> 00:00:10.460
+Yes.
+
+4
+00:00:10.460 --> 00:00:12.450
+Right now and for the rest of the course.
+
+5
+00:00:13.660 --> 00:00:17.790
+This lecture is the Global Environment and
+the Global Object.
+
+6
+00:00:19.350 --> 00:00:25.930
+Whenever code is run in JavaScript,
+it's run inside an execution context.
+
+7
+00:00:25.930 --> 00:00:27.870
+We've seen that word already.
+
+8
+00:00:27.870 --> 00:00:32.340
+Meaning a wrapper that the JavaScript
+engine, the program that other people
+
+9
+00:00:32.340 --> 00:00:37.110
+wrote that's parsing and looking at and
+verifying and executing your code.
+
+10
+00:00:38.130 --> 00:00:41.030
+That wraps that up,
+that code that you've written,
+
+11
+00:00:41.030 --> 00:00:45.730
+it wraps the currently executing
+code in an execution context.
+
+12
+00:00:47.200 --> 00:00:52.000
+So when we look at our very
+first JavaScript program,
+
+13
+00:00:53.200 --> 00:00:58.370
+we're going to be looking at an execution
+context being created and run.
+
+14
+00:00:58.370 --> 00:01:01.260
+And the base execution context,
+we'll look at a few.
+
+15
+00:01:02.620 --> 00:01:05.940
+Because there's more than one that runs
+during a JavaScript program normally.
+
+16
+00:01:06.990 --> 00:01:12.850
+The base execution context is
+your global execution context and
+
+17
+00:01:12.850 --> 00:01:17.190
+it has a couple of special things
+that come along for the ride.
+
+18
+00:01:17.190 --> 00:01:22.030
+The base execution context,
+the global execution context, and
+
+19
+00:01:22.030 --> 00:01:26.230
+when we say global, we're talking
+about the thing that's accessible
+
+20
+00:01:26.230 --> 00:01:29.150
+everywhere to everything in you're code,
+it's global.
+
+21
+00:01:30.390 --> 00:01:35.470
+All right, so the global execution
+context creates two things for
+
+22
+00:01:35.470 --> 00:01:36.970
+you, you don't have to in your code.
+
+23
+00:01:36.970 --> 00:01:39.690
+It creates a Global Object.
+
+24
+00:01:40.970 --> 00:01:44.490
+Remember an object is just
+a collection of name value pairs.
+
+25
+00:01:44.490 --> 00:01:47.280
+It creates this Global Object and
+
+26
+00:01:47.280 --> 00:01:51.124
+it creates a special variable for
+you, called 'this'.
+
+27
+00:01:52.310 --> 00:01:57.410
+The JavaScript engine is creating
+these two things for you whenever
+
+28
+00:01:57.410 --> 00:02:04.130
+your code is run, because your code is
+wrapped inside an execution context.
+
+29
+00:02:04.130 --> 00:02:08.290
+And these two things are created for
+you by the JavaScript engine.
+
+30
+00:02:09.960 --> 00:02:10.880
+All right, let's take a look.
+
+31
+00:02:12.090 --> 00:02:14.040
+All right, it's that time.
+
+32
+00:02:14.040 --> 00:02:17.130
+We're going to look at our
+very first JavaScript program.
+
+33
+00:02:18.460 --> 00:02:22.110
+Now, we're going to run our
+JavaScript in the browser.
+
+34
+00:02:22.110 --> 00:02:26.510
+This is very convenient, again,
+because we have our dev tools, and
+
+35
+00:02:26.510 --> 00:02:30.059
+we can see what's going on under
+the hood a little bit easier.
+
+36
+00:02:31.400 --> 00:02:36.870
+But we're going to do that simply
+by having a simple HTML page
+
+37
+00:02:36.870 --> 00:02:40.290
+referencing a single
+script I'm calling app.js,
+
+38
+00:02:40.290 --> 00:02:43.940
+which will always contain
+the code that we're working with.
+
+39
+00:02:43.940 --> 00:02:48.460
+I have this sitting in a folder and
+I'm opening that folder in brackets.
+
+40
+00:02:48.460 --> 00:02:52.180
+And then I'm going to hit this
+button in the upper right
+
+41
+00:02:52.180 --> 00:02:56.870
+in order to launch Google Chrome and
+run this webpage,
+
+42
+00:02:56.870 --> 00:03:01.440
+which will then cause the browser
+to run this JavaScript.
+
+43
+00:03:01.440 --> 00:03:03.389
+That's how we'll do all of our examples.
+
+44
+00:03:04.600 --> 00:03:06.510
+All right, so are you ready?
+
+45
+00:03:06.510 --> 00:03:09.188
+Here's our very first JavaScript program.
+
+46
+00:03:09.188 --> 00:03:11.120
+Let's open app.js.
+
+47
+00:03:11.120 --> 00:03:11.750
+There it is.
+
+48
+00:03:13.860 --> 00:03:15.690
+What do you think?
+
+49
+00:03:15.690 --> 00:03:20.030
+I know what you're thinking,
+hey, that's empty.
+
+50
+00:03:20.030 --> 00:03:21.802
+There's nothing in that file.
+
+51
+00:03:21.802 --> 00:03:27.580
+All right, well,
+you're right I wrote no code.
+
+52
+00:03:27.580 --> 00:03:28.080
+Let's run it.
+
+53
+00:03:30.070 --> 00:03:33.180
+I'm going to hit my Live Preview button,
+Google Chrome launches.
+
+54
+00:03:34.470 --> 00:03:39.270
+And then I'm going to
+open up the dev console.
+
+55
+00:03:39.270 --> 00:03:40.770
+Notice there are no errors.
+
+56
+00:03:42.630 --> 00:03:48.070
+The JavaScript file was loaded,
+the syntax parser started,
+
+57
+00:03:48.070 --> 00:03:50.450
+and realize there is nothing to parse.
+
+58
+00:03:50.450 --> 00:03:51.950
+So I had no code to execute.
+
+59
+00:03:53.260 --> 00:03:56.220
+But because it started
+executing the JavaScript,
+
+60
+00:03:56.220 --> 00:04:00.270
+because it ran the file,
+an execution context was created.
+
+61
+00:04:00.270 --> 00:04:04.920
+And remember those two things that
+were supposed to be created for
+
+62
+00:04:04.920 --> 00:04:10.500
+us, a global object and
+a special variable called this.
+
+63
+00:04:12.000 --> 00:04:16.320
+Well inside here,
+inside the DevTools console window,
+
+64
+00:04:16.320 --> 00:04:20.520
+I can take a peek inside
+the execution context.
+
+65
+00:04:20.520 --> 00:04:24.250
+The values of variables and
+what's going on in memory.
+
+66
+00:04:24.250 --> 00:04:29.690
+So if I just go this,
+look there's something there.
+
+67
+00:04:31.090 --> 00:04:35.410
+Now I didn't build this I didn't put
+that in the code, the code is empty.
+
+68
+00:04:35.410 --> 00:04:40.170
+But the execution context was
+created by the JavaScript engine and
+
+69
+00:04:40.170 --> 00:04:45.910
+it decided what the value of this should
+be and what this is, is the window.
+
+70
+00:04:45.910 --> 00:04:47.230
+The current window that I'm in,
+
+71
+00:04:47.230 --> 00:04:50.910
+my browser window because I'm
+running JavaScript in the browser.
+
+72
+00:04:52.140 --> 00:04:56.070
+Interestingly, I have available
+an object called window.
+
+73
+00:04:57.310 --> 00:05:03.640
+The same object, so this window
+object the current tab that I'm on
+
+74
+00:05:04.820 --> 00:05:09.300
+is the global object inside browsers.
+
+75
+00:05:09.300 --> 00:05:13.670
+Now if you're using no js your
+running java script on the server
+
+76
+00:05:13.670 --> 00:05:17.300
+it won't be the window object
+there's a different global object.
+
+77
+00:05:17.300 --> 00:05:21.150
+But there is always a global object
+when you're running JavaScript.
+
+78
+00:05:21.150 --> 00:05:24.900
+In the case of browsers it's the window.
+
+79
+00:05:24.900 --> 00:05:29.080
+If I had a separate tab open that would be
+a separate global object because each tab
+
+80
+00:05:29.080 --> 00:05:34.750
+of each window is its own execution
+context, its own global execution context.
+
+81
+00:05:34.750 --> 00:05:42.130
+But notice I have these two values and
+I wrote no code.
+
+82
+00:05:42.130 --> 00:05:44.800
+That's the JavaScript
+engine doing this for me.
+
+83
+00:05:46.080 --> 00:05:47.730
+So, we just learned something.
+
+84
+00:05:48.940 --> 00:05:52.230
+An execution context was
+created at the global level.
+
+85
+00:05:52.230 --> 00:05:53.430
+There's a global object,
+
+86
+00:05:53.430 --> 00:05:57.820
+meaning that object is available to all
+the code running inside that window,
+
+87
+00:05:57.820 --> 00:06:04.050
+inside that area, inside that JavaScript
+file, inside that lexical environment.
+
+88
+00:06:05.270 --> 00:06:09.840
+And there's a special variable that the
+JavaScript engine created that sits inside
+
+89
+00:06:09.840 --> 00:06:13.600
+the execution context called 'this'.
+
+90
+00:06:13.600 --> 00:06:18.180
+And what we saw was that the global object
+
+91
+00:06:18.180 --> 00:06:24.030
+inside internet browsers like Google
+Chrome or Firefox or whatever the case,
+
+92
+00:06:24.030 --> 00:06:30.860
+is the window object and that it did
+create a variable called, 'this'.
+
+93
+00:06:30.860 --> 00:06:34.390
+And at the global level
+those two things are equal.
+
+94
+00:06:35.690 --> 00:06:38.180
+This, refers to the window object and
+
+95
+00:06:38.180 --> 00:06:43.260
+you can also just say, window and
+get the global object.
+
+96
+00:06:43.260 --> 00:06:47.162
+Now, just to be really clear,
+when we say global,
+
+97
+00:06:47.162 --> 00:06:51.840
+in JavaScript that means
+not inside a function.
+
+98
+00:06:53.150 --> 00:06:54.430
+Don't think too much deeper than that.
+
+99
+00:06:55.680 --> 00:07:02.000
+That means code or variables that
+aren't inside a function is global.
+
+100
+00:07:05.090 --> 00:07:09.930
+We already saw that we have window and
+this,
+
+101
+00:07:09.930 --> 00:07:14.250
+a global object and this available
+to us without a single line of code.
+
+102
+00:07:15.400 --> 00:07:17.590
+Now what happens when we
+actually put some code in?
+
+103
+00:07:18.890 --> 00:07:20.790
+All right let's write
+our first bit of code.
+
+104
+00:07:22.110 --> 00:07:26.330
+I'll create a variable and
+call it a, and just give it a value.
+
+105
+00:07:26.330 --> 00:07:27.020
+Hello World!
+
+106
+00:07:28.720 --> 00:07:33.076
+I'm gonna create a function called b,
+and just leave it empty.
+
+107
+00:07:33.076 --> 00:07:34.479
+Got that?
+
+108
+00:07:34.479 --> 00:07:38.700
+The variable,the function.
+
+109
+00:07:38.700 --> 00:07:42.220
+Now I'll run this, and
+I'll actually have some code now.
+
+110
+00:07:42.220 --> 00:07:45.955
+The execution context is created.
+
+111
+00:07:45.955 --> 00:07:51.900
+This code is not inside a function,
+although I'm creating a function here.
+
+112
+00:07:51.900 --> 00:07:54.908
+All this code is not inside a function,
+so it's global.
+
+113
+00:07:54.908 --> 00:08:00.300
+This and
+window are already available to me.
+
+114
+00:08:00.300 --> 00:08:02.530
+And you'll see something interesting.
+
+115
+00:08:03.660 --> 00:08:07.530
+If I look at window, and open it up.
+
+116
+00:08:07.530 --> 00:08:12.380
+Remember JavaScript objects are name
+value pairs, so there's lots of names and
+
+117
+00:08:12.380 --> 00:08:13.900
+lots of values.
+
+118
+00:08:13.900 --> 00:08:20.855
+A function can be a value but
+if I scroll down a ways there, see that?
+
+119
+00:08:20.855 --> 00:08:29.760
+A and B, my variable and my function.
+
+120
+00:08:29.760 --> 00:08:35.200
+In JavaScript, when you create
+variables and functions, and
+
+121
+00:08:35.200 --> 00:08:39.150
+you're not inside a function,
+those variables and
+
+122
+00:08:39.150 --> 00:08:42.120
+functions get attached
+to the global object.
+
+123
+00:08:43.290 --> 00:08:50.330
+So, if I just go like this,
+a, it's Hello World!
+
+124
+00:08:50.330 --> 00:08:54.198
+But I could also go window.a,
+the global object.a.
+
+125
+00:08:54.198 --> 00:08:55.690
+It's the same thing.
+
+126
+00:08:56.990 --> 00:08:58.480
+See that?
+
+127
+00:08:58.480 --> 00:09:04.220
+So, your variables and
+your functions when lexically is not
+
+128
+00:09:04.220 --> 00:09:08.948
+sitting inside a function, they're just
+sitting right there on the global object.
+
+129
+00:09:08.948 --> 00:09:14.920
+All right, so, when code is executed,
+
+130
+00:09:14.920 --> 00:09:19.420
+your JavaScript code is executed,
+an execution context is created.
+
+131
+00:09:20.830 --> 00:09:25.520
+At the base level, when you're not inside
+a function, you have a global object
+
+132
+00:09:25.520 --> 00:09:29.380
+that the JavaScript engine creates for
+you as part of that execution context.
+
+133
+00:09:30.560 --> 00:09:34.610
+If you're running code inside a browser,
+that Global Object is the window object.
+
+134
+00:09:36.340 --> 00:09:38.705
+You'd get a special
+variable called "this:.
+
+135
+00:09:39.860 --> 00:09:45.020
+And in the case of the browser
+this at that global
+
+136
+00:09:45.020 --> 00:09:48.440
+level is just the same as the window
+object, it's equal to the window object.
+
+137
+00:09:49.530 --> 00:09:53.910
+There's also something that is
+something we haven't talked about yet
+
+138
+00:09:53.910 --> 00:09:58.850
+and we will shortly,
+a link to the outer environment.
+
+139
+00:09:58.850 --> 00:10:01.560
+Now when you're running
+code inside a function,
+
+140
+00:10:01.560 --> 00:10:04.770
+that means the code that's
+outside the function.
+
+141
+00:10:04.770 --> 00:10:07.940
+But, when you're running at the global
+level, meaning when you're not inside
+
+142
+00:10:07.940 --> 00:10:12.330
+a function, well there is nothing outside,
+you're as outside as you can get.
+
+143
+00:10:12.330 --> 00:10:13.790
+There is no outer environment so
+
+144
+00:10:13.790 --> 00:10:17.910
+that's just null,
+it's nothing at the global level.
+
+145
+00:10:17.910 --> 00:10:21.970
+But, we will see this come up later
+very importantly when running and
+
+146
+00:10:21.970 --> 00:10:23.350
+executing functions.
+
+147
+00:10:23.350 --> 00:10:27.550
+Finally, the execution
+context is running Your code.
+
+148
+00:10:27.550 --> 00:10:29.020
+If you're creating variables and
+
+149
+00:10:29.020 --> 00:10:33.250
+functions, then that's going
+to sit on the global object if
+
+150
+00:10:33.250 --> 00:10:38.210
+you are writing code that is global,
+again, that is not inside a function.
+
+151
+00:10:39.870 --> 00:10:45.620
+But the important thing here is that there
+is this wrapper, this execution context
+
+152
+00:10:45.620 --> 00:10:49.440
+which has these other things
+that you didn't write.
+
+153
+00:10:50.960 --> 00:10:54.990
+And the JavaScript engine running
+your code is doing this for you.
+
+154
+00:10:54.990 --> 00:10:57.500
+All right.
+
+155
+00:10:57.500 --> 00:10:58.050
+So let's move on.
+

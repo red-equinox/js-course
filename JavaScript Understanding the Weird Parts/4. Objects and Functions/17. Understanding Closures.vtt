@@ -1,0 +1,680 @@
+WEBVTT
+
+1
+00:00:02.290 --> 00:00:08.170
+It's time for a notorious topic,
+understanding closures.
+
+2
+00:00:09.410 --> 00:00:15.860
+Closures is a JavaScript topic that's
+absolutely vital to understand
+
+3
+00:00:15.860 --> 00:00:21.360
+if you're going to advance at all in
+understanding and writing the language.
+
+4
+00:00:21.360 --> 00:00:28.120
+However, it's also notoriously difficult
+to understand, but you're ready.
+
+5
+00:00:29.500 --> 00:00:35.741
+At this point, I hope that you'll see that
+all the time we've taken to understand
+
+6
+00:00:35.741 --> 00:00:41.180
+how things work under the hood,
+to understand first class functions.
+
+7
+00:00:41.180 --> 00:00:46.660
+To understanding the execution stack and
+the execution context.
+
+8
+00:00:46.660 --> 00:00:51.742
+That all of those things
+right now are about to
+
+9
+00:00:51.742 --> 00:00:57.510
+pay off in understanding
+closures in JavaScript.
+
+10
+00:00:57.510 --> 00:00:58.940
+To start with,
+
+11
+00:00:58.940 --> 00:01:03.970
+we're going to write a bit of code
+that will show the power of closures.
+
+12
+00:01:05.170 --> 00:01:09.850
+And then we'll examine it under the hood
+to understand what's really going on.
+
+13
+00:01:11.690 --> 00:01:14.550
+I'm gonna go ahead and
+create my good old greet function.
+
+14
+00:01:14.550 --> 00:01:21.200
+But this time I'm going to accept a
+parameter of what greeting I want to say.
+
+15
+00:01:21.200 --> 00:01:26.019
+It could be hi or hello or
+howdy or hola or whatever.
+
+16
+00:01:26.019 --> 00:01:31.350
+And instead of doing the work
+inside this function,
+
+17
+00:01:31.350 --> 00:01:37.662
+I'm going to return a function
+using a function expression.
+
+18
+00:01:40.019 --> 00:01:43.949
+And I'm going to take advantage of scope,
+
+19
+00:01:43.949 --> 00:01:47.997
+of the scope chain,
+to include what to say.
+
+20
+00:01:47.997 --> 00:01:50.434
+Space, and then a name.
+
+21
+00:01:53.998 --> 00:01:55.430
+Take a good look at this.
+
+22
+00:01:57.150 --> 00:02:01.891
+I have a function that returns a function.
+
+23
+00:02:04.020 --> 00:02:10.240
+So, when I call greet, when I invoke it,
+
+24
+00:02:10.240 --> 00:02:15.160
+I'll get a value back, that instead of a
+string or a number or something like that,
+
+25
+00:02:16.260 --> 00:02:20.620
+I'm going to get a function
+that I can then invoke again.
+
+26
+00:02:22.420 --> 00:02:23.670
+Make sense?
+
+27
+00:02:23.670 --> 00:02:26.560
+Because functions are objects I
+can just return it as a value.
+
+28
+00:02:28.490 --> 00:02:30.320
+That makes for some interesting syntax.
+
+29
+00:02:30.320 --> 00:02:34.579
+For example, I can say greet,
+I wanna say hi.
+
+30
+00:02:36.480 --> 00:02:38.220
+Now this returns a function.
+
+31
+00:02:39.970 --> 00:02:41.360
+So how do I invoke the function?
+
+32
+00:02:41.360 --> 00:02:43.210
+I invoke it and say Tony.
+
+33
+00:02:43.210 --> 00:02:46.560
+Looks a little weird right.
+
+34
+00:02:46.560 --> 00:02:50.350
+But you're invoking a function
+that returns a function.
+
+35
+00:02:51.580 --> 00:02:54.020
+So then I can invoke
+the function that was returned.
+
+36
+00:02:55.370 --> 00:03:00.550
+So if I run this, and
+
+37
+00:03:00.550 --> 00:03:03.380
+open up my console, Hi Tony.
+
+38
+00:03:05.520 --> 00:03:06.900
+All right, so that makes sense.
+
+39
+00:03:08.130 --> 00:03:13.080
+And yet,
+something unusual is already happening.
+
+40
+00:03:14.650 --> 00:03:18.670
+To understand just how unusual
+it is to make it a bit clearer,
+
+41
+00:03:18.670 --> 00:03:19.810
+let's do this a bit differently.
+
+42
+00:03:21.560 --> 00:03:27.170
+Let's set a variable equal to
+the result of the function.
+
+43
+00:03:28.650 --> 00:03:32.661
+So now sayHi will be a function,
+
+44
+00:03:32.661 --> 00:03:38.912
+the function that was
+returned by calling greet.
+
+45
+00:03:38.912 --> 00:03:43.325
+When I call sayHi, and
+
+46
+00:03:43.325 --> 00:03:49.372
+if I run this, it still works.
+
+47
+00:03:49.372 --> 00:03:53.414
+Let's stop and
+think about this for a minute.
+
+48
+00:03:53.414 --> 00:03:58.277
+How does the sayHi function still
+
+49
+00:03:58.277 --> 00:04:02.797
+know the whattosay variable?
+
+50
+00:04:02.797 --> 00:04:08.769
+Because the whattosay variable was created
+here when this greet function was called,
+
+51
+00:04:08.769 --> 00:04:11.898
+and then that function is done, it's over.
+
+52
+00:04:11.898 --> 00:04:13.512
+It completed its execution.
+
+53
+00:04:13.512 --> 00:04:15.840
+It's popped off the execution stack.
+
+54
+00:04:15.840 --> 00:04:20.580
+And yet when I call say high,
+when I invoke it, still has
+
+55
+00:04:20.580 --> 00:04:25.635
+the proper value of whattosay.
+
+56
+00:04:25.635 --> 00:04:26.135
+See that?
+
+57
+00:04:27.805 --> 00:04:29.015
+How is that possible?
+
+58
+00:04:30.355 --> 00:04:33.035
+It's possible because of closures.
+
+59
+00:04:34.175 --> 00:04:38.195
+Let's take a look at what's happening
+under the hood when this code is executed.
+
+60
+00:04:41.065 --> 00:04:42.727
+I have my code.
+
+61
+00:04:42.727 --> 00:04:47.673
+And remember this seems unusual
+because the greet function ends.
+
+62
+00:04:47.673 --> 00:04:51.097
+And when I invoke the function
+that is returned,
+
+63
+00:04:51.097 --> 00:04:55.860
+it seems like that greet function
+is still hanging around somehow,
+
+64
+00:04:55.860 --> 00:04:59.300
+because the whattosay
+variable is still there.
+
+65
+00:05:00.730 --> 00:05:01.450
+So what's happening?
+
+66
+00:05:02.790 --> 00:05:09.396
+Well, when this code starts,
+we have our Global Execution Context.
+
+67
+00:05:09.396 --> 00:05:14.764
+When I hit this line sayHi = greet,
+it invokes the greet
+
+68
+00:05:14.764 --> 00:05:19.690
+function, the new execution
+context is created.
+
+69
+00:05:19.690 --> 00:05:24.121
+And that variable that's passed to it,
+whattosay,
+
+70
+00:05:24.121 --> 00:05:27.570
+is sitting in its variable environment.
+
+71
+00:05:29.400 --> 00:05:33.440
+It returns a new function object.
+
+72
+00:05:33.440 --> 00:05:37.060
+It creates a function on the fly,
+and returns it.
+
+73
+00:05:38.860 --> 00:05:39.370
+And that's it.
+
+74
+00:05:40.560 --> 00:05:46.417
+So after that return, the greet execution
+context is popped off the stack.
+
+75
+00:05:46.417 --> 00:05:47.520
+It's gone.
+
+76
+00:05:49.379 --> 00:05:50.380
+But here's a question.
+
+77
+00:05:51.920 --> 00:05:56.590
+We said every execution context
+has this space in memory,
+
+78
+00:05:56.590 --> 00:06:00.290
+where the variables and
+functions created inside of it live.
+
+79
+00:06:01.640 --> 00:06:07.120
+What happens to that memory space
+when the execution context goes away?
+
+80
+00:06:08.420 --> 00:06:11.110
+Well under normal circumstances,
+the JavaScript
+
+81
+00:06:11.110 --> 00:06:15.820
+engine would eventually clear it out with
+a process called garbage collection.
+
+82
+00:06:17.570 --> 00:06:22.880
+But at the moment that
+execution context finishes,
+
+83
+00:06:22.880 --> 00:06:25.320
+that memory space is still there.
+
+84
+00:06:25.320 --> 00:06:26.380
+It's still hanging around.
+
+85
+00:06:28.190 --> 00:06:29.810
+The execution context may be gone,
+
+86
+00:06:29.810 --> 00:06:33.410
+but it's just sitting
+there somewhere in memory.
+
+87
+00:06:35.480 --> 00:06:40.840
+All right, now we move on and we're inside
+the global execution context again.
+
+88
+00:06:42.260 --> 00:06:46.250
+And then we invoke the function
+that sayHi is pointing at.
+
+89
+00:06:48.160 --> 00:06:49.200
+It's an anonymous function,
+
+90
+00:06:50.430 --> 00:06:52.920
+because we didn't give our function
+a name when we returned it.
+
+91
+00:06:54.870 --> 00:06:59.280
+And then that creates
+a new execution context.
+
+92
+00:07:01.310 --> 00:07:04.520
+And I've passed the name variable, Tony.
+
+93
+00:07:04.520 --> 00:07:06.520
+So that will end up in its memory.
+
+94
+00:07:06.520 --> 00:07:10.380
+But when I hit this line, console.log.
+
+95
+00:07:10.380 --> 00:07:15.350
+When its code is invoked,
+and JavaScript engine sees
+
+96
+00:07:15.350 --> 00:07:20.970
+the whattosay variable,
+what does the JavaScript engine do?
+
+97
+00:07:20.970 --> 00:07:22.630
+Well it goes up the scope chain.
+
+98
+00:07:22.630 --> 00:07:24.090
+We've learned this.
+
+99
+00:07:24.090 --> 00:07:26.810
+There's an outer lexical
+environment reference.
+
+100
+00:07:26.810 --> 00:07:32.960
+In other words it goes to the next point
+outside where the function was created to
+
+101
+00:07:32.960 --> 00:07:37.220
+look for that variable, since it couldn't
+find it inside the function itself.
+
+102
+00:07:38.870 --> 00:07:43.700
+And even though the execution context
+of that function greet is gone,
+
+103
+00:07:43.700 --> 00:07:48.970
+was popped off the stack,
+the sayHi execution
+
+104
+00:07:48.970 --> 00:07:54.240
+context still has a reference
+
+105
+00:07:54.240 --> 00:07:59.320
+to the variables, to the memory
+space of its outer environment.
+
+106
+00:08:00.640 --> 00:08:03.610
+In other words,
+even though the greet function ended,
+
+107
+00:08:03.610 --> 00:08:07.880
+it finished,
+any functions created inside of it
+
+108
+00:08:08.910 --> 00:08:14.170
+when they are called will still have a
+reference to that greet function's memory.
+
+109
+00:08:14.170 --> 00:08:20.164
+To what was in its memory,
+its execution context memory space.
+
+110
+00:08:20.164 --> 00:08:22.046
+Think about this for a second.
+
+111
+00:08:22.046 --> 00:08:24.669
+Greet is gone,
+the execution context is gone.
+
+112
+00:08:24.669 --> 00:08:30.686
+But what's in memory for that execution
+context isn't and the JavaScript
+
+113
+00:08:30.686 --> 00:08:37.100
+engine makes sure that my function can
+still go down the scope chain and find it.
+
+114
+00:08:38.320 --> 00:08:40.730
+Even though it's not even on
+the execution stack anymore.
+
+115
+00:08:42.730 --> 00:08:50.933
+And this way we say that the execution
+context has closed in its outer variables,
+
+116
+00:08:50.933 --> 00:08:57.459
+the variables that it would
+normally have reference to anyway.
+
+117
+00:08:57.459 --> 00:09:00.034
+Even though those execution
+contexts are gone.
+
+118
+00:09:01.857 --> 00:09:07.088
+And so this phenomenon,
+of it closing in all the variables
+
+119
+00:09:07.088 --> 00:09:12.573
+that it's supposed to have access to,
+is called a closure.
+
+120
+00:09:12.573 --> 00:09:15.200
+Make sense?
+
+121
+00:09:16.750 --> 00:09:18.550
+It isn't something, then, that you create,
+
+122
+00:09:18.550 --> 00:09:21.810
+that you type,
+that you tell the JavaScript engine to do.
+
+123
+00:09:23.170 --> 00:09:28.860
+Closures are simply a feature of
+the JavaScript programming language.
+
+124
+00:09:28.860 --> 00:09:29.710
+They just happen.
+
+125
+00:09:31.520 --> 00:09:35.360
+It doesn't matter when
+we invoke a function.
+
+126
+00:09:36.510 --> 00:09:41.570
+We don't have to worry if its outer
+environments are still running.
+
+127
+00:09:42.850 --> 00:09:48.580
+The JavaScript engine will always make
+sure that whatever function I'm running,
+
+128
+00:09:48.580 --> 00:09:54.700
+that it will have access to the variables
+that it's supposed to have access to.
+
+129
+00:09:54.700 --> 00:09:56.486
+That its scope is intact.
+
+130
+00:09:56.486 --> 00:10:00.222
+Make sense?
+
+131
+00:10:00.222 --> 00:10:08.740
+This is a feature of the language that's
+extraordinarily important and powerful.
+
+132
+00:10:08.740 --> 00:10:10.320
+We rely on it a lot.
+
+133
+00:10:11.570 --> 00:10:14.580
+It allows us to make some really
+interesting coding patterns.
+
+134
+00:10:16.590 --> 00:10:19.920
+And understanding what's
+happening under the hood
+
+135
+00:10:19.920 --> 00:10:24.550
+helps us to understand closures
+aren't all that complicated.
+
+136
+00:10:25.910 --> 00:10:28.890
+They're just a feature to make sure that,
+when you run a function,
+
+137
+00:10:28.890 --> 00:10:34.390
+it works the way it's supposed to; that
+it has access to those outer variables.
+
+138
+00:10:34.390 --> 00:10:37.450
+It doesn't matter whether the outer
+functions have finished running or not.
+
+139
+00:10:39.420 --> 00:10:42.290
+So when you say, oh I create a closure.
+
+140
+00:10:42.290 --> 00:10:43.550
+Well sort of.
+
+141
+00:10:43.550 --> 00:10:45.670
+You'll read that sometimes,
+I create a closure.
+
+142
+00:10:47.130 --> 00:10:49.030
+The JavaScript engine creates the closure.
+
+143
+00:10:50.370 --> 00:10:51.780
+We're just taking advantage of it.
+
+144
+00:10:51.780 --> 00:10:58.600
+All right, so let's look at
+what may be the classic example
+
+145
+00:10:58.600 --> 00:11:03.300
+of how closures can end up in surprising
+results when you look at code.
+
+146
+00:11:03.300 --> 00:11:07.830
+But, if you understand what's happening
+under the hood it may not be so
+
+147
+00:11:07.830 --> 00:11:08.820
+surprising after all.
+
